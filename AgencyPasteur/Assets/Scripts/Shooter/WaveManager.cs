@@ -32,7 +32,7 @@ public class WaveManager : MonoBehaviour
         }
         _waveNumber++;
         yield return new WaitForSeconds(1);
-        if (_waveNumber < _waves.Length-1)
+        if (_waveNumber < _waves.Length)
         {
             StartCoroutine(WaveSystem());
         }
