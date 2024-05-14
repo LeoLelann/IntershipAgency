@@ -19,7 +19,7 @@ public class SimpleMultiplayerPlayer : MonoBehaviour
 
         transform.Translate(movement, Space.World);
     }
-    public void OnTeleport()
+    public void OnTeleport(InputAction.CallbackContext context)
     {
         transform.position = new Vector3(Random.Range(-75, 75), 0.5f, Random.Range(-75, 75));
     }

@@ -111,7 +111,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4472597160913118672}
+        m_TargetAssemblyTypeName: SimpleMultiplayerPlayer, Assembly-CSharp
+        m_MethodName: OnTeleport
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: da5efce7-0b41-45bb-9a3c-2c57823845bf
     m_ActionName: Player/Teleport[/Mouse/leftButton]
   - m_PersistentCalls:
