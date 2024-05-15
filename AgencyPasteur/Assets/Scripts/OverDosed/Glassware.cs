@@ -12,17 +12,22 @@ public class Glassware : Interactable
         STARCH,
         ACID_STARCH,
         ACID_TALC,
-        TALC_STARCH,
-        STARCH_PASTE,
-        TALC_PASTE,
+        THICK_POWDER,
+        ACID_STARCH_DILUTED,
+        ACID_TALC_DILUTED,
+        THICK_POWDER_DILUTED,
+        STARCH_DILUTED,
+        TALC_DILUTED,
+        ACID_DILUTED,
+        DIRTY,
         TRASH
     };
     private float _heat;
     private bool isThrown;
     private Transform _parentTransform;
     private Rigidbody _rgbd;
-    [SerializeField] private float _throwPower=2; 
-
+    [SerializeField] private float _throwPower=2;
+    public glasswareState glasswareSt=glasswareState.EMPTY;
     private void Start()
     {
         _heat = 0;
@@ -54,6 +59,10 @@ public class Glassware : Interactable
         {
             transform.parent = player.transform;
         }
+    }
+    public void SetGlasswareState(glasswareState state)
+    {
+        glasswareSt = state;
     }
 }
 
