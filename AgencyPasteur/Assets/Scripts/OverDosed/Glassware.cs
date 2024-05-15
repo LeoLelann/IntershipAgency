@@ -35,7 +35,7 @@ public class Glassware : Interactable
     {
         bool isThrown = true;
        Vector3 throwDir= _parentTransform.forward.normalized;
-       _parentTransform.DetachChildren();
+        transform.parent = null;
         _rgbd.AddForce(throwDir * _throwPower);
     }
 
