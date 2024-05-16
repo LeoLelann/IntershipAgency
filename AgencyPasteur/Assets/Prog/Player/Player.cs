@@ -5,16 +5,20 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float _speed = 5f;
-    [SerializeField] float _dashPower = 5f;
-    Glassware glassware;
+    [HideInInspector] public Glassware glassware;
+    [HideInInspector] public Interactable range;
 
-    private Vector2 _movementInput;
+    [HideInInspector] public bool isInRange;
+    private bool _isMoving;
     private bool _isGrabing;
-    public bool isInRange;
-    private Collider _colliders;
-    public Interactable range;
-    [SerializeField] private GameObject trigerGameObject;
+
+    [SerializeField] private float _speed = 5f;
+    [SerializeField] private float _dashPower = 5f;
+
+    private Rigidbody _rb;
+    private Vector2 _movementInput;
+    private Vector3 _movement;
+
     private void Start()
     {
         _isGrabing = false;
@@ -23,31 +27,27 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
-        Vector3 movement = new Vector3(_movementInput.x, 0f, _movementInput.y) * _speed * Time.deltaTime;
-
-        transform.Translate(movement, Space.World);
-        transform.rotation = Quaternion.LookRotation(movement);
+        _movement = new Vector3(_movementInput.x, 0f, _movementInput.y) * _speed * Time.deltaTime;
+        transform.Translate(_movement, Space.World);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInput = context.ReadValue<Vector2>();
+        transform.rotation = Quaternion.LookRotation(_movement);
     }
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        
+        Debug.Log("OnDash");
+        bool isDashing = context.ReadValue<bool>();
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        Debug.Log("fsdhjb");
-        bool Interact = context.ReadValue<bool>();
         if (isInRange) //Attrape un objet
         {
             range.Interacted(gameObject);
-            Debug.Log("ifed");
         }
     }
 
