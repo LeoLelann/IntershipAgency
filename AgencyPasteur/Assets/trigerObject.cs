@@ -14,7 +14,6 @@ public class trigerObject : MonoBehaviour
     {
         if (other.GetComponent("Interactable"))
         {
-            Debug.Log("triggered");
             Player.isInRange = true;
             Player.range = other.transform.GetComponent<Interactable>();
         }
