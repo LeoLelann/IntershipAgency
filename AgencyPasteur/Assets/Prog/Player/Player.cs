@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
         Vector3 movement = new Vector3(_movementInput.x, 0f, _movementInput.y) * _speed * Time.deltaTime;
 
         transform.Translate(movement, Space.World);
+        transform.rotation = Quaternion.LookRotation(movement);
     }
 
     public void OnMove(InputAction.CallbackContext context)
