@@ -39,6 +39,7 @@ public class Glassware : Interactable
     private Transform _parentTransform;
     private Rigidbody _rgbd;
     [SerializeField] private float _throwPower=2;
+
     public glasswareState glasswareSt=glasswareState.EMPTY;
     private void Awake()
     {
@@ -55,9 +56,12 @@ public class Glassware : Interactable
     {
         transform.parent = null;
         _rgbd.constraints = RigidbodyConstraints.None;
-        bool isThrown = true;
-        Vector3 throwDir = Vector3.Normalize(_parentTransform.forward + _parentTransform.up);
-        _rgbd.AddForce(throwDir * _throwPower);
+        _rgbd.AddForce(_parentTransform.forward * _throwPower);
+    }
+    public void Drop()
+    {
+        transform.parent = null;
+        _rgbd.constraints = RigidbodyConstraints.None;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -76,7 +80,7 @@ public class Glassware : Interactable
         {
             transform.localRotation = new Quaternion(0,0,0,0);
             transform.parent = player.transform;
-            transform.localPosition = new Vector3(1, 0.5f, 0);
+            transform.localPosition = new Vector3(0, 0.5f, 1);
            _rgbd.constraints = RigidbodyConstraints.FreezeAll;
             _parentTransform = GetComponentInParent<Transform>();
         }

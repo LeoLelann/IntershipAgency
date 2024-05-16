@@ -40,11 +40,13 @@ public class Player : MonoBehaviour
     public void OnDash(InputAction.CallbackContext context)
     {
         Debug.Log("OnDash");
-        bool isDashing = context.ReadValue<bool>();
+        context.ReadValue<bool>();
+        _rb.AddForce(transform.forward * _dashPower);
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
+        context.ReadValue<bool>();
         if (isInRange) //Attrape un objet
         {
             range.Interacted(gameObject);
@@ -53,15 +55,18 @@ public class Player : MonoBehaviour
 
     public void OnDrop(InputAction.CallbackContext context)
     {
-        if (_isGrabing)
+        context.ReadValue<bool>();
+        if (transform.GetChild(1).parent != null)
         {
-            transform.GetChild(1).parent = null;
+            GetComponentInChildren<Glassware>().Drop();
+            _isGrabing = false;
         }
     }
 
     public void OnThrow(InputAction.CallbackContext context)
     {
-        if(transform.GetChild(1).parent != null)
+        context.ReadValue<bool>();
+        if (transform.GetChild(1).parent != null)
         {
             GetComponentInChildren<Glassware>().Thrown();
             _isGrabing = false;
