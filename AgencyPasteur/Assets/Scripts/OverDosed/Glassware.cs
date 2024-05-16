@@ -39,9 +39,11 @@ public class Glassware : Interactable
     public void Thrown()
     {
         bool isThrown = true;
-       Vector3 throwDir= _parentTransform.forward.normalized;
+        Vector3 throwDir= _parentTransform.forward.normalized;
         transform.parent = null;
         _rgbd.AddForce(throwDir * _throwPower);
+        _rgbd.freezeRotation = false;
+        _rgbd.useGravity = true;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -55,9 +57,15 @@ public class Glassware : Interactable
 
     public override void Interacted(GameObject player)
     {
-        if (player.transform.childCount == 0)
+        Debug.Log("glasswareInteracted");
+        if (player.transform.childCount == 1)
         {
+            transform.rotation = new Quaternion(0,0,0,0);
             transform.parent = player.transform;
+            transform.position = new Vector3(player.transform.position.x + 0.3f, player.transform.position.y + 0.3f, player.transform.position.z);
+            _rgbd.freezeRotation = true;
+            _rgbd.useGravity = false;
+            _rgbd.velocity = Vector3.zero;
         }
     }
     public void SetGlasswareState(glasswareState state)

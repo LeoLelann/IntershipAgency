@@ -7,14 +7,18 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float _speed = 5f;
     [SerializeField] float _dashPower = 5f;
+    Glassware glassware;
 
     private Vector2 _movementInput;
     private bool _isGrabing;
+    public bool isInRange;
     private Collider _colliders;
-
+    public Interactable range;
+    [SerializeField] private GameObject trigerGameObject;
     private void Start()
     {
         _isGrabing = false;
+        isInRange = false;
     }
 
     void Update()
@@ -25,20 +29,6 @@ public class Player : MonoBehaviour
         transform.Translate(movement, Space.World);
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("")) //Remplacer par machin d'emile
-        {
-            //bool ca mere true
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("")) //Remplacer par machin d'emile
-        {
-            //bool ca mere false
-        }
-    }
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInput = context.ReadValue<Vector2>();
@@ -51,15 +41,18 @@ public class Player : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (!_isGrabing /* &&  bool ca mere */ )
+        Debug.Log("fsdhjb");
+        bool Interact = context.ReadValue<bool>();
+        if (isInRange) //Attrape un objet
         {
-            //Machin de emile encore && isGrabing true
+            range.Interacted(gameObject);
+            Debug.Log("ifed");
         }
-        else if (_isGrabing /* &&  infrontof machine*/)
-        {
-            //mettre le truc dans la machine
-        }
-        else if (_isGrabing)
+    }
+
+    public void OnDrop(InputAction.CallbackContext context)
+    {
+        if (_isGrabing)
         {
             transform.GetChild(1).parent = null;
         }
@@ -67,7 +60,10 @@ public class Player : MonoBehaviour
 
     public void OnThrow(InputAction.CallbackContext context)
     {
-        //machin d'emile
-        _isGrabing = false;
+        if(transform.GetChild(1).parent != null)
+        {
+            GetComponentInChildren<Glassware>().Thrown();
+            _isGrabing = false;
+        }
     }
 }
