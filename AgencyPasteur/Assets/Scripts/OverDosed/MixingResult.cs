@@ -8,8 +8,7 @@ public class MixingResult : Interactable
     [SerializeField] private Paillaisse _ingr2;
     private Glassware _glassware1;
     private Glassware _glassware2;
-    [SerializeField] GameObject _ressource;
-
+    private Glassware _glassware3;
     private void Start()
     {
         StartCoroutine(Test());
@@ -21,16 +20,19 @@ public class MixingResult : Interactable
         {
             _glassware1 = _ingr1.transform.GetComponentInChildren<Glassware>();
             _glassware2 = _ingr2.transform.GetComponentInChildren<Glassware>();
+            _glassware3 = GetComponentInChildren<Glassware>();
             Debug.Log(_glassware1.glasswareSt);
-            if ((_glassware1.glasswareSt == Glassware.glasswareState.STARCH && _glassware2.glasswareSt == Glassware.glasswareState.TALC) || (_glassware1.glasswareSt == Glassware.glasswareState.TALC && _glassware2.glasswareSt == Glassware.glasswareState.STARCH))
+            if (((_glassware1.glasswareSt == Glassware.glasswareState.STARCH && _glassware2.glasswareSt == Glassware.glasswareState.TALC) || (_glassware1.glasswareSt == Glassware.glasswareState.TALC && _glassware2.glasswareSt == Glassware.glasswareState.STARCH))&&_glassware3.glasswareSt==Glassware.glasswareState.EMPTY)
             {
-               GameObject result= Instantiate(_ressource, new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z), transform.rotation, transform);
-                result.GetComponent<Glassware>().SetGlasswareState(Glassware.glasswareState.THICK_POWDER);
+                _glassware3.SetGlasswareState(Glassware.glasswareState.THICK_POWDER);
+                _glassware1.SetGlasswareState(Glassware.glasswareState.EMPTY);
+                _glassware2.SetGlasswareState(Glassware.glasswareState.EMPTY);
             }
-            else if (_glassware1.glasswareSt != Glassware.glasswareState.EMPTY && _glassware2.glasswareSt != Glassware.glasswareState.EMPTY)
+            else if (_glassware1.glasswareSt != Glassware.glasswareState.EMPTY && _glassware2.glasswareSt != Glassware.glasswareState.EMPTY&&_glassware3.glasswareSt==Glassware.glasswareState.EMPTY)
             {
-                GameObject result = Instantiate(_ressource, new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z), transform.rotation, transform);
-                result.GetComponent<Glassware>().SetGlasswareState(Glassware.glasswareState.TRASH);
+                _glassware3.SetGlasswareState(Glassware.glasswareState.TRASH);
+                _glassware1.SetGlasswareState(Glassware.glasswareState.EMPTY);
+                _glassware2.SetGlasswareState(Glassware.glasswareState.EMPTY);
             }
         }
     }
