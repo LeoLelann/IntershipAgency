@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1760625403813154971}
   - component: {fileID: 6531365123165801413}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TriggerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
