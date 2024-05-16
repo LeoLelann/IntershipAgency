@@ -15,25 +15,33 @@ public class SpawnerElement : Interactable
 
 
     public override void Interacted(GameObject player)
-    {
-        if (player.transform.childCount > 1 && player.GetComponentInChildren<Glassware>().glasswareSt == Glassware.glasswareState.EMPTY)
+    { 
+        if(transform.childCount == 2 && player.transform.childCount == 1)
         {
-            switch (element)
-            {
-                case Elements.TALC:
-                    player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.TALC);
-                    break;
-                case Elements.ACID:
-                    player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.ACID);
-                    break;
-                case Elements.STARCH:
-                    player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.STARCH);
-                    break;
-            }
+            transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
         else
         {
-            //feedback négatif pour faire comprendre le manque de verrerie ou verrerie pleine
+            if (player.transform.childCount > 1 && player.GetComponentInChildren<Glassware>().glasswareSt == Glassware.glasswareState.EMPTY)
+            {
+                switch (element)
+                {
+                    case Elements.TALC:
+                        player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.TALC);
+                        break;
+                    case Elements.ACID:
+                        player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.ACID);
+                        break;
+                    case Elements.STARCH:
+                        player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.STARCH);
+                        break;
+                }
+            }
+            else
+            {
+                //feedback négatif pour faire comprendre le manque de verrerie ou verrerie pleine
+            }
         }
+        
     }
  }
