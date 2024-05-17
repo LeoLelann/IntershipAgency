@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3285581975640029129}
   - component: {fileID: 8401947672440035206}
   m_Layer: 0
-  m_Name: Mix
+  m_Name: MixLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

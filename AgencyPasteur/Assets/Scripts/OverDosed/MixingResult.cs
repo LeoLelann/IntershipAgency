@@ -15,6 +15,9 @@ public class MixingResult : Interactable
     public override void Interacted(GameObject player)
     {
         _glassware3 = GetComponentInChildren<Glassware>();
+        Debug.Log(_ingr1.transform.GetComponentInChildren<Glassware>() == null);
+        Debug.Log(_ingr2.transform.GetComponentInChildren<Glassware>() == null);
+        Debug.Log((transform.GetComponentInChildren<Glassware>() != null && player.transform.GetComponentInChildren<Glassware>() == null && _glassware3.GlasswareSt != Glassware.glasswareState.EMPTY));
         if ((transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null && _glassware3.GlasswareSt != Glassware.glasswareState.EMPTY) ||(_ingr1.transform.GetComponentInChildren<Glassware>()==null)||(_ingr2.transform.GetComponentInChildren<Glassware>()==null))
         {
             transform.GetComponentInChildren<Glassware>().Interacted(player);
@@ -54,9 +57,9 @@ public class MixingResult : Interactable
         if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
         {
             collision.transform.parent = transform;
-            collision.transform.position = new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z);
-            collision.transform.rotation = new Quaternion(0, 0, 0, 0);
-
+            collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+            collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 }
