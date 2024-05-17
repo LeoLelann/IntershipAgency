@@ -58,7 +58,6 @@ public class Glassware : Interactable
 
     public void Thrown()
     {
-        isThrown = true;
         transform.parent = null;
         _rgbd.constraints = RigidbodyConstraints.None;
         _rgbd.AddForce(_parentTransform.forward * _throwPower);
@@ -71,21 +70,19 @@ public class Glassware : Interactable
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.GetComponent<Player>()!=null&&isThrown)
+        if (collision.transform.GetComponent<Player>()!=null)
         {
             if(collision.transform.GetComponentInChildren<Glassware>()==null)
             transform.parent = collision.transform;
 
         }
-        isThrown = false;
-
     }
 
     public override void Interacted(GameObject player)
     {
-        if (player.transform.GetComponentInChildren<Glassware>()==null) ;
+        if (player.transform.GetComponentInChildren<Glassware>()==null&&transform.parent==null) ;
         {
-            transform.localRotation = new Quaternion(0,0,0,0);
+            transform.localRotation = new Quaternion(-90,0,0,0);
             transform.parent = player.transform;
             transform.localPosition = new Vector3(0, 0.5f, 1);
            _rgbd.constraints = RigidbodyConstraints.FreezeAll;
