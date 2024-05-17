@@ -12,7 +12,7 @@ public class Heater : Interactable
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z);
             collision.transform.rotation = new Quaternion(0, 0, 0, 0);
-            if (collision.transform.GetComponent<Glassware>().glasswareSt != Glassware.glasswareState.EMPTY)
+            if (collision.transform.GetComponent<Glassware>().GlasswareSt != Glassware.glasswareState.EMPTY)
                 StartCoroutine(Heating());
         }
     }
@@ -20,29 +20,29 @@ public class Heater : Interactable
     IEnumerator Heating()
     {
         Debug.Log("feur");
-        yield return new WaitForSeconds(8);
-        Glassware.glasswareState glass = transform.GetComponentInChildren<Glassware>().glasswareSt;
+        yield return new WaitForSeconds(3);
+        Glassware.glasswareState glass = transform.GetComponentInChildren<Glassware>().GlasswareSt;
         switch (glass)
         {
             case (Glassware.glasswareState.ACID):
-                transform.GetComponentInChildren<Glassware>().glasswareSt = Glassware.glasswareState.HEATED_ACID;
+                transform.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.HEATED_ACID);
                 break; 
             case (Glassware.glasswareState.STARCH):
-                transform.GetComponentInChildren<Glassware>().glasswareSt = Glassware.glasswareState.HEATED_STARCH;
+                transform.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.HEATED_STARCH);
                 break;
             case (Glassware.glasswareState.TALC):
-                transform.GetComponentInChildren<Glassware>().glasswareSt = Glassware.glasswareState.HEATED_TALC;
+                transform.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.HEATED_TALC);
                 break;
             default:
-                transform.GetComponentInChildren<Glassware>().glasswareSt = Glassware.glasswareState.TRASH;
+                transform.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.TRASH);
                 break;
         }
-        yield return new WaitForSeconds(8);
-        transform.GetComponentInChildren<Glassware>().glasswareSt = Glassware.glasswareState.TRASH;
+        yield return new WaitForSeconds(3);
+        transform.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.TRASH);
     }
     public override void Interacted(GameObject player)
     {
-        if (transform.childCount == 1 && player.transform.childCount == 1)
+        if (transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null)
         {
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }

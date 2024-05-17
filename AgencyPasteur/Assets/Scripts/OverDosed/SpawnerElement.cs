@@ -15,14 +15,18 @@ public class SpawnerElement : Interactable
 
 
     public override void Interacted(GameObject player)
-    { 
-        if(transform.childCount == 2 && player.transform.childCount == 1)
+    {
+        Debug.Log(player.GetComponentInChildren<Glassware>() == null);
+        Debug.Log(transform.GetComponentInChildren<Glassware>() != null);
+
+        if (transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null)
         {
+            Debug.Log("feur2");
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
         else
         {
-            if (player.transform.childCount > 1 && player.GetComponentInChildren<Glassware>().glasswareSt == Glassware.glasswareState.EMPTY)
+            if (player.transform.GetComponentInChildren<Glassware>()!=null && player.GetComponentInChildren<Glassware>().GlasswareSt == Glassware.glasswareState.EMPTY)
             {
                 switch (element)
                 {
@@ -44,4 +48,14 @@ public class SpawnerElement : Interactable
         }
         
     }
- }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
+        {
+            collision.transform.parent = transform;
+            collision.transform.position = new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z);
+            collision.transform.rotation = new Quaternion(0, 0, 0, 0);
+
+        }
+    }
+}

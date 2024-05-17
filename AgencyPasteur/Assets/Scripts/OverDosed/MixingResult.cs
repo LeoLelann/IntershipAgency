@@ -15,31 +15,31 @@ public class MixingResult : Interactable
     public override void Interacted(GameObject player)
     {
         _glassware3 = GetComponentInChildren<Glassware>();
-        if ((transform.childCount == 2 && player.transform.childCount == 1 && _glassware3.glasswareSt != Glassware.glasswareState.EMPTY) ||(_ingr1.transform.childCount==0)||(_ingr2.transform.childCount==0))
+        if ((transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null && _glassware3.GlasswareSt != Glassware.glasswareState.EMPTY) ||(_ingr1.transform.GetComponentInChildren<Glassware>()==null)||(_ingr2.transform.GetComponentInChildren<Glassware>()==null))
         {
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
         else
         {
-            Debug.Log(_ingr1.transform.GetComponentInChildren<Glassware>().glasswareSt);
-            if (_ingr1.transform.childCount > 0 && _ingr2.transform.childCount > 0)//version provisoire a terme faire avec un scripatble avec une liste avec tous les mélanges et résultats pour les gd.
+            Debug.Log(_ingr1.transform.GetComponentInChildren<Glassware>().GlasswareSt);
+            if (_ingr1.transform.GetComponentInChildren<Glassware>() !=null&& _ingr2.GetComponentInChildren<Glassware>()!=null)//version provisoire a terme faire avec un scripatble avec une liste avec tous les mélanges et résultats pour les gd.
             {
                 _glassware1 = _ingr1.transform.GetComponentInChildren<Glassware>();
                 _glassware2 = _ingr2.transform.GetComponentInChildren<Glassware>();
-                if (_glassware1.glasswareSt == Glassware.glasswareState.EMPTY || _glassware2.glasswareSt == Glassware.glasswareState.EMPTY)
+                if (_glassware1.GlasswareSt == Glassware.glasswareState.EMPTY || _glassware2.GlasswareSt == Glassware.glasswareState.EMPTY)
                 {
                     transform.GetComponentInChildren<Glassware>().Interacted(player);
                 }
                 else
                 {
-                    Debug.Log(_glassware1.glasswareSt);
-                    if (((_glassware1.glasswareSt == Glassware.glasswareState.STARCH && _glassware2.glasswareSt == Glassware.glasswareState.TALC) || (_glassware1.glasswareSt == Glassware.glasswareState.TALC && _glassware2.glasswareSt == Glassware.glasswareState.STARCH)) && _glassware3.glasswareSt == Glassware.glasswareState.EMPTY)
+                    Debug.Log(_glassware1.GlasswareSt);
+                    if (((_glassware1.GlasswareSt == Glassware.glasswareState.STARCH && _glassware2.GlasswareSt == Glassware.glasswareState.TALC) || (_glassware1.GlasswareSt == Glassware.glasswareState.TALC && _glassware2.GlasswareSt == Glassware.glasswareState.STARCH)) && _glassware3.GlasswareSt == Glassware.glasswareState.EMPTY)
                     {
                         _glassware3.SetGlasswareState(Glassware.glasswareState.THICK_POWDER);
                         _glassware1.SetGlasswareState(Glassware.glasswareState.EMPTY);
                         _glassware2.SetGlasswareState(Glassware.glasswareState.EMPTY);
                     }
-                    else if (_glassware1.glasswareSt != Glassware.glasswareState.EMPTY && _glassware2.glasswareSt != Glassware.glasswareState.EMPTY && _glassware3.glasswareSt == Glassware.glasswareState.EMPTY)
+                    else if (_glassware1.GlasswareSt != Glassware.glasswareState.EMPTY && _glassware2.GlasswareSt != Glassware.glasswareState.EMPTY && _glassware3.GlasswareSt == Glassware.glasswareState.EMPTY)
                     {
                         _glassware3.SetGlasswareState(Glassware.glasswareState.TRASH);
                         _glassware1.SetGlasswareState(Glassware.glasswareState.EMPTY);

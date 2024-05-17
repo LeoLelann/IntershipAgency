@@ -16,7 +16,7 @@ public class Paillaisse : Interactable
     }
     public override void Interacted(GameObject player)
     {
-        if (transform.childCount == 1&& player.transform.childCount == 1)
+        if (transform.GetComponentInChildren<Glassware>()!=null&& player.transform.GetComponentInChildren<Glassware>()==null)
         {
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
