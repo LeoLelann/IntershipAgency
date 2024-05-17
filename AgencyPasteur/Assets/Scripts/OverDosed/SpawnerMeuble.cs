@@ -10,11 +10,29 @@ public class SpawnerMeuble : Interactable
 
     public override void Interacted(GameObject player)
     {
-        if (player.transform.childCount == 0)
+        Debug.Log("ça passe;");
+        if (player.GetComponentInChildren<Glassware>()==null)
         {
-            Instantiate(_ressource, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation, player.transform);
-            _instantiated++;
+            if (transform.GetComponent<Glassware>()!=null)
+            {
+                transform.GetComponentInChildren<Glassware>().Interacted(player);
+            }
+            else
+            {
+                GameObject glassware = Instantiate(_ressource, transform.position, transform.rotation);
+                glassware.GetComponent<Glassware>().Interacted(player);
+                _instantiated++;
+            }
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
+        {
+            collision.transform.parent = transform;
+            collision.transform.position = new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z);
+            collision.transform.rotation = new Quaternion(0, 0, 0, 0);
 
+        }
+    }
 }

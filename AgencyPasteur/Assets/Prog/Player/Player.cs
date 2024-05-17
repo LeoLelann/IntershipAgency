@@ -5,69 +5,71 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float _speed = 5f;
-    [SerializeField] float _dashPower = 5f;
+    [HideInInspector] public Glassware glassware;
+    [HideInInspector] public Interactable range;
 
-    private Vector2 _movementInput;
+    [HideInInspector] public bool isInRange;
+    private bool _isMoving;
     private bool _isGrabing;
-    private Collider _colliders;
+
+    [SerializeField] private float _speed = 5f;
+    [SerializeField] private float _dashPower = 5f;
+
+    private Rigidbody _rb;
+    private Vector2 _movementInput;
+    private Vector3 _movement;
 
     private void Start()
     {
         _isGrabing = false;
+        isInRange = false;
     }
 
     void Update()
     {
-
-        Vector3 movement = new Vector3(_movementInput.x, 0f, _movementInput.y) * _speed * Time.deltaTime;
-
-        transform.Translate(movement, Space.World);
+        _movement = new Vector3(_movementInput.x, 0f, _movementInput.y) * _speed * Time.deltaTime;
+        transform.Translate(_movement, Space.World);
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("")) //Remplacer par machin d'emile
-        {
-            //bool ca mere true
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("")) //Remplacer par machin d'emile
-        {
-            //bool ca mere false
-        }
-    }
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInput = context.ReadValue<Vector2>();
+        transform.rotation = Quaternion.LookRotation(_movement);
     }
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        
+        Debug.Log("OnDash");
+        context.ReadValue<bool>();
+        _rb.AddForce(transform.forward * _dashPower);
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (!_isGrabing /* &&  bool ca mere */ )
+        context.ReadValue<bool>();
+        if (isInRange) //Attrape un objet
         {
-            //Machin de emile encore && isGrabing true
+            range.Interacted(gameObject);
         }
-        else if (_isGrabing /* &&  infrontof machine*/)
+    }
+
+    public void OnDrop(InputAction.CallbackContext context)
+    {
+        context.ReadValue<bool>();
+        if (transform.GetChild(1).parent != null)
         {
-            //mettre le truc dans la machine
-        }
-        else if (_isGrabing)
-        {
-            transform.GetChild(1).parent = null;
+            GetComponentInChildren<Glassware>().Drop();
+            _isGrabing = false;
         }
     }
 
     public void OnThrow(InputAction.CallbackContext context)
     {
-        //machin d'emile
-        _isGrabing = false;
+        context.ReadValue<bool>();
+        if (transform.GetChild(1).parent != null)
+        {
+            GetComponentInChildren<Glassware>().Thrown();
+            _isGrabing = false;
+        }
     }
 }

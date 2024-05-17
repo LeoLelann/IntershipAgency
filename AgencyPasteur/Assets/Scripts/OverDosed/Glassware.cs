@@ -19,6 +19,18 @@ public class Glassware : Interactable
         STARCH_DILUTED,
         TALC_DILUTED,
         ACID_DILUTED,
+        HEATED_ACID,
+        HEATED_TALC,
+        HEATED_STARCH,
+        HEATED_ACID_STARCH,
+        HEATED_ACID_TALC,
+        HEATED_THICK_POWDER,
+        HEATED_ACID_STARCH_DILUTED,
+        HEATED_ACID_TALC_DILUTED,
+        HEATED_THICK_POWDER_DILUTED,
+        HEATED_STARCH_DILUTED,
+        HEATED_TALC_DILUTED,
+        HEATED_ACID_DILUTED,
         DIRTY,
         TRASH
     };
@@ -27,42 +39,96 @@ public class Glassware : Interactable
     private Transform _parentTransform;
     private Rigidbody _rgbd;
     [SerializeField] private float _throwPower=2;
-    public glasswareState glasswareSt=glasswareState.EMPTY;
+
+    [SerializeField]private glasswareState _glasswareSt=glasswareState.EMPTY;
+
+    public glasswareState GlasswareSt { get => _glasswareSt; }
+
+    private void Awake()
+    {
+        
+        _rgbd = GetComponent<Rigidbody>();
+    }
     private void Start()
     {
         _heat = 0;
         isThrown = false;
-        _parentTransform = GetComponentInParent<Transform>();
-        _rgbd = GetComponent<Rigidbody>();
+        OnStateValueChange(_glasswareSt);
     }
 
     public void Thrown()
     {
-        bool isThrown = true;
-       Vector3 throwDir= _parentTransform.forward.normalized;
+        isThrown = true;
         transform.parent = null;
-        _rgbd.AddForce(throwDir * _throwPower);
+        _rgbd.constraints = RigidbodyConstraints.None;
+        _rgbd.AddForce(_parentTransform.forward * _throwPower);
+    }
+    public void Drop()
+    {
+        transform.parent = null;
+        _rgbd.constraints = RigidbodyConstraints.None;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Player"))
+        if (collision.transform.GetComponent<Player>()!=null&&isThrown)
         {
+            if(collision.transform.GetComponentInChildren<Glassware>()==null)
             transform.parent = collision.transform;
+
         }
         isThrown = false;
+
     }
 
     public override void Interacted(GameObject player)
     {
-        if (player.transform.childCount == 0)
+        if (player.transform.GetComponentInChildren<Glassware>()==null) ;
         {
+            transform.localRotation = new Quaternion(0,0,0,0);
             transform.parent = player.transform;
+            transform.localPosition = new Vector3(0, 0.5f, 1);
+           _rgbd.constraints = RigidbodyConstraints.FreezeAll;
+            _parentTransform = GetComponentInParent<Transform>();
         }
     }
     public void SetGlasswareState(glasswareState state)
     {
-        glasswareSt = state;
+        _glasswareSt = state;
+        OnStateValueChange(_glasswareSt);
+    }
+    private void OnStateValueChange(glasswareState state)
+    {
+        switch (state)
+        {
+            case (glasswareState.EMPTY):
+                GetComponent<MeshRenderer>().material.color = Color.gray;
+                break;
+            case (glasswareState.ACID):
+                GetComponent<MeshRenderer>().material.color = Color.yellow;
+                break;
+            case (glasswareState.STARCH):
+                GetComponent<MeshRenderer>().material.color = Color.white;
+                break;
+            case (glasswareState.TALC):
+                GetComponent<MeshRenderer>().material.color = Color.blue;
+                break;
+            case (glasswareState.HEATED_ACID):
+                GetComponent<MeshRenderer>().material.color =  new Color(1.0f, 0.64f, 0.0f);
+                break;
+            case (glasswareState.HEATED_STARCH):
+                GetComponent<MeshRenderer>().material.color = Color.red;
+                break;
+            case (glasswareState.HEATED_TALC):
+                GetComponent<MeshRenderer>().material.color = new Color(0.5f,0,0.5f); ;
+                break;
+            case (glasswareState.TRASH):
+                GetComponent<MeshRenderer>().material.color = Color.black;
+                break;
+            case (glasswareState.THICK_POWDER):
+                GetComponent<MeshRenderer>().material.color = Color.green;
+                break;
+        }
     }
 }
 
