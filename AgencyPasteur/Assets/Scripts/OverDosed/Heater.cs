@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Heater : Interactable
 {
+    SCHeat _heat;
+    [SerializeField] private float secondsTillHeated=3;
+
+    private void Start()
+    {
+        SCHeat path = Resources.Load<SCHeat>("ScriptableObject/Heat");
+        _heat = path;
+    }
     // Start is called before the first frame update
     private void OnCollisionEnter(Collision collision)
     {
@@ -13,33 +21,19 @@ public class Heater : Interactable
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            if (collision.transform.GetComponent<Glassware>().GlasswareSt != Glassware.glasswareState.EMPTY)
-                StartCoroutine(Heating());
+            StartCoroutine(Heating());
         }
     }
 
     IEnumerator Heating()
     {
-        Debug.Log("feur");
-        yield return new WaitForSeconds(3);
-        Glassware.glasswareState glass = transform.GetComponentInChildren<Glassware>().GlasswareSt;
-        switch (glass)
+        Debug.Log("Start");
+        yield return new WaitForSeconds(secondsTillHeated);
+        if (transform.GetComponentInChildren<Glassware>() != null)
         {
-            case (Glassware.glasswareState.ACID):
-                transform.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.HEATED_ACID);
-                break; 
-            case (Glassware.glasswareState.STARCH):
-                transform.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.HEATED_STARCH);
-                break;
-            case (Glassware.glasswareState.TALC):
-                transform.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.HEATED_TALC);
-                break;
-            default:
-                transform.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.TRASH);
-                break;
+            transform.GetComponentInChildren<Glassware>().SetGlasswareState( _heat.Heated.Find(x => x.State[0] == transform.transform.GetComponentInChildren<Glassware>().GlasswareSt).State[1]);
+            StartCoroutine(Heating());
         }
-        yield return new WaitForSeconds(3);
-        transform.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.TRASH);
     }
     public override void Interacted(GameObject player)
     {

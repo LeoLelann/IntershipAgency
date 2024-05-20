@@ -9,8 +9,12 @@ public class MixingResult : Interactable
     private Glassware _glassware1;
     private Glassware _glassware2;
     private Glassware _glassware3;
+    private SCMix _mix;
     private void Start()
     {
+        SCMix path = Resources.Load<SCMix>("ScriptableObject/Mix");
+        _mix = path;
+        Debug.Log(_mix.Mixed.Count);
     }
     public override void Interacted(GameObject player)
     {
@@ -35,19 +39,10 @@ public class MixingResult : Interactable
                 }
                 else
                 {
-                    Debug.Log(_glassware1.GlasswareSt);
-                    if (((_glassware1.GlasswareSt == Glassware.glasswareState.STARCH && _glassware2.GlasswareSt == Glassware.glasswareState.TALC) || (_glassware1.GlasswareSt == Glassware.glasswareState.TALC && _glassware2.GlasswareSt == Glassware.glasswareState.STARCH)) && _glassware3.GlasswareSt == Glassware.glasswareState.EMPTY)
-                    {
-                        _glassware3.SetGlasswareState(Glassware.glasswareState.THICK_POWDER);
-                        _glassware1.SetGlasswareState(Glassware.glasswareState.EMPTY);
-                        _glassware2.SetGlasswareState(Glassware.glasswareState.EMPTY);
-                    }
-                    else if (_glassware1.GlasswareSt != Glassware.glasswareState.EMPTY && _glassware2.GlasswareSt != Glassware.glasswareState.EMPTY && _glassware3.GlasswareSt == Glassware.glasswareState.EMPTY)
-                    {
-                        _glassware3.SetGlasswareState(Glassware.glasswareState.TRASH);
-                        _glassware1.SetGlasswareState(Glassware.glasswareState.EMPTY);
-                        _glassware2.SetGlasswareState(Glassware.glasswareState.EMPTY);
-                    }
+
+                    Debug.Log(_mix.Mixed.FindAll(x => x.State[0] == _glassware1.GlasswareSt).FindAll(y => y.State[1]== _glassware2.GlasswareSt).Count);
+                    _glassware3.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _glassware1.GlasswareSt && t.State[1] == _glassware2.GlasswareSt).State[2]);
+                    Debug.Log(_glassware3.GlasswareSt);
                 }               
             }
         }  

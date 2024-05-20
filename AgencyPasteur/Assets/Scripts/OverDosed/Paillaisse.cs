@@ -18,6 +18,7 @@ public class Paillaisse : Interactable
     {
         if (transform.GetComponentInChildren<Glassware>()!=null&& player.transform.GetComponentInChildren<Glassware>()==null)
         {
+            Debug.Log("22");
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
     }
