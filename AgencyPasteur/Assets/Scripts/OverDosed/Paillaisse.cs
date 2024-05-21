@@ -16,13 +16,21 @@ public class Paillaisse : Interactable
     }
     public override void Interacted(GameObject player)
     {
+        Debug.Log(transform.GetComponentInChildren<Glassware>()==null&& player.transform.GetComponent<Glassware>() != null);
+        Debug.Log(transform.GetComponentInChildren<Glassware>()==null);
+        Debug.Log(player.transform.GetComponent<Glassware>() != null);
         if (transform.GetComponentInChildren<Glassware>()!=null&& player.transform.GetComponentInChildren<Glassware>()==null)
         {
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
-        else if (player.transform.GetComponent<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
+        else if (player.transform.GetComponentInChildren<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
         {
-            transform.GetComponentInChildren<Glassware>().Interacted(gameObject);
+            Debug.Log("ah");
+            player.GetComponentInChildren<Glassware>().transform.parent = transform;
+            transform.GetComponentInChildren<Glassware>().transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+            transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(-90,0,0,0);
+            transform.GetComponentInChildren<Glassware>().transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
         }
     }
 }
