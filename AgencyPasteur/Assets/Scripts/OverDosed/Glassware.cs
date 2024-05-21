@@ -59,9 +59,9 @@ public class Glassware : Interactable
 
     public void Thrown()
     {
-        transform.parent = null;
         _rgbd.constraints = RigidbodyConstraints.None;
-        _rgbd.AddForce(_parentTransform.forward * _throwPower);
+        _rgbd.velocity = new Vector3(transform.parent.transform.forward.x * _throwPower, 0.1f, transform.parent.transform.forward.z * _throwPower);
+        transform.parent = null;                                         
     }
     public void Drop()
     {
