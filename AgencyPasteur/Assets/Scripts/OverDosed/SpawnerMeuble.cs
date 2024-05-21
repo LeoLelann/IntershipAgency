@@ -10,10 +10,9 @@ public class SpawnerMeuble : Interactable
 
     public override void Interacted(GameObject player)
     {
-        Debug.Log("ça passe;");
-        if (player.transform.childCount == 1)
+        if (player.GetComponentInChildren<Glassware>()==null)
         {
-            if (transform.childCount == 2)
+            if (transform.GetComponent<Glassware>()!=null)
             {
                 transform.GetComponentInChildren<Glassware>().Interacted(player);
             }
@@ -27,12 +26,12 @@ public class SpawnerMeuble : Interactable
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
+        if (collision.transform.GetComponent<Glassware>()!=null && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
         {
             collision.transform.parent = transform;
-            collision.transform.position = new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z);
-            collision.transform.rotation = new Quaternion(0, 0, 0, 0);
-
+            collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+            collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 }

@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
         context.ReadValue<bool>();
         if (isInRange) //Attrape un objet
         {
+            Debug.Log(range);
             range.Interacted(gameObject);
         }
     }
