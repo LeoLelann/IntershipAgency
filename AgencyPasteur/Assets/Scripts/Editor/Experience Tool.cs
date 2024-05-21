@@ -15,12 +15,13 @@ public class ExperienceTool : EditorWindow
     Vector2 _scrollPos;
     private SCMix _mixList;
     private SCHeat _heatList;
+    private SCDilution _diluteList;
 
     #region SetUp
     [MenuItem("Pasteur/ExperienceTool")]
     private static void Init()
     {
-        ExperienceTool window = GetWindowWithRect<ExperienceTool>(new Rect(0, 0, 1000, 300), false);
+        ExperienceTool window = GetWindowWithRect<ExperienceTool>(new Rect(0, 0, 1000, 600), false);
         window.Show();
     }
     private void OnGUI()
@@ -35,7 +36,9 @@ public class ExperienceTool : EditorWindow
         _mixList = pathm;
         SCHeat pathh = Resources.Load<SCHeat>("ScriptableObject/Heat");
         _heatList = pathh;
-    }
+        SCDilution pathd = Resources.Load<SCDilution>("ScriptableObject/Dilution");
+        _diluteList = pathd;
+     }
     private void OnGUIUpdate()
     {
         EditorGUILayout.BeginVertical();
@@ -71,7 +74,6 @@ public class ExperienceTool : EditorWindow
                     _chosenExp = "Dilute";
                     break;
             }  
-            //DisplayListElement(_floors.Floors[i], i);
             EditorGUILayout.EndVertical();
         }
         EditorGUILayout.EndHorizontal();
@@ -86,7 +88,7 @@ public class ExperienceTool : EditorWindow
         switch (_chosenExp)
         {
             case ("Mix"):
-                _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, GUILayout.Height(180));
+                _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, GUILayout.Height(300));
                 if (_mixList.Mixed.Count > 0)
                 {
                     for (int i = 0; i < _mixList.Mixed.Count; i++)
@@ -118,7 +120,7 @@ public class ExperienceTool : EditorWindow
                 }
                 break;
             case ("Heat"):
-                _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, GUILayout.Height(180));
+                _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, GUILayout.Height(300));
                 if (_heatList.Heated.Count > 0)
                 {
                     for (int i = 0; i < _heatList.Heated.Count; i++)
@@ -149,6 +151,50 @@ public class ExperienceTool : EditorWindow
                     Save();
                 }
                 break;
+            case ("Dilute"):
+                _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, GUILayout.Height(300));
+                if (_diluteList.Diluted.Count > 0)
+                {
+                    for (int i = 0; i < _diluteList.Diluted.Count; i++)
+                    {
+                        EditorGUILayout.BeginHorizontal();
+                        EditorGUILayout.BeginVertical();
+                        EditorGUILayout.BeginHorizontal();
+                        EditorGUILayout.LabelField("Dilution " + i);
+                        for (int j = 0; j < _diluteList.Diluted[i].State.Length; j++)
+                        {
+                           _diluteList.Diluted[i].State[j] = (Glassware.glasswareState)EditorGUILayout.EnumPopup(_diluteList.Diluted[i].State[j]);
+                        }
+                        EditorGUILayout.EndHorizontal();
+                        EditorGUILayout.BeginHorizontal();
+                        EditorGUILayout.LabelField("Phase 1");
+                        _diluteList.Diluted[i].Phase1 = EditorGUILayout.IntField(_diluteList.Diluted[i].Phase1) ;
+                        EditorGUILayout.LabelField("Phase 2");
+                        _diluteList.Diluted[i].Phase2 = EditorGUILayout.IntField(_diluteList.Diluted[i].Phase2) ;
+                        EditorGUILayout.LabelField("Max");
+                        _diluteList.Diluted[i].Max = EditorGUILayout.IntField(_diluteList.Diluted[i].Max) ;
+                        EditorGUILayout.EndHorizontal();
+                        EditorGUILayout.EndVertical();
+                        GUI.backgroundColor = Color.red;
+                        if (GUILayout.Button("X", new GUIStyle(GUI.skin.button) { fixedHeight = 18, fontSize = 10, fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter }))
+                        {
+                            _diluteList.Diluted.RemoveAt(i);
+                        }
+                        GUI.backgroundColor = Color.white;
+                        EditorGUILayout.EndHorizontal();
+                    }
+                }
+                EditorGUILayout.EndScrollView();
+                if (GUILayout.Button("Add Dilution Result", new GUIStyle(GUI.skin.button) { fixedHeight = 16, fontSize = 11, fontStyle = FontStyle.Bold }))
+                {
+                    _diluteList.Diluted.Add(new Dilute());
+                }
+                GUI.backgroundColor = new Color(0, .53f, .22f);
+                if (GUILayout.Button("Save", new GUIStyle(GUI.skin.button) { fixedHeight = 16, fontSize = 11, fontStyle = FontStyle.Bold, }))
+                {
+                    Save();
+                }
+                break;
         }
        
         GUI.backgroundColor = Color.white;
@@ -168,11 +214,19 @@ public class ExperienceTool : EditorWindow
                 }
                 break;
             case ("Heat"):
-                string path2 = $"{FolderPath}Mix{_extention}";
+                string path2 = $"{FolderPath}Heat{_extention}";
                 EditorUtility.SetDirty(_heatList);
                 if (!File.Exists(path2))
                 {
                     AssetDatabase.CreateAsset(_heatList, path2);
+                }
+                break;
+            case ("Dilute"):
+                string path3 = $"{FolderPath}Dilution{_extention}";
+                EditorUtility.SetDirty(_mixList);
+                if (!File.Exists(path3))
+                {
+                    AssetDatabase.CreateAsset(_diluteList, path3);
                 }
                 break;
         }
@@ -180,5 +234,3 @@ public class ExperienceTool : EditorWindow
         AssetDatabase.Refresh();
     }
 }
-
-
