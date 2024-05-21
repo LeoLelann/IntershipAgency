@@ -7,6 +7,7 @@ public class Glassware : Interactable
     public enum glasswareState
     {
         EMPTY,
+        WATER,
         ACID,
         TALC,
         STARCH,
