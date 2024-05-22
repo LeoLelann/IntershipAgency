@@ -69,7 +69,7 @@ public class Glassware : Interactable
         _rgbd.constraints = RigidbodyConstraints.None;
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.GetComponent<Player>()!=null)
         {
@@ -77,11 +77,11 @@ public class Glassware : Interactable
             transform.parent = collision.transform;
 
         }
-    }*/
+    }
 
     public override void Interacted(GameObject player)
     {
-        if (player.transform.GetComponentInChildren<Glassware>()==null&&(transform.parent==null||transform.parent.GetComponent<Player>()==null)) 
+        if (player.transform.GetComponentInChildren<Glassware>()==null&&transform.parent==null)
         {
             transform.localRotation = new Quaternion(-90,0,0,0);
             transform.parent = player.transform;
