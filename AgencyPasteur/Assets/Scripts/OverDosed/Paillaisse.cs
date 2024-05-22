@@ -25,7 +25,6 @@ public class Paillaisse : Interactable
         }
         else if (player.transform.GetComponentInChildren<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
         {
-            Debug.Log("ah");
             player.GetComponentInChildren<Glassware>().transform.parent = transform;
             transform.GetComponentInChildren<Glassware>().transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(-90,0,0,0);
