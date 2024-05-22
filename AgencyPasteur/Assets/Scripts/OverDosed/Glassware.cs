@@ -80,7 +80,7 @@ public class Glassware : Interactable
 
     public override void Interacted(GameObject player)
     {
-        if (player.transform.GetComponentInChildren<Glassware>()==null&&transform.parent==null) ;
+        if (player.transform.GetComponentInChildren<Glassware>()==null&&transform.parent==null)
         {
             transform.localRotation = new Quaternion(-90,0,0,0);
             transform.parent = player.transform;
