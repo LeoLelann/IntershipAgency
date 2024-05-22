@@ -10,7 +10,6 @@ public class SpawnerMeuble : Interactable
 
     public override void Interacted(GameObject player)
     {
-        Debug.Log("ça passe;");
         if (player.GetComponentInChildren<Glassware>()==null)
         {
             if (transform.GetComponent<Glassware>()!=null)
