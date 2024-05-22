@@ -41,5 +41,13 @@ public class Heater : Interactable
         {
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
+        else if (player.transform.GetComponentInChildren<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
+        {
+            player.GetComponentInChildren<Glassware>().transform.parent = transform;
+            transform.GetComponentInChildren<Glassware>().transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+            transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(-90, 0, 0, 0);
+            transform.GetComponentInChildren<Glassware>().transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+        }
     }
 }
