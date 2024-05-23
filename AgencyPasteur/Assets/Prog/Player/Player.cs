@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     private float _dashTimerCD;
 
     [SerializeField] AnimationCurve _curve;
-    private PlayerInput _input;
     private Rigidbody _rbOther;
     private Rigidbody _rb;
     private Vector2 _movementInput;
@@ -28,18 +27,17 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _input = GetComponent<PlayerInput>();
         isInRange = false;
         _dashTimerCD = 0f;
     }
 
     void Update()
     {
-        _movement = new Vector3(_movementInput.x, 0f, _movementInput.y) * _speed * Time.deltaTime;
-        transform.Translate(_movement, Space.World);
-        if (_movement != Vector3.zero)
+        _rb.velocity = new Vector3(_movementInput.x, 0f, _movementInput.y) * _speed * Time.deltaTime;
+        //transform.Translate(_movement, Space.World);
+        if (_rb.velocity != Vector3.zero)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_movement), _playerRotation);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_rb.velocity), _playerRotation);
         }
         if (_isDashing)
         {
@@ -58,7 +56,8 @@ public class Player : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (context.performed && !_isDashing)
+        context.ReadValue<bool>();
+        if (/*context.performed && */!_isDashing)
         {
             _isDashing = true;
             _dashTimerCD = _dashCD;
@@ -69,9 +68,8 @@ public class Player : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext context)
     {
         context.ReadValue<bool>();
-        if (isInRange && context.performed) //Attrape un objet
+        if (/*context.performed && */isInRange) //Attrape un objet
         {
-            Debug.Log(range);
             range.Interacted(gameObject);
         }
     }
@@ -87,6 +85,7 @@ public class Player : MonoBehaviour
     public void OnThrow(InputAction.CallbackContext context)
     {
         context.ReadValue<bool>();
+
         if (transform.GetChild(1).parent != null)
         {
             GetComponentInChildren<Glassware>().Thrown();
@@ -109,7 +108,8 @@ public class Player : MonoBehaviour
         Debug.Log("started");
         
         float curveValue = _curve.Evaluate(_dashPower);
-        _rb.velocity = Vector3.Lerp(transform.forward, transform.forward * _dashPower, curveValue );
+        //_rb.velocity = Vector3.Lerp(transform.forward, transform.forward * _dashPower, curveValue );
+        _rb.velocity = new Vector3(transform.position.x * _dashPower, 0, transform.position.z * _dashPower);
         return null;
     }
 
