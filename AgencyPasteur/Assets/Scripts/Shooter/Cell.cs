@@ -6,7 +6,7 @@ public class Cell : MonoBehaviour
 {
     [SerializeField] private bool _playersIn;
     [SerializeField] private bool _spawning;
-    [SerializeField] private bool _Infected;
+    [SerializeField] private bool _infected;
     [SerializeField] private float _spawnCD=10;
     [SerializeField] private GameObject _enemy;
     [SerializeField] private List<Cell> _neighbours;
@@ -15,6 +15,7 @@ public class Cell : MonoBehaviour
 
     public float InfectedHP { get => _infectedHP; set => _infectedHP = value; }
     public bool PlayersIn { get => _playersIn; set => _playersIn = value; }
+    public bool Infected { get => _infected; set => _infected = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -27,24 +28,25 @@ public class Cell : MonoBehaviour
                 _neighbours.Add(cell);
             }
         }
-        Debug.Log(_neighbours.Find(x => x._playersIn == true) != null);
     }
     public void TakeDmg(int dmg)
     {
         _currentHP -= dmg;
+        if (_currentHP <= 0)
+        {
+            _infected = false;
+        }
     }
     // Update is called once per frame
     void Update()
     {
-        if (!_spawning && _Infected && _neighbours.Find(x => x._playersIn==true)!=null)
+        if (!_spawning && _infected && _neighbours.Find(x => x._playersIn==true)!=null)
         {
-            Debug.Log("feur");
             _spawning = true;
             StartCoroutine(SpawnSequence());
         }
         if (_spawning && _neighbours.Find(x => x._playersIn == true) == null)
         {
-            Debug.Log("Il faut stop");
             _spawning = false;
             StopAllCoroutines();
         }
@@ -61,7 +63,7 @@ public class Cell : MonoBehaviour
         }
         else
         {
-            _Infected = false;
+            _infected = false;
         }
     }
 }

@@ -6,14 +6,15 @@ public class CellBody : MonoBehaviour
 {
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<Player>() != null&&GetComponentInParent<Cell>().PlayersIn==false)
+        Debug.Log(other.name);
+        if (other.GetComponent<PlayerShooter>() != null&&GetComponentInParent<Cell>().PlayersIn==false)
         {
             GetComponentInParent<Cell>().PlayersIn = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<Player>() != null)
+        if (other.GetComponent<PlayerShooter>() != null)
         {
             GetComponentInParent<Cell>().PlayersIn = false;
         }
