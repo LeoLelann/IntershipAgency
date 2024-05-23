@@ -114,6 +114,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8799345099644070733, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ef5093b5c69369145adfcc2f58856eae, type: 2}
     - target: {fileID: -8679921383154817045, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -154,6 +158,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7918335002988649766, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ef5093b5c69369145adfcc2f58856eae, type: 2}
     - target: {fileID: 919132149155446097, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
       propertyPath: m_Name
       value: SpawnerFioles
@@ -162,6 +170,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 171444d0cfbac8b46b2687d6b26cc18d, type: 2}
+    - target: {fileID: 5481076092469631005, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ef5093b5c69369145adfcc2f58856eae, type: 2}
     - target: {fileID: 5566825301894273583, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
