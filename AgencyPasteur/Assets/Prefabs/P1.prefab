@@ -180,10 +180,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8753928423534717666}
-  - component: {fileID: 6044340131591572152}
   - component: {fileID: 8552094569836319490}
   - component: {fileID: 2654229044966388138}
   - component: {fileID: -2576569530647141736}
+  - component: {fileID: -260110391374632037}
   m_Layer: 0
   m_Name: P1
   m_TagString: Untagged
@@ -201,37 +201,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4133890383295239576}
   - {fileID: 5806993928434496712}
   - {fileID: 6859486368763862209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &6044340131591572152
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2600070959723205368}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8552094569836319490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,7 +337,7 @@ MonoBehaviour:
   _isDashing: 0
   _speed: 5
   _playerRotation: 0.09
-  _dashPower: 2
+  _dashPower: 5.7
   _dashCD: 1
   _knockback: 1
 --- !u!54 &-2576569530647141736
@@ -390,6 +367,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!64 &-260110391374632037
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2600070959723205368}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &6393831635597441834
 PrefabInstance:
   m_ObjectHideFlags: 0
