@@ -360,9 +360,9 @@ MonoBehaviour:
   _isDashing: 0
   _speed: 5
   _playerRotation: 0.07
-  _dashPower: 2
-  _dashCD: 1
   _knockback: 1
+  _dashPower: 400
+  _dashCD: 2
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -376,13 +376,22 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.021057129
-      value: 0.55109406
-      inSlope: 0
-      outSlope: 0
+      time: 0.003221795
+      value: 0.5217209
+      inSlope: -268.08362
+      outSlope: -268.08362
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.0031321964
+    - serializedVersion: 3
+      time: 0.077426635
+      value: 0.49207214
+      inSlope: 215.88477
+      outSlope: 215.88477
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.013311013
       outWeight: 0
     - serializedVersion: 3
       time: 0.08313809
