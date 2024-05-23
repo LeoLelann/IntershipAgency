@@ -358,7 +358,7 @@ MonoBehaviour:
   range: {fileID: 0}
   isInRange: 0
   _isDashing: 0
-  _speed: 5
+  _speed: 600
   _playerRotation: 0.07
   _knockback: 1
   _dashPower: 400
@@ -376,31 +376,22 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.003221795
-      value: 0.5217209
-      inSlope: -268.08362
-      outSlope: -268.08362
+      time: 0.0018475642
+      value: 7.361165
+      inSlope: -4.4402614
+      outSlope: -4.4402614
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.0031321964
-    - serializedVersion: 3
-      time: 0.077426635
-      value: 0.49207214
-      inSlope: 215.88477
-      outSlope: 215.88477
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.013311013
-      outWeight: 0
+      outWeight: 0.038719416
     - serializedVersion: 3
       time: 0.08313809
       value: 0.018136531
-      inSlope: -3.0939732
-      outSlope: -3.0939732
+      inSlope: 8.175926
+      outSlope: 8.175926
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.13150387
+      inWeight: 0.05497767
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
