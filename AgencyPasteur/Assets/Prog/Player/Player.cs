@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     private float _dashTimerCD;
 
     [SerializeField] AnimationCurve _curve;
-    private PlayerInput _input;
     private Rigidbody _rbOther;
     private Rigidbody _rb;
     private Vector2 _movementInput;
@@ -28,7 +27,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _input = GetComponent<PlayerInput>();
         isInRange = false;
         _dashTimerCD = 0f;
     }
