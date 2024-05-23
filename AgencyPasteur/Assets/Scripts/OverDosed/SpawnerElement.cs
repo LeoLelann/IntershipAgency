@@ -19,8 +19,6 @@ public class SpawnerElement : Interactable
 
     public override void Interacted(GameObject player)
     {
-        Debug.Log(player.GetComponentInChildren<Glassware>() == null);
-        Debug.Log(transform.GetComponentInChildren<Glassware>() != null);
 
         if (transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null)
         {

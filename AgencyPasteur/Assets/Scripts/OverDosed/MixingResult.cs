@@ -18,32 +18,43 @@ public class MixingResult : Interactable
     }
     public override void Interacted(GameObject player)
     {
-        _glassware3 = GetComponentInChildren<Glassware>();
-        Debug.Log(_ingr1.transform.GetComponentInChildren<Glassware>() == null);
-        Debug.Log(_ingr2.transform.GetComponentInChildren<Glassware>() == null);
-        Debug.Log((transform.GetComponentInChildren<Glassware>() != null && player.transform.GetComponentInChildren<Glassware>() == null && _glassware3.GlasswareSt != Glassware.glasswareState.EMPTY));
-        if ((transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null && _glassware3.GlasswareSt != Glassware.glasswareState.EMPTY) ||(_ingr1.transform.GetComponentInChildren<Glassware>()==null)||(_ingr2.transform.GetComponentInChildren<Glassware>()==null))
+         if (player.transform.GetComponentInChildren<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
         {
-            transform.GetComponentInChildren<Glassware>().Interacted(player);
+            player.GetComponentInChildren<Glassware>().transform.parent = transform;
+            transform.GetComponentInChildren<Glassware>().transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+            transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(-90, 0, 0, 0);
+            transform.GetComponentInChildren<Glassware>().transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
         }
         else
         {
-            Debug.Log(_ingr1.transform.GetComponentInChildren<Glassware>().GlasswareSt);
-            if (_ingr1.transform.GetComponentInChildren<Glassware>() !=null&& _ingr2.GetComponentInChildren<Glassware>()!=null)//version provisoire a terme faire avec un scripatble avec une liste avec tous les mélanges et résultats pour les gd.
+            _glassware3 = GetComponentInChildren<Glassware>();
+            Debug.Log(_ingr1.transform.GetComponentInChildren<Glassware>() == null);
+            Debug.Log(_ingr2.transform.GetComponentInChildren<Glassware>() == null);
+            Debug.Log((transform.GetComponentInChildren<Glassware>() != null && player.transform.GetComponentInChildren<Glassware>() == null && _glassware3.GlasswareSt != Glassware.glasswareState.EMPTY));
+            if ((transform.GetComponentInChildren<Glassware>() != null && player.transform.GetComponentInChildren<Glassware>() == null && _glassware3.GlasswareSt != Glassware.glasswareState.EMPTY) || (_ingr1.transform.GetComponentInChildren<Glassware>() == null) || (_ingr2.transform.GetComponentInChildren<Glassware>() == null))
             {
-                _glassware1 = _ingr1.transform.GetComponentInChildren<Glassware>();
-                _glassware2 = _ingr2.transform.GetComponentInChildren<Glassware>();
-                if (_glassware1.GlasswareSt == Glassware.glasswareState.EMPTY || _glassware2.GlasswareSt == Glassware.glasswareState.EMPTY)
+                transform.GetComponentInChildren<Glassware>().Interacted(player);
+            }
+            else
+            {
+                Debug.Log(_ingr1.transform.GetComponentInChildren<Glassware>().GlasswareSt);
+                if (_ingr1.transform.GetComponentInChildren<Glassware>() != null && _ingr2.GetComponentInChildren<Glassware>() != null)//version provisoire a terme faire avec un scripatble avec une liste avec tous les mélanges et résultats pour les gd.
                 {
-                    transform.GetComponentInChildren<Glassware>().Interacted(player);
-                }
-                else
-                {
+                    _glassware1 = _ingr1.transform.GetComponentInChildren<Glassware>();
+                    _glassware2 = _ingr2.transform.GetComponentInChildren<Glassware>();
+                    if (_glassware1.GlasswareSt == Glassware.glasswareState.EMPTY || _glassware2.GlasswareSt == Glassware.glasswareState.EMPTY)
+                    {
+                        transform.GetComponentInChildren<Glassware>().Interacted(player);
+                    }
+                    else
+                    {
 
-                    Debug.Log(_mix.Mixed.FindAll(x => x.State[0] == _glassware1.GlasswareSt).FindAll(y => y.State[1]== _glassware2.GlasswareSt).Count);
-                    _glassware3.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _glassware1.GlasswareSt && t.State[1] == _glassware2.GlasswareSt).State[2]);
-                    Debug.Log(_glassware3.GlasswareSt);
-                }               
+                        Debug.Log(_mix.Mixed.FindAll(x => x.State[0] == _glassware1.GlasswareSt).FindAll(y => y.State[1] == _glassware2.GlasswareSt).Count);
+                        _glassware3.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _glassware1.GlasswareSt && t.State[1] == _glassware2.GlasswareSt).State[2]);
+                        Debug.Log(_glassware3.GlasswareSt);
+                    }
+                }
             }
         }  
     }
