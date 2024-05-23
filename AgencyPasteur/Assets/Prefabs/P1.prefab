@@ -335,11 +335,11 @@ MonoBehaviour:
   range: {fileID: 0}
   isInRange: 0
   _isDashing: 0
-  _speed: 5
-  _playerRotation: 0.07
+  _speed: 345.9
+  _playerRotation: 0.17
   _knockback: 1
-  _dashPower: 400
-  _dashCD: 0.46
+  _dashPower: 11119.7
+  _dashCD: 0.61
   _curve:
     serializedVersion: 2
     m_Curve:

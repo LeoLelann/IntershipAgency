@@ -108,8 +108,8 @@ public class Player : MonoBehaviour
         Debug.Log("started");
         
         float curveValue = _curve.Evaluate(_dashPower);
-        //_rb.velocity = Vector3.Lerp(transform.forward, transform.forward * _dashPower, curveValue );
-        _rb.velocity = new Vector3(transform.position.x * _dashPower, 0, transform.position.z * _dashPower);
+        _rb.velocity = Vector3.Lerp(transform.forward, transform.forward * _dashPower, curveValue );
+        //_rb.velocity = new Vector3(transform.position.x * _dashPower, 0, transform.position.z * _dashPower);
         return null;
     }
 
