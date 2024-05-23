@@ -16,9 +16,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _playerRotation = 0.09f;
     [SerializeField] private float _dashPower = 25f;
-    [SerializeField] private float _dashCD = 1f;
+    [SerializeField] private float _dashCD = 2f;
     [SerializeField] private float _knockback = 1f;
 
+    [SerializeField] AnimationCurve _curve;
+    private PlayerInput _input;
+    private Rigidbody _rbOther;
     private Rigidbody _rb;
     private Vector2 _movementInput;
     private Vector3 _movement;
@@ -26,6 +29,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _input = GetComponent<PlayerInput>();
         _isGrabing = false;
         isInRange = false;
     }
@@ -39,6 +43,21 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_movement), _playerRotation);
         }
     }
+    private void OnEnable()
+    {
+        _input.actions["Grab"].started += OnInteract;
+        //_input.actions["Grab"].canceled -= OnInteract;
+        //_input.actions["Grab"].performed -= OnInteract;
+        _input.actions["Dash"].started += OnDash;
+        //_input.actions["Dash"].canceled -= OnDash;
+        //_input.actions["Dash"].performed -= OnDash;
+    }
+    private void OnDisable()
+    {
+        _input.actions["Grab"].started -= OnInteract;
+        _input.actions["Dash"].started -= OnDash;
+    }
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -47,8 +66,6 @@ public class Player : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        context.ReadValue<bool>();
-
         StartCoroutine(Dash());
     }
 
@@ -71,7 +88,6 @@ public class Player : MonoBehaviour
             _isGrabing = false;
         }
     }
-
     public void OnThrow(InputAction.CallbackContext context)
     {
         context.ReadValue<bool>();
@@ -85,11 +101,17 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.name == "Player" && _isDashing)
         {
+            _rbOther = collision.gameObject.GetComponent<Rigidbody>();
             StartCoroutine(Percute());
+        }
+        else if(_isDashing)
+        {
+            //percuter un mur
         }
     }
     IEnumerator Dash()
     {
+        Debug.Log("started");
         _isDashing = true;
         _rb.velocity = new Vector3(transform.forward.x, 0, transform.forward.z )* _dashPower;
         yield return new WaitForSeconds(_dashCD);
@@ -99,6 +121,7 @@ public class Player : MonoBehaviour
     IEnumerator Percute()
     {
         _rb.velocity = new Vector3(-transform.forward.x, 0, transform.forward.z) * _knockback;
+        _rbOther.velocity = new Vector3(-transform.forward.x, 0, transform.forward.z) * _knockback;
         yield return null;
     }
 }
