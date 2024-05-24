@@ -10,17 +10,15 @@ public class Player : MonoBehaviour
 
     [HideInInspector] public bool isInRange;
     [HideInInspector] public bool _isDashing;
-    private bool _isMoving;
-    private bool _isGrabing;
 
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _playerRotation = 0.09f;
+    [SerializeField] private float _knockback = 1f;
     [SerializeField] private float _dashPower = 25f;
     [SerializeField] private float _dashCD = 2f;
-    [SerializeField] private float _knockback = 1f;
+    private float _dashTimerCD;
 
     [SerializeField] AnimationCurve _curve;
-    private PlayerInput _input;
     private Rigidbody _rbOther;
     private Rigidbody _rb;
     private Vector2 _movementInput;
@@ -29,52 +27,50 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _input = GetComponent<PlayerInput>();
-        _isGrabing = false;
         isInRange = false;
+        _dashTimerCD = 0f;
     }
 
     void Update()
     {
-        _movement = new Vector3(_movementInput.x, 0f, _movementInput.y) * _speed * Time.deltaTime;
-        transform.Translate(_movement, Space.World);
-        if (_movement != Vector3.zero)
+        //_rb.velocity = new Vector3(_movementInput.x, 0f, _movementInput.y) * _speed * Time.deltaTime;
+        //transform.Translate(_movement, Space.World);
+        if (_rb.velocity != Vector3.zero)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_movement), _playerRotation);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_rb.velocity), _playerRotation);
+        }
+        if (_isDashing)
+        {
+            _dashTimerCD -= Time.deltaTime;
+            if (_dashTimerCD <= 0f)
+            {
+                _isDashing = false;
+            }
         }
     }
-    private void OnEnable()
-    {
-        _input.actions["Grab"].started += OnInteract;
-        //_input.actions["Grab"].canceled -= OnInteract;
-        //_input.actions["Grab"].performed -= OnInteract;
-        _input.actions["Dash"].started += OnDash;
-        //_input.actions["Dash"].canceled -= OnDash;
-        //_input.actions["Dash"].performed -= OnDash;
-    }
-    private void OnDisable()
-    {
-        _input.actions["Grab"].started -= OnInteract;
-        _input.actions["Dash"].started -= OnDash;
-    }
-
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        _movementInput = context.ReadValue<Vector2>();
+        //_movementInput = context.ReadValue<Vector2>();
+        _rb.velocity = context.ReadValue<Vector3>() * _speed;
     }
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        StartCoroutine(Dash());
+        context.ReadValue<bool>();
+        if (/*context.performed && */!_isDashing)
+        {
+            _isDashing = true;
+            _dashTimerCD = _dashCD;
+            StartCoroutine(Dash());
+        }
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
         context.ReadValue<bool>();
-        if (isInRange) //Attrape un objet
+        if (/*context.performed && */isInRange) //Attrape un objet
         {
-            Debug.Log(range);
             range.Interacted(gameObject);
         }
     }
@@ -85,16 +81,15 @@ public class Player : MonoBehaviour
         if (transform.GetChild(1).parent != null)
         {
             GetComponentInChildren<Glassware>().Drop();
-            _isGrabing = false;
         }
     }
     public void OnThrow(InputAction.CallbackContext context)
     {
         context.ReadValue<bool>();
+
         if (transform.GetChild(1).parent != null)
         {
             GetComponentInChildren<Glassware>().Thrown();
-            _isGrabing = false;
         }
     }
     public void OnCollisionEnter(Collision collision)
@@ -112,10 +107,11 @@ public class Player : MonoBehaviour
     IEnumerator Dash()
     {
         Debug.Log("started");
-        _isDashing = true;
-        _rb.velocity = new Vector3(transform.forward.x, 0, transform.forward.z )* _dashPower;
-        yield return new WaitForSeconds(_dashCD);
-        _isDashing = false;
+        
+        float curveValue = _curve.Evaluate(_dashPower);
+        //_rb.velocity = Vector3.Lerp(transform.forward, transform.forward * _dashPower, curveValue );
+        _rb.velocity = new Vector3(transform.position.x * _dashPower, 0, transform.position.z * _dashPower);
+        return null;
     }
 
     IEnumerator Percute()
