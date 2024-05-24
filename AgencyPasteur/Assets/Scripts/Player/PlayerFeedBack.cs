@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class PlayerFeedBack : MonoBehaviour
 {
@@ -16,5 +17,10 @@ public class PlayerFeedBack : MonoBehaviour
     void Update()
     {
         testEvents.Invoke();
+    }
+
+    public void OnPlayerInteract(InputAction.CallbackContext context)
+    {
+        Debug.Log("Interact ");
     }
 }
