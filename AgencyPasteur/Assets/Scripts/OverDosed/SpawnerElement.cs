@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnerElement : Interactable
 {
+    public UnityEvent OnNoGlasswareToTakeElement;
+    public UnityEvent OnElementTaken; 
+    public UnityEvent OnTakeFrom;
+    public UnityEvent OnSnapGlassware;
     public enum Elements
     {
         TALC,
@@ -22,7 +27,7 @@ public class SpawnerElement : Interactable
 
         if (transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null)
         {
-            Debug.Log("feur2");
+            OnTakeFrom?.Invoke();
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
         else
@@ -41,10 +46,11 @@ public class SpawnerElement : Interactable
                         player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.STARCH);
                         break;
                 }
+                OnElementTaken?.Invoke();
             }
             else
             {
-                //feedback négatif pour faire comprendre le manque de verrerie ou verrerie pleine
+                OnNoGlasswareToTakeElement?.Invoke();
             }
         }
         
@@ -80,6 +86,7 @@ public class SpawnerElement : Interactable
     {
         if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
         {
+            OnSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
