@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Dilution : Interactable
 {
+     public UnityEvent OnInteractFailed;
+     public UnityEvent OnInteracted;
+
     // Start is called before the first frame update
-   private Glassware.glasswareState _state;
+    private Glassware.glasswareState _state;
    private Glassware.glasswareState _experimentState;
     SCDilution _dilute;
     [SerializeField]private int _phase1=6;
@@ -44,6 +48,7 @@ public class Dilution : Interactable
                 }
                 else
                 {
+                    OnInteracted?.Invoke();
                     switch (_count)
                     {
                         case int i when i <=_phase1:
@@ -70,6 +75,10 @@ public class Dilution : Interactable
                 }
             }
             
+        }
+        else
+        {
+            OnInteractFailed?.Invoke();
         }
     }
 }

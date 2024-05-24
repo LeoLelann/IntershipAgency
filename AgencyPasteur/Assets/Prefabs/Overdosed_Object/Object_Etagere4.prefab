@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 985878422668479311}
   - component: {fileID: 2206543037377500171}
   m_Layer: 0
-  m_Name: De_Object_Etagere4(Clone)
+  m_Name: Object_Etagere4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
