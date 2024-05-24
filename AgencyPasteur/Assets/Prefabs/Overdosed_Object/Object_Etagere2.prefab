@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 801243389255138122}
   - component: {fileID: 7730521375755249556}
   m_Layer: 0
-  m_Name: De_Object_Etagere2(Clone)
+  m_Name: Object_Etagere2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
