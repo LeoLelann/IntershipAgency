@@ -9,7 +9,9 @@ public class Heater : Interactable
     public UnityEvent OnStartHeating;
     public UnityEvent OnStopHeating;
     public UnityEvent OnBurning;
-    
+    public UnityEvent OnTakeFrom;
+    public UnityEvent OnSnapGlassware;
+
     SCHeat _heat;
     [SerializeField] private float secondsTillHeated=3;
 
@@ -23,6 +25,7 @@ public class Heater : Interactable
     {
         if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
         {
+            OnSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
@@ -57,11 +60,13 @@ public class Heater : Interactable
     {
         if (transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null)
         {
+            OnTakeFrom?.Invoke();
             OnStopHeating?.Invoke();
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
         else if (player.transform.GetComponentInChildren<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
         {
+            OnSnapGlassware?.Invoke();
             player.GetComponentInChildren<Glassware>().transform.parent = transform;
             transform.GetComponentInChildren<Glassware>().transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(-90, 0, 0, 0);
