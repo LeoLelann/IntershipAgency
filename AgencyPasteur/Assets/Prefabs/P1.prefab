@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 8753928423534717666}
   - component: {fileID: 6044340131591572152}
   - component: {fileID: 8552094569836319490}
+  - component: {fileID: 5810164076871667234}
   - component: {fileID: 2654229044966388138}
   - component: {fileID: -2576569530647141736}
   m_Layer: 0
@@ -153,13 +154,13 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2654229044966388138}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -236,6 +237,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5810164076871667234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2600070959723205368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32a67e8719cd874ab9ca50b3ef1a949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testEvents:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2654229044966388138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +268,7 @@ MonoBehaviour:
   range: {fileID: 0}
   isInRange: 0
   _isDashing: 0
-  _speed: 600
+  _speed: 50
   _playerRotation: 0.07
   _knockback: 1
   _dashPower: 400

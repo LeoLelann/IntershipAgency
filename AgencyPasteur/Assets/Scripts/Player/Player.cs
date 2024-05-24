@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        _rb.velocity = new Vector3(_movementInput.x, 0f, _movementInput.y) * _speed * Time.deltaTime;
+        //_rb.velocity = new Vector3(_movementInput.x, 0f, _movementInput.y) * _speed * Time.deltaTime;
         //transform.Translate(_movement, Space.World);
         if (_rb.velocity != Vector3.zero)
         {
@@ -51,7 +51,8 @@ public class Player : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        _movementInput = context.ReadValue<Vector2>();
+        //_movementInput = context.ReadValue<Vector2>();
+        _rb.velocity = context.ReadValue<Vector3>() * _speed;
     }
 
     public void OnDash(InputAction.CallbackContext context)
