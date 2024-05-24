@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class Heater : Interactable
 {
+    public UnityEvent OnStartHeating;
+    public UnityEvent OnStopHeating;
+    public UnityEvent OnBurning;
+    
     SCHeat _heat;
     [SerializeField] private float secondsTillHeated=3;
 
@@ -27,6 +33,18 @@ public class Heater : Interactable
 
     IEnumerator Heating()
     {
+        if (transform.GetComponentInChildren<Glassware>().GlasswareSt != Glassware.glasswareState.EMPTY && transform.GetComponentInChildren<Glassware>().GlasswareSt != Glassware.glasswareState.TRASH)
+        {
+            OnStartHeating?.Invoke();
+            if (_heat.Heated.Find(x => x.State[0] == transform.transform.GetComponentInChildren<Glassware>().GlasswareSt).State[1] == Glassware.glasswareState.TRASH)
+            {
+                OnBurning?.Invoke();
+            }
+        }
+        else
+        {
+            OnStopHeating?.Invoke();
+        }
         Debug.Log("Start");
         yield return new WaitForSeconds(secondsTillHeated);
         if (transform.GetComponentInChildren<Glassware>() != null)
@@ -39,6 +57,7 @@ public class Heater : Interactable
     {
         if (transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null)
         {
+            OnStopHeating?.Invoke();
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
         else if (player.transform.GetComponentInChildren<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
