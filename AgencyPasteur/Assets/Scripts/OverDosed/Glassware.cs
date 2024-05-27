@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Glassware : Interactable
 {
+    public UnityEvent OnThrown;
+    public UnityEvent OnDrop;
+    public UnityEvent OnSnap;
+    public UnityEvent OnChangeState;
+    public UnityEvent OnPicked;
+    public UnityEvent OnCollisionWhenThrown;
+
     public enum glasswareState
     {
         EMPTY,
@@ -59,30 +67,34 @@ public class Glassware : Interactable
 
     public void Thrown()
     {
+        OnThrown?.Invoke();
+        isThrown = true;
         _rgbd.constraints = RigidbodyConstraints.None;
         _rgbd.velocity = new Vector3(transform.parent.transform.forward.x * _throwPower, 0.1f, transform.parent.transform.forward.z * _throwPower);
         transform.parent = null;                                         
     }
     public void Drop()
     {
+        OnDrop?.Invoke();
         transform.parent = null;
         _rgbd.constraints = RigidbodyConstraints.None;
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.GetComponent<Player>()!=null)
+        if (isThrown)
         {
-            if(collision.transform.GetComponentInChildren<Glassware>()==null)
-            transform.parent = collision.transform;
+            isThrown = false;
+            OnCollisionWhenThrown?.Invoke();
 
         }
-    }*/
+    }
 
     public override void Interacted(GameObject player)
     {
         if (player.transform.GetComponentInChildren<Glassware>()==null&&(transform.parent==null||transform.parent.GetComponent<Player>()==null)) 
         {
+            OnPicked?.Invoke();
             transform.localRotation = new Quaternion(-90,0,0,0);
             transform.parent = player.transform;
             transform.localPosition = new Vector3(0, 0.5f, 1);

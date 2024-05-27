@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class Heater : Interactable
 {
+    public UnityEvent OnStartHeating;
+    public UnityEvent OnStopHeating;
+    public UnityEvent OnBurning;
+    public UnityEvent OnTakeFrom;
+    public UnityEvent OnSnapGlassware;
+
     SCHeat _heat;
     [SerializeField] private float secondsTillHeated=3;
 
@@ -17,6 +25,7 @@ public class Heater : Interactable
     {
         if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
         {
+            OnSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
@@ -27,6 +36,18 @@ public class Heater : Interactable
 
     IEnumerator Heating()
     {
+        if (transform.GetComponentInChildren<Glassware>().GlasswareSt != Glassware.glasswareState.EMPTY && transform.GetComponentInChildren<Glassware>().GlasswareSt != Glassware.glasswareState.TRASH)
+        {
+            OnStartHeating?.Invoke();
+            if (_heat.Heated.Find(x => x.State[0] == transform.transform.GetComponentInChildren<Glassware>().GlasswareSt).State[1] == Glassware.glasswareState.TRASH)
+            {
+                OnBurning?.Invoke();
+            }
+        }
+        else
+        {
+            OnStopHeating?.Invoke();
+        }
         Debug.Log("Start");
         yield return new WaitForSeconds(secondsTillHeated);
         if (transform.GetComponentInChildren<Glassware>() != null)
@@ -39,15 +60,18 @@ public class Heater : Interactable
     {
         if (transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null)
         {
+            OnTakeFrom?.Invoke();
+            OnStopHeating?.Invoke();
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
         else if (player.transform.GetComponentInChildren<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
         {
+            OnSnapGlassware?.Invoke();
             player.GetComponentInChildren<Glassware>().transform.parent = transform;
             transform.GetComponentInChildren<Glassware>().transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(-90, 0, 0, 0);
             transform.GetComponentInChildren<Glassware>().transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
+            StartCoroutine(Heating());
         }
     }
 }
