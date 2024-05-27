@@ -45,7 +45,7 @@ public class MixingResult : Interactable
             else
             {
                 Debug.Log(_ingr1.transform.GetComponentInChildren<Glassware>().GlasswareSt);
-                if (_ingr1.transform.GetComponentInChildren<Glassware>() != null && _ingr2.GetComponentInChildren<Glassware>() != null)//version provisoire a terme faire avec un scripatble avec une liste avec tous les mélanges et résultats pour les gd.
+                if (_ingr1.transform.GetComponentInChildren<Glassware>() != null && _ingr2.GetComponentInChildren<Glassware>() != null)//version provisoire a terme faire avec un scripatble avec une liste avec tous les mï¿½langes et rï¿½sultats pour les gd.
                 {
                     _glassware1 = _ingr1.transform.GetComponentInChildren<Glassware>();
                     _glassware2 = _ingr2.transform.GetComponentInChildren<Glassware>();
@@ -57,6 +57,9 @@ public class MixingResult : Interactable
                     else
                     {
                         _glassware3.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _glassware1.GlasswareSt && t.State[1] == _glassware2.GlasswareSt).State[2]);
+                        _glassware1.SetGlasswareState(Glassware.glasswareState.EMPTY);
+                        _glassware2.SetGlasswareState(Glassware.glasswareState.EMPTY);
+
                         if (_glassware3.GlasswareSt == Glassware.glasswareState.TRASH)
                         {
                             OnMixBad?.Invoke();

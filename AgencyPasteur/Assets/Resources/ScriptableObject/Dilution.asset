@@ -15,9 +15,5 @@ MonoBehaviour:
   _diluted:
   - _state: 020000000d000000
     _phase1: 2
-    _phase2: 3
-    _max: 4
-  - _state: 0d00000001000000
-    _phase1: 2
-    _phase2: 3
-    _max: 4
+    _phase2: 4
+    _max: 5
