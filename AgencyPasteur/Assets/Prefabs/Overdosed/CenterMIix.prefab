@@ -144,6 +144,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6135e216a2c293042b55d3219bfc1c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnShowInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7141077073642527567}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_material
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: c34ea9ca7268a984b98ffd1ccc8d9fe2, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDontShowInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7141077073642527567}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_material
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: 52b2bc2931639584abc6060002d226bb, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTakeFrom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSnapGlassware:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMixSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMixBad:
+    m_PersistentCalls:
+      m_Calls: []
   _ingr1: {fileID: 0}
   _ingr2: {fileID: 0}
 --- !u!65 &3263828481222282614
@@ -170,5 +212,10 @@ BoxCollider:
 --- !u!4 &5764536392356404450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
+  m_PrefabInstance: {fileID: 5221086163003669257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7141077073642527567 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6093592463355912122, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
   m_PrefabInstance: {fileID: 5221086163003669257}
   m_PrefabAsset: {fileID: 0}
