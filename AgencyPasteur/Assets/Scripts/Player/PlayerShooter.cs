@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class PlayerShooter : MonoBehaviour
 {
-    [HideInInspector] public Glassware glassware;
+    private CinemachineTargetGroup group;
     [HideInInspector] public bool _isDashing;
     [HideInInspector] public bool _isShooting;
     [HideInInspector] public bool _isStopping;
@@ -32,6 +33,13 @@ public class PlayerShooter : MonoBehaviour
     private Vector2 _movementInput;
     private Vector3 _movement;
 
+    private void Awake()
+    {
+        group = FindObjectOfType<CinemachineTargetGroup>();
+        Transform cameraPosition = transform;
+        cameraPosition.rotation = new Quaternion(90, 0, 0, 0);
+        group.AddMember(cameraPosition,1,10);
+    }
     private void Start()
     {
         _weapon = weapon.GUN;
