@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _dashCD = 0.2f;
     [SerializeField] private float _dashDuration = 0.1f;
     [SerializeField] AnimationCurve _curve;
+    private Pause _pauseMenu; 
 
     private Rigidbody _rbOther;
     private Rigidbody _rb;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         isInRange = false;
         _isDashing = false;
+        _pauseMenu = FindObjectOfType<Pause>();
     }
 
     void Update()
@@ -59,6 +61,10 @@ public class Player : MonoBehaviour
         _moveInput = context.ReadValue<Vector2>();
     }
 
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        _pauseMenu.SetPause();
+    }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
