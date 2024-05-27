@@ -33,7 +33,6 @@ public class PlayerManager : MonoBehaviour
             {
                 if (obj.name == prefabName1)
                 {
-                    Debug.Log("checkP1");
                     p1 = true;
                     break;
                 }

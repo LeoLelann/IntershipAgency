@@ -4,19 +4,22 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerFeedBack : MonoBehaviour
+public class PlayerFeedBack : Player
 {
-    public UnityEvent testEvents;
+    public UnityEvent OnDashing;
+    public UnityEvent OnMoving;
+    public UnityEvent OnThrowing;
+    public UnityEvent OnDroping;
     // Start is called before the first frame update
     void Start()
     {
-        testEvents = new UnityEvent();
+        OnMoving = new UnityEvent();
     }
 
     // Update is called once per frame
     void Update()
     {
-        testEvents.Invoke();
+        OnMoving.Invoke();
     }
 
     public void OnPlayerInteract(InputAction.CallbackContext context)
