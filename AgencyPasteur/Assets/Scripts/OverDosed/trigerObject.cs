@@ -16,12 +16,14 @@ public class trigerObject : MonoBehaviour
         {
             Player.isInRange = true;
             Player.range = other.transform.GetComponent<Interactable>();
+            Player.range.OnShowInteract?.Invoke();
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.GetComponent("Interactable")) //Remplacer par machin d'emile
         {
+            Player.range.OnShowInteract?.Invoke();
             Player.isInRange = false;
             Player.range = null;
         }
