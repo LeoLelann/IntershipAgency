@@ -7,7 +7,6 @@ public class Glassware : Interactable
 {
     public UnityEvent OnThrown;
     public UnityEvent OnDrop;
-    public UnityEvent OnSnap;
     public UnityEvent OnChangeState;
     public UnityEvent OnPicked;
     public UnityEvent OnCollisionWhenThrown;
@@ -109,7 +108,8 @@ public class Glassware : Interactable
     }
     private void OnStateValueChange(glasswareState state)
     {
-        switch (state)
+        OnChangeState?.Invoke();
+         switch (state)
         {
             case (glasswareState.EMPTY):
                 GetComponent<MeshRenderer>().material.color = Color.gray;
