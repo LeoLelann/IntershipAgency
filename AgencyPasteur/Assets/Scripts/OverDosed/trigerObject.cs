@@ -23,7 +23,7 @@ public class trigerObject : MonoBehaviour
     {
         if (other.GetComponent("Interactable")) //Remplacer par machin d'emile
         {
-            Player.range.OnShowInteract?.Invoke();
+            other.transform.GetComponent<Interactable>().OnDontShowInteract?.Invoke();
             Player.isInRange = false;
             Player.range = null;
         }

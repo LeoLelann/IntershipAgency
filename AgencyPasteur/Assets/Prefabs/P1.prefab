@@ -231,6 +231,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 547ec1e9-34d7-4256-a42a-a73b5cfdce99
     m_ActionName: Player/Drop[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2654229044966388138}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b5a16448-d0ea-4eb1-b432-1a8a8f8b87d4
+    m_ActionName: Player/Pause[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -336,6 +352,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _pauseMenu: {fileID: 0}
 --- !u!54 &-2576569530647141736
 Rigidbody:
   m_ObjectHideFlags: 0
