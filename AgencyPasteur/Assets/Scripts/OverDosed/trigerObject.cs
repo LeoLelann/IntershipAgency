@@ -10,6 +10,13 @@ public class trigerObject : MonoBehaviour
     {
         Player = transform.parent.GetComponent<Player>();
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent("Interactable"))
+        {
+            Player.range.OnStartShowInteract?.Invoke();
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent("Interactable"))
