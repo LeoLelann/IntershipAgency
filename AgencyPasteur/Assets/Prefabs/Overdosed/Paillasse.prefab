@@ -177,6 +177,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebc06c1478a57d4bad17c8f8f90b235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnShowInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4230741128857128020}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_material
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: 46a5b6b91126b2442b3afab545618b28, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDontShowInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4230741128857128020}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_material
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: 4ba20ae087a097e489ac5b2a69e3c92f, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTakeFrom:
     m_PersistentCalls:
       m_Calls: []
@@ -207,6 +237,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!23 &4230741128857128020 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4227241294716935724, guid: 437c76cab794c2342974f7f61a94e5f0, type: 3}
+  m_PrefabInstance: {fileID: 8076100498166392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8381116687004612251
 PrefabInstance:
   m_ObjectHideFlags: 0

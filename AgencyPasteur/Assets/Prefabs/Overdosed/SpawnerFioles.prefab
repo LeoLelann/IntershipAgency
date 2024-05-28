@@ -415,10 +415,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnShowInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1808074756076501666}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_material
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: 34fd29680933a734f81ad4b586137b1a, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDontShowInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5887530963088372798}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_material
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: ef5093b5c69369145adfcc2f58856eae, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTakeGlassware:
     m_PersistentCalls:
       m_Calls: []
@@ -430,8 +454,18 @@ MonoBehaviour:
       m_Calls: []
   _ressource: {fileID: 6646863356503664476, guid: b2752a860520d7e42897883395cde214, type: 3}
   _limit: 0
+--- !u!23 &1808074756076501666 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8799345099644070733, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+  m_PrefabInstance: {fileID: 2086820471418809873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1981400582443960826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+  m_PrefabInstance: {fileID: 2086820471418809873}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5887530963088372798 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5566825301894273583, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
   m_PrefabInstance: {fileID: 2086820471418809873}
   m_PrefabAsset: {fileID: 0}
