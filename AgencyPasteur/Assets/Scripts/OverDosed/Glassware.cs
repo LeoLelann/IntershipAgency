@@ -144,6 +144,9 @@ public class Glassware : Interactable
             case (glasswareState.HEATED_ACID_STARCH_DILUTED):
                 GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.25f, 0);
                 break;
+            case (glasswareState.WATER):
+                GetComponent<MeshRenderer>().material.color = new Color(0,0.2f,1);
+                break;
         }
     }
 }
