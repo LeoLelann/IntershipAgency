@@ -168,8 +168,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8172849020746995793, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7554657142428582142}
   m_SourcePrefab: {fileID: 100100000, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
+--- !u!1 &3858483177685160737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8172849020746995793, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
+  m_PrefabInstance: {fileID: 4965179969722944368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7554657142428582142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3858483177685160737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!198 &3858483178240751549 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8172849020266659021, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
@@ -188,6 +219,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8768133303093192197, guid: dfc109be104a3b649ba31b4254a71733, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a0131426fa629ba4889b225eed3d845f, type: 2}
     - target: {fileID: -8679921383154817045, guid: dfc109be104a3b649ba31b4254a71733, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -228,10 +263,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6532055803787292656, guid: dfc109be104a3b649ba31b4254a71733, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d9e96fc2d5802945b8c4551d91eb7b6, type: 2}
     - target: {fileID: 919132149155446097, guid: dfc109be104a3b649ba31b4254a71733, type: 3}
       propertyPath: m_Name
-      value: Heater
+      value: Heater 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4227241294716935724, guid: dfc109be104a3b649ba31b4254a71733, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d89a26412cc03ae4fbea90c18d5d838b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -271,6 +314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749ac49766c54fd4abd12c0cbd582f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDontShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
   OnStartHeating:
     m_PersistentCalls:
       m_Calls:
@@ -316,6 +365,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnTakeFrom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSnapGlassware:
+    m_PersistentCalls:
+      m_Calls: []
   secondsTillHeated: 3
 --- !u!65 &2462118622363234957
 BoxCollider:
