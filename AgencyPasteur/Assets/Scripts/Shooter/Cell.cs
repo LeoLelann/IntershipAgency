@@ -7,7 +7,7 @@ public class Cell : MonoBehaviour
     [SerializeField] private bool _playersIn;
     [SerializeField] private bool _spawning;
     [SerializeField] private bool _infected;
-    [SerializeField] private float _spawnCD=10;
+    [SerializeField] private float _spawnCD=5;
     [SerializeField] private GameObject _enemy;
     [SerializeField] private List<Cell> _neighbours;
     [SerializeField] private float _infectedHP=100;
