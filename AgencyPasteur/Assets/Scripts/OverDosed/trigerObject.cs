@@ -21,7 +21,7 @@ public class trigerObject : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent("Interactable")) //Remplacer par machin d'emile
+        if (other.GetComponent("Interactable"))
         {
             other.transform.GetComponent<Interactable>().OnDontShowInteract?.Invoke();
             Player.isInRange = false;
