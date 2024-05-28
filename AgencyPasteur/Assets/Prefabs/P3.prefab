@@ -96,11 +96,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4133890383295239576}
-  - {fileID: 8460958781301941050}
+  - {fileID: 8106416781292909540}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &6044340131591572152
@@ -255,8 +255,8 @@ MonoBehaviour:
   _moveSpeed: 5
   _rotationSpeed: 0.09
   _knockback: 1
-  _dashPower: 400
-  _dashCD: 2
+  _dashPower: 100
+  _dashCD: 0.2
   _dashDuration: 0.1
   _curve:
     serializedVersion: 2
@@ -271,14 +271,59 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.0018475642
-      value: 7.361165
+      time: 0.006486236
+      value: 16.325504
       inSlope: -4.4402614
       outSlope: -4.4402614
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.038719416
+    - serializedVersion: 3
+      time: 0.010485647
+      value: 0.06583786
+      inSlope: -6.581548
+      outSlope: -6.581548
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.08654358
+    - serializedVersion: 3
+      time: 0.026108138
+      value: 0.122087955
+      inSlope: -Infinity
+      outSlope: -Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.040033266
+      value: 19.318718
+      inSlope: -Infinity
+      outSlope: -Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.07196579
+      value: 0.0058541596
+      inSlope: 1.4836547
+      outSlope: 1.4836547
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.073777325
+      value: 14.369582
+      inSlope: 1.149979
+      outSlope: 1.149979
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.08313809
       value: 0.018136531
@@ -318,7 +363,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!1001 &8278148637431956689
+--- !u!1001 &8643954017376392207
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -326,6 +371,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8753928423534717666}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: aac6a4fe82752ce48af16a7cfb1913c8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aac6a4fe82752ce48af16a7cfb1913c8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aac6a4fe82752ce48af16a7cfb1913c8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aac6a4fe82752ce48af16a7cfb1913c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -366,6 +423,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aac6a4fe82752ce48af16a7cfb1913c8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: aac6a4fe82752ce48af16a7cfb1913c8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -379,8 +440,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aac6a4fe82752ce48af16a7cfb1913c8, type: 3}
---- !u!4 &8460958781301941050 stripped
+--- !u!4 &8106416781292909540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aac6a4fe82752ce48af16a7cfb1913c8, type: 3}
-  m_PrefabInstance: {fileID: 8278148637431956689}
+  m_PrefabInstance: {fileID: 8643954017376392207}
   m_PrefabAsset: {fileID: 0}
