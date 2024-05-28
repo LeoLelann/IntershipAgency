@@ -73,6 +73,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFXR2 Firewall A
       objectReference: {fileID: 0}
+    - target: {fileID: 8172849020266659019, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
+      propertyPath: animatedLights.Array.data[0].light
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8172849020266659020, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -159,14 +163,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8172849020746995794, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
       propertyPath: m_Range
-      value: 8.60418
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8172849020746995794, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
       propertyPath: m_Intensity
-      value: 3.283409
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8172849020746995793, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
@@ -230,7 +235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dfc109be104a3b649ba31b4254a71733, type: 3}
       propertyPath: m_Name
-      value: Heater
+      value: Heater 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -271,6 +276,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749ac49766c54fd4abd12c0cbd582f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDontShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
   OnStartHeating:
     m_PersistentCalls:
       m_Calls:
@@ -316,6 +327,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnTakeFrom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSnapGlassware:
+    m_PersistentCalls:
+      m_Calls: []
   secondsTillHeated: 3
 --- !u!65 &2462118622363234957
 BoxCollider:
