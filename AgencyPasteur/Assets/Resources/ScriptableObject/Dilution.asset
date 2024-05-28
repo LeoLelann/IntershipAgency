@@ -17,3 +17,11 @@ MonoBehaviour:
     _phase1: 2
     _phase2: 4
     _max: 5
+  - _state: 0300000001000000
+    _phase1: 3
+    _phase2: 4
+    _max: 5
+  - _state: 0400000001000000
+    _phase1: 3
+    _phase2: 4
+    _max: 5
