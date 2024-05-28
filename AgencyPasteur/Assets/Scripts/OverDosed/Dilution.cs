@@ -76,12 +76,16 @@ public class Dilution : Interactable
                             break;
                     
                 }
-            }
-            
+            } 
         }
         else
         {
             OnInteractFailed?.Invoke();
         }
+    }
+    public void ResetDilution()
+    {
+        _diluting = false;
+        _count = 0;
     }
 }
