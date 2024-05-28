@@ -115,7 +115,7 @@ public class Glassware : Interactable
                 GetComponent<MeshRenderer>().material.color = Color.gray;
                 break;
             case (glasswareState.ACID):
-                GetComponent<MeshRenderer>().material.color = Color.yellow;
+                GetComponent<MeshRenderer>().material.color = new Color(1,0.9f,0);
                 break;
             case (glasswareState.STARCH):
                 GetComponent<MeshRenderer>().material.color = Color.white;
@@ -137,6 +137,12 @@ public class Glassware : Interactable
                 break;
             case (glasswareState.THICK_POWDER):
                 GetComponent<MeshRenderer>().material.color = Color.green;
+                break;
+            case (glasswareState.ACID_DILUTED):
+                GetComponent<MeshRenderer>().material.color = new Color(1,1,0.6f);
+                break;
+            case (glasswareState.HEATED_ACID_STARCH_DILUTED):
+                GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.25f, 0);
                 break;
         }
     }
