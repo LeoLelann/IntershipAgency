@@ -471,7 +471,13 @@ MonoBehaviour:
   OnSnapGlassware:
     m_PersistentCalls:
       m_Calls: []
+  _label: {fileID: 1808074756076501666}
   element: 0
+--- !u!23 &1808074756076501666 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8799345099644070733, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+  m_PrefabInstance: {fileID: 2086820471418809873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1981400582443960826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}

@@ -9,6 +9,8 @@ public class SpawnerElement : Interactable
     public UnityEvent OnElementTaken; 
     public UnityEvent OnTakeFrom;
     public UnityEvent OnSnapGlassware;
+
+    [SerializeField] private MeshRenderer _label;
     public enum Elements
     {
         TALC,
@@ -59,26 +61,18 @@ public class SpawnerElement : Interactable
     {
         switch (state)
         {
-            case (Elements.ACID):
-                MeshRenderer[] mesh = GetComponentsInChildren<MeshRenderer>();
-                foreach(MeshRenderer m in mesh)
-                {
-                    m.material.color = Color.yellow;
-                }
+            case (Elements.ACID):                
+                    _label.material.color = Color.yellow;       
                 break;
             case (Elements.STARCH):
-                MeshRenderer[] mesh2 = GetComponentsInChildren<MeshRenderer>();
-                foreach (MeshRenderer m in mesh2)
-                {
-                    m.material.color = new Color(1,0.75f,0.8f);
-                }
+                
+                    _label.material.color = new Color(1,0.75f,0.8f);
+                
                 break;
             case (Elements.TALC):
-                MeshRenderer[] mesh3 = GetComponentsInChildren<MeshRenderer>();
-                foreach (MeshRenderer m in mesh3)
-                {
-                    m.material.color = Color.blue;
-                }
+                
+                    _label.material.color = Color.blue;
+                
                 break;
          }
     }
