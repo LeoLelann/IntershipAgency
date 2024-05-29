@@ -40,6 +40,7 @@ public class MixingResult : Interactable
             if ((transform.GetComponentInChildren<Glassware>() != null && player.transform.GetComponentInChildren<Glassware>() == null && _glassware3.GlasswareSt != Glassware.glasswareState.EMPTY) || (_ingr1.transform.GetComponentInChildren<Glassware>() == null) || (_ingr2.transform.GetComponentInChildren<Glassware>() == null))
             {
                 OnTakeFrom?.Invoke();
+                Debug.Log("Pourquoi je suis là?");
                 transform.GetComponentInChildren<Glassware>().Interacted(player);
             }
             else
@@ -51,6 +52,7 @@ public class MixingResult : Interactable
                     if (_glassware1.GlasswareSt == Glassware.glasswareState.EMPTY || _glassware2.GlasswareSt == Glassware.glasswareState.EMPTY)
                     {
                         OnTakeFrom?.Invoke();
+                        Debug.Log("Pourquoi je suis là?");
                         transform.GetComponentInChildren<Glassware>().Interacted(player);
                     }
                     else
