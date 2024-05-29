@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     [HideInInspector] public Glassware glassware;
     [HideInInspector] public Interactable range;
+    private Interactable book;
 
     [HideInInspector] public bool isInRange;
     [HideInInspector] public bool _isDashing;
@@ -28,10 +29,13 @@ public class Player : MonoBehaviour
     private Rigidbody _rb;
     private Vector2 _moveInput;
     private Vector3 _moveDirection;
+    private PlayerInput _playerInput;
 
     private void Start()
     {
+        _playerInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody>();
+        book = GetComponent<Interactable>();
         isInRange = false;
         _isDashing = false;
         _pauseMenu = FindObjectOfType<Pause>();
@@ -69,6 +73,10 @@ public class Player : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext context)
     {
         context.ReadValue<bool>();
+        if (book.name == "Book")
+        {
+            _playerInput.SwitchCurrentActionMap("UI");
+        }
         if (/*context.performed && */isInRange) //Attrape un objet
         {
             range.Interacted(gameObject);
