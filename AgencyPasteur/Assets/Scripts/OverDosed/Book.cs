@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class Book : Interactable
 {
-    UnityEvent OnInteractedOpen;
-    UnityEvent OnInteractedClose;
+    [SerializeField]UnityEvent OnInteractedOpen;
+    [SerializeField] UnityEvent OnInteractedClose;
 
     [SerializeField] GameObject BookUI;
      public override void Interacted(GameObject Player)

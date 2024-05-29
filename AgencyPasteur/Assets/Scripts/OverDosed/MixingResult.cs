@@ -44,8 +44,7 @@ public class MixingResult : Interactable
             }
             else
             {
-                Debug.Log(_ingr1.transform.GetComponentInChildren<Glassware>().GlasswareSt);
-                if (_ingr1.transform.GetComponentInChildren<Glassware>() != null && _ingr2.GetComponentInChildren<Glassware>() != null)//version provisoire a terme faire avec un scripatble avec une liste avec tous les m�langes et r�sultats pour les gd.
+                if (_ingr1.transform.GetComponentInChildren<Glassware>() != null && _ingr2.GetComponentInChildren<Glassware>() != null)
                 {
                     _glassware1 = _ingr1.transform.GetComponentInChildren<Glassware>();
                     _glassware2 = _ingr2.transform.GetComponentInChildren<Glassware>();
