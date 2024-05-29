@@ -70,7 +70,7 @@ public class SpawnerElement : Interactable
                 MeshRenderer[] mesh2 = GetComponentsInChildren<MeshRenderer>();
                 foreach (MeshRenderer m in mesh2)
                 {
-                    m.material.color = Color.white;
+                    m.material.color = new Color(1,0.75f,0.8f);
                 }
                 break;
             case (Elements.TALC):
