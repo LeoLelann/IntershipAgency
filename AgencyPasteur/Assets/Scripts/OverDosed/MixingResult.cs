@@ -30,6 +30,9 @@ public class MixingResult : Interactable
         Glassware in1Glassware = _ingr1.GetComponentInChildren<Glassware>();
         Glassware in2Glassware = _ingr2.GetComponentInChildren<Glassware>();
         Debug.Log(currentGlassware);
+        Debug.Log(playerGlassware);
+        Debug.Log(in1Glassware);
+        Debug.Log(in2Glassware);
          if (playerGlassware != null && currentGlassware == null)
         {
             OnSnapGlassware?.Invoke();
