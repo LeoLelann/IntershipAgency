@@ -695,6 +695,9 @@ MonoBehaviour:
   OnStartShowInteract:
     m_PersistentCalls:
       m_Calls: []
+  OnStartShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
   OnValidate:
     m_PersistentCalls:
       m_Calls:
