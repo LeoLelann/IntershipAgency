@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     private static GameManager instance = null;
     public static GameManager Instance => instance;
 
+    public List<Glassware.glasswareState> Found { get => _found;}
+
+    [SerializeField] private GameObject _book;
     private gamePhase _currentPhase;
     public enum gamePhase
     {
@@ -16,6 +19,7 @@ public class GameManager : MonoBehaviour
         SHOOTER,
         MENUS,
     }
+    [SerializeField] private List<AddToBook> _floatingPages = new List<AddToBook>();
     [SerializeField] private List<Glassware.glasswareState> _found = new List<Glassware.glasswareState>();
     [SerializeField]private List<Glassware.glasswareState> _neededGlasswareP1=new List<Glassware.glasswareState>();
     [SerializeField]private List<Glassware.glasswareState> _neededGlasswareP2=new List<Glassware.glasswareState>();
@@ -44,7 +48,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _currentPhase = gamePhase.PARTY_GAME_1;
+        _found.Clear();
         _found.Add(Glassware.glasswareState.EMPTY);
         _found.Add(Glassware.glasswareState.ACID);
         _found.Add(Glassware.glasswareState.WATER);
@@ -77,12 +81,18 @@ public class GameManager : MonoBehaviour
         }
         DisplayRightComponent();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void AddElement(Glassware.glasswareState state)
     {
-        
+        _found.Add(state);
+        foreach(AddToBook pages in _floatingPages)
+        {
+            if (pages.GlasswareState == state)
+            {
+                pages.gameObject.SetActive(true);
+            }
+        }
     }
+   
     private void DisplayRightComponent()
     {
         for(int i =0;i<_neededGlasswareType.Count;i++)
