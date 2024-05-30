@@ -70,13 +70,15 @@ public class Glassware : Interactable
         isThrown = true;
         _rgbd.constraints = RigidbodyConstraints.None;
         _rgbd.velocity = new Vector3(transform.parent.transform.forward.x * _throwPower, 0.1f, transform.parent.transform.forward.z * _throwPower);
-        transform.parent = null;                                         
+        transform.parent = null;
+        transform.GetComponent<Collider>().enabled = true;
     }
     public void Drop()
     {
         OnDrop?.Invoke();
         transform.parent = null;
         _rgbd.constraints = RigidbodyConstraints.None;
+        transform.GetComponent<Collider>().enabled = true;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -99,6 +101,7 @@ public class Glassware : Interactable
             transform.localPosition = new Vector3(0, 0.5f, 1);
            _rgbd.constraints = RigidbodyConstraints.FreezeAll;
             _parentTransform = GetComponentInParent<Transform>();
+            transform.GetComponent<Collider>().enabled = false;
         }
     }
     public void SetGlasswareState(glasswareState state)
