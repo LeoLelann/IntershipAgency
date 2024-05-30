@@ -104,6 +104,11 @@ public class Glassware : Interactable
     public void SetGlasswareState(glasswareState state)
     {
         _glasswareSt = state;
+        if (!GameManager.Instance.Found.Contains(state))
+        {
+            GameManager.Instance.AddElement(state);
+            Debug.Log("w");
+        }
         OnStateValueChange(_glasswareSt);
     }
     private void OnStateValueChange(glasswareState state)
@@ -118,7 +123,7 @@ public class Glassware : Interactable
                 GetComponent<MeshRenderer>().material.color = new Color(1,0.9f,0);
                 break;
             case (glasswareState.STARCH):
-                GetComponent<MeshRenderer>().material.color = Color.white;
+                GetComponent<MeshRenderer>().material.color = new Color(1, 0.75f, 0.8f); ;
                 break;
             case (glasswareState.TALC):
                 GetComponent<MeshRenderer>().material.color = Color.blue;

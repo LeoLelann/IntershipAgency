@@ -55,6 +55,10 @@ public class Heater : Interactable
             transform.GetComponentInChildren<Glassware>().SetGlasswareState( _heat.Heated.Find(x => x.State[0] == transform.transform.GetComponentInChildren<Glassware>().GlasswareSt).State[1]);
             StartCoroutine(Heating());
         }
+        else
+        {
+            OnStopHeating?.Invoke();
+        }
     }
     public override void Interacted(GameObject player)
     {
