@@ -13,9 +13,9 @@ public class MixingResult : Interactable
 
     [SerializeField] private Paillaisse _ingr1;
     [SerializeField] private Paillaisse _ingr2;
-    private Glassware _glassware1;
-    private Glassware _glassware2;
-    private Glassware _glassware3;
+    private Glassware _in1;
+    private Glassware _in2;
+    private Glassware _out;
     private SCMix _mix;
     private void Start()
     {
@@ -25,19 +25,25 @@ public class MixingResult : Interactable
     }
     public override void Interacted(GameObject player)
     {
-         if (player.transform.GetComponentInChildren<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
+        Glassware playerGlassware = player.GetComponentInChildren<Glassware>();
+        Glassware currentGlassware = GetComponentInChildren<Glassware>();
+        Glassware in1Glassware = _ingr1.GetComponentInChildren<Glassware>();
+        Glassware in2Glassware = _ingr2.GetComponentInChildren<Glassware>();
+        Debug.Log(currentGlassware);
+         if (playerGlassware != null && currentGlassware == null)
         {
             OnSnapGlassware?.Invoke();
-            player.GetComponentInChildren<Glassware>().transform.parent = transform;
-            transform.GetComponentInChildren<Glassware>().transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(-90, 0, 0, 0);
-            transform.GetComponentInChildren<Glassware>().transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            playerGlassware.transform.parent = transform;
+            currentGlassware = playerGlassware;
+            currentGlassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+            currentGlassware.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            currentGlassware.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         }
         else
         {
-            _glassware3 = GetComponentInChildren<Glassware>();
-            if ((transform.GetComponentInChildren<Glassware>() != null && player.transform.GetComponentInChildren<Glassware>() == null && _glassware3.GlasswareSt != Glassware.glasswareState.EMPTY) || (_ingr1.transform.GetComponentInChildren<Glassware>() == null) || (_ingr2.transform.GetComponentInChildren<Glassware>() == null))
+           _out = GetComponentInChildren<Glassware>();
+            if ((currentGlassware != null && playerGlassware == null && _out.GlasswareSt != Glassware.glasswareState.EMPTY) || (in1Glassware == null) || (in2Glassware == null))
             {
                 OnTakeFrom?.Invoke();
                 Debug.Log("Pourquoi je suis là?");
@@ -45,23 +51,23 @@ public class MixingResult : Interactable
             }
             else
             {
-                if (_ingr1.transform.GetComponentInChildren<Glassware>() != null && _ingr2.GetComponentInChildren<Glassware>() != null)
+                if ( in1Glassware!= null && in2Glassware != null)
                 {
-                    _glassware1 = _ingr1.transform.GetComponentInChildren<Glassware>();
-                    _glassware2 = _ingr2.transform.GetComponentInChildren<Glassware>();
-                    if (_glassware1.GlasswareSt == Glassware.glasswareState.EMPTY || _glassware2.GlasswareSt == Glassware.glasswareState.EMPTY)
+                    _in1 = in1Glassware;
+                    _in2 = in2Glassware;
+                    if (_in1.GlasswareSt == Glassware.glasswareState.EMPTY || _in2.GlasswareSt == Glassware.glasswareState.EMPTY)
                     {
                         OnTakeFrom?.Invoke();
-                        Debug.Log("Pourquoi je suis là?");
+                        Debug.Log("Pourquoi je suis là2?");
                         transform.GetComponentInChildren<Glassware>().Interacted(player);
                     }
                     else
                     {
-                        _glassware3.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _glassware1.GlasswareSt && t.State[1] == _glassware2.GlasswareSt).State[2]);
-                        _glassware1.SetGlasswareState(Glassware.glasswareState.EMPTY);
-                        _glassware2.SetGlasswareState(Glassware.glasswareState.EMPTY);
+                        _out.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _in1.GlasswareSt && t.State[1] == _in2.GlasswareSt).State[2]);
+                        _in1.SetGlasswareState(Glassware.glasswareState.EMPTY);
+                        _in2.SetGlasswareState(Glassware.glasswareState.EMPTY);
 
-                        if (_glassware3.GlasswareSt == Glassware.glasswareState.TRASH)
+                        if (_out.GlasswareSt == Glassware.glasswareState.TRASH)
                         {
                             OnMixBad?.Invoke();
                         }
@@ -76,7 +82,7 @@ public class MixingResult : Interactable
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
+        if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && GetComponentInChildren<Glassware>() == null)
         {
             OnSnapGlassware?.Invoke();
             collision.transform.parent = transform;

@@ -307,7 +307,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 7176481086608247030}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
       insertIndex: -1
@@ -320,6 +320,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3263828481222282614}
   m_SourcePrefab: {fileID: 100100000, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
+--- !u!1 &3744867894814862224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -320468393180393319, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
+  m_PrefabInstance: {fileID: 5221086163003669257}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4950704906899506776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
@@ -340,12 +345,12 @@ MonoBehaviour:
   OnShowInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7141077073642527567}
+      - m_Target: {fileID: 3744867894814862224}
         m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: c34ea9ca7268a984b98ffd1ccc8d9fe2, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: 46a5b6b91126b2442b3afab545618b28, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -367,7 +372,7 @@ MonoBehaviour:
   OnDontShowInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7141077073642527567}
+      - m_Target: {fileID: 3744867894814862224}
         m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
         m_MethodName: set_material
         m_Mode: 2
@@ -432,10 +437,5 @@ BoxCollider:
 --- !u!4 &5764536392356404450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
-  m_PrefabInstance: {fileID: 5221086163003669257}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &7141077073642527567 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -6093592463355912122, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
   m_PrefabInstance: {fileID: 5221086163003669257}
   m_PrefabAsset: {fileID: 0}
