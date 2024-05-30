@@ -7,9 +7,9 @@ public class Glassware : Interactable
 {
     public UnityEvent OnThrown;
     public UnityEvent OnDrop;
-    public UnityEvent OnSnap;
     public UnityEvent OnChangeState;
     public UnityEvent OnPicked;
+    public UnityEvent OnCollisionWhenThrown;
 
     public enum glasswareState
     {
@@ -67,6 +67,7 @@ public class Glassware : Interactable
     public void Thrown()
     {
         OnThrown?.Invoke();
+        isThrown = true;
         _rgbd.constraints = RigidbodyConstraints.None;
         _rgbd.velocity = new Vector3(transform.parent.transform.forward.x * _throwPower, 0.1f, transform.parent.transform.forward.z * _throwPower);
         transform.parent = null;                                         
@@ -78,15 +79,15 @@ public class Glassware : Interactable
         _rgbd.constraints = RigidbodyConstraints.None;
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.GetComponent<Player>()!=null)
+        if (isThrown)
         {
-            if(collision.transform.GetComponentInChildren<Glassware>()==null)
-            transform.parent = collision.transform;
+            isThrown = false;
+            OnCollisionWhenThrown?.Invoke();
 
         }
-    }*/
+    }
 
     public override void Interacted(GameObject player)
     {
@@ -107,16 +108,17 @@ public class Glassware : Interactable
     }
     private void OnStateValueChange(glasswareState state)
     {
-        switch (state)
+        OnChangeState?.Invoke();
+         switch (state)
         {
             case (glasswareState.EMPTY):
                 GetComponent<MeshRenderer>().material.color = Color.gray;
                 break;
             case (glasswareState.ACID):
-                GetComponent<MeshRenderer>().material.color = Color.yellow;
+                GetComponent<MeshRenderer>().material.color = new Color(1,0.9f,0);
                 break;
             case (glasswareState.STARCH):
-                GetComponent<MeshRenderer>().material.color = Color.white;
+                GetComponent<MeshRenderer>().material.color = new Color(1, 0.75f, 0.8f); ;
                 break;
             case (glasswareState.TALC):
                 GetComponent<MeshRenderer>().material.color = Color.blue;
@@ -135,6 +137,15 @@ public class Glassware : Interactable
                 break;
             case (glasswareState.THICK_POWDER):
                 GetComponent<MeshRenderer>().material.color = Color.green;
+                break;
+            case (glasswareState.ACID_DILUTED):
+                GetComponent<MeshRenderer>().material.color = new Color(1,1,0.6f);
+                break;
+            case (glasswareState.HEATED_ACID_STARCH_DILUTED):
+                GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.25f, 0);
+                break;
+            case (glasswareState.WATER):
+                GetComponent<MeshRenderer>().material.color = new Color(0,0.2f,1);
                 break;
         }
     }

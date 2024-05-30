@@ -32,9 +32,6 @@ public class ValidationTable : Interactable
     }
     public override void Interacted(GameObject player)
     {
-        Debug.Log(transform.GetComponentInChildren<Glassware>() == null && player.transform.GetComponent<Glassware>() != null);
-        Debug.Log(transform.GetComponentInChildren<Glassware>() == null);
-        Debug.Log(player.transform.GetComponent<Glassware>() != null);
         if (transform.GetComponentInChildren<Glassware>() != null && player.transform.GetComponentInChildren<Glassware>() == null)
         {
             transform.GetComponentInChildren<Glassware>().Interacted(player);

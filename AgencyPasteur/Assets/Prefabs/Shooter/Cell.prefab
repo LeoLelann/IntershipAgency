@@ -130,7 +130,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e1b321af3f6afe449b53998d30e2b641, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
   _spawning: 0
   _infected: 1
   _spawnCD: 10
-  _enemy: {fileID: 0}
+  _enemy: {fileID: 415608668974393818, guid: ace125f08930ab043b00171d650585ec, type: 3}
   _neighbours: []
   _infectedHP: 100
   _currentHP: 0

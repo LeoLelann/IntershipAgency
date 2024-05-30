@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class PlayerShooter : MonoBehaviour
 {
-    [HideInInspector] public Glassware glassware;
+    private CinemachineTargetGroup group;
     [HideInInspector] public bool _isDashing;
     [HideInInspector] public bool _isShooting;
     [HideInInspector] public bool _isStopping;
@@ -16,6 +17,7 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private float _dashPower = 25f;
     [SerializeField] private float _dashCD = 2f;
     [SerializeField] private float _dispersion=0.1f;
+    [SerializeField] private float _health = 10;
      private float _cdShoot=0;
     [SerializeField] weapon _weapon;
     [SerializeField] GameObject _projectile;
@@ -32,6 +34,12 @@ public class PlayerShooter : MonoBehaviour
     private Vector2 _movementInput;
     private Vector3 _movement;
 
+    private void Awake()
+    {
+        /*group = FindObjectOfType<CinemachineTargetGroup>();
+        cameraPosition.rotation = new Quaternion(90, 0, 0, 0);
+        group.AddMember(cameraPosition,1,10);*/
+    }
     private void Start()
     {
         _weapon = weapon.GUN;
@@ -102,6 +110,14 @@ public class PlayerShooter : MonoBehaviour
         {
             StopAllCoroutines();
             StartCoroutine(StopShooting(_cdShoot));
+        }
+    }
+    public void TakeDmg(int dmg)
+    {
+        _health -= dmg;
+        if (_health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
     IEnumerator StopShooting(float cooldown)

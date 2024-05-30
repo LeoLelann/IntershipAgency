@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnerElement : Interactable
 {
+    public UnityEvent OnNoGlasswareToTakeElement;
+    public UnityEvent OnElementTaken; 
+    public UnityEvent OnTakeFrom;
+    public UnityEvent OnSnapGlassware;
+
+    [SerializeField] private MeshRenderer _label;
     public enum Elements
     {
         TALC,
@@ -22,7 +29,7 @@ public class SpawnerElement : Interactable
 
         if (transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null)
         {
-            Debug.Log("feur2");
+            OnTakeFrom?.Invoke();
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
         else
@@ -41,10 +48,11 @@ public class SpawnerElement : Interactable
                         player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.STARCH);
                         break;
                 }
+                OnElementTaken?.Invoke();
             }
             else
             {
-                //feedback négatif pour faire comprendre le manque de verrerie ou verrerie pleine
+                OnNoGlasswareToTakeElement?.Invoke();
             }
         }
         
@@ -53,26 +61,18 @@ public class SpawnerElement : Interactable
     {
         switch (state)
         {
-            case (Elements.ACID):
-                MeshRenderer[] mesh = GetComponentsInChildren<MeshRenderer>();
-                foreach(MeshRenderer m in mesh)
-                {
-                    m.material.color = Color.yellow;
-                }
+            case (Elements.ACID):                
+                    _label.material.color = Color.yellow;       
                 break;
             case (Elements.STARCH):
-                MeshRenderer[] mesh2 = GetComponentsInChildren<MeshRenderer>();
-                foreach (MeshRenderer m in mesh2)
-                {
-                    m.material.color = Color.white;
-                }
+                
+                    _label.material.color = new Color(1,0.75f,0.8f);
+                
                 break;
             case (Elements.TALC):
-                MeshRenderer[] mesh3 = GetComponentsInChildren<MeshRenderer>();
-                foreach (MeshRenderer m in mesh3)
-                {
-                    m.material.color = Color.blue;
-                }
+                
+                    _label.material.color = Color.blue;
+                
                 break;
          }
     }
@@ -80,6 +80,7 @@ public class SpawnerElement : Interactable
     {
         if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
         {
+            OnSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             collision.transform.rotation = new Quaternion(-90, 0, 0, 0);

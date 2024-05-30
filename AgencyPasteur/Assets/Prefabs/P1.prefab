@@ -122,7 +122,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.47
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -231,6 +231,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 547ec1e9-34d7-4256-a42a-a73b5cfdce99
     m_ActionName: Player/Drop[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2654229044966388138}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b5a16448-d0ea-4eb1-b432-1a8a8f8b87d4
+    m_ActionName: Player/Pause[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -255,8 +271,9 @@ MonoBehaviour:
   _moveSpeed: 5
   _rotationSpeed: 0.09
   _knockback: 1
-  _dashPower: 400
-  _dashCD: 2
+  _dashPower: 100
+  _dashCD: 0.2
+  _dashDuration: 0.1
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -270,14 +287,59 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.0018475642
-      value: 7.361165
+      time: 0.006486236
+      value: 16.325504
       inSlope: -4.4402614
       outSlope: -4.4402614
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.038719416
+    - serializedVersion: 3
+      time: 0.010485647
+      value: 0.06583786
+      inSlope: -6.581548
+      outSlope: -6.581548
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.08654358
+    - serializedVersion: 3
+      time: 0.026108138
+      value: 0.122087955
+      inSlope: -Infinity
+      outSlope: -Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.040033266
+      value: 19.318718
+      inSlope: -Infinity
+      outSlope: -Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.07196579
+      value: 0.0058541596
+      inSlope: 1.4836547
+      outSlope: 1.4836547
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.073777325
+      value: 14.369582
+      inSlope: 1.149979
+      outSlope: 1.149979
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.08313809
       value: 0.018136531
@@ -290,6 +352,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _pauseMenu: {fileID: 0}
 --- !u!54 &-2576569530647141736
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -325,6 +388,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8753928423534717666}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -365,6 +440,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8311c13a029dcbc478a2bdbdb2544071, type: 2}
     - target: {fileID: 919132149155446097, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
       propertyPath: m_Name
       value: Chat_PlaceHolder
