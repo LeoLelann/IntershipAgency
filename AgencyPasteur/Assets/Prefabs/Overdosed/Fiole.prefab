@@ -248,7 +248,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 047d9b71f14c10d408b952e37dc8018c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ef5093b5c69369145adfcc2f58856eae, type: 2}
+      objectReference: {fileID: 2100000, guid: 44699bfc4a4ee724ea5b67e5c6c225c1, type: 2}
     - target: {fileID: 919132149155446097, guid: 047d9b71f14c10d408b952e37dc8018c, type: 3}
       propertyPath: m_Name
       value: Fiole
@@ -349,6 +349,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279c615683332934a9bf1b1147004a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDontShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
   OnThrown:
     m_PersistentCalls:
       m_Calls: []
