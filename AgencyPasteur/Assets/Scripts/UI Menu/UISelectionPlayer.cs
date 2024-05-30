@@ -38,4 +38,10 @@ public class UISelectionPlayer : MonoBehaviour
             
         }
     }
+
+    private void OnClick(Button _btn)
+    {
+        _btn.gameObject.SetActive(false);
+        //_input.actionMap.controlSchemes + ;
+    }
 }

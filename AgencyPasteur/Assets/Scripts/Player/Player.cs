@@ -8,12 +8,12 @@ public class Player : MonoBehaviour
 {
     [HideInInspector] public Glassware glassware;
     [HideInInspector] public Interactable range;
-    private Interactable book;
 
-    [HideInInspector] public bool isInRange;
-    [HideInInspector] public bool _isDashing;
-    private bool _canDash;
+    [HideInInspector] public bool isInRange { get; set; }
+    [HideInInspector] public bool _isDashing { get; private set; }
+
     [Header("Deplacement")]
+    private float _moveSpeedMax;
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _rotationSpeed = 0.09f;
     [SerializeField] private float _knockback = 1f;
@@ -23,31 +23,53 @@ public class Player : MonoBehaviour
     [SerializeField] private float _dashCD = 0.2f;
     [SerializeField] private float _dashDuration = 0.1f;
     [SerializeField] AnimationCurve _curve;
-    private Pause _pauseMenu; 
+    private bool _canDash;
 
+    private Pause _pauseMenu; 
+    [SerializeField] private Book _book;
+    [SerializeField] private GameObject _bookUI;
+
+    [SerializeField] private Rigidbody _rb;
     private Rigidbody _rbOther;
-    private Rigidbody _rb;
     private Vector2 _moveInput;
     private Vector3 _moveDirection;
     private PlayerInput _playerInput;
+    //private InputActionMap _movementActionMap;
+    //private InputActionMap _uiActionMap;
+
+    [SerializeField] InputActionReference _inputFromUI;
+    [SerializeField] InputActionReference _inputFromGameplay;
+
+
 
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
+        SwitchToGameplay();
         _rb = GetComponent<Rigidbody>();
-        book = GetComponent<Interactable>();
         isInRange = false;
         _isDashing = false;
         _pauseMenu = FindObjectOfType<Pause>();
+        //_movementActionMap = _playerInput.actions.FindActionMap("Player");
+        //_uiActionMap = _playerInput.actions.FindActionMap("UI");
     }
 
     void Update()
     {
-
         if (!_isDashing)
         {
             Move();
         }
+    }
+    void SwitchToGameplay()
+    {
+        _inputFromUI.action.actionMap.Disable();
+        _inputFromGameplay.action.actionMap.Enable();
+    }
+    void SwitchToUI()
+    {
+        _inputFromUI.action.actionMap.Enable();
+        _inputFromGameplay.action.actionMap.Disable();
     }
     private void Move()
     {
@@ -72,38 +94,46 @@ public class Player : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        context.ReadValue<bool>();
-        if (book.name == "Book")
+        if (context.started)
         {
-            _playerInput.SwitchCurrentActionMap("UI");
-        }
-        if (/*context.performed && */isInRange) //Attrape un objet
-        {
-            range.Interacted(gameObject);
+            if (_bookUI.activeInHierarchy && _book) // Interact with book
+            {
+                Debug.Log("book");
+                //_playerInput.SwitchCurrentActionMap("UI");
+                _moveSpeed = 0f;
+                SwitchToUI();
+            }
+            else if (!_bookUI.activeInHierarchy && _book)
+            {
+                _moveSpeed = _moveSpeedMax;
+                SwitchToGameplay();
+                //_playerInput.SwitchCurrentActionMap("Movement");
+            }
+
+            if (isInRange && range != null)
+            {
+                range.Interacted(gameObject);
+            }
         }
     }
 
     public void OnDrop(InputAction.CallbackContext context)
     {
-        context.ReadValue<bool>();
-        if (transform.GetChild(1).parent != null)
+        if (transform.GetChild(1).parent != null && context.started)
         {
             GetComponentInChildren<Glassware>().Drop();
         }
     }
     public void OnThrow(InputAction.CallbackContext context)
     {
-        context.ReadValue<bool>();
-
-        if (transform.GetChild(1).parent != null)
+        if (transform.GetChild(1).parent != null && context.canceled)
         {
             GetComponentInChildren<Glassware>().Thrown();
         }
     }
     public void OnDash(InputAction.CallbackContext context)
     {
-        context.ReadValue<bool>();
-        if (/*context.performed && */!_isDashing)
+        if (/*context.performed && */!_isDashing && context.started)
         {
             StartCoroutine(Dash());
         }
@@ -115,10 +145,10 @@ public class Player : MonoBehaviour
             _rbOther = collision.gameObject.GetComponent<Rigidbody>();
             StartCoroutine(Percute());
         }
-        else if (_isDashing)
+/*        else if (_isDashing) //percuter un mur
         {
-            //percuter un mur
-        }
+            
+        }*/
     }
     /*IEnumerator Dash()
     {
@@ -150,18 +180,17 @@ public class Player : MonoBehaviour
 
         for (float elapsed = 0; elapsed < _dashDuration; elapsed += Time.deltaTime)
         {
-            Debug.Log(elapsed);
             float t = elapsed / _dashDuration;
             float curveValue = _curve.Evaluate(t);
-            transform.position = Vector3.Lerp(startPosition, endPosition, curveValue);
-            yield return null; // Wait until the next frame
+            //transform.position = Vector3.Lerp(startPosition, endPosition, curveValue);
+            _rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
+            yield return new WaitForSeconds(Time.deltaTime);
         }
 
-        transform.position = endPosition; // Ensure the final position is set
+        transform.position = endPosition;
 
         _isDashing = false;
 
-        // Wait for the cooldown period before allowing another dash
         yield return new WaitForSeconds(_dashCD);
         _canDash = true;
     }
