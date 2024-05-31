@@ -443,20 +443,21 @@ MonoBehaviour:
   OnStartShowInteract:
     m_PersistentCalls:
       m_Calls: []
-  OnTakeFrom:
+  _onTakeFrom:
     m_PersistentCalls:
       m_Calls: []
-  OnSnapGlassware:
+  _onSnapGlassware:
     m_PersistentCalls:
       m_Calls: []
-  OnMixSuccess:
+  _onMixSuccess:
     m_PersistentCalls:
       m_Calls: []
-  OnMixBad:
+  _onMixBad:
     m_PersistentCalls:
       m_Calls: []
   _ingr1: {fileID: 0}
   _ingr2: {fileID: 0}
+  _mix: {fileID: 11400000, guid: dba822e5ebff14f4ab05095035cd7456, type: 2}
 --- !u!65 &3263828481222282614
 BoxCollider:
   m_ObjectHideFlags: 0

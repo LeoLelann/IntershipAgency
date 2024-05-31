@@ -6,15 +6,14 @@ using UnityEngine.UI;
 
 public class Dilution : Interactable
 {
-     public UnityEvent OnInteractFailed;
-     public UnityEvent OnInteracted;
-     public UnityEvent OnAlreadyDiluted;
-     public UnityEvent OnTooDiluted;
+    [SerializeField]private UnityEvent _onInteractFailed;
+    [SerializeField] private UnityEvent _onInteracted;
+     [SerializeField] private UnityEvent _onAlreadyDiluted;
+    [SerializeField] private UnityEvent _onTooDiluted;
 
     // Start is called before the first frame update
-    private Glassware.glasswareState _state;
-   private Glassware.glasswareState _experimentState;
-    SCDilution _dilute;
+  
+    [SerializeField]SCDilution _dilute;
     [SerializeField]private int _phase1=6;
     [SerializeField]private int _phase2=8;
     [SerializeField]private int _max=10;
@@ -22,12 +21,8 @@ public class Dilution : Interactable
     private int _count;
     void Start()
     {
-        _state=Glassware.glasswareState.WATER;
-        _experimentState=Glassware.glasswareState.EMPTY;
         _count = 0;
         _diluting = false;
-        SCDilution path = Resources.Load<SCDilution>("ScriptableObject/Dilution");
-        _dilute = path;
     }
 
     // Update is called once per frame
@@ -37,35 +32,36 @@ public class Dilution : Interactable
     }
     public override void Interacted(GameObject player)
     {
-        if ( player.transform.GetComponentInChildren<Glassware>() != null)
+       Glassware _playerGlassware= player.GetComponentInChildren<Glassware>();
+        if (_playerGlassware != null)
         {
-             if(player.transform.GetComponentInChildren<Glassware>().GlasswareSt != Glassware.glasswareState.EMPTY)
+             if(_playerGlassware.GlasswareSt != Glassware.glasswareState.EMPTY)
             {
                 if (_diluting == false)
                 {
                     _diluting = true;
-                    _phase1 = _dilute.Diluted.Find(x => x.State[0] == player.transform.GetComponentInChildren<Glassware>().GlasswareSt).Phase1;
-                    _phase2 = _dilute.Diluted.Find(x => x.State[0] == player.transform.GetComponentInChildren<Glassware>().GlasswareSt).Phase2;
-                    _max = _dilute.Diluted.Find(x => x.State[0] == player.transform.GetComponentInChildren<Glassware>().GlasswareSt).Max;
+                    _phase1 = _dilute.Diluted.Find(x => x.State[0] == _playerGlassware.GlasswareSt).Phase1;
+                    _phase2 = _dilute.Diluted.Find(x => x.State[0] == _playerGlassware.GlasswareSt).Phase2;
+                    _max = _dilute.Diluted.Find(x => x.State[0] == _playerGlassware.GlasswareSt).Max;
                     _count++;
                 }
-                    OnInteracted?.Invoke();
+                    _onInteracted?.Invoke();
                     switch (_count)
                     {
                         case int i when i <=_phase1:
                             _count++;
                             if (_count > _phase1)
                             {
-                               player.GetComponentInChildren<Glassware>().SetGlasswareState(_dilute.Diluted.Find(x => x.State[0] == player.transform.GetComponentInChildren<Glassware>().GlasswareSt).State[1]);
-                            OnAlreadyDiluted?.Invoke();
+                            _playerGlassware.SetGlasswareState(_dilute.Diluted.Find(x => x.State[0] == _playerGlassware.GlasswareSt).State[1]);
+                            _onAlreadyDiluted?.Invoke();
                             }
                             break;
                         case int i when (i>_phase1&&i<=_phase2):
                             _count++;
                             if (_count > _phase2)
                             {
-                                player.GetComponentInChildren<Glassware>().SetGlasswareState( Glassware.glasswareState.WATER);
-                            OnTooDiluted?.Invoke();
+                            _playerGlassware.SetGlasswareState( Glassware.glasswareState.WATER);
+                            _onTooDiluted?.Invoke();
                             }
                             break;
                         case int i when i > _phase2:
@@ -80,7 +76,7 @@ public class Dilution : Interactable
         }
         else
         {
-            OnInteractFailed?.Invoke();
+            _onInteractFailed?.Invoke();
         }
     }
     public void ResetDilution()
