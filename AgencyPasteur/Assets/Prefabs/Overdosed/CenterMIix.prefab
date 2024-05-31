@@ -425,6 +425,7 @@ MonoBehaviour:
       m_Calls: []
   _ingr1: {fileID: 0}
   _ingr2: {fileID: 0}
+  mixDuration: 0.5
   _mix: {fileID: 11400000, guid: dba822e5ebff14f4ab05095035cd7456, type: 2}
 --- !u!65 &3263828481222282614
 BoxCollider:

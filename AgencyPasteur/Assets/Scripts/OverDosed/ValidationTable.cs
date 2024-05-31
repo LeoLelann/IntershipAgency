@@ -8,14 +8,14 @@ public class ValidationTable : Interactable
     public UnityEvent OnValidate;
     public UnityEvent OnInvalidate;
 
-    [SerializeField]private List<Glassware.glasswareState> ToFound=new List<Glassware.glasswareState>();
+    [SerializeField]private List<Glassware.glasswareState> ToFind=new List<Glassware.glasswareState>();
     [SerializeField]private List<Glassware.glasswareState> Found=new List<Glassware.glasswareState>();
     private Glassware _glassware;
 
     private void Start()
     {
         _glassware = GetComponentInChildren<Glassware>();
-        ToFound.Add(Glassware.glasswareState.HEATED_ACID_STARCH_DILUTED);
+        ToFind.Add(Glassware.glasswareState.HEATED_ACID_STARCH_DILUTED);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -51,8 +51,7 @@ public class ValidationTable : Interactable
 
     public void Validation()
     {
-        Debug.Log("fer");
-        if (ToFound.Contains(_glassware.GlasswareSt)&&!Found.Contains(_glassware.GlasswareSt))
+        if (ToFind.Contains(_glassware.GlasswareSt)&&!Found.Contains(_glassware.GlasswareSt))
         {
             OnValidate?.Invoke();
             Found.Add(_glassware.GlasswareSt);
@@ -62,6 +61,10 @@ public class ValidationTable : Interactable
             OnInvalidate?.Invoke();
         }
         Destroy(_glassware.gameObject);
+        if (Found.Count == ToFind.Count)
+        {
+            GameManager.Instance.EndGame();
+        }
     }
 
 }
