@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Dilution : Interactable
 {
+     public UnityEvent OnInteractFailed;
+     public UnityEvent OnInteracted;
+     public UnityEvent OnAlreadyDiluted;
+     public UnityEvent OnTooDiluted;
+
     // Start is called before the first frame update
-   private Glassware.glasswareState _state;
+    private Glassware.glasswareState _state;
    private Glassware.glasswareState _experimentState;
     SCDilution _dilute;
     [SerializeField]private int _phase1=6;
@@ -42,8 +49,7 @@ public class Dilution : Interactable
                     _max = _dilute.Diluted.Find(x => x.State[0] == player.transform.GetComponentInChildren<Glassware>().GlasswareSt).Max;
                     _count++;
                 }
-                else
-                {
+                    OnInteracted?.Invoke();
                     switch (_count)
                     {
                         case int i when i <=_phase1:
@@ -51,6 +57,7 @@ public class Dilution : Interactable
                             if (_count > _phase1)
                             {
                                player.GetComponentInChildren<Glassware>().SetGlasswareState(_dilute.Diluted.Find(x => x.State[0] == player.transform.GetComponentInChildren<Glassware>().GlasswareSt).State[1]);
+                            OnAlreadyDiluted?.Invoke();
                             }
                             break;
                         case int i when (i>_phase1&&i<=_phase2):
@@ -58,6 +65,7 @@ public class Dilution : Interactable
                             if (_count > _phase2)
                             {
                                 player.GetComponentInChildren<Glassware>().SetGlasswareState( Glassware.glasswareState.WATER);
+                            OnTooDiluted?.Invoke();
                             }
                             break;
                         case int i when i > _phase2:
@@ -66,10 +74,18 @@ public class Dilution : Interactable
                                 _count++;
                             }
                             break;
-                    }
+                    
                 }
-            }
-            
+            } 
         }
+        else
+        {
+            OnInteractFailed?.Invoke();
+        }
+    }
+    public void ResetDilution()
+    {
+        _diluting = false;
+        _count = 0;
     }
 }
