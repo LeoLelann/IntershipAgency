@@ -18,7 +18,7 @@ public class Paillaisse : Interactable
             OnSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y+1.3f,transform.position.z);
-            collision.transform.rotation = new Quaternion(-90,0,0,0);
+            collision.transform.rotation = Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }
@@ -37,7 +37,7 @@ public class Paillaisse : Interactable
             playerGlassware.transform.parent = transform;
             _glassware = playerGlassware;
             _glassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            _glassware.transform.rotation = new Quaternion(0,0,0,0);
+            _glassware.transform.rotation = Quaternion.Euler(270, 0, 0);
             _glassware.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         }

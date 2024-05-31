@@ -99,7 +99,7 @@ public class Glassware : Interactable
         if (player.transform.GetComponentInChildren<Glassware>()==null&&(transform.parent==null||transform.parent.GetComponent<Player>()==null)) 
         {
             _onPicked?.Invoke();
-            transform.localRotation = new Quaternion(0,0,0,0);
+            transform.rotation = Quaternion.Euler(270,0,0);
             transform.parent = player.transform;
             transform.localPosition = new Vector3(0, 0.5f, 1);
            _rgbd.constraints = RigidbodyConstraints.FreezeAll;

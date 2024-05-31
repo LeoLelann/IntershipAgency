@@ -24,7 +24,7 @@ public class ValidationTable : Interactable
             collision.transform.parent = transform;
             _glassware=GetComponentInChildren<Glassware>();
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            collision.transform.rotation = new Quaternion(0, 0, 0, 0);
+            collision.transform.rotation = Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             Validation();
         }
@@ -43,7 +43,7 @@ public class ValidationTable : Interactable
             playerGlassware.transform.parent = transform;
             _glassware = playerGlassware;
             _glassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            _glassware.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            _glassware.transform.rotation = Quaternion.Euler(270, 0, 0);
             _glassware.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             Validation();
         }

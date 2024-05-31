@@ -27,7 +27,7 @@ public class Heater : Interactable
             _onSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             StartCoroutine(Heating());
         }
@@ -79,7 +79,7 @@ public class Heater : Interactable
             glasswarePlayer.transform.parent = transform;
             glassware = glasswarePlayer;
             glassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            glassware.transform.rotation = new Quaternion(0, 0, 0, 0);
+            Quaternion.Euler(270, 0, 0);
             glassware.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             StartCoroutine(Heating());
         }

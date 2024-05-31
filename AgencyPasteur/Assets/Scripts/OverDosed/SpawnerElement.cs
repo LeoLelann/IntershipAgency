@@ -85,7 +85,7 @@ public class SpawnerElement : Interactable
             _onSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            collision.transform.rotation = Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         }
