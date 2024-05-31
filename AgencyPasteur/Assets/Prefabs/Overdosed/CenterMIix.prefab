@@ -291,18 +291,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7561074711341424393, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1028112361807974706, guid: d3f31988138bd3a4694359327813aa87, type: 3}
     - target: {fileID: -6093592463355912122, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f1701d43d2250b74a8908b6d145e9c63, type: 2}
+      objectReference: {fileID: 2100000, guid: b772df40be8710b47936dac14b6fd606, type: 2}
     - target: {fileID: -514092279530876956, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d899fa2f294b5849bf09b044b342eea, type: 2}
+      objectReference: {fileID: 2100000, guid: 1f2628b191902154a9b9b445b4d9e34a, type: 2}
     - target: {fileID: 919132149155446097, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
       propertyPath: m_Name
       value: CenterMIix
       objectReference: {fileID: 0}
+    - target: {fileID: 4109396432888090641, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7387706064836869012, guid: eac1c6922da3b32429994c8a736198c0, type: 3}
+    - target: {fileID: 8897240367348734138, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5053925668127403250, guid: af9ba86c7ad16c345adc3563019c2761, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
