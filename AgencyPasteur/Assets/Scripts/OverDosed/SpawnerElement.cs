@@ -9,7 +9,7 @@ public class SpawnerElement : Interactable
     [SerializeField] private UnityEvent _onElementTaken; 
     [SerializeField]private UnityEvent _onTakeFrom;
     [SerializeField]private UnityEvent _onSnapGlassware;
-
+    [SerializeField] private List<Material> _elementIcon;
     [SerializeField] private MeshRenderer _label;
     private Glassware _glassware;
     public enum Elements
@@ -28,6 +28,7 @@ public class SpawnerElement : Interactable
 
     public override void Interacted(GameObject player)
     {
+        _glassware=GetComponentInChildren<Glassware>();
         Glassware playerGlassware = player.GetComponentInChildren<Glassware>();
         if (_glassware!=null && playerGlassware==null)
         {
@@ -64,11 +65,11 @@ public class SpawnerElement : Interactable
         switch (state)
         {
             case (Elements.ACID):                
-                    _label.material.color=Color.yellow;       
+                    _label.material=_elementIcon[1];       
                 break;
             case (Elements.STARCH):
-                
-                    _label.material.color = new Color(1,0.75f,0.8f);
+
+                _label.material = _elementIcon[0];
                 
                 break;
             case (Elements.TALC):
