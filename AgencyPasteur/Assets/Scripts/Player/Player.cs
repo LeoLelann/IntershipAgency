@@ -25,15 +25,15 @@ public class Player : MonoBehaviour
     [SerializeField] AnimationCurve _curve;
     private bool _canDash;
 
+    [Header("")]
     private Pause _pauseMenu; 
-    [SerializeField] private Book _book;
     [SerializeField] private GameObject _bookUI;
 
     [SerializeField] private Rigidbody _rb;
     private Rigidbody _rbOther;
     private Vector2 _moveInput;
     private Vector3 _moveDirection;
-    private PlayerInput _playerInput;
+    //private PlayerInput _playerInput;
     //private InputActionMap _movementActionMap;
     //private InputActionMap _uiActionMap;
 
@@ -44,12 +44,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _playerInput = GetComponent<PlayerInput>();
-        SwitchToGameplay();
+        //_playerInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody>();
+        _pauseMenu = FindObjectOfType<Pause>();
+        _moveSpeedMax = _moveSpeed;
         isInRange = false;
         _isDashing = false;
-        _pauseMenu = FindObjectOfType<Pause>();
+        SwitchToGameplay();
         //_movementActionMap = _playerInput.actions.FindActionMap("Player");
         //_uiActionMap = _playerInput.actions.FindActionMap("UI");
     }
@@ -76,7 +77,7 @@ public class Player : MonoBehaviour
         //deplacement
         _moveDirection = new Vector3(_moveInput.x, 0, _moveInput.y);
         transform.position += _moveDirection * _moveSpeed * Time.deltaTime;
-        if (_moveDirection != Vector3.zero) //rotation
+        if (_moveDirection != Vector3.zero && _moveSpeed != 0f) //rotation
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_moveDirection), _rotationSpeed);
         }
@@ -96,23 +97,24 @@ public class Player : MonoBehaviour
     {
         if (context.started)
         {
-            if (_bookUI.activeInHierarchy && _book) // Interact with book
-            {
-                Debug.Log("book");
-                //_playerInput.SwitchCurrentActionMap("UI");
-                _moveSpeed = 0f;
-                SwitchToUI();
-            }
-            else if (!_bookUI.activeInHierarchy && _book)
-            {
-                _moveSpeed = _moveSpeedMax;
-                SwitchToGameplay();
-                //_playerInput.SwitchCurrentActionMap("Movement");
-            }
-
             if (isInRange && range != null)
             {
                 range.Interacted(gameObject);
+                
+                if (range.GetComponent<Book>()) // Interact with book
+                {
+                    if (!_bookUI.activeInHierarchy)
+                    {
+                        _moveSpeed = _moveSpeedMax;
+                        SwitchToUI();
+                    }
+                    else
+                    {
+                        _moveSpeed = 0f;
+                        SwitchToGameplay();
+                    }
+
+                }
             }
         }
     }
@@ -178,14 +180,24 @@ public class Player : MonoBehaviour
         Vector3 startPosition = transform.position;
         Vector3 endPosition = startPosition + _moveDirection.normalized * _dashPower;
 
-        for (float elapsed = 0; elapsed < _dashDuration; elapsed += Time.deltaTime)
+        float timer = 0f;
+        while (timer < _dashDuration)
         {
-            float t = elapsed / _dashDuration;
+            float t = timer / _dashDuration;
             float curveValue = _curve.Evaluate(t);
             //transform.position = Vector3.Lerp(startPosition, endPosition, curveValue);
             _rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
             yield return new WaitForSeconds(Time.deltaTime);
         }
+
+        //for (float elapsed = 0; elapsed < _dashDuration; elapsed += Time.deltaTime)
+        //{
+        //    float t = elapsed / _dashDuration;
+        //    float curveValue = _curve.Evaluate(t);
+        //    //transform.position = Vector3.Lerp(startPosition, endPosition, curveValue);
+        //    _rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
+        //    yield return new WaitForSeconds(Time.deltaTime);
+        //}
 
         transform.position = endPosition;
 
