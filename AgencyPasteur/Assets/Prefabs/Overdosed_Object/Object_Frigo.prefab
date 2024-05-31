@@ -105,11 +105,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 1d0d4447473e6c9438711d33b346960e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d89a26412cc03ae4fbea90c18d5d838b, type: 2}
+      objectReference: {fileID: 2100000, guid: 5ef17698414ea5c4680e21658baf77fc, type: 2}
     - target: {fileID: -7511558181221131132, guid: 1d0d4447473e6c9438711d33b346960e, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: d89a26412cc03ae4fbea90c18d5d838b, type: 2}
+      objectReference: {fileID: 2100000, guid: e573714f128546d4a8c01bca437d7735, type: 2}
     - target: {fileID: 919132149155446097, guid: 1d0d4447473e6c9438711d33b346960e, type: 3}
       propertyPath: m_Name
       value: De_Object_Frigo

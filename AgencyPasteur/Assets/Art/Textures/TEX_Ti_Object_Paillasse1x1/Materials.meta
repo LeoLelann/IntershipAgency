@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:AgencyPasteur/Assets/Art/Textures/TEX_Ti_Object_Paillasse1x1/Materials.meta
 guid: de9dd1f11acac8949841c952c366e999
 folderAsset: yes
+========
+guid: 258e7f08256a33f4d91e7c077cdbe925
+>>>>>>>> origin/enzo:AgencyPasteur/Assets/Scenes/Test_Julien_2.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

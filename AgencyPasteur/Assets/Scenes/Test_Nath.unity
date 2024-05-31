@@ -11850,6 +11850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Object_Corbeille
       objectReference: {fileID: 0}
+    - target: {fileID: 7767801309534694275, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8526577fac5eb1f4d8e28a627eb5c571, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23979,6 +23983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Object_Corbeille
       objectReference: {fileID: 0}
+    - target: {fileID: 7767801309534694275, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8526577fac5eb1f4d8e28a627eb5c571, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
