@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 
-public class PlayerShooter : MonoBehaviour
+public class PlayerShooter : MonoBehaviour//UNUSED
 {
     private CinemachineTargetGroup group;
     [HideInInspector] public bool _isDashing;

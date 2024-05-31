@@ -5,10 +5,10 @@ using UnityEngine.Events;
 
 public class MixingResult : Interactable
 {
-    public UnityEvent OnTakeFrom;
-    public UnityEvent OnSnapGlassware;
-    public UnityEvent OnMixSuccess;
-    public UnityEvent OnMixBad;
+    [SerializeField]private UnityEvent _onTakeFrom;
+    [SerializeField] private UnityEvent _onSnapGlassware;
+    [SerializeField] private UnityEvent _onMixSuccess;
+    [SerializeField] private UnityEvent _onMixBad;
 
 
     [SerializeField] private Paillaisse _ingr1;
@@ -16,11 +16,9 @@ public class MixingResult : Interactable
     private Glassware _in1;
     private Glassware _in2;
     private Glassware _out;
-    private SCMix _mix;
+    [SerializeField]private SCMix _mix;
     private void Start()
     {
-        SCMix path = Resources.Load<SCMix>("ScriptableObject/Mix");
-        _mix = path;
         Debug.Log(_mix.Mixed.Count);
     }
     public override void Interacted(GameObject player)
@@ -30,13 +28,16 @@ public class MixingResult : Interactable
         Glassware in1Glassware = _ingr1.GetComponentInChildren<Glassware>();
         Glassware in2Glassware = _ingr2.GetComponentInChildren<Glassware>();
         Debug.Log(currentGlassware);
+        Debug.Log(playerGlassware);
+        Debug.Log(in1Glassware);
+        Debug.Log(in2Glassware);
          if (playerGlassware != null && currentGlassware == null)
         {
-            OnSnapGlassware?.Invoke();
+            _onSnapGlassware?.Invoke();
             playerGlassware.transform.parent = transform;
             currentGlassware = playerGlassware;
             currentGlassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            currentGlassware.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            currentGlassware.transform.rotation = Quaternion.Euler(270, 0, 0);
             currentGlassware.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         }
@@ -45,8 +46,7 @@ public class MixingResult : Interactable
            _out = GetComponentInChildren<Glassware>();
             if ((currentGlassware != null && playerGlassware == null && _out.GlasswareSt != Glassware.glasswareState.EMPTY) || (in1Glassware == null) || (in2Glassware == null))
             {
-                OnTakeFrom?.Invoke();
-                Debug.Log("Pourquoi je suis là?");
+                _onTakeFrom?.Invoke();
                 transform.GetComponentInChildren<Glassware>().Interacted(player);
             }
             else
@@ -57,8 +57,7 @@ public class MixingResult : Interactable
                     _in2 = in2Glassware;
                     if (_in1.GlasswareSt == Glassware.glasswareState.EMPTY || _in2.GlasswareSt == Glassware.glasswareState.EMPTY)
                     {
-                        OnTakeFrom?.Invoke();
-                        Debug.Log("Pourquoi je suis là2?");
+                        _onTakeFrom?.Invoke();
                         transform.GetComponentInChildren<Glassware>().Interacted(player);
                     }
                     else
@@ -69,11 +68,11 @@ public class MixingResult : Interactable
 
                         if (_out.GlasswareSt == Glassware.glasswareState.TRASH)
                         {
-                            OnMixBad?.Invoke();
+                            _onMixBad?.Invoke();
                         }
                         else
                         {
-                            OnMixSuccess?.Invoke();
+                            _onMixSuccess?.Invoke();
                         }
                     }
                 }
@@ -84,10 +83,10 @@ public class MixingResult : Interactable
     {
         if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && GetComponentInChildren<Glassware>() == null)
         {
-            OnSnapGlassware?.Invoke();
+            _onSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            collision.transform.rotation = Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }
