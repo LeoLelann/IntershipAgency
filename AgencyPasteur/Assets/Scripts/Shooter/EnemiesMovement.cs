@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiesMovement : MonoBehaviour
+public class EnemiesMovement : MonoBehaviour//UNUSED
 {
     [SerializeField,Range(0.1f,10.0f)] private float _speed;
     [SerializeField] private Vector3 _dir;

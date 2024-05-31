@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Page : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _onUnlock;
     [SerializeField] bool _isLocked;
-
+    private Image _image;
+    
+    
     public bool IsLocked
     {
         get => _isLocked;
@@ -15,17 +19,19 @@ public class Page : MonoBehaviour
             _isLocked = value;
             if (_isLocked)
             {
-                GetComponent<Image>().color = Color.black;
+                _image.color = Color.black;
             }
             else
             {
-                GetComponent<Image>().color = Color.white;
+                _onUnlock.Invoke();
+                _image.color = Color.white;
             }
         }
     }
 
     void Start()
     {
+        _image = GetComponent<Image>();
         IsLocked = _isLocked;
     }
 
