@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     [Header("")]
     private Pause _pauseMenu; 
-    [SerializeField] private GameObject _bookUI;
+    private GameObject _bookUI;
 
     [SerializeField] private Rigidbody _rb;
     private Rigidbody _rbOther;
@@ -37,8 +37,19 @@ public class Player : MonoBehaviour
     //private InputActionMap _movementActionMap;
     //private InputActionMap _uiActionMap;
 
+    [Header("")]
     [SerializeField] InputActionReference _inputFromUI;
     [SerializeField] InputActionReference _inputFromGameplay;
+
+    [SerializeField] private GameObject _pauseCanva;
+    [HideInInspector] public bool isPause { get; private set; }
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent _onMove;
+    [SerializeField] private UnityEvent _onInteract;
+    [SerializeField] private UnityEvent _onDrop;
+    [SerializeField] private UnityEvent _onThrow;
+    [SerializeField] private UnityEvent _onDash;
 
 
 
@@ -47,7 +58,10 @@ public class Player : MonoBehaviour
         //_playerInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody>();
         _pauseMenu = FindObjectOfType<Pause>();
+        _bookUI = GameObject.FindGameObjectWithTag("BookUI");
+        _bookUI.SetActive(false);
         _moveSpeedMax = _moveSpeed;
+        _pauseCanva.SetActive(false);
         isInRange = false;
         _isDashing = false;
         SwitchToGameplay();
@@ -57,10 +71,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!_isDashing)
+        if (!_isDashing && isPause == false)
         {
             Move();
         }
+        Debug.Log(_bookUI);
     }
     void SwitchToGameplay()
     {
@@ -74,10 +89,11 @@ public class Player : MonoBehaviour
     }
     private void Move()
     {
+        _onMove?.Invoke();
         //deplacement
         _moveDirection = new Vector3(_moveInput.x, 0, _moveInput.y);
         transform.position += _moveDirection * _moveSpeed * Time.deltaTime;
-        if (_moveDirection != Vector3.zero && _moveSpeed != 0f) //rotation
+        if (_moveDirection != Vector3.zero && _moveSpeed != 0f && isPause == false) //rotation
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_moveDirection), _rotationSpeed);
         }
@@ -90,14 +106,34 @@ public class Player : MonoBehaviour
 
     public void OnPause(InputAction.CallbackContext context)
     {
-        _pauseMenu.SetPause();
+        Debug.Log("pause");
+        //_pauseMenu.SetPause();
+        if (context.started)
+        {
+            Debug.Log("startInput");
+            if (!_pauseCanva.activeInHierarchy)
+            {
+                Debug.Log("activeUI");
+                isPause = true;
+                SwitchToUI();
+                _pauseCanva.SetActive(true);
+                //_es.firstSelectedGameObject = _defaultPauseBtn;
+            }
+            else
+            {
+                isPause = false;
+                SwitchToGameplay();
+                _pauseCanva.SetActive(false);
+            }
+        }
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started )
         {
-            if (isInRange && range != null)
+            _onInteract?.Invoke();
+            if (isInRange && range != null && isPause == false)
             {
                 range.Interacted(gameObject);
                 
@@ -121,22 +157,25 @@ public class Player : MonoBehaviour
 
     public void OnDrop(InputAction.CallbackContext context)
     {
-        if (transform.GetChild(1).parent != null && context.started)
+        if (transform.GetChild(1).parent != null && context.started && isPause == false)
         {
+            _onDrop?.Invoke();
             GetComponentInChildren<Glassware>().Drop();
         }
     }
     public void OnThrow(InputAction.CallbackContext context)
     {
-        if (transform.GetChild(1).parent != null && context.canceled)
+        if (transform.GetChild(1).parent != null && context.canceled && isPause == false)
         {
-            GetComponentInChildren<Glassware>().Thrown();
+            _onThrow?.Invoke();
+            GetComponentInChildren<Glassware>()?.Thrown();
         }
     }
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (/*context.performed && */!_isDashing && context.started)
+        if (context.started && !_isDashing && context.started && isPause == false)
         {
+            _onDash?.Invoke();
             StartCoroutine(Dash());
         }
     }

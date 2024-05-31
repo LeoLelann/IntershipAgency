@@ -169,6 +169,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b5a16448-d0ea-4eb1-b432-1a8a8f8b87d4
     m_ActionName: Player/Pause[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 17a1fbce-d105-481a-bda7-22fd6b8c7688
+    m_ActionName: UI/Click[/XInputControllerWindows1/buttonSouth,/XInputControllerWindows/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 23bc4265-d4f1-4198-af43-03f9fe8b47e4
+    m_ActionName: UI/Navigate[/XInputControllerWindows1/leftStick/up,/XInputControllerWindows/leftStick/up,/XInputControllerWindows1/leftStick/left,/XInputControllerWindows/leftStick/left,/XInputControllerWindows1/leftStick/down,/XInputControllerWindows/leftStick/down,/XInputControllerWindows1/leftStick/right,/XInputControllerWindows/leftStick/right,/XInputControllerWindows1/dpad,/XInputControllerWindows/dpad,/Keyboard/w,/Keyboard/a,/Keyboard/s,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 84edaca5-e7a8-450b-8cc2-ebaffb1ea44f
+    m_ActionName: UI/ScrollWhell[/Mouse/scroll]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -188,8 +200,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glassware: {fileID: 0}
   range: {fileID: 0}
-  isInRange: 0
-  _isDashing: 0
   _moveSpeed: 5
   _rotationSpeed: 0.09
   _knockback: 1
@@ -274,6 +284,25 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _rb: {fileID: -2576569530647141736}
+  _inputFromUI: {fileID: -5727095690053008890, guid: a18640224dae3f54887e05afbc747e63, type: 3}
+  _inputFromGameplay: {fileID: 7818751403807643143, guid: a18640224dae3f54887e05afbc747e63, type: 3}
+  _pauseCanva: {fileID: 5970723440690932291, guid: d50b58f9d2df6f74c87365cb9ce41b81, type: 3}
+  _onMove:
+    m_PersistentCalls:
+      m_Calls: []
+  _onInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDrop:
+    m_PersistentCalls:
+      m_Calls: []
+  _onThrow:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDash:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &-2576569530647141736
 Rigidbody:
   m_ObjectHideFlags: 0
