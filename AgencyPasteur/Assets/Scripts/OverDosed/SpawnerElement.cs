@@ -22,12 +22,12 @@ public class SpawnerElement : Interactable
 
     private void Start()
     {
+        _glassware = GetComponentInChildren<Glassware>();
         OnStateValueChange(element);
     }
 
     public override void Interacted(GameObject player)
     {
-        _glassware = GetComponentInChildren<Glassware>();
         Glassware playerGlassware = player.GetComponentInChildren<Glassware>();
         if (_glassware!=null && playerGlassware==null)
         {
@@ -41,13 +41,13 @@ public class SpawnerElement : Interactable
                 switch (element)
                 {
                     case Elements.TALC:
-                        player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.TALC);
+                        playerGlassware.SetGlasswareState(Glassware.glasswareState.TALC);
                         break;
                     case Elements.ACID:
-                        player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.ACID);
+                        playerGlassware.SetGlasswareState(Glassware.glasswareState.ACID);
                         break;
                     case Elements.STARCH:
-                        player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.STARCH);
+                        playerGlassware.SetGlasswareState(Glassware.glasswareState.STARCH);
                         break;
                 }
                 _onElementTaken?.Invoke();
@@ -64,7 +64,7 @@ public class SpawnerElement : Interactable
         switch (state)
         {
             case (Elements.ACID):                
-                    _label.material.color = Color.yellow;       
+                    _label.material.color=Color.yellow;       
                 break;
             case (Elements.STARCH):
                 

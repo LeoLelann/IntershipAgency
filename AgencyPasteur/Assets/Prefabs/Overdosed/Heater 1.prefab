@@ -369,11 +369,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
---- !u!198 &3858483178240751549 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8172849020266659021, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
-  m_PrefabInstance: {fileID: 4965179969722944368}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3858483178240751550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8172849020266659022, guid: 2af5562ce69fc2d448481a1587a352a5, type: 3}
@@ -494,81 +489,22 @@ MonoBehaviour:
   OnStartShowInteract:
     m_PersistentCalls:
       m_Calls: []
-  OnStartHeating:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3858483178240751549}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnStopHeating:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3858483178240751549}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Stop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2771044103054150654}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnBurning:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3858483178240751549}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Emit
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 60
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2771044103054150654}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 60
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  OnTakeFrom:
+  _onStartHeating:
     m_PersistentCalls:
       m_Calls: []
-  OnSnapGlassware:
+  _onStopHeating:
     m_PersistentCalls:
       m_Calls: []
+  _onBurning:
+    m_PersistentCalls:
+      m_Calls: []
+  _onTakeFrom:
+    m_PersistentCalls:
+      m_Calls: []
+  _onSnapGlassware:
+    m_PersistentCalls:
+      m_Calls: []
+  _heat: {fileID: 11400000, guid: b69185379eb2a844797dcbf0b6b8a08f, type: 2}
   secondsTillHeated: 3
 --- !u!65 &2462118622363234957
 BoxCollider:

@@ -47,6 +47,7 @@ public class Heater : Interactable
         else
         {
             _onStopHeating?.Invoke();
+            StopAllCoroutines();
         }
         Debug.Log("Start");
         yield return new WaitForSeconds(secondsTillHeated);
@@ -58,6 +59,7 @@ public class Heater : Interactable
         else
         {
             _onStopHeating?.Invoke();
+            StopAllCoroutines();
         }
     }
     public override void Interacted(GameObject player)
@@ -69,6 +71,7 @@ public class Heater : Interactable
             _onTakeFrom?.Invoke();
             _onStopHeating?.Invoke();
             glassware.Interacted(player);
+            StopAllCoroutines();
         }
         else if (glasswarePlayer != null && glassware == null)
         {

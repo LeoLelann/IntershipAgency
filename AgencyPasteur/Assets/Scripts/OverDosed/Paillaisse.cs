@@ -10,7 +10,6 @@ public class Paillaisse : Interactable
     private Glassware _glassware;
     private void Start()
     {
-        _glassware = GetComponentInChildren<Glassware>();
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -25,7 +24,8 @@ public class Paillaisse : Interactable
     }
     public override void Interacted(GameObject player)
     {
-        Glassware playerGlassware = GetComponentInChildren<Glassware>();
+        _glassware = GetComponentInChildren<Glassware>();
+        Glassware playerGlassware = player.GetComponentInChildren<Glassware>();
         if (_glassware!=null&& playerGlassware==null)
         {
             OnTakeFrom?.Invoke();

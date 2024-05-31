@@ -1101,54 +1101,19 @@ MonoBehaviour:
   OnStartShowInteract:
     m_PersistentCalls:
       m_Calls: []
-  OnInteractFailed:
+  _onInteractFailed:
     m_PersistentCalls:
       m_Calls: []
-  OnInteracted:
+  _onInteracted:
     m_PersistentCalls:
       m_Calls: []
-  OnAlreadyDiluted:
+  _onAlreadyDiluted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8747950789912774665}
-        m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Feedbacks
-        m_MethodName: PlayFeedbacks
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnTooDiluted:
+      m_Calls: []
+  _onTooDiluted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8747950789912774665}
-        m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Feedbacks
-        m_MethodName: StopFeedbacks
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3923451663708195938}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  _dilute: {fileID: 11400000, guid: be4360ccb9080d4489ae6a8bed5486a6, type: 2}
   _phase1: 6
   _phase2: 8
   _max: 10
