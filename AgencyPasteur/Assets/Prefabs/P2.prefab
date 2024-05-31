@@ -231,6 +231,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 547ec1e9-34d7-4256-a42a-a73b5cfdce99
     m_ActionName: Player/Drop[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b5a16448-d0ea-4eb1-b432-1a8a8f8b87d4
+    m_ActionName: Player/Pause[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -430,7 +434,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: cf41e4da977318a4a8b94a862b9de9b3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 91cfba97f4c38d24dbe95e6bb8111e03, type: 2}
+      objectReference: {fileID: 2100000, guid: 171444d0cfbac8b46b2687d6b26cc18d, type: 2}
     - target: {fileID: 919132149155446097, guid: cf41e4da977318a4a8b94a862b9de9b3, type: 3}
       propertyPath: m_Name
       value: Chien_PlaceHolder

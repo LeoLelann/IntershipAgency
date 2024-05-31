@@ -352,7 +352,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _pauseMenu: {fileID: 0}
 --- !u!54 &-2576569530647141736
 Rigidbody:
   m_ObjectHideFlags: 0
