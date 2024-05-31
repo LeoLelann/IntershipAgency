@@ -35,7 +35,7 @@ public class SpawnerMeuble : Interactable
             OnSnapGlassware?.Invoke();
             player.GetComponentInChildren<Glassware>().transform.parent = transform;
             transform.GetComponentInChildren<Glassware>().transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(-90, 0, 0, 0);
+            transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(0, 0, 0, 0);
             transform.GetComponentInChildren<Glassware>().transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         }
@@ -47,7 +47,7 @@ public class SpawnerMeuble : Interactable
             OnSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            collision.transform.rotation = new Quaternion(0, 0, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }

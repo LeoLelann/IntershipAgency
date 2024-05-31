@@ -5,12 +5,13 @@ using UnityEngine.Events;
 
 public class SpawnerElement : Interactable
 {
-    public UnityEvent OnNoGlasswareToTakeElement;
-    public UnityEvent OnElementTaken; 
-    public UnityEvent OnTakeFrom;
-    public UnityEvent OnSnapGlassware;
+    [SerializeField] private UnityEvent _onNoGlasswareToTakeElement;
+    [SerializeField] private UnityEvent _onElementTaken; 
+    [SerializeField]private UnityEvent _onTakeFrom;
+    [SerializeField]private UnityEvent _onSnapGlassware;
 
     [SerializeField] private MeshRenderer _label;
+    private Glassware _glassware;
     public enum Elements
     {
         TALC,
@@ -26,15 +27,16 @@ public class SpawnerElement : Interactable
 
     public override void Interacted(GameObject player)
     {
-
-        if (transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null)
+        _glassware = GetComponentInChildren<Glassware>();
+        Glassware playerGlassware = player.GetComponentInChildren<Glassware>();
+        if (_glassware!=null && playerGlassware==null)
         {
-            OnTakeFrom?.Invoke();
-            transform.GetComponentInChildren<Glassware>().Interacted(player);
+            _onTakeFrom?.Invoke();
+            _glassware.Interacted(player);
         }
         else
         {
-            if (player.transform.GetComponentInChildren<Glassware>()!=null && player.GetComponentInChildren<Glassware>().GlasswareSt == Glassware.glasswareState.EMPTY)
+            if (playerGlassware!=null && playerGlassware.GlasswareSt == Glassware.glasswareState.EMPTY)
             {
                 switch (element)
                 {
@@ -48,11 +50,11 @@ public class SpawnerElement : Interactable
                         player.GetComponentInChildren<Glassware>().SetGlasswareState(Glassware.glasswareState.STARCH);
                         break;
                 }
-                OnElementTaken?.Invoke();
+                _onElementTaken?.Invoke();
             }
             else
             {
-                OnNoGlasswareToTakeElement?.Invoke();
+                _onNoGlasswareToTakeElement?.Invoke();
             }
         }
         
@@ -78,9 +80,9 @@ public class SpawnerElement : Interactable
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
+        if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && _glassware == null)
         {
-            OnSnapGlassware?.Invoke();
+            _onSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             collision.transform.rotation = new Quaternion(-90, 0, 0, 0);

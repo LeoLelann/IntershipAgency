@@ -8,20 +8,18 @@ public class ValidationTable : Interactable
     public UnityEvent OnValidate;
     public UnityEvent OnInvalidate;
 
+    [SerializeField]private List<Glassware.glasswareState> ToFound=new List<Glassware.glasswareState>();
     [SerializeField]private List<Glassware.glasswareState> Found=new List<Glassware.glasswareState>();
+    private Glassware _glassware;
 
     private void Start()
     {
-        Found.Add(Glassware.glasswareState.EMPTY);
-        Found.Add(Glassware.glasswareState.ACID);
-        Found.Add(Glassware.glasswareState.WATER);
-        Found.Add(Glassware.glasswareState.STARCH);
-        Found.Add(Glassware.glasswareState.TALC);
-        Found.Add(Glassware.glasswareState.TRASH);
+        _glassware = GetComponentInChildren<Glassware>();
+        ToFound.Add(Glassware.glasswareState.HEATED_ACID_STARCH_DILUTED);
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
+        if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && _glassware == null)
         {
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
@@ -32,7 +30,8 @@ public class ValidationTable : Interactable
     }
     public override void Interacted(GameObject player)
     {
-        if (transform.GetComponentInChildren<Glassware>() != null && player.transform.GetComponentInChildren<Glassware>() == null)
+
+        if (_glassware != null && player.transform.GetComponentInChildren<Glassware>() == null)
         {
             transform.GetComponentInChildren<Glassware>().Interacted(player);
         }
@@ -48,16 +47,16 @@ public class ValidationTable : Interactable
 
     public void Validation()
     {
-        if (!Found.Contains(transform.GetComponentInChildren<Glassware>().GlasswareSt))
+        if (ToFound.Contains(_glassware.GlasswareSt)&&!Found.Contains(_glassware.GlasswareSt))
         {
             OnValidate?.Invoke();
-            Found.Add(transform.GetComponentInChildren<Glassware>().GlasswareSt);
+            Found.Add(_glassware.GlasswareSt);
         }
         else
         {
             OnInvalidate?.Invoke();
         }
-        Destroy(transform.GetComponentInChildren<Glassware>().gameObject);
+        Destroy(_glassware.gameObject);
     }
 
 }
