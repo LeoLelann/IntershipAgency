@@ -18,7 +18,7 @@ public class MixingResult : Interactable
 
     [SerializeField] private Paillaisse _ingr1;
     [SerializeField] private Paillaisse _ingr2;
-    [SerializeField] private float mixDuration;
+    [SerializeField] private float _mixDuration;
     private Glassware _in1;
     private Glassware _in2;
     private Glassware _out;
@@ -84,6 +84,12 @@ public class MixingResult : Interactable
                 _onReadyToMix.Invoke();
             }
         }
+        if (_in1 == null)
+            _onMissingComponentLeft.Invoke();
+        if (_in2 == null)
+            _onMissingComponentRight.Invoke();
+        if (_out == null)
+            _onMissingComponentCenter.Invoke();
     }
 
     IEnumerator Mixing()

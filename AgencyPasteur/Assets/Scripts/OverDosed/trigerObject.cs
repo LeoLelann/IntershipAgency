@@ -9,14 +9,19 @@ public class trigerObject : MonoBehaviour
     public void Awake()
     {
         _player = transform.parent.GetComponent<Player>();
+         
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent("Interactable"))
         {
             _player.isInRange = true;
-            _player.range = other.transform.GetComponent<Interactable>();
-            _player.range.OnStartShowInteract?.Invoke();
+            if ((_player.range == null || Vector3.Distance(other.transform.position, _player.transform.position) < Vector3.Distance(_player.range.transform.position, _player.transform.position))&&(!_player.GetComponentInChildren<Glassware>()&&_player.range))
+            {            
+                _player.range?.OnDontShowInteract.Invoke();
+                _player.range = other.transform.GetComponent<Interactable>();
+                _player.range.OnStartShowInteract?.Invoke();
+            }         
         }
     }
     private void OnTriggerStay(Collider other)
@@ -24,8 +29,12 @@ public class trigerObject : MonoBehaviour
         if (other.GetComponent("Interactable"))
         {
             Glassware glassware = _player.GetComponentInChildren<Glassware>();
-            _player.isInRange = true;
-            _player.range = other.transform.GetComponent<Interactable>();
+            if (Vector3.Distance(other.transform.position, _player.transform.position) < Vector3.Distance(_player.range.transform.position, _player.transform.position))
+            {
+                _player.range.OnDontShowInteract.Invoke();
+                _player.range = other.transform.GetComponent<Interactable>();
+                _player.range.OnStartShowInteract?.Invoke();
+            }
             _player.range.OnShowInteract?.Invoke();
             if (glassware == null)
             {
@@ -45,9 +54,12 @@ public class trigerObject : MonoBehaviour
     {
         if (other.GetComponent("Interactable"))
         {
-            other.transform.GetComponent<Interactable>().OnDontShowInteract?.Invoke();
-            _player.isInRange = false;
-            _player.range = null;
+            other.transform.GetComponent<Interactable>().OnDontShowInteract?.Invoke(); 
+            if (_player.range == other.transform.GetComponent<Interactable>())
+            { 
+                _player.isInRange = false;
+                _player.range = null;
+           }
         }
     }
 }
