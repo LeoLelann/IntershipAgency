@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
 
     [Header("")]
     private Pause _pauseMenu; 
-    [SerializeField] private GameObject _bookUI;
+    private GameObject _bookUI;
 
     [SerializeField] private Rigidbody _rb;
     private Rigidbody _rbOther;
@@ -37,47 +38,86 @@ public class Player : MonoBehaviour
     //private InputActionMap _movementActionMap;
     //private InputActionMap _uiActionMap;
 
+    [Header("")]
     [SerializeField] InputActionReference _inputFromUI;
     [SerializeField] InputActionReference _inputFromGameplay;
 
+    [SerializeField] private GameObject _pauseCanva;
+    [HideInInspector] public bool isPause { get; private set; }
 
+    [Header("Events")]
+    [SerializeField] private UnityEvent _onMove;
+    [SerializeField] private UnityEvent _onInteract;
+    [SerializeField] private UnityEvent _onDrop;
+    [SerializeField] private UnityEvent _onThrow;
+    [SerializeField] private UnityEvent _onDash;
+
+    static event Action OnPauseGlobal;
+    static event Action OnUnPauseGlobal;
+
+    private void Awake()
+    {
+        _bookUI = GameObject.FindGameObjectWithTag("BookUI");
+        
+        OnPauseGlobal += PauseTrigger;
+        OnUnPauseGlobal += UnpauseTrigger;
+    }
+    private void OnDestroy()
+    {
+        OnPauseGlobal -= PauseTrigger;
+        OnUnPauseGlobal -= UnpauseTrigger;
+    }
+
+    void PauseTrigger()
+    {
+        GetComponent<PlayerInput>().SwitchCurrentActionMap(_inputFromUI.action.actionMap.name);
+    }
+
+    void UnpauseTrigger()
+    {
+        GetComponent<PlayerInput>().SwitchCurrentActionMap(_inputFromGameplay.action.actionMap.name);
+    }
 
     private void Start()
     {
         //_playerInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody>();
         _pauseMenu = FindObjectOfType<Pause>();
+        _bookUI.SetActive(false);
         _moveSpeedMax = _moveSpeed;
+        _pauseCanva.SetActive(false);
         isInRange = false;
         _isDashing = false;
-        SwitchToGameplay();
         //_movementActionMap = _playerInput.actions.FindActionMap("Player");
         //_uiActionMap = _playerInput.actions.FindActionMap("UI");
     }
 
     void Update()
     {
-        if (!_isDashing)
+        if (!_isDashing && isPause == false)
         {
             Move();
         }
+
+        if (_pauseCanva.activeInHierarchy)
+        {
+            _moveSpeed = 0f;
+            isPause = true;
+        }
+        else if(!_pauseCanva.activeInHierarchy)
+        {
+            _moveSpeed = _moveSpeedMax;
+            isPause = false;
+        }
     }
-    void SwitchToGameplay()
-    {
-        _inputFromUI.action.actionMap.Disable();
-        _inputFromGameplay.action.actionMap.Enable();
-    }
-    void SwitchToUI()
-    {
-        _inputFromUI.action.actionMap.Enable();
-        _inputFromGameplay.action.actionMap.Disable();
-    }
+    
     private void Move()
     {
+        _onMove?.Invoke();
         //deplacement
         _moveDirection = new Vector3(_moveInput.x, 0, _moveInput.y);
         transform.position += _moveDirection * _moveSpeed * Time.deltaTime;
-        if (_moveDirection != Vector3.zero && _moveSpeed != 0f) //rotation
+        if (_moveDirection != Vector3.zero && _moveSpeed != 0f && isPause == false) //rotation
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_moveDirection), _rotationSpeed);
         }
@@ -90,14 +130,36 @@ public class Player : MonoBehaviour
 
     public void OnPause(InputAction.CallbackContext context)
     {
-        _pauseMenu.SetPause();
+        //_pauseMenu.SetPause();
+        if (context.started)
+        {
+            Debug.Log("startInput");
+            if (!_pauseCanva.activeInHierarchy)
+            {
+                Debug.Log("activeUI");
+                isPause = true;
+
+                OnPauseGlobal?.Invoke();
+
+                _pauseCanva.SetActive(true);
+                //_es.firstSelectedGameObject = _defaultPauseBtn;
+            }
+            else
+            {
+                isPause = false;
+                _pauseCanva.SetActive(false);
+                OnUnPauseGlobal?.Invoke();
+
+            }
+        }
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started )
         {
-            if (isInRange && range != null)
+            _onInteract?.Invoke();
+            if (isInRange && range != null && isPause == false)
             {
                 range.Interacted(gameObject);
                 
@@ -106,12 +168,10 @@ public class Player : MonoBehaviour
                     if (!_bookUI.activeInHierarchy)
                     {
                         _moveSpeed = _moveSpeedMax;
-                        SwitchToUI();
                     }
                     else
                     {
                         _moveSpeed = 0f;
-                        SwitchToGameplay();
                     }
 
                 }
@@ -121,22 +181,25 @@ public class Player : MonoBehaviour
 
     public void OnDrop(InputAction.CallbackContext context)
     {
-        if (transform.GetChild(1).parent != null && context.started)
+        if (transform.GetChild(1).parent != null && context.started && isPause == false)
         {
+            _onDrop?.Invoke();
             GetComponentInChildren<Glassware>().Drop();
         }
     }
     public void OnThrow(InputAction.CallbackContext context)
     {
-        if (transform.GetChild(1).parent != null && context.canceled)
+        if (transform.GetChild(1).parent != null && context.canceled && isPause == false)
         {
-            GetComponentInChildren<Glassware>().Thrown();
+            _onThrow?.Invoke();
+            GetComponentInChildren<Glassware>()?.Thrown();
         }
     }
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (/*context.performed && */!_isDashing && context.started)
+        if (context.started && !_isDashing && context.started && isPause == false)
         {
+            _onDash?.Invoke();
             StartCoroutine(Dash());
         }
     }
@@ -175,7 +238,6 @@ public class Player : MonoBehaviour
     {
         _isDashing = true;
         _canDash = false;
-        Debug.Log("qgsgd");
 
         Vector3 startPosition = transform.position;
         Vector3 endPosition = startPosition + _moveDirection.normalized * _dashPower;
