@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -51,20 +52,42 @@ public class Player : MonoBehaviour
     [SerializeField] private UnityEvent _onThrow;
     [SerializeField] private UnityEvent _onDash;
 
+    static event Action OnPauseGlobal;
+    static event Action OnUnPauseGlobal;
 
+    private void Awake()
+    {
+        _bookUI = GameObject.FindGameObjectWithTag("BookUI");
+        
+        OnPauseGlobal += PauseTrigger;
+        OnUnPauseGlobal += UnpauseTrigger;
+    }
+    private void OnDestroy()
+    {
+        OnPauseGlobal -= PauseTrigger;
+        OnUnPauseGlobal -= UnpauseTrigger;
+    }
+
+    void PauseTrigger()
+    {
+        GetComponent<PlayerInput>().SwitchCurrentActionMap(_inputFromUI.action.actionMap.name);
+    }
+
+    void UnpauseTrigger()
+    {
+        GetComponent<PlayerInput>().SwitchCurrentActionMap(_inputFromGameplay.action.actionMap.name);
+    }
 
     private void Start()
     {
         //_playerInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody>();
         _pauseMenu = FindObjectOfType<Pause>();
-        _bookUI = GameObject.FindGameObjectWithTag("BookUI");
         _bookUI.SetActive(false);
         _moveSpeedMax = _moveSpeed;
         _pauseCanva.SetActive(false);
         isInRange = false;
         _isDashing = false;
-        SwitchToGameplay();
         //_movementActionMap = _playerInput.actions.FindActionMap("Player");
         //_uiActionMap = _playerInput.actions.FindActionMap("UI");
     }
@@ -75,18 +98,19 @@ public class Player : MonoBehaviour
         {
             Move();
         }
-        Debug.Log(_bookUI);
+
+        if (_pauseCanva.activeInHierarchy)
+        {
+            _moveSpeed = 0f;
+            isPause = true;
+        }
+        else if(!_pauseCanva.activeInHierarchy)
+        {
+            _moveSpeed = _moveSpeedMax;
+            isPause = false;
+        }
     }
-    void SwitchToGameplay()
-    {
-        _inputFromUI.action.actionMap.Disable();
-        _inputFromGameplay.action.actionMap.Enable();
-    }
-    void SwitchToUI()
-    {
-        _inputFromUI.action.actionMap.Enable();
-        _inputFromGameplay.action.actionMap.Disable();
-    }
+    
     private void Move()
     {
         _onMove?.Invoke();
@@ -106,7 +130,6 @@ public class Player : MonoBehaviour
 
     public void OnPause(InputAction.CallbackContext context)
     {
-        Debug.Log("pause");
         //_pauseMenu.SetPause();
         if (context.started)
         {
@@ -115,15 +138,18 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("activeUI");
                 isPause = true;
-                SwitchToUI();
+
+                OnPauseGlobal?.Invoke();
+
                 _pauseCanva.SetActive(true);
                 //_es.firstSelectedGameObject = _defaultPauseBtn;
             }
             else
             {
                 isPause = false;
-                SwitchToGameplay();
                 _pauseCanva.SetActive(false);
+                OnUnPauseGlobal?.Invoke();
+
             }
         }
     }
@@ -142,12 +168,10 @@ public class Player : MonoBehaviour
                     if (!_bookUI.activeInHierarchy)
                     {
                         _moveSpeed = _moveSpeedMax;
-                        SwitchToUI();
                     }
                     else
                     {
                         _moveSpeed = 0f;
-                        SwitchToGameplay();
                     }
 
                 }
@@ -214,7 +238,6 @@ public class Player : MonoBehaviour
     {
         _isDashing = true;
         _canDash = false;
-        Debug.Log("qgsgd");
 
         Vector3 startPosition = transform.position;
         Vector3 endPosition = startPosition + _moveDirection.normalized * _dashPower;
