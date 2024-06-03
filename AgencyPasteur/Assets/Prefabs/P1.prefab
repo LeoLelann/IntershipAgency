@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 8552094569836319490}
   - component: {fileID: 2654229044966388138}
   - component: {fileID: -2576569530647141736}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,16 +249,16 @@ MonoBehaviour:
     m_ActionName: Player/Pause[/Keyboard/p]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 05870bc4-774f-4b13-8078-25a082263e8c
-    m_ActionName: UI/Deplacement[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/d,/Keyboard/q]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 17a1fbce-d105-481a-bda7-22fd6b8c7688
     m_ActionName: UI/Interact[/XInputControllerWindows/buttonSouth,/Keyboard/space]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 9469872b-3d9b-478e-a879-7ad119efdaa6
-    m_ActionName: UI/Navigate[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder,/Keyboard/a,/Keyboard/e]
+    m_ActionId: 23bc4265-d4f1-4198-af43-03f9fe8b47e4
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/a,/Keyboard/s,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 84edaca5-e7a8-450b-8cc2-ebaffb1ea44f
+    m_ActionName: UI/ScrollWhell[/Mouse/scroll]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -278,8 +278,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glassware: {fileID: 0}
   range: {fileID: 0}
-  isInRange: 0
-  _isDashing: 0
   _moveSpeed: 5
   _rotationSpeed: 0.09
   _knockback: 1
@@ -364,6 +362,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _bookUI: {fileID: 0}
+  _rb: {fileID: 0}
+  _inputFromUI: {fileID: 0}
+  _inputFromGameplay: {fileID: 0}
 --- !u!54 &-2576569530647141736
 Rigidbody:
   m_ObjectHideFlags: 0
