@@ -434,7 +434,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: aac6a4fe82752ce48af16a7cfb1913c8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cb6bc2b03efa1af41945bfbd23aefe9d, type: 2}
+      objectReference: {fileID: 2100000, guid: f27031cd0c80dbe48a461d66cfd2b6af, type: 2}
     - target: {fileID: 919132149155446097, guid: aac6a4fe82752ce48af16a7cfb1913c8, type: 3}
       propertyPath: m_Name
       value: Singe_PlaceHolder

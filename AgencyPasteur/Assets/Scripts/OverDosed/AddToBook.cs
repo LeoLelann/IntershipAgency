@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class AddToBook : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Glassware.glasswareState _glasswareState;
+    [SerializeField] float _duration;
+    [SerializeField] Book _book;
+    [SerializeField] Camera _cam;
+
+    public Glassware.glasswareState GlasswareState { get => _glasswareState; }
+
+    public void Start()
     {
-        
+        Vector3 bookScreenPos = _cam.WorldToScreenPoint(_book.transform.position);
+       StartCoroutine(MoveToward(bookScreenPos));
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator MoveToward (Vector3 bookScreenPos)
     {
-        
+        yield return new WaitForSeconds(2);
+        float timer = 0;
+        while (timer < _duration)
+        {
+            timer += Time.deltaTime;
+            Debug.Log(timer);
+            transform.position = Vector3.Lerp(transform.position, bookScreenPos, timer / _duration);
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.1f,0.1f,0.1f), timer / _duration);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        _book.LockedPage[GlasswareState].GetComponent<Page>().IsLocked = false;
+        gameObject.active=false;
+        yield return null;
     }
 }

@@ -5,83 +5,95 @@ using UnityEngine.Events;
 
 public class MixingResult : Interactable
 {
-    public UnityEvent OnTakeFrom;
-    public UnityEvent OnSnapGlassware;
-    public UnityEvent OnMixSuccess;
-    public UnityEvent OnMixBad;
+    [SerializeField]private UnityEvent _onTakeFrom;
+    [SerializeField] private UnityEvent _onSnapGlassware;
+    [SerializeField] private UnityEvent _onMixSuccess;
+    [SerializeField] private UnityEvent _onMixBad;
 
 
     [SerializeField] private Paillaisse _ingr1;
     [SerializeField] private Paillaisse _ingr2;
-    private Glassware _glassware1;
-    private Glassware _glassware2;
-    private Glassware _glassware3;
-    private SCMix _mix;
+    [SerializeField] private float mixDuration;
+    private Glassware _in1;
+    private Glassware _in2;
+    private Glassware _out;
+    [SerializeField]private SCMix _mix;
     private void Start()
     {
-        SCMix path = Resources.Load<SCMix>("ScriptableObject/Mix");
-        _mix = path;
         Debug.Log(_mix.Mixed.Count);
     }
     public override void Interacted(GameObject player)
     {
-         if (player.transform.GetComponentInChildren<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
+        Glassware playerGlassware = player.GetComponentInChildren<Glassware>();
+        Glassware currentGlassware = GetComponentInChildren<Glassware>();
+        Glassware in1Glassware = _ingr1.GetComponentInChildren<Glassware>();
+        Glassware in2Glassware = _ingr2.GetComponentInChildren<Glassware>();
+        Debug.Log(currentGlassware);
+        Debug.Log(playerGlassware);
+        Debug.Log(in1Glassware);
+        Debug.Log(in2Glassware);
+         if (playerGlassware != null && currentGlassware == null)
         {
-            OnSnapGlassware?.Invoke();
-            player.GetComponentInChildren<Glassware>().transform.parent = transform;
-            transform.GetComponentInChildren<Glassware>().transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(-90, 0, 0, 0);
-            transform.GetComponentInChildren<Glassware>().transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            _onSnapGlassware?.Invoke();
+            playerGlassware.transform.parent = transform;
+            currentGlassware = playerGlassware;
+            currentGlassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+            currentGlassware.transform.rotation = Quaternion.Euler(270, 0, 0);
+            currentGlassware.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         }
         else
         {
-            _glassware3 = GetComponentInChildren<Glassware>();
-            if ((transform.GetComponentInChildren<Glassware>() != null && player.transform.GetComponentInChildren<Glassware>() == null && _glassware3.GlasswareSt != Glassware.glasswareState.EMPTY) || (_ingr1.transform.GetComponentInChildren<Glassware>() == null) || (_ingr2.transform.GetComponentInChildren<Glassware>() == null))
+           _out = GetComponentInChildren<Glassware>();
+            if ((currentGlassware != null && playerGlassware == null && _out.GlasswareSt != Glassware.glasswareState.EMPTY) || (in1Glassware == null) || (in2Glassware == null))
             {
-                OnTakeFrom?.Invoke();
-                Debug.Log("Pourquoi je suis là?");
+                _onTakeFrom?.Invoke();
                 transform.GetComponentInChildren<Glassware>().Interacted(player);
             }
             else
             {
-                if (_ingr1.transform.GetComponentInChildren<Glassware>() != null && _ingr2.GetComponentInChildren<Glassware>() != null)
+                if ( in1Glassware!= null && in2Glassware != null)
                 {
-                    _glassware1 = _ingr1.transform.GetComponentInChildren<Glassware>();
-                    _glassware2 = _ingr2.transform.GetComponentInChildren<Glassware>();
-                    if (_glassware1.GlasswareSt == Glassware.glasswareState.EMPTY || _glassware2.GlasswareSt == Glassware.glasswareState.EMPTY)
+                    _in1 = in1Glassware;
+                    _in2 = in2Glassware;
+                    if (_in1.GlasswareSt == Glassware.glasswareState.EMPTY || _in2.GlasswareSt == Glassware.glasswareState.EMPTY)
                     {
-                        OnTakeFrom?.Invoke();
-                        Debug.Log("Pourquoi je suis là?");
+                        _onTakeFrom?.Invoke();
                         transform.GetComponentInChildren<Glassware>().Interacted(player);
                     }
                     else
                     {
-                        _glassware3.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _glassware1.GlasswareSt && t.State[1] == _glassware2.GlasswareSt).State[2]);
-                        _glassware1.SetGlasswareState(Glassware.glasswareState.EMPTY);
-                        _glassware2.SetGlasswareState(Glassware.glasswareState.EMPTY);
-
-                        if (_glassware3.GlasswareSt == Glassware.glasswareState.TRASH)
-                        {
-                            OnMixBad?.Invoke();
-                        }
-                        else
-                        {
-                            OnMixSuccess?.Invoke();
-                        }
+                        StartCoroutine(Mixing());
                     }
                 }
             }
         }  
     }
+
+    IEnumerator Mixing()
+    {
+        yield return new WaitForSeconds(mixDuration);
+        _out.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _in1.GlasswareSt && t.State[1] == _in2.GlasswareSt).State[2]);
+        _in1.SetGlasswareState(Glassware.glasswareState.EMPTY);
+        _in2.SetGlasswareState(Glassware.glasswareState.EMPTY);
+
+        if (_out.GlasswareSt == Glassware.glasswareState.TRASH)
+        {
+            _onMixBad?.Invoke();
+        }
+        else
+        {
+            _onMixSuccess?.Invoke();
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
+        if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && GetComponentInChildren<Glassware>() == null)
         {
-            OnSnapGlassware?.Invoke();
+            _onSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            collision.transform.rotation = Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }

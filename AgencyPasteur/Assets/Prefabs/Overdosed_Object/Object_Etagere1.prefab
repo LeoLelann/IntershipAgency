@@ -109,7 +109,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 271bf32974c104e4b939d1b03470350c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9d9e96fc2d5802945b8c4551d91eb7b6, type: 2}
+      objectReference: {fileID: 2100000, guid: d98a561366c07db42bb1ed7048771c82, type: 2}
     - target: {fileID: 919132149155446097, guid: 271bf32974c104e4b939d1b03470350c, type: 3}
       propertyPath: m_Name
       value: De_Object_Etagere1

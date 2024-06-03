@@ -14,6 +14,8 @@ public class trigerObject : MonoBehaviour
     {
         if (other.GetComponent("Interactable"))
         {
+            Player.isInRange = true;
+            Player.range = other.transform.GetComponent<Interactable>();
             Player.range.OnStartShowInteract?.Invoke();
         }
     }

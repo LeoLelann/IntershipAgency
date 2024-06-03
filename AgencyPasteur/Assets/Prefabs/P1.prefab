@@ -247,6 +247,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b5a16448-d0ea-4eb1-b432-1a8a8f8b87d4
     m_ActionName: Player/Pause[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 05870bc4-774f-4b13-8078-25a082263e8c
+    m_ActionName: UI/Deplacement[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/d,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 17a1fbce-d105-481a-bda7-22fd6b8c7688
+    m_ActionName: UI/Interact[/XInputControllerWindows/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9469872b-3d9b-478e-a879-7ad119efdaa6
+    m_ActionName: UI/Navigate[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder,/Keyboard/a,/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -352,7 +364,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _pauseMenu: {fileID: 0}
 --- !u!54 &-2576569530647141736
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -388,18 +399,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8753928423534717666}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -440,10 +439,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8311c13a029dcbc478a2bdbdb2544071, type: 2}
     - target: {fileID: 919132149155446097, guid: 74aee7776faf32348be0722ab6f2e883, type: 3}
       propertyPath: m_Name
       value: Chat_PlaceHolder
