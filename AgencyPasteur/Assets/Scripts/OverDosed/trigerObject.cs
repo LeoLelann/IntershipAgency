@@ -4,28 +4,41 @@ using UnityEngine;
 
 public class trigerObject : MonoBehaviour
 {
-    Player Player;
+    Player _player;
 
     public void Awake()
     {
-        Player = transform.parent.GetComponent<Player>();
+        _player = transform.parent.GetComponent<Player>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent("Interactable"))
         {
-            Player.isInRange = true;
-            Player.range = other.transform.GetComponent<Interactable>();
-            Player.range.OnStartShowInteract?.Invoke();
+            _player.isInRange = true;
+            _player.range = other.transform.GetComponent<Interactable>();
+            _player.range.OnStartShowInteract?.Invoke();
         }
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent("Interactable"))
         {
-            Player.isInRange = true;
-            Player.range = other.transform.GetComponent<Interactable>();
-            Player.range.OnShowInteract?.Invoke();
+            Glassware glassware = _player.GetComponentInChildren<Glassware>();
+            _player.isInRange = true;
+            _player.range = other.transform.GetComponent<Interactable>();
+            _player.range.OnShowInteract?.Invoke();
+            if (glassware == null)
+            {
+                _player.range.OnShowInterractButMissingGlassware.Invoke();
+            }
+            else if (glassware.GlasswareSt == Glassware.glasswareState.EMPTY || glassware.GlasswareSt == Glassware.glasswareState.TRASH)
+            {
+                _player.range.OnShowInterractButMissingComponent.Invoke();
+            }
+            else
+            {
+                _player.range.OnShowInterractButHandsFull.Invoke();
+            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -33,8 +46,8 @@ public class trigerObject : MonoBehaviour
         if (other.GetComponent("Interactable"))
         {
             other.transform.GetComponent<Interactable>().OnDontShowInteract?.Invoke();
-            Player.isInRange = false;
-            Player.range = null;
+            _player.isInRange = false;
+            _player.range = null;
         }
     }
 }

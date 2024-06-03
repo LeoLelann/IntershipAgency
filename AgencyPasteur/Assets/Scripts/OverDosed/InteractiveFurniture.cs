@@ -10,5 +10,8 @@ public abstract class Interactable : MonoBehaviour
     public UnityEvent OnShowInteract;
     public UnityEvent OnDontShowInteract;
     public UnityEvent OnStartShowInteract;
+    public UnityEvent OnShowInterractButMissingGlassware;
+    public UnityEvent OnShowInterractButMissingComponent;
+    public UnityEvent OnShowInterractButHandsFull;
 
 }
