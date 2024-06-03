@@ -5,8 +5,9 @@ using UnityEngine.Events;
 
 public class ValidationTable : Interactable
 {
-    public UnityEvent OnValidate;
-    public UnityEvent OnInvalidate;
+    [SerializeField]private UnityEvent _onValidate;
+    [SerializeField]private UnityEvent _onInvalidate;
+    [SerializeField] private UnityEvent _onShowMissingRemedy;
 
     [SerializeField]private List<Glassware.glasswareState> ToFind=new List<Glassware.glasswareState>();
     [SerializeField]private List<Glassware.glasswareState> Found=new List<Glassware.glasswareState>();
@@ -53,12 +54,12 @@ public class ValidationTable : Interactable
     {
         if (ToFind.Contains(_glassware.GlasswareSt)&&!Found.Contains(_glassware.GlasswareSt))
         {
-            OnValidate?.Invoke();
+            _onValidate?.Invoke();
             Found.Add(_glassware.GlasswareSt);
         }
         else
         {
-            OnInvalidate?.Invoke();
+            _onInvalidate?.Invoke();
         }
         Destroy(_glassware.gameObject);
         if (Found.Count == ToFind.Count)

@@ -6,10 +6,12 @@ using UnityEngine.Events;
 
 public class Book : Interactable
 {
-    [SerializeField]UnityEvent OnInteractedOpen;
-    [SerializeField] UnityEvent OnInteractedClose;
+    [SerializeField]UnityEvent _onInteractedOpen;
+    [SerializeField] UnityEvent _onInteractedClose;
+    [SerializeField] UnityEvent _onCanInteractFirstTime;
     [SerializeField] List<Glassware.glasswareState> _pagesState;
     [SerializeField] List<Image> _pages;
+    private bool _canInteract;
     Dictionary<Glassware.glasswareState, Image> _lockedPage = new Dictionary<Glassware.glasswareState, Image>();
 
     [SerializeField] GameObject BookUI;
@@ -23,17 +25,25 @@ public class Book : Interactable
             LockedPage.Add(_pagesState[i], _pages[i]);
         }
     }
+    public void BecomeInteractable()
+    {
+        _canInteract = true;
+        _onCanInteractFirstTime.Invoke();
+    }
     public override void Interacted(GameObject Player)
     {
-        if (BookUI.activeInHierarchy)
+        if (_canInteract)
         {
-            OnInteractedClose?.Invoke();
-            BookUI.SetActive(false);
-        }
-        else
-        {
-            OnInteractedOpen?.Invoke();
-            BookUI.SetActive(true);
-        }   
+            if (BookUI.activeInHierarchy)
+            {
+                _onInteractedClose?.Invoke();
+                BookUI.SetActive(false);
+            }
+            else
+            {
+                _onInteractedOpen?.Invoke();
+                BookUI.SetActive(true);
+            }
+        }  
     }
 }
