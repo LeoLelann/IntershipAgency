@@ -113,7 +113,6 @@ public class Glassware : Interactable
         if (!GameManager.Instance.Found.Contains(state))
         {
             GameManager.Instance.AddElement(state);
-            Debug.Log("w");
         }
         OnStateValueChange(_glasswareSt);
     }

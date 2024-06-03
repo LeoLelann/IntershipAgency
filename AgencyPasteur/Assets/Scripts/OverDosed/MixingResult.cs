@@ -13,6 +13,7 @@ public class MixingResult : Interactable
 
     [SerializeField] private Paillaisse _ingr1;
     [SerializeField] private Paillaisse _ingr2;
+    [SerializeField] private float mixDuration;
     private Glassware _in1;
     private Glassware _in2;
     private Glassware _out;
@@ -62,22 +63,28 @@ public class MixingResult : Interactable
                     }
                     else
                     {
-                        _out.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _in1.GlasswareSt && t.State[1] == _in2.GlasswareSt).State[2]);
-                        _in1.SetGlasswareState(Glassware.glasswareState.EMPTY);
-                        _in2.SetGlasswareState(Glassware.glasswareState.EMPTY);
-
-                        if (_out.GlasswareSt == Glassware.glasswareState.TRASH)
-                        {
-                            _onMixBad?.Invoke();
-                        }
-                        else
-                        {
-                            _onMixSuccess?.Invoke();
-                        }
+                        StartCoroutine(Mixing());
                     }
                 }
             }
         }  
+    }
+
+    IEnumerator Mixing()
+    {
+        yield return new WaitForSeconds(mixDuration);
+        _out.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _in1.GlasswareSt && t.State[1] == _in2.GlasswareSt).State[2]);
+        _in1.SetGlasswareState(Glassware.glasswareState.EMPTY);
+        _in2.SetGlasswareState(Glassware.glasswareState.EMPTY);
+
+        if (_out.GlasswareSt == Glassware.glasswareState.TRASH)
+        {
+            _onMixBad?.Invoke();
+        }
+        else
+        {
+            _onMixSuccess?.Invoke();
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
