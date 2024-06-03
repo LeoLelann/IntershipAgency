@@ -7,10 +7,11 @@ using UnityEngine.Events;
 public class Heater : Interactable
 {
     [SerializeField]private UnityEvent _onStartHeating;
-    public UnityEvent _onStopHeating;
-    public UnityEvent _onBurning;
-    public UnityEvent _onTakeFrom;
-    public UnityEvent _onSnapGlassware;
+    [SerializeField]private UnityEvent _onStopHeating;
+    [SerializeField]private UnityEvent _onBurning;
+    [SerializeField]private UnityEvent _onTakeFrom;
+    [SerializeField]private UnityEvent _onSnapGlassware;
+    [SerializeField]private UnityEvent _onCantCook;
 
     [SerializeField]SCHeat _heat;
     [SerializeField] private float secondsTillHeated=3;
@@ -29,6 +30,7 @@ public class Heater : Interactable
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            collision.transform.GetComponent<Collider>().enabled = false;
             StartCoroutine(Heating());
         }
     }
@@ -36,12 +38,20 @@ public class Heater : Interactable
     IEnumerator Heating()
     {
         Glassware glassware = GetComponentInChildren<Glassware>();
-        if (glassware.GlasswareSt!= Glassware.glasswareState.EMPTY && glassware.GlasswareSt != Glassware.glasswareState.TRASH)
+        if ( glassware.GlasswareSt != Glassware.glasswareState.TRASH)
         {
-            _onStartHeating?.Invoke();
-            if (_heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt).State[1] == Glassware.glasswareState.TRASH)
+            if (_heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt) != null)
             {
-                _onBurning?.Invoke();
+                _onStartHeating?.Invoke();
+                if (_heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt).State[1] == Glassware.glasswareState.TRASH)
+                {
+                    _onBurning?.Invoke();
+                }
+            }
+            else
+            {
+                _onCantCook.Invoke();
+                StopAllCoroutines();
             }
         }
         else
@@ -49,12 +59,14 @@ public class Heater : Interactable
             _onStopHeating?.Invoke();
             StopAllCoroutines();
         }
-        Debug.Log("Start");
         yield return new WaitForSeconds(secondsTillHeated);
         if (glassware != null)
         {
-            glassware.SetGlasswareState( _heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt).State[1]);
-            StartCoroutine(Heating());
+            if (_heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt) != null)
+            {
+                glassware.SetGlasswareState(_heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt).State[1]);
+                StartCoroutine(Heating());
+            }
         }
         else
         {
