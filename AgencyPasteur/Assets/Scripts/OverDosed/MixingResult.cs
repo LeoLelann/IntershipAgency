@@ -95,7 +95,7 @@ public class MixingResult : Interactable
     IEnumerator Mixing()
     {
         _onMixing.Invoke();
-        yield return new WaitForSeconds(mixDuration);
+        yield return new WaitForSeconds(_mixDuration);
         _out.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _in1.GlasswareSt && t.State[1] == _in2.GlasswareSt).State[2]);
         _in1.SetGlasswareState(Glassware.glasswareState.EMPTY);
         _in2.SetGlasswareState(Glassware.glasswareState.EMPTY);
