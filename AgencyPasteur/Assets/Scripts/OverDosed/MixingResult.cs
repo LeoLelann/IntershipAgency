@@ -45,7 +45,8 @@ public class MixingResult : Interactable
             currentGlassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             currentGlassware.transform.rotation = Quaternion.Euler(270, 0, 0);
             currentGlassware.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
+            currentGlassware.transform.GetComponent<Collider>().enabled = false;
+            MixReady();
         }
         else
         {
@@ -74,6 +75,16 @@ public class MixingResult : Interactable
             }
         }  
     }
+    public void MixReady()
+    {
+        if (_in1 != null && _in2 != null && _out)
+        {
+            if (_in1.GlasswareSt != Glassware.glasswareState.EMPTY && _in2.GlasswareSt != Glassware.glasswareState.EMPTY && _out.GlasswareSt == Glassware.glasswareState.EMPTY)
+            {
+                _onReadyToMix.Invoke();
+            }
+        }
+    }
 
     IEnumerator Mixing()
     {
@@ -101,6 +112,8 @@ public class MixingResult : Interactable
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             collision.transform.rotation = Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            collision.transform.GetComponent<Collider>().enabled = false;
+            MixReady();
         }
     }
 }
