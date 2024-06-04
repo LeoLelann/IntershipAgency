@@ -29,6 +29,10 @@ public class trigerObject : MonoBehaviour
         if (other.GetComponent("Interactable"))
         {
             Glassware glassware = _player.GetComponentInChildren<Glassware>();
+            if (_player.range == null)
+            {
+                _player.range = other.transform.GetComponent<Interactable>();
+            }
             if (Vector3.Distance(other.transform.position, _player.transform.position) < Vector3.Distance(_player.range.transform.position, _player.transform.position))
             {
                 _player.range.OnDontShowInteract.Invoke();

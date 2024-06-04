@@ -17,6 +17,7 @@ public class ValidationTable : Interactable
     {
         _glassware = GetComponentInChildren<Glassware>();
         ToFind.Add(Glassware.glasswareState.HEATED_ACID_STARCH_DILUTED);
+        GameManager.Instance.GoalNbrRemedy = ToFind.Count;
     }
     private void OnCollisionEnter(Collision collision)
     {
