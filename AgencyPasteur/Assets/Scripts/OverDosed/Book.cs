@@ -27,11 +27,16 @@ public class Book : Interactable
     }
     public void BecomeInteractable()
     {
-        _canInteract = true;
-        _onCanInteractFirstTime.Invoke();
+        if(!_canInteract)
+        {
+            _canInteract = true;
+            _onCanInteractFirstTime.Invoke();
+        }
+        
     }
     public override void Interacted(GameObject Player)
     {
+        Debug.Log("ça passe");
         if (_canInteract)
         {
             if (BookUI.activeInHierarchy)

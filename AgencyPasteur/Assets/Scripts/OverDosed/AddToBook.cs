@@ -20,6 +20,7 @@ public class AddToBook : MonoBehaviour
     IEnumerator MoveToward (Vector3 bookScreenPos)
     {
         yield return new WaitForSeconds(2);
+        _book.BecomeInteractable();
         float timer = 0;
         while (timer < _duration)
         {

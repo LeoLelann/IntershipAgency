@@ -12,6 +12,7 @@ public class Heater : Interactable
     [SerializeField]private UnityEvent _onTakeFrom;
     [SerializeField]private UnityEvent _onSnapGlassware;
     [SerializeField]private UnityEvent _onCantCook;
+    [SerializeField]private UnityEvent _onBurnt;
 
     [SerializeField]SCHeat _heat;
     [SerializeField] private float secondsTillHeated=3;
@@ -65,6 +66,8 @@ public class Heater : Interactable
             if (_heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt) != null)
             {
                 glassware.SetGlasswareState(_heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt).State[1]);
+                if (glassware.GlasswareSt == Glassware.glasswareState.TRASH)
+                    _onBurnt.Invoke();
                 StartCoroutine(Heating());
             }
         }
