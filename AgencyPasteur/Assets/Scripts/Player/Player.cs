@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using System;
 
 public class Player : MonoBehaviour
@@ -38,9 +39,13 @@ public class Player : MonoBehaviour
     //private InputActionMap _movementActionMap;
     //private InputActionMap _uiActionMap;
 
-    [Header("")]
-    [SerializeField] InputActionReference _inputFromUI;
-    [SerializeField] InputActionReference _inputFromGameplay;
+    [Header("UI")]
+    [SerializeField] private InputActionReference _inputFromUI;
+    [SerializeField] private InputActionReference _inputFromGameplay;
+    [SerializeField] private Button[] _bookBtnR;
+    [SerializeField] private Button[] _bookBtnL;
+    [SerializeField] private Button[] _bookChapBtnR;
+    [SerializeField] private Button[] _bookChapBtnL;
 
     [SerializeField] private GameObject _pauseCanva;
     [HideInInspector] public bool isPause { get; private set; }
@@ -167,11 +172,13 @@ public class Player : MonoBehaviour
                 {
                     if (!_bookUI.activeInHierarchy)
                     {
-                        _moveSpeed = _moveSpeedMax;
+                        //_moveSpeed = _moveSpeedMax;
+                        UnpauseTrigger();
                     }
                     else
                     {
-                        _moveSpeed = 0f;
+                        //_moveSpeed = 0f;
+                        PauseTrigger();
                     }
 
                 }
@@ -274,5 +281,46 @@ public class Player : MonoBehaviour
         _rb.velocity = new Vector3(-transform.forward.x, 0, transform.forward.z) * _knockback;
         _rbOther.velocity = new Vector3(-transform.forward.x, 0, transform.forward.z) * _knockback;
         yield return null;
+    }
+
+    public void OnNavigateChap(InputAction.CallbackContext context)
+    {
+        
+    }
+    public void OnNavigateHorizontal(InputAction.CallbackContext context)
+    {//Book change page
+        var ctxValue = context.ReadValue<float>();
+        
+        if (ctxValue < -0.5f && context.started)
+        {
+            foreach (var btn in _bookBtnL)
+            {
+                if (btn.gameObject.activeInHierarchy)
+                {
+                    btn.onClick.Invoke();
+                    break;
+                }
+            };
+        }
+        else if (ctxValue > 0.5f && context.started)
+        {
+            foreach (var btn in _bookBtnR)
+            {
+                if (btn.gameObject.activeInHierarchy)
+                {
+                    btn.onClick.Invoke();
+                    break;
+                }
+            };
+        }
+    }
+    public void ReturnFromUI(InputAction.CallbackContext context)
+    {
+        if (_pauseCanva.activeInHierarchy || _bookUI.activeInHierarchy)
+        {
+            _pauseCanva.SetActive(false);
+            _bookUI.SetActive(false);
+            UnpauseTrigger();
+        }
     }
 }

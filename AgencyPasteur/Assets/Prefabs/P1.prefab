@@ -263,6 +263,42 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e3ac0e15-e22c-4d16-b2ba-5940a355befb
     m_ActionName: UI/UnPause[/XInputControllerWindows1/start,/XInputControllerWindows2/start,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2654229044966388138}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: ReturnFromUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: be6900b0-0ff2-44d5-9cc5-cb2b9f042d13
+    m_ActionName: UI/Cancel
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d758362d-7fe8-4cb8-95aa-6f92704fa591
+    m_ActionName: UI/NavigateHorizontal
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2654229044966388138}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnNavigateHorizontal
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e440d714-a72e-4469-af23-f6f10412efc6
+    m_ActionName: UI/NavigateHorizontal[/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: GamePad
   m_DefaultActionMap: Player
@@ -369,6 +405,18 @@ MonoBehaviour:
   _rb: {fileID: -2576569530647141736}
   _inputFromUI: {fileID: -4221566702865315253, guid: a18640224dae3f54887e05afbc747e63, type: 3}
   _inputFromGameplay: {fileID: 951819913516660412, guid: a18640224dae3f54887e05afbc747e63, type: 3}
+  _bookBtnR:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _bookBtnL:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _pauseCanva: {fileID: 0}
   _onMove:
     m_PersistentCalls:
