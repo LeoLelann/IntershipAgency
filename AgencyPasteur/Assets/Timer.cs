@@ -25,6 +25,10 @@ public class Timer : MonoBehaviour
             _currentTimer -= Time.deltaTime;
             time = (int)_currentTimer;
             _UITimer.text = ($"{time}");
+            if (time == 10)
+            {
+                _onTimeLow.Invoke();
+            }
             yield return new WaitForSeconds(Time.deltaTime);
         }
         yield return null;
