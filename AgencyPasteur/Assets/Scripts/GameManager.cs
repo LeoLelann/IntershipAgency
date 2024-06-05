@@ -7,10 +7,16 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
     [SerializeField] private UnityEvent _onStartGame;
-    [SerializeField] private UnityEvent _onEndGame;
+    [SerializeField] private UnityEvent _onEndGamePerfect;
+    [SerializeField] private UnityEvent _onEndGameGood;
+    [SerializeField] private UnityEvent _onEndGameBad;
+    [SerializeField] private int _goalNbrRemedy;
+    private int _currentNbrRemedy;
     public static GameManager Instance => instance;
 
     public List<Glassware.glasswareState> Found { get => _found;}
+    public float Timer1 { get => _timer;}
+    public int GoalNbrRemedy { get => _goalNbrRemedy; set => _goalNbrRemedy = value; }
 
     [SerializeField] private GameObject _book;
     private gamePhase _currentPhase;
@@ -46,6 +52,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _currentNbrRemedy = 0;
         StartCoroutine(Timer());
     }
     private void OnLevelWasLoaded(int level)
@@ -81,7 +88,18 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         StopAllCoroutines();
-        _onEndGame.Invoke();
+        switch (_currentNbrRemedy)
+        {
+            case int i when i <=_goalNbrRemedy / 2:
+                _onEndGameBad.Invoke();
+                break;
+            case int i when i <= _goalNbrRemedy *8/10:
+                _onEndGameBad.Invoke();
+                break;
+            case int i when i > _goalNbrRemedy *8/10:
+                _onEndGameBad.Invoke();
+                break;
+        }
         Debug.Log("Fin de game");
     }
 }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using System;
 
 public class Player : MonoBehaviour
 {
     [HideInInspector] public Glassware glassware;
-    [HideInInspector] public Interactable range;
+    [SerializeField] public Interactable range;
 
     [HideInInspector] public bool isInRange { get; set; }
     [HideInInspector] public bool _isDashing { get; private set; }
@@ -38,9 +39,20 @@ public class Player : MonoBehaviour
     //private InputActionMap _movementActionMap;
     //private InputActionMap _uiActionMap;
 
-    [Header("")]
-    [SerializeField] InputActionReference _inputFromUI;
-    [SerializeField] InputActionReference _inputFromGameplay;
+    [Header("UI")]
+    [SerializeField] private InputActionReference _inputFromUI;
+    [SerializeField] private InputActionReference _inputFromGameplay;
+    [SerializeField] private Button[] _bookComposantBtnR;
+    [SerializeField] private Button[] _bookComposantBtnL;
+    [SerializeField] private Button[] _bookMachineBtnR;
+    [SerializeField] private Button[] _bookMachineBtnL;
+    [SerializeField] private Button[] _bookSolutionBtnR;
+    [SerializeField] private Button[] _bookSolutionBtnL;
+    private Button[] _bookPageR;
+    private Button[] _bookPageL;
+    [SerializeField] private Button[] _bookChapBtnR;
+    [SerializeField] private Button[] _bookChapBtnL;
+    private bool _isActivePage;
 
     [SerializeField] private GameObject _pauseCanva;
     [HideInInspector] public bool isPause { get; private set; }
@@ -86,6 +98,9 @@ public class Player : MonoBehaviour
         _bookUI.SetActive(false);
         _moveSpeedMax = _moveSpeed;
         _pauseCanva.SetActive(false);
+        _bookPageR = _bookComposantBtnR;
+        _bookPageL = _bookComposantBtnL;
+        _isActivePage = true;
         isInRange = false;
         _isDashing = false;
         //_movementActionMap = _playerInput.actions.FindActionMap("Player");
@@ -104,11 +119,16 @@ public class Player : MonoBehaviour
             _moveSpeed = 0f;
             isPause = true;
         }
-        else if(!_pauseCanva.activeInHierarchy)
+        else if (!_pauseCanva.activeInHierarchy)
         {
             _moveSpeed = _moveSpeedMax;
             isPause = false;
         }
+        //for (int i = 0; i < _bookPageR.Length; i++)
+        //{
+        //    Debug.Log(_bookPageR[i].gameObject.name);
+        //}
+        
     }
     
     private void Move()
@@ -167,11 +187,13 @@ public class Player : MonoBehaviour
                 {
                     if (!_bookUI.activeInHierarchy)
                     {
-                        _moveSpeed = _moveSpeedMax;
+                        //_moveSpeed = _moveSpeedMax;
+                        UnpauseTrigger();
                     }
                     else
                     {
-                        _moveSpeed = 0f;
+                        //_moveSpeed = 0f;
+                        PauseTrigger();
                     }
 
                 }
@@ -274,5 +296,69 @@ public class Player : MonoBehaviour
         _rb.velocity = new Vector3(-transform.forward.x, 0, transform.forward.z) * _knockback;
         _rbOther.velocity = new Vector3(-transform.forward.x, 0, transform.forward.z) * _knockback;
         yield return null;
+    }
+
+    public void OnNavigateChap(InputAction.CallbackContext context)
+    {
+        var ctxValue = context.ReadValue<int>();
+        _isActivePage = false;
+        if (ctxValue < -1 && context.started)
+        {
+            foreach (var btn in _bookChapBtnL)
+            {
+                if (btn.gameObject.activeInHierarchy)
+                {
+                    btn.onClick.Invoke();
+                    break;
+                }
+            };
+        }
+        else if (ctxValue > 1 && context.started)
+        {
+            foreach (var btn in _bookChapBtnR)
+            {
+                if (btn.gameObject.activeInHierarchy)
+                {
+                    btn.onClick.Invoke();
+                    break;
+                }
+            };
+        }
+    }
+    public void OnNavigateHorizontal(InputAction.CallbackContext context)
+    {//Book change page
+        var ctxValue = context.ReadValue<float>();
+
+        if (ctxValue < -0.5f && context.started)
+        {
+            foreach (var btn in _bookComposantBtnL)
+            {
+                if (btn.gameObject.activeInHierarchy)
+                {
+                    btn.onClick.Invoke();
+                    break;
+                }
+            };
+        }
+        else if (ctxValue > 0.5f && context.started)
+        {
+            foreach (var btn in _bookComposantBtnR)
+            {
+                if (btn.gameObject.activeInHierarchy)
+                {
+                    btn.onClick.Invoke();
+                    break;
+                }
+            };
+        }
+    }
+    public void ReturnFromUI(InputAction.CallbackContext context)
+    {
+        if (_pauseCanva.activeInHierarchy || _bookUI.activeInHierarchy)
+        {
+            _pauseCanva.SetActive(false);
+            _bookUI.SetActive(false);
+            UnpauseTrigger();
+        }
     }
 }
