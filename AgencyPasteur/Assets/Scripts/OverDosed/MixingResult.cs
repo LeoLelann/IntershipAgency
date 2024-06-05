@@ -77,7 +77,10 @@ public class MixingResult : Interactable
     }
     public void MixReady()
     {
-        if (_in1 != null && _in2 != null && _out)
+        _in1= _ingr1.GetComponentInChildren<Glassware>();
+        _in2= _ingr2.GetComponentInChildren<Glassware>();
+        _out = GetComponentInChildren<Glassware>();
+        if (_in1 != null && _in2 != null && _out!= null)
         {
             if (_in1.GlasswareSt != Glassware.glasswareState.EMPTY && _in2.GlasswareSt != Glassware.glasswareState.EMPTY && _out.GlasswareSt == Glassware.glasswareState.EMPTY)
             {
@@ -85,11 +88,12 @@ public class MixingResult : Interactable
             }
         }
         if (_in1 == null)
-            _onMissingComponentLeft.Invoke();
+        _onMissingComponentLeft.Invoke();
         if (_in2 == null)
-            _onMissingComponentRight.Invoke();
+
+        _onMissingComponentRight.Invoke();
         if (_out == null)
-            _onMissingComponentCenter.Invoke();
+        _onMissingComponentCenter.Invoke();
     }
 
     IEnumerator Mixing()
