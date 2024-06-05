@@ -13,11 +13,12 @@ public class TutoManager : MonoBehaviour
     [SerializeField] UnityEvent _onMixed;
     [SerializeField] UnityEvent _onSent;
 
-    private bool _firstElementTaken;
-    private bool _heatFirstElement;
-    private bool _dilutedFirstElement;
-    private bool _dilutedSecondElement;
-    private bool _mixedFirstTime;
+    List<GameObject> _playersDil1 = new List<GameObject>();
+    List<GameObject> _playersDil2 = new List<GameObject>();
+    List<GameObject> _playersHeat = new List<GameObject>();
+    List<GameObject> _playersMix = new List<GameObject>();
+
+
     private void Start()
     {
         _onStartTuto.Invoke();
@@ -26,29 +27,56 @@ public class TutoManager : MonoBehaviour
     {
         _onGotElement.Invoke();
     }
-    public void Heated()
+    public void Heated(GameObject player)
     {
-        _onHeated.Invoke();
+        if (_playersHeat.Contains(player))
+        {
+            _playersHeat.Add(player);
+            if (_playersHeat.Count == 3)
+            {
+                _onHeated.Invoke();
+                _playersHeat.Add(gameObject);
+            }
+        }
     }
-    public void Diluted1()
+    public void Diluted1(GameObject player)
     {
-        _onDiluted1Element.Invoke();
+        if (_playersDil1.Contains(player))
+        {
+            _playersDil1.Add(player);
+            if (_playersDil1.Count == 3)
+            {
+                _onDiluted1Element.Invoke();
+                _playersDil1.Add(gameObject);
+            }
+        }
     }
-    public void Diluted2()
+    public void Diluted2(GameObject player)
     {
-        _onDiluted2Element.Invoke();
+        if(_playersDil2.Contains(player))
+        {
+            _playersDil2.Add(player);
+            if (_playersDil2.Count == 3)
+            {
+                _onDiluted2Element.Invoke();
+                _playersDil2.Add(gameObject);
+            }
+        }
     }
-    public void Mixed()
+    public void Mixed(GameObject player)
     {
-        _onMixed.Invoke();
+        if (_playersMix.Contains(player))
+        {
+            _playersMix.Add(player);
+            if (_playersMix.Count == 3)
+            {
+                _onMixed.Invoke();
+                _playersMix.Add(gameObject);
+            }
+        }
     }
     public void Sent()
     {
         _onSent.Invoke();
     }
-    public bool FirstElementTaken { get => _firstElementTaken; set => _firstElementTaken = value; }
-    public bool HeatFirstElement { get => _heatFirstElement; set => _heatFirstElement = value; }
-    public bool DilutedFirstElement { get => _dilutedFirstElement; set => _dilutedFirstElement = value; }
-    public bool DilutedSecondElement { get => _dilutedSecondElement; set => _dilutedSecondElement = value; }
-    public bool MixedFirstTime { get => _mixedFirstTime; set => _mixedFirstTime = value; }
 }

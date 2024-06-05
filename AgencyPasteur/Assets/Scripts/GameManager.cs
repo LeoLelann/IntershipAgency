@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     public enum gamePhase
     {
         PARTY_GAME,
+        TUTO,
         MENUS,
     }
     [SerializeField] private List<AddToBook> _floatingPages = new List<AddToBook>();
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        if (_currentPhase==gamePhase.PARTY_GAME)
+        if (SceneManager.GetActiveScene().name!="Tuto"|| SceneManager.GetActiveScene().name != "Menu")
         {
             StartCoroutine(Timer());
         }

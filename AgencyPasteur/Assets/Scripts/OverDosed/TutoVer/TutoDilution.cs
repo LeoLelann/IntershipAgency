@@ -11,13 +11,13 @@ public class TutoDilution : Interactable
     [SerializeField] private UnityEvent _onInteracted;
      [SerializeField] private UnityEvent _onAlreadyDiluted;
     [SerializeField] private UnityEvent _onTooDiluted;
-    [SerializeField] private UnityEvent _onMachineDiscovered;
     // Start is called before the first frame update
   
     [SerializeField]SCDilution _dilute;
     [SerializeField]private int _phase1=6;
     [SerializeField]private int _phase2=8;
     [SerializeField]private int _max=10;
+    [SerializeField]private TutoManager _tuto;
     private bool _diluting;
     private int _count;
     void Start()
@@ -29,7 +29,6 @@ public class TutoDilution : Interactable
     // Update is called once per frame
     private void OnEnable()
     {
-        _onMachineDiscovered.Invoke();
     }
     public override void Interacted(GameObject player)
     {
@@ -73,11 +72,21 @@ public class TutoDilution : Interactable
                             break;
                     
                 }
+
             } 
+
         }
         else
         {
             _onInteractFailed?.Invoke();
+        }
+        if (_playerGlassware.GlasswareSt == Glassware.glasswareState.WATER)
+        {
+            _tuto.Diluted1(player);
+        }
+        if (_playerGlassware.GlasswareSt == Glassware.glasswareState.HEATED_ACID_STARCH_DILUTED)
+        {
+            _tuto.Diluted2(player);
         }
     }
     public void ResetDilution()
