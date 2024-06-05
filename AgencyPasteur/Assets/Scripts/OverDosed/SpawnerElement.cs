@@ -88,7 +88,7 @@ public class SpawnerElement : Interactable
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             collision.transform.rotation = Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
+            collision.transform.GetComponent<Collider>().enabled=false;
         }
     }
 }

@@ -20,6 +20,7 @@ public class AddToBook : MonoBehaviour
     IEnumerator MoveToward (Vector3 bookScreenPos)
     {
         yield return new WaitForSeconds(2);
+        _book.BecomeInteractable();
         float timer = 0;
         while (timer < _duration)
         {
@@ -29,8 +30,9 @@ public class AddToBook : MonoBehaviour
             transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.1f,0.1f,0.1f), timer / _duration);
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        _book.LockedPage[GlasswareState].GetComponent<Page>().IsLocked = false;
-        gameObject.active=false;
         yield return null;
+        _book.LockedPage[GlasswareState].GetComponent<Page>().IsLocked = false;
+        gameObject.SetActive(false);
+        Debug.Log("&hh");
     }
 }

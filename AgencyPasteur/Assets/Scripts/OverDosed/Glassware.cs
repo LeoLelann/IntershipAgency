@@ -10,6 +10,8 @@ public class Glassware : Interactable
     [SerializeField] private UnityEvent _onChangeState;
     [SerializeField] private UnityEvent _onPicked;
     [SerializeField] private UnityEvent _onCollisionWhenThrown;
+    [SerializeField] private UnityEvent _onBecameTrash;
+    [SerializeField] private UnityEvent _onBecameWater;
 
     public enum glasswareState
     {
@@ -105,6 +107,7 @@ public class Glassware : Interactable
            _rgbd.constraints = RigidbodyConstraints.FreezeAll;
             _parentTransform = GetComponentInParent<Transform>();
             _collider.enabled = false;
+            player.GetComponent<Player>().range = null;
         }
     }
     public void SetGlasswareState(glasswareState state)
@@ -113,7 +116,6 @@ public class Glassware : Interactable
         if (!GameManager.Instance.Found.Contains(state))
         {
             GameManager.Instance.AddElement(state);
-            Debug.Log("w");
         }
         OnStateValueChange(_glasswareSt);
     }
@@ -144,6 +146,7 @@ public class Glassware : Interactable
                 _meshRend.material.color = new Color(0.5f,0,0.5f); ;
                 break;
             case (glasswareState.TRASH):
+                _onBecameTrash.Invoke();
                 _meshRend.material.color = Color.black;
                 break;
             case (glasswareState.THICK_POWDER):
@@ -156,6 +159,7 @@ public class Glassware : Interactable
                 _meshRend.material.color = new Color(0.5f, 0.25f, 0);
                 break;
             case (glasswareState.WATER):
+                _onBecameWater.Invoke();
                 _meshRend.material.color = new Color(0,0.2f,1);
                 break;
         }
