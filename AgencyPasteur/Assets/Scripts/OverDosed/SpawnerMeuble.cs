@@ -17,7 +17,7 @@ public class SpawnerMeuble : Interactable
     public override void Interacted(GameObject player)
     {
         _glassware = GetComponentInChildren<Glassware>();
-        Glassware playerGlassware = GetComponentInChildren<Glassware>();
+        Glassware playerGlassware = player.GetComponentInChildren<Glassware>();
         if (playerGlassware==null)
         {
             if (_glassware!=null)
@@ -40,7 +40,7 @@ public class SpawnerMeuble : Interactable
             _glassware = GetComponentInChildren<Glassware>();
             _glassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             _glassware.transform.rotation = Quaternion.Euler(270, 0, 0);
-
+            _glassware.transform.GetComponent<Collider>().enabled = false;
             _glassware.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         }
@@ -54,6 +54,7 @@ public class SpawnerMeuble : Interactable
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
             collision.transform.localRotation = Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            collision.transform.GetComponent<Collider>().enabled = false;
         }
     }
 }

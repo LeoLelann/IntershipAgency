@@ -9,7 +9,7 @@ using System;
 public class Player : MonoBehaviour
 {
     [HideInInspector] public Glassware glassware;
-    [HideInInspector] public Interactable range;
+    [SerializeField] public Interactable range;
 
     [HideInInspector] public bool isInRange { get; set; }
     [HideInInspector] public bool _isDashing { get; private set; }

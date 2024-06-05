@@ -1,31 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
+    [SerializeField] private UnityEvent _onStartGame;
+    [SerializeField] private UnityEvent _onEndGamePerfect;
+    [SerializeField] private UnityEvent _onEndGameGood;
+    [SerializeField] private UnityEvent _onEndGameBad;
+    [SerializeField] private int _goalNbrRemedy;
+    private int _currentNbrRemedy;
     public static GameManager Instance => instance;
 
     public List<Glassware.glasswareState> Found { get => _found;}
+    public float Timer1 { get => _timer;}
+    public int GoalNbrRemedy { get => _goalNbrRemedy; set => _goalNbrRemedy = value; }
 
     [SerializeField] private GameObject _book;
     private gamePhase _currentPhase;
     public enum gamePhase
     {
-        PARTY_GAME_1,
-        PARTY_GAME_2,
-        PARTY_GAME_3,
-        SHOOTER,
+        PARTY_GAME,
         MENUS,
     }
     [SerializeField] private List<AddToBook> _floatingPages = new List<AddToBook>();
     [SerializeField] private List<Glassware.glasswareState> _found = new List<Glassware.glasswareState>();
-    [SerializeField]private List<Glassware.glasswareState> _neededGlasswareP1=new List<Glassware.glasswareState>();
-    [SerializeField]private List<Glassware.glasswareState> _neededGlasswareP2=new List<Glassware.glasswareState>();
-    [SerializeField] private List<Glassware.glasswareState> _neededGlasswareP3=new List<Glassware.glasswareState>();
     private List<Glassware.glasswareState> _neededGlasswareType=new List<Glassware.glasswareState>();
     [SerializeField] private GameObject _displayNGT;
+    [SerializeField] private float _timer;
     #region Singleton
     private void InitSingleton()
     {
@@ -48,38 +52,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _found.Clear();
-        _found.Add(Glassware.glasswareState.EMPTY);
-        _found.Add(Glassware.glasswareState.ACID);
-        _found.Add(Glassware.glasswareState.WATER);
-        _found.Add(Glassware.glasswareState.STARCH);
-        _found.Add(Glassware.glasswareState.TALC);
-        _found.Add(Glassware.glasswareState.TRASH);
-        if (_currentPhase == gamePhase.PARTY_GAME_1)
+        _currentNbrRemedy = 0;
+        StartCoroutine(Timer());
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        if (_currentPhase==gamePhase.PARTY_GAME)
         {
-            _neededGlasswareType = _neededGlasswareP1;
+            StartCoroutine(Timer());
         }
-        else if (_currentPhase == gamePhase.PARTY_GAME_2)
-        {
-           foreach(Glassware.glasswareState needed in _neededGlasswareP1)
-            {
-                _found.Add(needed);
-            }
-            _neededGlasswareType = _neededGlasswareP2;
-        }
-        else if (_currentPhase == gamePhase.PARTY_GAME_3)
-        {
-            foreach (Glassware.glasswareState needed in _neededGlasswareP1)
-            {
-                _found.Add(needed);
-            }
-            foreach (Glassware.glasswareState needed in _neededGlasswareP2)
-            {
-                _found.Add(needed);
-            }
-            _neededGlasswareType = _neededGlasswareP3;
-        }
-        DisplayRightComponent();
     }
     public void AddElement(Glassware.glasswareState state)
     {
@@ -93,11 +74,32 @@ public class GameManager : MonoBehaviour
         }
     }
    
-    private void DisplayRightComponent()
+    IEnumerator Timer()
     {
-        for(int i =0;i<_neededGlasswareType.Count;i++)
+        float time = 0;
+        while (time < _timer)
         {
-            _displayNGT.transform.GetChild(i).gameObject.SetActive(true);
+            time += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
         }
+        EndGame();
+        yield return null;
+    }
+    public void EndGame()
+    {
+        StopAllCoroutines();
+        switch (_currentNbrRemedy)
+        {
+            case int i when i <=_goalNbrRemedy / 2:
+                _onEndGameBad.Invoke();
+                break;
+            case int i when i <= _goalNbrRemedy *8/10:
+                _onEndGameBad.Invoke();
+                break;
+            case int i when i > _goalNbrRemedy *8/10:
+                _onEndGameBad.Invoke();
+                break;
+        }
+        Debug.Log("Fin de game");
     }
 }
