@@ -586,7 +586,7 @@
                 {
                     "name": "negative",
                     "id": "9d2823ad-1ee3-4c2c-8243-664a9a1f4841",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "GamePad",
@@ -597,7 +597,7 @@
                 {
                     "name": "positive",
                     "id": "405803fb-06ff-424e-9c47-a9790857bd9b",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "GamePad",

@@ -280,7 +280,19 @@ MonoBehaviour:
     m_ActionId: be6900b0-0ff2-44d5-9cc5-cb2b9f042d13
     m_ActionName: UI/Cancel
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2654229044966388138}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnNavigateChap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d758362d-7fe8-4cb8-95aa-6f92704fa591
     m_ActionName: UI/NavigateHorizontal
   - m_PersistentCalls:
@@ -405,16 +417,34 @@ MonoBehaviour:
   _rb: {fileID: -2576569530647141736}
   _inputFromUI: {fileID: -4221566702865315253, guid: a18640224dae3f54887e05afbc747e63, type: 3}
   _inputFromGameplay: {fileID: 951819913516660412, guid: a18640224dae3f54887e05afbc747e63, type: 3}
-  _bookBtnR:
+  _bookComposantBtnR:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _bookBtnL:
+  _bookComposantBtnL:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _bookMachineBtnR:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _bookMachineBtnL:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _bookSolutionBtnR:
+  - {fileID: 0}
+  _bookSolutionBtnL:
+  - {fileID: 0}
+  _bookChapBtnR:
+  - {fileID: 0}
+  - {fileID: 0}
+  _bookChapBtnL:
   - {fileID: 0}
   - {fileID: 0}
   _pauseCanva: {fileID: 0}
