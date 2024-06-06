@@ -1549,7 +1549,7 @@ GameObject:
   - component: {fileID: 7688874800068988379}
   - component: {fileID: 4956917992901037954}
   m_Layer: 5
-  m_Name: UI
+  m_Name: TutoUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

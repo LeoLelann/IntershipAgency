@@ -167,12 +167,19 @@ MonoBehaviour:
   _onSnapGlassware:
     m_PersistentCalls:
       m_Calls: []
-  _elementIcon: []
-  _label: {fileID: 0}
-  _ressource: {fileID: 0}
+  _elementIcon:
+  - {fileID: 2100000, guid: 7886345934aae324eae18dc89a520ee6, type: 2}
+  - {fileID: 2100000, guid: 26194fea64ba29c47a22b4a4bfe322cc, type: 2}
+  _label: {fileID: 910531353048729090}
+  _ressource: {fileID: 6646863356503664476, guid: b2752a860520d7e42897883395cde214, type: 3}
   _limit: 0
   _tuto: {fileID: 0}
   element: 0
+--- !u!23 &910531353048729090 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1808074756076501666, guid: 488f59257472b9b47a21f88e8027cf6d, type: 3}
+  m_PrefabInstance: {fileID: 1564236820594113696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1065682185635902810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1981400582443960826, guid: 488f59257472b9b47a21f88e8027cf6d, type: 3}
