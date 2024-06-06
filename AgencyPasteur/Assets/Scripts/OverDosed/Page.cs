@@ -8,7 +8,7 @@ public class Page : MonoBehaviour
 {
     [SerializeField] private UnityEvent _onUnlock;
     [SerializeField] bool _isLocked;
-    private Image _image;
+    [SerializeField]private Image _image;
     
     
     public bool IsLocked
@@ -29,9 +29,8 @@ public class Page : MonoBehaviour
         }
     }
 
-    void Start()
+    private void OnEnable()
     {
-        _image = GetComponent<Image>();
         IsLocked = _isLocked;
     }
 
