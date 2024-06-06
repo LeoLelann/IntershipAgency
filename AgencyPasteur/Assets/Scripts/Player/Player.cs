@@ -265,8 +265,7 @@ public class Player : MonoBehaviour
         float timer = 0f;
         while (timer < _dashDuration)
         {
-            float t = timer / _dashDuration;
-            float curveValue = _curve.Evaluate(t);
+            float curveValue = _curve.Evaluate(timer);
             transform.position += _moveDirection.normalized*curveValue * _dashPower*Time.deltaTime;
             //_rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
             yield return new WaitForSecondsRealtime(Time.deltaTime);
