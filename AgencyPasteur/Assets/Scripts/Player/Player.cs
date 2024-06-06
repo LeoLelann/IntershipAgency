@@ -261,17 +261,15 @@ public class Player : MonoBehaviour
         _isDashing = true;
         _canDash = false;
 
-        Vector3 startPosition = transform.position;
-        Vector3 endPosition = startPosition + _moveDirection.normalized * _dashPower;
 
         float timer = 0f;
         while (timer < _dashDuration)
         {
-            float t = timer / _dashDuration;
-            float curveValue = _curve.Evaluate(t);
-            //transform.position = Vector3.Lerp(startPosition, endPosition, curveValue);
-            _rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
-            yield return new WaitForSeconds(Time.deltaTime);
+            float curveValue = _curve.Evaluate(timer);
+            transform.position += _moveDirection.normalized*curveValue * _dashPower*Time.deltaTime;
+            //_rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
+            yield return new WaitForSecondsRealtime(Time.deltaTime);
+            timer += Time.deltaTime;
         }
 
         //for (float elapsed = 0; elapsed < _dashDuration; elapsed += Time.deltaTime)
@@ -282,8 +280,6 @@ public class Player : MonoBehaviour
         //    _rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
         //    yield return new WaitForSeconds(Time.deltaTime);
         //}
-
-        transform.position = endPosition;
 
         _isDashing = false;
 

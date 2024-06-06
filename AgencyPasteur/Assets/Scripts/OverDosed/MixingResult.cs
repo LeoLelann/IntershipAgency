@@ -37,7 +37,7 @@ public class MixingResult : Interactable
         Debug.Log(playerGlassware);
         Debug.Log(in1Glassware);
         Debug.Log(in2Glassware);
-         if (playerGlassware != null && currentGlassware == null)
+        if (playerGlassware != null && currentGlassware == null)
         {
             _onSnapGlassware?.Invoke();
             playerGlassware.transform.parent = transform;
@@ -50,7 +50,7 @@ public class MixingResult : Interactable
         }
         else
         {
-           _out = GetComponentInChildren<Glassware>();
+            _out = GetComponentInChildren<Glassware>();
             if ((currentGlassware != null && playerGlassware == null && _out.GlasswareSt != Glassware.glasswareState.EMPTY) || (in1Glassware == null) || (in2Glassware == null))
             {
                 _onTakeFrom?.Invoke();
@@ -58,7 +58,7 @@ public class MixingResult : Interactable
             }
             else
             {
-                if ( in1Glassware!= null && in2Glassware != null)
+                if (in1Glassware != null && in2Glassware != null)
                 {
                     _in1 = in1Glassware;
                     _in2 = in2Glassware;
@@ -73,7 +73,7 @@ public class MixingResult : Interactable
                     }
                 }
             }
-        }  
+        }
     }
     public void MixReady()
     {
