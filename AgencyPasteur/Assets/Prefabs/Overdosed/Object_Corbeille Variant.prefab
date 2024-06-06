@@ -52,6 +52,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Object_Corbeille Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4613833883589925817, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613833883589925817, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
+      propertyPath: m_Size.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613833883589925817, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7767801309534694275, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
