@@ -49,6 +49,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.48
       objectReference: {fileID: 0}
+    - target: {fileID: -617606731317882941, guid: e80cc3c210eec994f895ac4ff863e0f3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4993371765804721538, guid: e80cc3c210eec994f895ac4ff863e0f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -100,13 +104,58 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5622697434098515768, guid: e80cc3c210eec994f895ac4ff863e0f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9046943937072453037}
   m_SourcePrefab: {fileID: 100100000, guid: e80cc3c210eec994f895ac4ff863e0f3, type: 3}
 --- !u!4 &8640846003339439830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4993371765804721538, guid: e80cc3c210eec994f895ac4ff863e0f3, type: 3}
   m_PrefabInstance: {fileID: 3649734851292547924}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8980638370356458604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5622697434098515768, guid: e80cc3c210eec994f895ac4ff863e0f3, type: 3}
+  m_PrefabInstance: {fileID: 3649734851292547924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9046943937072453037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980638370356458604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0414176184f34546ac1657d4f614996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDontShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButMissingGlassware:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButMissingComponent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButHandsFull:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeFrom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSnapGlassware:
+    m_PersistentCalls:
+      m_Calls: []
+  _mix: {fileID: 0}
 --- !u!1001 &8384222861929522680
 PrefabInstance:
   m_ObjectHideFlags: 0
