@@ -519,6 +519,15 @@ MonoBehaviour:
   OnStartShowInteract:
     m_PersistentCalls:
       m_Calls: []
+  OnShowInterractButMissingGlassware:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButMissingComponent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButHandsFull:
+    m_PersistentCalls:
+      m_Calls: []
   _onNoGlasswareToTakeElement:
     m_PersistentCalls:
       m_Calls: []

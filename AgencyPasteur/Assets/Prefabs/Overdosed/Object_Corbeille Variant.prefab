@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1454614634631299164, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5000005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1454614634631299164, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,23 +18,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454614634631299164, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.500001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1454614634631299164, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1454614634631299164, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1454614634631299164, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1454614634631299164, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1454614634631299164, guid: 39e7dc26eeb61ae41b830a2246ca157c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -88,5 +88,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnStartShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButMissingGlassware:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButMissingComponent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButHandsFull:
+    m_PersistentCalls:
+      m_Calls: []
+  _onThrowAway:
     m_PersistentCalls:
       m_Calls: []
