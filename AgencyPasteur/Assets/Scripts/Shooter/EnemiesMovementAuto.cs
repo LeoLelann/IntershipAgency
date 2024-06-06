@@ -5,20 +5,21 @@ using UnityEngine;
 public class EnemiesMovementAuto : MonoBehaviour
 {
     [SerializeField,Range(0.1f,10.0f)] private float _speed;
-    private Mov[] _playerPos;
+    [SerializeField,Range(1,10)] private int _dmg=3;
+    private PlayerShooter[] _playerPos;
     private Vector3 _dir;
     private float _distance;
     private void Start()
     {
         _dir = new Vector3(0, 0, 0);
-        _playerPos = FindObjectsOfType<Mov>();
+        _playerPos = FindObjectsOfType<PlayerShooter>();
         _distance = -1;
     }
     // Start is called before the first frame update
     // Update is called once per frame
     void Update()
     {
-        foreach(Mov player in _playerPos)
+        foreach(PlayerShooter player in _playerPos)
         {
             if (_distance == -1 || _distance > Vector3.Distance(player.gameObject.transform.position, transform.position))
             {
@@ -28,5 +29,12 @@ public class EnemiesMovementAuto : MonoBehaviour
         }
         _distance = -1;
         transform.position += _dir * _speed*Time.deltaTime;
-    }   
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.GetComponent<PlayerShooter>())
+        {
+            collision.transform.GetComponent<PlayerShooter>().TakeDmg(_dmg);
+        }
+    }
 }
