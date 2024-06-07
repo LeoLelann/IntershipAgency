@@ -103,6 +103,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7918335002988649766, guid: c8f37359f682be346be6fbb58c9029b7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08822b5f13fa02f44b22bcecedef19b4, type: 2}
+    - target: {fileID: -6532055803787292656, guid: c8f37359f682be346be6fbb58c9029b7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d899fa2f294b5849bf09b044b342eea, type: 2}
     - target: {fileID: 919132149155446097, guid: c8f37359f682be346be6fbb58c9029b7, type: 3}
       propertyPath: m_Name
       value: De_Object_Bache_Plaque-Chauffante
@@ -127,7 +135,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7383473782246921966, guid: 9a5486be8daf00941a31710dcd6b8967, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8238928589799005582, guid: 9a5486be8daf00941a31710dcd6b8967, type: 3}
       propertyPath: m_LocalPosition.x
@@ -180,70 +188,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8727234225565583156, guid: 9a5486be8daf00941a31710dcd6b8967, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1656453675026634868}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a5486be8daf00941a31710dcd6b8967, type: 3}
---- !u!1 &3615551172655151306 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8727234225565583156, guid: 9a5486be8daf00941a31710dcd6b8967, type: 3}
-  m_PrefabInstance: {fileID: 5417929207901372414}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1656453675026634868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3615551172655151306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ba12784472de8b43a4079e9a1300db3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnShowInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDontShowInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  OnStartShowInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  OnShowInterractButMissingGlassware:
-    m_PersistentCalls:
-      m_Calls: []
-  OnShowInterractButMissingComponent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnShowInterractButHandsFull:
-    m_PersistentCalls:
-      m_Calls: []
-  _onStartHeating:
-    m_PersistentCalls:
-      m_Calls: []
-  _onStopHeating:
-    m_PersistentCalls:
-      m_Calls: []
-  _onBurning:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTakeFrom:
-    m_PersistentCalls:
-      m_Calls: []
-  _onSnapGlassware:
-    m_PersistentCalls:
-      m_Calls: []
-  _onCantCook:
-    m_PersistentCalls:
-      m_Calls: []
-  _onBurnt:
-    m_PersistentCalls:
-      m_Calls: []
-  _heat: {fileID: 0}
-  secondsTillHeated: 3
-  _tuto: {fileID: 0}
 --- !u!4 &4136226465117839984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8238928589799005582, guid: 9a5486be8daf00941a31710dcd6b8967, type: 3}
