@@ -98,16 +98,16 @@ public class Player : MonoBehaviour
     {
         //_playerInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody>();
-<<<<<<< HEAD
+//<<<<<<< HEAD
         //_bookUI.SetActive(false);
         //_pauseCanva.SetActive(false);
         _moveSpeedMax = _moveSpeed;
-=======
+//=======
         _pauseMenu = FindObjectOfType<Pause>();
         //_bookUI.SetActive(false);
         _moveSpeedMax = _moveSpeed;
         //_pauseCanva.SetActive(false);
->>>>>>> origin/Leo
+//>>>>>>> origin/Leo
         _bookPageR = _bookComposantBtnR;
         _bookPageL = _bookComposantBtnL;
         _isActivePage = true;
@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
             Move();
         }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 /*        if (_pauseCanva.activeInHierarchy)
         {
             _moveSpeed = 0f;
@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
             _moveSpeed = _moveSpeedMax;
             isPause = false;
         }*/
-=======
+//=======
         //if (_pauseCanva.activeInHierarchy)
         //{
         //    _moveSpeed = 0f;
@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
         //    _moveSpeed = _moveSpeedMax;
         //    isPause = false;
         //}
->>>>>>> origin/Leo
+//>>>>>>> origin/Leo
         //for (int i = 0; i < _bookPageR.Length; i++)
         //{
         //    Debug.Log(_bookPageR[i].gameObject.name);
