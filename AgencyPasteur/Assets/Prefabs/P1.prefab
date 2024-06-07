@@ -168,7 +168,19 @@ MonoBehaviour:
     m_ActionId: 40fbc5e5-7c2d-4951-b21b-8c7bbdbe6941
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2654229044966388138}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a2aa6826-c9bd-4235-82b7-47140480dee5
     m_ActionName: Player/Action1[/Keyboard/space]
   - m_PersistentCalls:
@@ -333,9 +345,9 @@ MonoBehaviour:
   _moveSpeed: 5
   _rotationSpeed: 0.09
   _knockback: 1
-  _dashPower: 0
-  _dashCD: 0.2
-  _dashDuration: 0.1
+  _dashPower: 10
+  _dashCD: 1
+  _dashDuration: 0.5
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -349,68 +361,23 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.006486236
-      value: 16.325504
-      inSlope: -4.4402614
-      outSlope: -4.4402614
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.038719416
-    - serializedVersion: 3
-      time: 0.010485647
-      value: 0.06583786
-      inSlope: -6.581548
-      outSlope: -6.581548
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.08654358
-    - serializedVersion: 3
-      time: 0.026108138
-      value: 0.122087955
-      inSlope: -Infinity
-      outSlope: -Infinity
+      time: 0.019075051
+      value: 0.99544376
+      inSlope: 0.47650635
+      outSlope: 0.47650635
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.040033266
-      value: 19.318718
-      inSlope: -Infinity
-      outSlope: -Infinity
+      time: 0.50127405
+      value: 0.016597014
+      inSlope: 0.12744172
+      outSlope: 0.12744172
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.22776942
       outWeight: 0
-    - serializedVersion: 3
-      time: 0.07196579
-      value: 0.0058541596
-      inSlope: 1.4836547
-      outSlope: 1.4836547
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.073777325
-      value: 14.369582
-      inSlope: 1.149979
-      outSlope: 1.149979
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.08313809
-      value: 0.018136531
-      inSlope: 8.175926
-      outSlope: 8.175926
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.05497767
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -447,7 +414,9 @@ MonoBehaviour:
   _bookChapBtnL:
   - {fileID: 0}
   - {fileID: 0}
-  _pauseCanva: {fileID: 0}
+  _panelBook1: {fileID: 0}
+  _panelBook2: {fileID: 0}
+  _panelBook3: {fileID: 0}
   _onMove:
     m_PersistentCalls:
       m_Calls: []
