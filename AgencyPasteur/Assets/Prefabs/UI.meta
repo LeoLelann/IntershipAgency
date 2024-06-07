@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:AgencyPasteur/Assets/Art/UI/book/Xelu_Free_ControllerKey_Prompts/Others/Preview.fla.meta
+guid: 79178139a5e4eb84b88009c6113814a4
+========
 guid: 9f9b9970d7c1f3f4696e175ed92de669
 folderAsset: yes
+>>>>>>>> Dev:AgencyPasteur/Assets/Prefabs/UI.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

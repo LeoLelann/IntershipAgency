@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 public class MixingResult : Interactable
@@ -19,14 +20,12 @@ public class MixingResult : Interactable
     [SerializeField] private Paillaisse _ingr1;
     [SerializeField] private Paillaisse _ingr2;
     [SerializeField] private float _mixDuration;
+    [SerializeField] private TutoManager _tuto;
+
     private Glassware _in1;
     private Glassware _in2;
     private Glassware _out;
     [SerializeField]private SCMix _mix;
-    private void Start()
-    {
-        Debug.Log(_mix.Mixed.Count);
-    }
     public override void Interacted(GameObject player)
     {
         Glassware playerGlassware = player.GetComponentInChildren<Glassware>();
@@ -37,7 +36,7 @@ public class MixingResult : Interactable
         Debug.Log(playerGlassware);
         Debug.Log(in1Glassware);
         Debug.Log(in2Glassware);
-         if (playerGlassware != null && currentGlassware == null)
+        if (playerGlassware != null && currentGlassware == null)
         {
             _onSnapGlassware?.Invoke();
             playerGlassware.transform.parent = transform;
@@ -50,15 +49,22 @@ public class MixingResult : Interactable
         }
         else
         {
-           _out = GetComponentInChildren<Glassware>();
+            _out = GetComponentInChildren<Glassware>();
             if ((currentGlassware != null && playerGlassware == null && _out.GlasswareSt != Glassware.glasswareState.EMPTY) || (in1Glassware == null) || (in2Glassware == null))
             {
                 _onTakeFrom?.Invoke();
+                if(SceneManager.GetActiveScene().name=="Tutoriel 1")
+                {
+                    if (_out.GlasswareSt == Glassware.glasswareState.HEATED_ACID_STARCH_DILUTED)
+                    {
+                        _tuto.Mixed(player);
+                    }
+                }
                 transform.GetComponentInChildren<Glassware>().Interacted(player);
             }
             else
             {
-                if ( in1Glassware!= null && in2Glassware != null)
+                if (in1Glassware != null && in2Glassware != null)
                 {
                     _in1 = in1Glassware;
                     _in2 = in2Glassware;
@@ -73,11 +79,14 @@ public class MixingResult : Interactable
                     }
                 }
             }
-        }  
+        }
     }
     public void MixReady()
     {
-        if (_in1 != null && _in2 != null && _out)
+        _in1= _ingr1.GetComponentInChildren<Glassware>();
+        _in2= _ingr2.GetComponentInChildren<Glassware>();
+        _out = GetComponentInChildren<Glassware>();
+        if (_in1 != null && _in2 != null && _out!= null)
         {
             if (_in1.GlasswareSt != Glassware.glasswareState.EMPTY && _in2.GlasswareSt != Glassware.glasswareState.EMPTY && _out.GlasswareSt == Glassware.glasswareState.EMPTY)
             {
@@ -85,11 +94,12 @@ public class MixingResult : Interactable
             }
         }
         if (_in1 == null)
-            _onMissingComponentLeft.Invoke();
+        _onMissingComponentLeft.Invoke();
         if (_in2 == null)
-            _onMissingComponentRight.Invoke();
+
+        _onMissingComponentRight.Invoke();
         if (_out == null)
-            _onMissingComponentCenter.Invoke();
+        _onMissingComponentCenter.Invoke();
     }
 
     IEnumerator Mixing()

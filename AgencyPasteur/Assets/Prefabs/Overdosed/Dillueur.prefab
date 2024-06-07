@@ -856,15 +856,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 481308b66290f5940a0368d7f9bad1b5, type: 2}
     - target: {fileID: -8679921383154817045, guid: edcdac8827848c5469391253ddef2829, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.1700935
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edcdac8827848c5469391253ddef2829, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.997571
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edcdac8827848c5469391253ddef2829, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.532506
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edcdac8827848c5469391253ddef2829, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1043,7 +1043,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: a754c71a605325e458cebb9a0299d6c3, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: ab47c3c6a904b364eb4da030b2d856a9, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1070,7 +1070,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 4ba20ae087a097e489ac5b2a69e3c92f, type: 2}
+          m_ObjectArgument: {fileID: 2100000, guid: 481308b66290f5940a0368d7f9bad1b5, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1114,6 +1114,15 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OnStartShowInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButMissingGlassware:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButMissingComponent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButHandsFull:
     m_PersistentCalls:
       m_Calls: []
   _onInteractFailed:

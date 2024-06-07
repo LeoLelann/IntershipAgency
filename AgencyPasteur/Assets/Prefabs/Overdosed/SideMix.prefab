@@ -49,8 +49,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6931589005722478493, guid: 59cd32c282c17cf44ae225474119faa0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 101.6322
+      objectReference: {fileID: 0}
+    - target: {fileID: -6931589005722478493, guid: 59cd32c282c17cf44ae225474119faa0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 101.6322
+      objectReference: {fileID: 0}
+    - target: {fileID: -6931589005722478493, guid: 59cd32c282c17cf44ae225474119faa0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 101.6322
+      objectReference: {fileID: 0}
+    - target: {fileID: -6931589005722478493, guid: 59cd32c282c17cf44ae225474119faa0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.832
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: -6931589005722478493, guid: 59cd32c282c17cf44ae225474119faa0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -112,7 +124,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.51, z: 0}
 --- !u!114 &-617606731317882941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,9 +146,19 @@ MonoBehaviour:
   OnStartShowInteract:
     m_PersistentCalls:
       m_Calls: []
+  OnShowInterractButMissingGlassware:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButMissingComponent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButHandsFull:
+    m_PersistentCalls:
+      m_Calls: []
   OnTakeFrom:
     m_PersistentCalls:
       m_Calls: []
   OnSnapGlassware:
     m_PersistentCalls:
       m_Calls: []
+  _mix: {fileID: 0}

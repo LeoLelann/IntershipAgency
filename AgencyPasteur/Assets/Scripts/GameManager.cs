@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent _onEndGameGood;
     [SerializeField] private UnityEvent _onEndGameBad;
     [SerializeField] private int _goalNbrRemedy;
+    [SerializeField] private GameObject _cover;
     private int _currentNbrRemedy;
     public static GameManager Instance => instance;
 
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
     public enum gamePhase
     {
         PARTY_GAME,
+        TUTO,
         MENUS,
     }
     [SerializeField] private List<AddToBook> _floatingPages = new List<AddToBook>();
@@ -52,24 +56,28 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(SceneManager.GetActiveScene().name);
         _currentNbrRemedy = 0;
         StartCoroutine(Timer());
     }
     private void OnLevelWasLoaded(int level)
     {
-        if (_currentPhase==gamePhase.PARTY_GAME)
+        if (SceneManager.GetActiveScene().name!="Tutoriel 1"|| SceneManager.GetActiveScene().name != "Menu")
         {
             StartCoroutine(Timer());
         }
     }
     public void AddElement(Glassware.glasswareState state)
-    {
-        _found.Add(state);
-        foreach(AddToBook pages in _floatingPages)
+    {if (SceneManager.GetActiveScene().name != "Tutoriel 1")
         {
-            if (pages.GlasswareState == state)
+            _found.Add(state);
+            foreach (AddToBook pages in _floatingPages)
             {
-                pages.gameObject.SetActive(true);
+                if (pages.GlasswareState == state)
+                {
+                    _cover.SetActive(true);
+                    pages.gameObject.SetActive(true);
+                }
             }
         }
     }

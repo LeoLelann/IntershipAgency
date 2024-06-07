@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class ValidationTable : Interactable
 {
@@ -11,13 +12,17 @@ public class ValidationTable : Interactable
 
     [SerializeField]private List<Glassware.glasswareState> ToFind=new List<Glassware.glasswareState>();
     [SerializeField]private List<Glassware.glasswareState> Found=new List<Glassware.glasswareState>();
+    [SerializeField] private UI_Completion _completion;
     private Glassware _glassware;
+    [SerializeField] TutoManager _tuto;
 
     private void Start()
     {
         _glassware = GetComponentInChildren<Glassware>();
         ToFind.Add(Glassware.glasswareState.HEATED_ACID_STARCH_DILUTED);
+        _completion.ResultMax = ToFind.Count;
         GameManager.Instance.GoalNbrRemedy = ToFind.Count;
+        _completion.UpdateCount(0);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -37,6 +42,7 @@ public class ValidationTable : Interactable
     }
     public override void Interacted(GameObject player)
     {
+        _glassware=GetComponentInChildren<Glassware>();
         Glassware playerGlassware =player.GetComponentInChildren<Glassware>();
         if (_glassware != null && playerGlassware == null)
         {
@@ -57,8 +63,10 @@ public class ValidationTable : Interactable
     {
         if (ToFind.Contains(_glassware.GlasswareSt)&&!Found.Contains(_glassware.GlasswareSt))
         {
+            
             _onValidate?.Invoke();
             Found.Add(_glassware.GlasswareSt);
+            _completion.UpdateCount(Found.Count);
         }
         else
         {
@@ -67,6 +75,12 @@ public class ValidationTable : Interactable
         Destroy(_glassware.gameObject);
         if (Found.Count == ToFind.Count)
         {
+            Debug.Log("Reprenez de l'amidon et diluez-le.");
+            if(SceneManager.GetActiveScene().name=="Tutoriel 1")
+            {
+                            Debug.Log("Reprenez de l'amidon et diluez-le22.");
+                _tuto.Sent();
+            }
             GameManager.Instance.EndGame();
         }
     }

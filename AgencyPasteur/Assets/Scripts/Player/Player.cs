@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     private bool _canDash;
 
     [Header("")]
+    private Pause _pauseMenu; 
     private GameObject _bookUI;
 
     [SerializeField] private Rigidbody _rb;
@@ -57,7 +58,7 @@ public class Player : MonoBehaviour
     private bool _isActivePage;
     private int _currentPage;
 
-    [SerializeField] private GameObject _pauseCanva;
+    //[SerializeField] private GameObject _pauseCanva;
     [HideInInspector] public bool isPause { get; private set; }
 
     [Header("Events")]
@@ -95,16 +96,20 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        //_playerInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody>();
+        _pauseMenu = FindObjectOfType<Pause>();
         //_bookUI.SetActive(false);
-        //_pauseCanva.SetActive(false);
         _moveSpeedMax = _moveSpeed;
+        //_pauseCanva.SetActive(false);
         _bookPageR = _bookComposantBtnR;
         _bookPageL = _bookComposantBtnL;
         _isActivePage = true;
         isInRange = false;
         _isDashing = false;
         _currentPage = 1;
+        //_movementActionMap = _playerInput.actions.FindActionMap("Player");
+        //_uiActionMap = _playerInput.actions.FindActionMap("UI");
     }
 
     void Update()
@@ -114,16 +119,16 @@ public class Player : MonoBehaviour
             Move();
         }
 
-/*        if (_pauseCanva.activeInHierarchy)
-        {
-            _moveSpeed = 0f;
-            isPause = true;
-        }
-        else if (!_pauseCanva.activeInHierarchy)
-        {
-            _moveSpeed = _moveSpeedMax;
-            isPause = false;
-        }*/
+        //if (_pauseCanva.activeInHierarchy)
+        //{
+        //    _moveSpeed = 0f;
+        //    isPause = true;
+        //}
+        //else if (!_pauseCanva.activeInHierarchy)
+        //{
+        //    _moveSpeed = _moveSpeedMax;
+        //    isPause = false;
+        //}
         //for (int i = 0; i < _bookPageR.Length; i++)
         //{
         //    Debug.Log(_bookPageR[i].gameObject.name);
@@ -148,15 +153,19 @@ public class Player : MonoBehaviour
         _moveInput = context.ReadValue<Vector2>();
     }
 
-    public void OnPause(InputAction.CallbackContext context)
+    /*public void OnPause(InputAction.CallbackContext context)
     {
         //_pauseMenu.SetPause();
         if (context.started)
         {
+            Debug.Log("startInput");
             if (!_pauseCanva.activeInHierarchy)
             {
+                Debug.Log("activeUI");
                 isPause = true;
+
                 OnPauseGlobal?.Invoke();
+
                 _pauseCanva.SetActive(true);
                 //_es.firstSelectedGameObject = _defaultPauseBtn;
             }
@@ -168,7 +177,7 @@ public class Player : MonoBehaviour
 
             }
         }
-    }
+    }*/
 
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -257,17 +266,15 @@ public class Player : MonoBehaviour
         _isDashing = true;
         _canDash = false;
 
-        Vector3 startPosition = transform.position;
-        Vector3 endPosition = startPosition + _moveDirection.normalized * _dashPower;
 
         float timer = 0f;
         while (timer < _dashDuration)
         {
-            float t = timer / _dashDuration;
-            float curveValue = _curve.Evaluate(t);
-            //transform.position = Vector3.Lerp(startPosition, endPosition, curveValue);
-            _rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
-            yield return new WaitForSeconds(Time.deltaTime);
+            float curveValue = _curve.Evaluate(timer);
+            transform.position += _moveDirection.normalized*curveValue * _dashPower*Time.deltaTime;
+            //_rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
+            yield return new WaitForSecondsRealtime(Time.deltaTime);
+            timer += Time.deltaTime;
         }
 
         //for (float elapsed = 0; elapsed < _dashDuration; elapsed += Time.deltaTime)
@@ -278,8 +285,6 @@ public class Player : MonoBehaviour
         //    _rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
         //    yield return new WaitForSeconds(Time.deltaTime);
         //}
-
-        transform.position = endPosition;
 
         _isDashing = false;
 
@@ -390,9 +395,9 @@ public class Player : MonoBehaviour
     }
     public void ReturnFromUI(InputAction.CallbackContext context)
     {
-        if (_pauseCanva.activeInHierarchy || _bookUI.activeInHierarchy)
+        if (/*_pauseCanva.activeInHierarchy ||*/ _bookUI.activeInHierarchy)
         {
-            _pauseCanva.SetActive(false);
+            //_pauseCanva.SetActive(false);
             _bookUI.SetActive(false);
             UnpauseTrigger();
         }
