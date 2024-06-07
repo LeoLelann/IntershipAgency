@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(SceneManager.GetActiveScene().name);
         _currentNbrRemedy = 0;
         StartCoroutine(Timer());
     }

@@ -31,9 +31,11 @@ public class AddToBook : MonoBehaviour
             _cover.transform.localScale = Vector3.Lerp(_cover.transform.localScale, new Vector3(0.1f,0.1f,0.1f), timer / _duration);
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        yield return null;
         _book.LockedPage[GlasswareState].GetComponent<Page>().IsLocked = false;
         gameObject.SetActive(false);
+        _cover.SetActive(false);
+        _cover.transform.localPosition = new Vector3(0.5f,0.5f,0.5f);
+        _cover.transform.localScale = new Vector3(1.2f,1.2f,1.2f);
         Debug.Log("&hh");
     }
 }

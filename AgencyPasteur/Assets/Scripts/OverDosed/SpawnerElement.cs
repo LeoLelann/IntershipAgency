@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 public class SpawnerElement : Interactable
@@ -12,7 +13,9 @@ public class SpawnerElement : Interactable
     [SerializeField] private MeshRenderer _label;
     [SerializeField] GameObject _ressource;
     private Glassware _glassware;
-    [SerializeField] int _limit; 
+    [SerializeField] int _limit;
+    [SerializeField] TutoManager _tuto;
+    List<GameObject> _players = new List<GameObject>();
     public enum Elements
     {
         TALC,
@@ -58,6 +61,19 @@ public class SpawnerElement : Interactable
             }
             else
             {
+                if(SceneManager.GetActiveScene().name=="Tutoriel 1")
+                {
+                    Debug.Log("ahzipfhzlfmq");
+                    if (!_players.Contains(player))
+                    {
+                        _players.Add(player);
+                    }
+                    if (_players.Count == 3)
+                    {
+                        _tuto.TookElement();
+                        _players.Add(gameObject);
+                    }
+                }
                 _onTakeGlassware?.Invoke();
                 GameObject glassware = Instantiate(_ressource, transform.position, Quaternion.identity);
                 switch (element)

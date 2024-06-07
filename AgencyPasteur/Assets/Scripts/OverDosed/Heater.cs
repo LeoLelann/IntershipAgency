@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 
@@ -13,6 +14,7 @@ public class Heater : Interactable
     [SerializeField]private UnityEvent _onSnapGlassware;
     [SerializeField]private UnityEvent _onCantCook;
     [SerializeField]private UnityEvent _onBurnt;
+    [SerializeField] TutoManager _tuto;
 
     [SerializeField]SCHeat _heat;
     [SerializeField] private float secondsTillHeated=3;
@@ -86,6 +88,13 @@ public class Heater : Interactable
             _onTakeFrom?.Invoke();
             _onStopHeating?.Invoke();
             glassware.Interacted(player);
+            if(SceneManager.GetActiveScene().name=="Tutoriel 1")
+            {
+                if (glassware.GlasswareSt == Glassware.glasswareState.HEATED_STARCH)
+                {
+                    _tuto.Heated(player);
+                }
+            }
             StopAllCoroutines();
         }
         else if (glasswarePlayer != null && glassware == null)
