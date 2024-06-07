@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        if (SceneManager.GetActiveScene().name!="Tuto"|| SceneManager.GetActiveScene().name != "Menu")
+        if (SceneManager.GetActiveScene().name!="Tutoriel 1"|| SceneManager.GetActiveScene().name != "Menu")
         {
             StartCoroutine(Timer());
         }
