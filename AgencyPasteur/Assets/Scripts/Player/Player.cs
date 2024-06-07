@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     private bool _isActivePage;
     private int _currentPage;
 
-    [SerializeField] private GameObject _pauseCanva;
+    //[SerializeField] private GameObject _pauseCanva;
     [HideInInspector] public bool isPause { get; private set; }
 
     [Header("Events")]
@@ -119,16 +119,16 @@ public class Player : MonoBehaviour
             Move();
         }
 
-        if (_pauseCanva.activeInHierarchy)
-        {
-            _moveSpeed = 0f;
-            isPause = true;
-        }
-        else if (!_pauseCanva.activeInHierarchy)
-        {
-            _moveSpeed = _moveSpeedMax;
-            isPause = false;
-        }
+        //if (_pauseCanva.activeInHierarchy)
+        //{
+        //    _moveSpeed = 0f;
+        //    isPause = true;
+        //}
+        //else if (!_pauseCanva.activeInHierarchy)
+        //{
+        //    _moveSpeed = _moveSpeedMax;
+        //    isPause = false;
+        //}
         //for (int i = 0; i < _bookPageR.Length; i++)
         //{
         //    Debug.Log(_bookPageR[i].gameObject.name);
@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
         _moveInput = context.ReadValue<Vector2>();
     }
 
-    public void OnPause(InputAction.CallbackContext context)
+    /*public void OnPause(InputAction.CallbackContext context)
     {
         //_pauseMenu.SetPause();
         if (context.started)
@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
 
             }
         }
-    }
+    }*/
 
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -395,9 +395,9 @@ public class Player : MonoBehaviour
     }
     public void ReturnFromUI(InputAction.CallbackContext context)
     {
-        if (_pauseCanva.activeInHierarchy || _bookUI.activeInHierarchy)
+        if (/*_pauseCanva.activeInHierarchy ||*/ _bookUI.activeInHierarchy)
         {
-            _pauseCanva.SetActive(false);
+            //_pauseCanva.SetActive(false);
             _bookUI.SetActive(false);
             UnpauseTrigger();
         }
