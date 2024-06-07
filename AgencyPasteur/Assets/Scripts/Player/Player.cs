@@ -99,9 +99,9 @@ public class Player : MonoBehaviour
         //_playerInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody>();
         _pauseMenu = FindObjectOfType<Pause>();
-        _bookUI.SetActive(false);
+        //_bookUI.SetActive(false);
         _moveSpeedMax = _moveSpeed;
-        _pauseCanva.SetActive(false);
+        //_pauseCanva.SetActive(false);
         _bookPageR = _bookComposantBtnR;
         _bookPageL = _bookComposantBtnL;
         _isActivePage = true;
