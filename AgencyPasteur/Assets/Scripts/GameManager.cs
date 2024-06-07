@@ -62,20 +62,22 @@ public class GameManager : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        if (SceneManager.GetActiveScene().name!="Tuto"|| SceneManager.GetActiveScene().name != "Menu")
+        if (SceneManager.GetActiveScene().name!="Tutoriel 1"|| SceneManager.GetActiveScene().name != "Menu")
         {
             StartCoroutine(Timer());
         }
     }
     public void AddElement(Glassware.glasswareState state)
-    {
-        _found.Add(state);
-        foreach(AddToBook pages in _floatingPages)
+    {if (SceneManager.GetActiveScene().name != "Tutoriel 1")
         {
-            if (pages.GlasswareState == state)
+            _found.Add(state);
+            foreach (AddToBook pages in _floatingPages)
             {
-                _cover.SetActive(true);
-                pages.gameObject.SetActive(true);
+                if (pages.GlasswareState == state)
+                {
+                    _cover.SetActive(true);
+                    pages.gameObject.SetActive(true);
+                }
             }
         }
     }

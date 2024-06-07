@@ -61,7 +61,7 @@ public class SpawnerElement : Interactable
             }
             else
             {
-                if(SceneManager.GetActiveScene().name=="Tutoriel 1")
+                if(SceneManager.GetActiveScene().name=="Tutoriel 1"&&element==Elements.STARCH)
                 {
                     Debug.Log("ahzipfhzlfmq");
                     if (!_players.Contains(player))

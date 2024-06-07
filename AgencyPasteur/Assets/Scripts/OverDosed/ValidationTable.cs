@@ -42,6 +42,7 @@ public class ValidationTable : Interactable
     }
     public override void Interacted(GameObject player)
     {
+        _glassware=GetComponentInChildren<Glassware>();
         Glassware playerGlassware =player.GetComponentInChildren<Glassware>();
         if (_glassware != null && playerGlassware == null)
         {
@@ -62,10 +63,7 @@ public class ValidationTable : Interactable
     {
         if (ToFind.Contains(_glassware.GlasswareSt)&&!Found.Contains(_glassware.GlasswareSt))
         {
-            if(SceneManager.GetActiveScene().name=="Tutoriel 1")
-            {
-                _tuto.Sent();
-            }
+            
             _onValidate?.Invoke();
             Found.Add(_glassware.GlasswareSt);
             _completion.UpdateCount(Found.Count);
@@ -77,6 +75,12 @@ public class ValidationTable : Interactable
         Destroy(_glassware.gameObject);
         if (Found.Count == ToFind.Count)
         {
+            Debug.Log("Reprenez de l'amidon et diluez-le.");
+            if(SceneManager.GetActiveScene().name=="Tutoriel 1")
+            {
+                            Debug.Log("Reprenez de l'amidon et diluez-le22.");
+                _tuto.Sent();
+            }
             GameManager.Instance.EndGame();
         }
     }
