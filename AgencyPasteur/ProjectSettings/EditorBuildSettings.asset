@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/MainMenu.unity
     guid: 669103f8517cc5649abc498ec745eeb4
   - enabled: 0
-    path: Assets/Scenes/Menu/TamponScene.unity
+    path: Assets/Scenes/Menu/PlayerSelectScene.unity
     guid: 378edaadc2e13ff42adf0482971566a6
   - enabled: 0
     path: Assets/Scenes/Test_Nath.unity
