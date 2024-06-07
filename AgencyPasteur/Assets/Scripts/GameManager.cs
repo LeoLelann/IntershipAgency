@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
         {
             if (pages.GlasswareState == state)
             {
+                _cover.SetActive(true);
                 pages.gameObject.SetActive(true);
             }
         }
