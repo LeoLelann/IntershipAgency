@@ -113,6 +113,7 @@ public class Player : MonoBehaviour
         _isActivePage = true;
         isInRange = false;
         _isDashing = false;
+        _canDash=true;
         _currentPage = 1;
         //_movementActionMap = _playerInput.actions.FindActionMap("Player");
         //_uiActionMap = _playerInput.actions.FindActionMap("UI");
@@ -243,7 +244,7 @@ public class Player : MonoBehaviour
     }
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (context.started && !_isDashing && context.started && isPause == false)
+        if (context.started && _canDash && context.started && isPause == false)
         {
             _onDash?.Invoke();
             StartCoroutine(Dash());
@@ -254,6 +255,10 @@ public class Player : MonoBehaviour
         if (collision.gameObject.name == "Player" && _isDashing)
         {
             _rbOther = collision.gameObject.GetComponent<Rigidbody>();
+            StartCoroutine(Percute());
+        }
+        else if(_isDashing&&collision.gameObject.GetComponent<Interactable>()){
+            StopAllCoroutines();
             StartCoroutine(Percute());
         }
 /*        else if (_isDashing) //percuter un mur
@@ -285,17 +290,19 @@ public class Player : MonoBehaviour
         _isDashing = true;
         _canDash = false;
 
-        Vector3 startPosition = transform.position;
-        Vector3 endPosition = startPosition + _moveDirection.normalized * _dashPower;
 
         float timer = 0f;
         while (timer < _dashDuration)
         {
-            float t = timer / _dashDuration;
-            float curveValue = _curve.Evaluate(t);
-            //transform.position = Vector3.Lerp(startPosition, endPosition, curveValue);
-            _rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
-            yield return new WaitForSeconds(Time.deltaTime);
+            float curveValue = _curve.Evaluate(timer);
+            transform.position += transform.forward.normalized*curveValue*_dashPower*Time.deltaTime;
+            //_rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
+            yield return new WaitForSecondsRealtime(Time.deltaTime);
+            timer += Time.deltaTime;
+            if(timer>_dashDuration/2)
+            {
+                _isDashing = false;
+            }
         }
 
         //for (float elapsed = 0; elapsed < _dashDuration; elapsed += Time.deltaTime)
@@ -307,9 +314,7 @@ public class Player : MonoBehaviour
         //    yield return new WaitForSeconds(Time.deltaTime);
         //}
 
-        transform.position = endPosition;
 
-        _isDashing = false;
 
         yield return new WaitForSeconds(_dashCD);
         _canDash = true;
@@ -318,7 +323,7 @@ public class Player : MonoBehaviour
     IEnumerator Percute()
     {
         _rb.velocity = new Vector3(-transform.forward.x, 0, transform.forward.z) * _knockback;
-        _rbOther.velocity = new Vector3(-transform.forward.x, 0, transform.forward.z) * _knockback;
+        _isDashing=false;
         yield return null;
     }
 
