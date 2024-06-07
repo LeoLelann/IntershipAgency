@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 public class MixingResult : Interactable
@@ -19,14 +20,12 @@ public class MixingResult : Interactable
     [SerializeField] private Paillaisse _ingr1;
     [SerializeField] private Paillaisse _ingr2;
     [SerializeField] private float _mixDuration;
+    [SerializeField] private TutoManager _tuto;
+
     private Glassware _in1;
     private Glassware _in2;
     private Glassware _out;
     [SerializeField]private SCMix _mix;
-    private void Start()
-    {
-        Debug.Log(_mix.Mixed.Count);
-    }
     public override void Interacted(GameObject player)
     {
         Glassware playerGlassware = player.GetComponentInChildren<Glassware>();
@@ -54,6 +53,13 @@ public class MixingResult : Interactable
             if ((currentGlassware != null && playerGlassware == null && _out.GlasswareSt != Glassware.glasswareState.EMPTY) || (in1Glassware == null) || (in2Glassware == null))
             {
                 _onTakeFrom?.Invoke();
+                if(SceneManager.GetActiveScene().name=="Tutoriel 1")
+                {
+                    if (_out.GlasswareSt == Glassware.glasswareState.HEATED_ACID_STARCH_DILUTED)
+                    {
+                        _tuto.Mixed(player);
+                    }
+                }
                 transform.GetComponentInChildren<Glassware>().Interacted(player);
             }
             else
