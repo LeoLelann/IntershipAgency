@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cell : MonoBehaviour
+public class Cell : MonoBehaviour//unused
 {
     [SerializeField] private bool _playersIn;
     [SerializeField] private bool _spawning;

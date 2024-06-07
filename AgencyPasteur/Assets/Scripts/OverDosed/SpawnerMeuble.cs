@@ -5,50 +5,56 @@ using UnityEngine.Events;
 
 public class SpawnerMeuble : Interactable
 {
-    public UnityEvent OnTakeGlassware;
-    public UnityEvent OnTakeFrom;
-    public UnityEvent OnSnapGlassware;
+    [SerializeField] UnityEvent _onTakeGlassware;
+    [SerializeField] UnityEvent _onTakeFrom;
+    [SerializeField] UnityEvent _onSnapGlassware;
 
     [SerializeField] GameObject _ressource;
+    private Glassware _glassware;
     [SerializeField] int _limit;
     private int _instantiated = 0;
 
     public override void Interacted(GameObject player)
     {
-        if (player.GetComponentInChildren<Glassware>()==null)
+        _glassware = GetComponentInChildren<Glassware>();
+        Glassware playerGlassware = player.GetComponentInChildren<Glassware>();
+        if (playerGlassware==null)
         {
-            if (transform.GetComponent<Glassware>()!=null)
+            if (_glassware!=null)
             {
-                transform.GetComponentInChildren<Glassware>().Interacted(player);
-                OnTakeFrom?.Invoke();
+                _glassware.Interacted(player);
+                _onTakeFrom?.Invoke();
             }
             else
             {
-                OnTakeGlassware?.Invoke();
-                GameObject glassware = Instantiate(_ressource, transform.position, transform.rotation);
+                _onTakeGlassware?.Invoke();
+                GameObject glassware = Instantiate(_ressource, transform.position, Quaternion.identity);
                 glassware.GetComponent<Glassware>().Interacted(player);
                 _instantiated++;
             }
         }
-        else if (player.transform.GetComponentInChildren<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
+        else if (playerGlassware != null && _glassware == null)
         {
-            OnSnapGlassware?.Invoke();
-            player.GetComponentInChildren<Glassware>().transform.parent = transform;
-            transform.GetComponentInChildren<Glassware>().transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(-90, 0, 0, 0);
-            transform.GetComponentInChildren<Glassware>().transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            _onSnapGlassware?.Invoke();
+            playerGlassware.transform.parent = transform;
+            _glassware = GetComponentInChildren<Glassware>();
+            _glassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+            _glassware.transform.rotation = Quaternion.Euler(270, 0, 0);
+            _glassware.transform.GetComponent<Collider>().enabled = false;
+            _glassware.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.GetComponent<Glassware>()!=null && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
+        if (collision.transform.GetComponent<Glassware>()!=null && collision.transform.parent == null && _glassware == null)
         {
-            OnSnapGlassware?.Invoke();
+            _onSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            collision.transform.localRotation = Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            collision.transform.GetComponent<Collider>().enabled = false;
         }
     }
 }

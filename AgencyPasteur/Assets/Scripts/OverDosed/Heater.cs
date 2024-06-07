@@ -1,80 +1,110 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 
 public class Heater : Interactable
 {
-    public UnityEvent OnStartHeating;
-    public UnityEvent OnStopHeating;
-    public UnityEvent OnBurning;
-    public UnityEvent OnTakeFrom;
-    public UnityEvent OnSnapGlassware;
+    [SerializeField]private UnityEvent _onStartHeating;
+    [SerializeField]private UnityEvent _onStopHeating;
+    [SerializeField]private UnityEvent _onBurning;
+    [SerializeField]private UnityEvent _onTakeFrom;
+    [SerializeField]private UnityEvent _onSnapGlassware;
+    [SerializeField]private UnityEvent _onCantCook;
+    [SerializeField]private UnityEvent _onBurnt;
+    [SerializeField] TutoManager _tuto;
 
-    SCHeat _heat;
+    [SerializeField]SCHeat _heat;
     [SerializeField] private float secondsTillHeated=3;
 
     private void Start()
     {
-        SCHeat path = Resources.Load<SCHeat>("ScriptableObject/Heat");
-        _heat = path;
+      
     }
     // Start is called before the first frame update
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.rigidbody.CompareTag("Glassware") && collision.transform.parent == null && transform.GetComponentInChildren<Glassware>() == null)
         {
-            OnSnapGlassware?.Invoke();
+            _onSnapGlassware?.Invoke();
             collision.transform.parent = transform;
             collision.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            collision.transform.rotation = new Quaternion(-90, 0, 0, 0);
+            Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            collision.transform.GetComponent<Collider>().enabled = false;
             StartCoroutine(Heating());
         }
     }
 
     IEnumerator Heating()
     {
-        if (transform.GetComponentInChildren<Glassware>().GlasswareSt != Glassware.glasswareState.EMPTY && transform.GetComponentInChildren<Glassware>().GlasswareSt != Glassware.glasswareState.TRASH)
+        Glassware glassware = GetComponentInChildren<Glassware>();
+        if ( glassware.GlasswareSt != Glassware.glasswareState.TRASH)
         {
-            OnStartHeating?.Invoke();
-            if (_heat.Heated.Find(x => x.State[0] == transform.transform.GetComponentInChildren<Glassware>().GlasswareSt).State[1] == Glassware.glasswareState.TRASH)
+            if (_heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt) != null)
             {
-                OnBurning?.Invoke();
+                _onStartHeating?.Invoke();
+                if (_heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt).State[1] == Glassware.glasswareState.TRASH)
+                {
+                    _onBurning?.Invoke();
+                }
+            }
+            else
+            {
+                _onCantCook.Invoke();
+                StopAllCoroutines();
             }
         }
         else
         {
-            OnStopHeating?.Invoke();
+            _onStopHeating?.Invoke();
+            StopAllCoroutines();
         }
-        Debug.Log("Start");
         yield return new WaitForSeconds(secondsTillHeated);
-        if (transform.GetComponentInChildren<Glassware>() != null)
+        if (glassware != null)
         {
-            transform.GetComponentInChildren<Glassware>().SetGlasswareState( _heat.Heated.Find(x => x.State[0] == transform.transform.GetComponentInChildren<Glassware>().GlasswareSt).State[1]);
-            StartCoroutine(Heating());
+            if (_heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt) != null)
+            {
+                glassware.SetGlasswareState(_heat.Heated.Find(x => x.State[0] == glassware.GlasswareSt).State[1]);
+                if (glassware.GlasswareSt == Glassware.glasswareState.TRASH)
+                    _onBurnt.Invoke();
+                StartCoroutine(Heating());
+            }
         }
         else
         {
-            OnStopHeating?.Invoke();
+            _onStopHeating?.Invoke();
+            StopAllCoroutines();
         }
     }
     public override void Interacted(GameObject player)
     {
-        if (transform.GetComponentInChildren<Glassware>()!=null && player.transform.GetComponentInChildren<Glassware>()==null)
+        Glassware glassware = GetComponentInChildren<Glassware>();
+        Glassware glasswarePlayer = player.GetComponentInChildren<Glassware>();
+        if (glassware!=null && glasswarePlayer==null)
         {
-            OnTakeFrom?.Invoke();
-            OnStopHeating?.Invoke();
-            transform.GetComponentInChildren<Glassware>().Interacted(player);
+            _onTakeFrom?.Invoke();
+            _onStopHeating?.Invoke();
+            glassware.Interacted(player);
+            if(SceneManager.GetActiveScene().name=="Tutoriel 1")
+            {
+                if (glassware.GlasswareSt == Glassware.glasswareState.HEATED_STARCH)
+                {
+                    _tuto.Heated(player);
+                }
+            }
+            StopAllCoroutines();
         }
-        else if (player.transform.GetComponentInChildren<Glassware>() != null && transform.GetComponentInChildren<Glassware>() == null)
+        else if (glasswarePlayer != null && glassware == null)
         {
-            OnSnapGlassware?.Invoke();
-            player.GetComponentInChildren<Glassware>().transform.parent = transform;
-            transform.GetComponentInChildren<Glassware>().transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            transform.GetComponentInChildren<Glassware>().transform.rotation = new Quaternion(-90, 0, 0, 0);
-            transform.GetComponentInChildren<Glassware>().transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            _onSnapGlassware?.Invoke();
+            glasswarePlayer.transform.parent = transform;
+            glassware = glasswarePlayer;
+            glassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+            Quaternion.Euler(270, 0, 0);
+            glassware.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             StartCoroutine(Heating());
         }
     }

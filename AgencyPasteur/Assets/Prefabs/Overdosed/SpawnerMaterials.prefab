@@ -374,7 +374,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -549661287394444902, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.004
+      value: -0.0039999927
+      objectReference: {fileID: 0}
+    - target: {fileID: -549661287394444902, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.53596526
+      objectReference: {fileID: 0}
+    - target: {fileID: -549661287394444902, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.46123883
+      objectReference: {fileID: 0}
+    - target: {fileID: -549661287394444902, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.53596526
+      objectReference: {fileID: 0}
+    - target: {fileID: -549661287394444902, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.46123883
+      objectReference: {fileID: 0}
+    - target: {fileID: -549661287394444902, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -81.429
+      objectReference: {fileID: 0}
+    - target: {fileID: -549661287394444902, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -549661287394444902, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a8ed660e0f6221647ae1ec080f5a0a21, type: 3}
       propertyPath: m_Name
@@ -491,19 +519,30 @@ MonoBehaviour:
   OnStartShowInteract:
     m_PersistentCalls:
       m_Calls: []
-  OnNoGlasswareToTakeElement:
+  OnShowInterractButMissingGlassware:
     m_PersistentCalls:
       m_Calls: []
-  OnElementTaken:
+  OnShowInterractButMissingComponent:
     m_PersistentCalls:
       m_Calls: []
-  OnTakeFrom:
+  OnShowInterractButHandsFull:
     m_PersistentCalls:
       m_Calls: []
-  OnSnapGlassware:
+  _onTakeGlassware:
     m_PersistentCalls:
       m_Calls: []
+  _onTakeFrom:
+    m_PersistentCalls:
+      m_Calls: []
+  _onSnapGlassware:
+    m_PersistentCalls:
+      m_Calls: []
+  _elementIcon:
+  - {fileID: 2100000, guid: e71e7484493376d48ae8cbc80612f1a2, type: 2}
+  - {fileID: 2100000, guid: a594c1cd21b66d544a845e524db91500, type: 2}
   _label: {fileID: 1808074756076501666}
+  _ressource: {fileID: 6646863356503664476, guid: b2752a860520d7e42897883395cde214, type: 3}
+  _limit: 0
   element: 0
 --- !u!23 &1808074756076501666 stripped
 MeshRenderer:
