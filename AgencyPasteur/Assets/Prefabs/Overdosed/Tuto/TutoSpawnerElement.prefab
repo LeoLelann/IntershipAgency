@@ -113,73 +113,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3653763862701311578, guid: 488f59257472b9b47a21f88e8027cf6d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1167709903400424256, guid: 488f59257472b9b47a21f88e8027cf6d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1471494577108601742}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 488f59257472b9b47a21f88e8027cf6d, type: 3}
---- !u!1 &396810317687582688 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1167709903400424256, guid: 488f59257472b9b47a21f88e8027cf6d, type: 3}
-  m_PrefabInstance: {fileID: 1564236820594113696}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1471494577108601742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396810317687582688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6045b2e33eb1f4594ba916a2b5db80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnShowInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDontShowInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  OnStartShowInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  OnShowInterractButMissingGlassware:
-    m_PersistentCalls:
-      m_Calls: []
-  OnShowInterractButMissingComponent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnShowInterractButHandsFull:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTakeGlassware:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTakeFrom:
-    m_PersistentCalls:
-      m_Calls: []
-  _onSnapGlassware:
-    m_PersistentCalls:
-      m_Calls: []
-  _elementIcon:
-  - {fileID: 2100000, guid: 7886345934aae324eae18dc89a520ee6, type: 2}
-  - {fileID: 2100000, guid: 26194fea64ba29c47a22b4a4bfe322cc, type: 2}
-  _label: {fileID: 910531353048729090}
-  _ressource: {fileID: 6646863356503664476, guid: b2752a860520d7e42897883395cde214, type: 3}
-  _limit: 0
-  _tuto: {fileID: 0}
-  element: 0
---- !u!23 &910531353048729090 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 1808074756076501666, guid: 488f59257472b9b47a21f88e8027cf6d, type: 3}
-  m_PrefabInstance: {fileID: 1564236820594113696}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1065682185635902810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1981400582443960826, guid: 488f59257472b9b47a21f88e8027cf6d, type: 3}
