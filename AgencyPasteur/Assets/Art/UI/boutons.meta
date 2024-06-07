@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:AgencyPasteur/Assets/Art/UI/PlaceHolder.meta
-guid: 32a9766430b4dc64c96ccf21934dc96e
-========
+<<<<<<<< HEAD:AgencyPasteur/Assets/Art/UI/boutons.meta
 guid: 9a64bc9b9a04c024d9d484551d9598b4
->>>>>>>> origin/Nat:AgencyPasteur/Assets/Art/UI/boutons.meta
+========
+guid: a1a2d8c10e0582c43a4c0803e2399558
+>>>>>>>> origin/Leo:AgencyPasteur/Assets/Art/UI/book/BookUI/Sprite Book.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
