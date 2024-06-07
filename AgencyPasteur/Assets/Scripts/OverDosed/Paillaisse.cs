@@ -22,6 +22,7 @@ public class Paillaisse : Interactable
             collision.transform.rotation = Quaternion.Euler(270, 0, 0);
             collision.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             collision.transform.GetComponent<Collider>().enabled = false;
+            _glassware = collision.transform.GetComponent<Glassware>();
             if (_mix != null)
             {
                 _mix.MixReady();

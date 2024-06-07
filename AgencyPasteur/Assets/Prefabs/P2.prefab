@@ -18,15 +18,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 171444d0cfbac8b46b2687d6b26cc18d, type: 2}
     - target: {fileID: 8753928423534717666, guid: f4e134709c34c264fa934f2184ed46bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.3568017
       objectReference: {fileID: 0}
     - target: {fileID: 8753928423534717666, guid: f4e134709c34c264fa934f2184ed46bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.61
       objectReference: {fileID: 0}
     - target: {fileID: 8753928423534717666, guid: f4e134709c34c264fa934f2184ed46bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4.805665
       objectReference: {fileID: 0}
     - target: {fileID: 8753928423534717666, guid: f4e134709c34c264fa934f2184ed46bd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -125,6 +125,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cf41e4da977318a4a8b94a862b9de9b3, type: 3}
       propertyPath: m_Name
       value: Chien_PlaceHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cf41e4da977318a4a8b94a862b9de9b3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

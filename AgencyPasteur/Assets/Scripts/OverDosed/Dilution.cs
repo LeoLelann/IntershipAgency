@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -17,6 +18,8 @@ public class Dilution : Interactable
     [SerializeField]private int _phase1=6;
     [SerializeField]private int _phase2=8;
     [SerializeField]private int _max=10;
+    [SerializeField] TutoManager _tuto;
+
     private bool _diluting;
     private int _count;
     void Start()
@@ -77,6 +80,17 @@ public class Dilution : Interactable
         else
         {
             _onInteractFailed?.Invoke();
+        }
+        if(SceneManager.GetActiveScene().name=="Tutoriel 1")
+        {
+            if (_playerGlassware.GlasswareSt == Glassware.glasswareState.WATER)
+            {
+                _tuto.Diluted1(player);
+            }
+            if (_playerGlassware.GlasswareSt == Glassware.glasswareState.ACID_DILUTED)
+            {
+                _tuto.Diluted2(player);
+            }
         }
     }
     public void ResetDilution()

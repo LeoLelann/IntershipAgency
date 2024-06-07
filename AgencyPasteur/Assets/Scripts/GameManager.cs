@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent _onEndGameGood;
     [SerializeField] private UnityEvent _onEndGameBad;
     [SerializeField] private int _goalNbrRemedy;
+    [SerializeField] private GameObject _cover;
     private int _currentNbrRemedy;
     public static GameManager Instance => instance;
 
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(SceneManager.GetActiveScene().name);
         _currentNbrRemedy = 0;
         StartCoroutine(Timer());
     }
@@ -71,6 +74,7 @@ public class GameManager : MonoBehaviour
         {
             if (pages.GlasswareState == state)
             {
+                _cover.SetActive(true);
                 pages.gameObject.SetActive(true);
             }
         }
