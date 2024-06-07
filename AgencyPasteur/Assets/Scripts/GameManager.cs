@@ -68,14 +68,16 @@ public class GameManager : MonoBehaviour
         }
     }
     public void AddElement(Glassware.glasswareState state)
-    {
-        _found.Add(state);
-        foreach(AddToBook pages in _floatingPages)
+    {if (SceneManager.GetActiveScene().name != "Tutorial 1")
         {
-            if (pages.GlasswareState == state)
+            _found.Add(state);
+            foreach (AddToBook pages in _floatingPages)
             {
-                _cover.SetActive(true);
-                pages.gameObject.SetActive(true);
+                if (pages.GlasswareState == state)
+                {
+                    _cover.SetActive(true);
+                    pages.gameObject.SetActive(true);
+                }
             }
         }
     }
