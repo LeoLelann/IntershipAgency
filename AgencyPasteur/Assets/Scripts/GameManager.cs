@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         }
     }
     public void AddElement(Glassware.glasswareState state)
-    {if (SceneManager.GetActiveScene().name != "Tutorial 1")
+    {if (SceneManager.GetActiveScene().name != "Tutoriel 1")
         {
             _found.Add(state);
             foreach (AddToBook pages in _floatingPages)
