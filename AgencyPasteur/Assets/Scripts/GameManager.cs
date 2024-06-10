@@ -62,13 +62,13 @@ public class GameManager : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        if (SceneManager.GetActiveScene().name!="Tuto"|| SceneManager.GetActiveScene().name != "Menu")
+        if (SceneManager.GetActiveScene().name!="Tutoriel 1"|| SceneManager.GetActiveScene().name != "Menu")
         {
             StartCoroutine(Timer());
         }
     }
     public void AddElement(Glassware.glasswareState state)
-    {if (SceneManager.GetActiveScene().name != "Tutorial 1")
+    {if (SceneManager.GetActiveScene().name != "Tutoriel 1")
         {
             _found.Add(state);
             foreach (AddToBook pages in _floatingPages)
