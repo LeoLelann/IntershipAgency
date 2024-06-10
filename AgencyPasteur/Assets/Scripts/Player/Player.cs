@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     private bool _canDash;
 
     [Header("")]
-    private Pause _pauseMenu; 
     private GameObject _bookUI;
 
     [SerializeField] private Rigidbody _rb;
@@ -96,18 +95,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        //_playerInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody>();
-//<<<<<<< HEAD
+
         //_bookUI.SetActive(false);
         //_pauseCanva.SetActive(false);
         _moveSpeedMax = _moveSpeed;
-//=======
-        _pauseMenu = FindObjectOfType<Pause>();
-        //_bookUI.SetActive(false);
+        //_pauseMenu = FindObjectOfType<Pause>();
         _moveSpeedMax = _moveSpeed;
-        //_pauseCanva.SetActive(false);
-//>>>>>>> origin/Leo
         _bookPageR = _bookComposantBtnR;
         _bookPageL = _bookComposantBtnL;
         _isActivePage = true;
@@ -115,8 +109,6 @@ public class Player : MonoBehaviour
         _isDashing = false;
         _canDash=true;
         _currentPage = 1;
-        //_movementActionMap = _playerInput.actions.FindActionMap("Player");
-        //_uiActionMap = _playerInput.actions.FindActionMap("UI");
     }
 
     void Update()
@@ -126,7 +118,6 @@ public class Player : MonoBehaviour
             Move();
         }
 
-//<<<<<<< HEAD
 /*        if (_pauseCanva.activeInHierarchy)
         {
             _moveSpeed = 0f;
@@ -137,18 +128,8 @@ public class Player : MonoBehaviour
             _moveSpeed = _moveSpeedMax;
             isPause = false;
         }*/
-//=======
-        //if (_pauseCanva.activeInHierarchy)
-        //{
-        //    _moveSpeed = 0f;
-        //    isPause = true;
-        //}
-        //else if (!_pauseCanva.activeInHierarchy)
-        //{
-        //    _moveSpeed = _moveSpeedMax;
-        //    isPause = false;
-        //}
-//>>>>>>> origin/Leo
+
+
         //for (int i = 0; i < _bookPageR.Length; i++)
         //{
         //    Debug.Log(_bookPageR[i].gameObject.name);
@@ -178,14 +159,10 @@ public class Player : MonoBehaviour
         //_pauseMenu.SetPause();
         if (context.started)
         {
-            Debug.Log("startInput");
             if (!_pauseCanva.activeInHierarchy)
             {
-                Debug.Log("activeUI");
                 isPause = true;
-
                 OnPauseGlobal?.Invoke();
-
                 _pauseCanva.SetActive(true);
                 //_es.firstSelectedGameObject = _defaultPauseBtn;
             }
