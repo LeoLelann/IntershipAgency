@@ -1043,8 +1043,8 @@ MonoBehaviour:
         SequentialOrder: 0
         SequentialOrderHoldLast: 0
         SequentialOrderHoldCooldownDuration: 2
-        MinVolume: 1
-        MaxVolume: 1
+        MinVolume: 0.4
+        MaxVolume: 0.4
         MinPitch: 1
         MaxPitch: 1
         PlaybackTime: {x: 0, y: 0}
@@ -1455,6 +1455,7 @@ MonoBehaviour:
   _phase1: 6
   _phase2: 8
   _max: 10
+  _tuto: {fileID: 0}
 --- !u!4 &4565764071711270381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edcdac8827848c5469391253ddef2829, type: 3}
