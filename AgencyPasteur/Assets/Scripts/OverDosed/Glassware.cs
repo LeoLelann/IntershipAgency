@@ -70,7 +70,6 @@ public class Glassware : Interactable
     }
     private void Start()
     {
-        _heat = 0;
         isThrown = false;
         OnStateValueChange(_glasswareSt);
     }
