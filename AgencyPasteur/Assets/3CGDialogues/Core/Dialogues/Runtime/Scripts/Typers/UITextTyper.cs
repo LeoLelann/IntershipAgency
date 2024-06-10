@@ -94,8 +94,12 @@ namespace TCG.Core.Dialogues
 
         private void Update()
         {
-            _UpdateReadText();
-            _UpdateAlwaysUpdatedCommands();
+            if (IsReadingText)
+            {
+                _UpdateReadText();
+                _UpdateAlwaysUpdatedCommands();
+            }
+            
         }
 
         private void _UpdateAlwaysUpdatedCommands()
