@@ -346,7 +346,7 @@ MonoBehaviour:
   _moveSpeed: 5
   _rotationSpeed: 0.09
   _knockback: 1
-  _dashPower: 10
+  _dashPower: 0
   _dashCD: 1
   _dashDuration: 0.5
   _curve:
@@ -418,6 +418,7 @@ MonoBehaviour:
   _panelBook1: {fileID: 0}
   _panelBook2: {fileID: 0}
   _panelBook3: {fileID: 0}
+  _pauseCanva: {fileID: 0}
   _onMove:
     m_PersistentCalls:
       m_Calls: []

@@ -1054,7 +1054,16 @@ MonoBehaviour:
   OnStartShowInteract:
     m_PersistentCalls:
       m_Calls: []
-  OnTakeGlassware:
+  OnShowInterractButMissingGlassware:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButMissingComponent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowInterractButHandsFull:
+    m_PersistentCalls:
+      m_Calls: []
+  _onTakeGlassware:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5630885285766159080}
@@ -1069,10 +1078,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnTakeFrom:
+  _onTakeFrom:
     m_PersistentCalls:
       m_Calls: []
-  OnSnapGlassware:
+  _onSnapGlassware:
     m_PersistentCalls:
       m_Calls: []
   _ressource: {fileID: 6646863356503664476, guid: b2752a860520d7e42897883395cde214, type: 3}
