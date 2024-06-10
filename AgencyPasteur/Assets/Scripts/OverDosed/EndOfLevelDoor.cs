@@ -5,6 +5,8 @@ using UnityEngine;
 public class EndOfLevelDoor : MonoBehaviour
 {
    [SerializeField] private GameObject _doorRotate;
+   [SerializeField] private GameObject _doorKnob;
+    int _areTheyGone;
     private void OnEnd()
     {
         StartCoroutine(RotateDoor());
@@ -16,6 +18,7 @@ public class EndOfLevelDoor : MonoBehaviour
         {
             timer += Time.deltaTime;
             _doorRotate.transform.eulerAngles = new Vector3(0, 45*timer, 0);
+            _doorKnob.transform.eulerAngles = new Vector3(0, 45*timer, 0);
 
             Debug.Log(timer);
             yield return new WaitForSeconds(Time.deltaTime);
@@ -26,7 +29,12 @@ public class EndOfLevelDoor : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            _areTheyGone++;
             Destroy(other);
+        }
+        if (_areTheyGone >= 3)
+        {
+            // Change Scene;
         }
     }
 }
