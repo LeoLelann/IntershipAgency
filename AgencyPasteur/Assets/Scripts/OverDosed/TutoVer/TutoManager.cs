@@ -21,6 +21,7 @@ public class TutoManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.LogError("AGGGGh");
         _onStartTuto.Invoke();
     }
     public void TookElement()

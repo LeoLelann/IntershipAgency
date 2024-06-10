@@ -96,8 +96,11 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+
         //_bookUI.SetActive(false);
         //_pauseCanva.SetActive(false);
+        _moveSpeedMax = _moveSpeed;
+        //_pauseMenu = FindObjectOfType<Pause>();
         _moveSpeedMax = _moveSpeed;
         _bookPageR = _bookComposantBtnR;
         _bookPageL = _bookComposantBtnL;
@@ -125,6 +128,8 @@ public class Player : MonoBehaviour
             _moveSpeed = _moveSpeedMax;
             isPause = false;
         }*/
+
+
         //for (int i = 0; i < _bookPageR.Length; i++)
         //{
         //    Debug.Log(_bookPageR[i].gameObject.name);
