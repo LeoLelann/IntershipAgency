@@ -822,7 +822,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isLocked: 0
-  _image: {fileID: 0}
+  _image: {fileID: 2587368861700823048}
 --- !u!1 &1675536040968786308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,7 +2210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1992488449684765965
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4988,7 +4988,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isLocked: 0
-  _image: {fileID: 0}
+  _image: {fileID: 41430500990728639}
 --- !u!1 &7227184499038535692
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,7 +5160,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isLocked: 0
-  _image: {fileID: 0}
+  _image: {fileID: 713370810690523451}
 --- !u!1 &7406393259958331154
 GameObject:
   m_ObjectHideFlags: 0
