@@ -13,15 +13,13 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject _MainCanva;
     [SerializeField] private GameObject _LevelCanva;
     [SerializeField] private GameObject _IntroLevelCanva;
-    EventSystem _EventSystem;
 
     private void Start()
     {
-        _EventSystem = GetComponent<EventSystem>();
+
     }
     private void Update()
     {
-        Debug.Log(_EventSystem.gameObject.name);
     }
     public void OnBtnClick(InputAction.CallbackContext ctx)
     {
@@ -32,6 +30,13 @@ public class MenuController : MonoBehaviour
                         btn.Select();
                     }
                 }*/
+        foreach (var btn in _defaultBtnCanva)
+        {
+            if (btn.gameObject.activeInHierarchy)
+            {
+                btn.onClick.Invoke();
+            }
+        }
         if (!_MainCanva.activeInHierarchy)
         {
             foreach (var btn in _defaultBtnCanva)

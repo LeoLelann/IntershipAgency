@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSelectionManager : MonoBehaviour
 {
-    public Button[] characterButtons; // Les boutons pour chaque personnage
-    private bool[] charactersSelected; // Suivi des personnages sélectionnés
-    private int playersReady = 0; // Nombre de joueurs prêts
+    public Button[] characterButtons;
+    private bool[] charactersSelected;
+    private int playersReady = 0;
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class CharacterSelectionManager : MonoBehaviour
             playersReady++;
             characterButtons[index].interactable = false; // Désactive le bouton
 
-            if (playersReady == 3) // Si tous les joueurs ont choisi
+            if (playersReady == 3)
             {
                 LoadGameScene();
             }
@@ -35,6 +35,6 @@ public class CharacterSelectionManager : MonoBehaviour
 
     void LoadGameScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("Tutoriel1");
     }
 }
