@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     [Header("")]
     private Pause _pauseMenu; 
-    private GameObject _bookUI;
+    [SerializeField]private GameObject _bookUI;
 
     [SerializeField] private Rigidbody _rb;
     private Rigidbody _rbOther;
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        _bookUI = GameObject.FindGameObjectWithTag("BookUI");
+        //_bookUI = GameObject.FindGameObjectWithTag("BookUI");
         
         OnPauseGlobal += PauseTrigger;
         OnUnPauseGlobal += UnpauseTrigger;
@@ -188,7 +188,7 @@ public class Player : MonoBehaviour
             {
                 range.Interacted(gameObject);
                 
-                if (range.GetComponent<Book>()) // Interact with book
+                if (range?.GetComponent<Book>()) // Interact with book
                 {
                     if (!_bookUI.activeInHierarchy)
                     {
