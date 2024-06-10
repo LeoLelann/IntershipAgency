@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f98b8894ed66441a6bc55ca55a84b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _glasswareState: 13
+  _glasswareState: 22
   _duration: 1
   _book: {fileID: 0}
   _cam: {fileID: 0}
