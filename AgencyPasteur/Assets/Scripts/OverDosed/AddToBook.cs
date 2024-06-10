@@ -35,6 +35,5 @@ public class AddToBook : MonoBehaviour
         _cover.SetActive(false);
         _cover.transform.localPosition = new Vector3(0.5f,0.5f,0.5f);
         _cover.transform.localScale = new Vector3(1.2f,1.2f,1.2f);
-        Debug.Log("&hh");
     }
 }

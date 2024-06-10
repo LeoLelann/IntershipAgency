@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent _onEndGameBad;
     [SerializeField] private int _goalNbrRemedy;
     [SerializeField] private GameObject _cover;
+    [SerializeField] private AdjustVolume _renderVolume;
     private int _currentNbrRemedy;
     public static GameManager Instance => instance;
 
@@ -34,6 +37,7 @@ public class GameManager : MonoBehaviour
     private List<Glassware.glasswareState> _neededGlasswareType=new List<Glassware.glasswareState>();
     [SerializeField] private GameObject _displayNGT;
     [SerializeField] private float _timer;
+    LiftGammaGain liftGammaGain;
     #region Singleton
     private void InitSingleton()
     {
@@ -107,6 +111,14 @@ public class GameManager : MonoBehaviour
             case int i when i > _goalNbrRemedy *8/10:
                 _onEndGameBad.Invoke();
                 break;
+        }
+        _renderVolume.AdjustGamma(-0.1f);
+        _renderVolume.AdjustVignette(new Vector2(0.65f,0.8f));
+        foreach(trigerObject i in FindObjectsOfType<trigerObject>())
+        {
+            Debug.Log(i.Player.name);
+                            i.Player.range = null;
+            i.gameObject.SetActive(false);
         }
         Debug.Log("Fin de game");
     }
