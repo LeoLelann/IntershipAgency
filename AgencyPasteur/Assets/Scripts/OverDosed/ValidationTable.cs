@@ -19,7 +19,6 @@ public class ValidationTable : Interactable
     private void Start()
     {
         _glassware = GetComponentInChildren<Glassware>();
-        ToFind.Add(Glassware.glasswareState.HEATED_ACID_STARCH_DILUTED);
         _completion.ResultMax = ToFind.Count;
         GameManager.Instance.GoalNbrRemedy = ToFind.Count;
         _completion.UpdateCount(0);
@@ -75,10 +74,8 @@ public class ValidationTable : Interactable
         Destroy(_glassware.gameObject);
         if (Found.Count == ToFind.Count)
         {
-            Debug.Log("Reprenez de l'amidon et diluez-le.");
             if(SceneManager.GetActiveScene().name=="Tutoriel 1")
             {
-                            Debug.Log("Reprenez de l'amidon et diluez-le22.");
                 _tuto.Sent();
             }
             GameManager.Instance.EndGame();

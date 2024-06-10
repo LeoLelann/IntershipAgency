@@ -25,6 +25,7 @@ public class Book : Interactable
             LockedPage.Add(_pagesState[i], _pages[i]);
         }
     }
+
     public override void Interacted(GameObject Player)
     {
         
