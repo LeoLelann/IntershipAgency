@@ -5032,7 +5032,7 @@ MonoBehaviour:
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   ForceStopFeedbacksOnDisable: 1
-  PlayCount: 2
+  PlayCount: 5
   references:
     version: 2
     RefIds:
@@ -5124,8 +5124,8 @@ MonoBehaviour:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.25
-            value: 0.1
+            time: 0.8440802
+            value: -0.00021972507
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -5133,8 +5133,8 @@ MonoBehaviour:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.75
-            value: -0.1
+            time: 0.94667053
+            value: 0.019842528
             inSlope: 0.002705137
             outSlope: 0.002705137
             tangentMode: 0
@@ -5312,7 +5312,7 @@ MonoBehaviour:
         LoopAtLastLoopStart: 1
         InfiniteLoop: 1
         NumberOfLoops: 10
-        NumberOfLoopsLeft: -142
+        NumberOfLoopsLeft: 10
         InInfiniteLoop: 1
     - rid: 4898315631548170250
       type: {class: MMF_Particles, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
@@ -5416,7 +5416,7 @@ Transform:
   m_GameObject: {fileID: 7538709446480307933}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.12, y: 0.866, z: -0.009}
+  m_LocalPosition: {x: 0, y: 2.1, z: 0}
   m_LocalScale: {x: 0.26461, y: 0.26461, z: 0.26461}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6104,7 +6104,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.96
+      value: 0.6
       mode: 0
       spread: 0
       speed:
@@ -10881,8 +10881,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _tuto: {fileID: 0}
   _heat: {fileID: 11400000, guid: b69185379eb2a844797dcbf0b6b8a08f, type: 2}
-  secondsTillHeated: 3
+  secondsTillHeated: 10
 --- !u!65 &2462118622363234957
 BoxCollider:
   m_ObjectHideFlags: 0
