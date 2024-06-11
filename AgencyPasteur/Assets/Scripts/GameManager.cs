@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private List<Glassware.glasswareState> _neededGlasswareType=new List<Glassware.glasswareState>();
     [SerializeField] private GameObject _displayNGT;
     [SerializeField] private float _timer;
+    [SerializeField] private Timer _UITimer;
     LiftGammaGain liftGammaGain;
     #region Singleton
     private void InitSingleton()
@@ -121,6 +122,8 @@ public class GameManager : MonoBehaviour
                             i.Player.range = null;
             i.gameObject.SetActive(false);
         }
+        _UITimer.Stop();
+        StopAllCoroutines();
         _door.OnEnd();
         Debug.Log("Fin de game");
     }

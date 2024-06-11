@@ -17,10 +17,14 @@ public class EndOfLevelDoor : MonoBehaviour
         while (timer < 2)
         {
             timer += Time.deltaTime;
-            _doorRotate.transform.eulerAngles = new Vector3(90, 0, 45*timer-90);
+            _doorRotate.transform.eulerAngles = new Vector3(90, 0, 180-45*timer);
 
             Debug.Log(timer);
             yield return new WaitForSeconds(Time.deltaTime);
+        }
+        foreach(UILookAtCamera i in FindObjectsOfType<UILookAtCamera>())
+        {
+            i.gameObject.SetActive(false);
         }
         GetComponent<Collider>().isTrigger = true;
     }
