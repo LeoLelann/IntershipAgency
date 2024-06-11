@@ -50,10 +50,10 @@ public class SpawnerElement : Interactable
                 
                 break;
             case Elements.RABIES:
-                _label.material = _elementIcon[1];
+                _label.material = _elementIcon[3];
                 break;
             case Elements.SODIUM_CHLORIDE:
-                _label.material = _elementIcon[1];
+                _label.material = _elementIcon[2];
                 break;
             case Elements.POWDER:
                 _label.material = _elementIcon[0];
