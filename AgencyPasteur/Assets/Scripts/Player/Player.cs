@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _panelBook1;
     [SerializeField] private GameObject _panelBook2;
     [SerializeField] private GameObject _panelBook3;
+    [SerializeField] private Animator _anim;
     private bool _isActivePage;
     private int _currentPage;
 
@@ -118,7 +119,11 @@ public class Player : MonoBehaviour
         {
             Move();
         }
+        else
+        {
+            _anim.SetBool("IsMoving", true);
 
+        }
         //if (_pauseCanva.activeInHierarchy)
         //{
         //    _moveSpeed = 0f;
@@ -133,11 +138,12 @@ public class Player : MonoBehaviour
         //{
         //    Debug.Log(_bookPageR[i].gameObject.name);
         //}
-        
+
     }
     
     private void Move()
     {
+        _anim.SetBool("IsMoving", true);
         _onMove?.Invoke();
         //deplacement
         _moveDirection = new Vector3(_moveInput.x, 0, _moveInput.y);
