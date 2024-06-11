@@ -249,13 +249,13 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 5381713955357594911}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: a9c2127cba2d04466bf3ed4b8039fe60, type: 3}
+        Sfx: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
         RandomSfx: []
         SequentialOrder: 0
         SequentialOrderHoldLast: 0
         SequentialOrderHoldCooldownDuration: 2
-        MinVolume: 1
-        MaxVolume: 1
+        MinVolume: 0.4
+        MaxVolume: 0.4
         MinPitch: 1
         MaxPitch: 1
         PlaybackTime: {x: 0, y: 0}
@@ -555,18 +555,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Feedbacks
         m_MethodName: PlayFeedbacks
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8300000, guid: 50799a244a2ec437ca16a07d7675eec6, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
-        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
