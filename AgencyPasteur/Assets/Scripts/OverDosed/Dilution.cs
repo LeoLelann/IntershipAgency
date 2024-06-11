@@ -54,7 +54,7 @@ public class Dilution : Interactable
                         case int i when i <=_phase1:
                             _count++;
                             if (_count > _phase1)
-                            {
+                             {
                             _playerGlassware.SetGlasswareState(_dilute.Diluted.Find(x => x.State[0] == _playerGlassware.GlasswareSt).State[1]);
                             _onAlreadyDiluted?.Invoke();
                             }
@@ -75,23 +75,25 @@ public class Dilution : Interactable
                             break;
                     
                 }
+                if (SceneManager.GetActiveScene().name == "Tutoriel 1")
+                {
+                    
+                    if (_playerGlassware.GlasswareSt == Glassware.glasswareState.WATER)
+                    {
+                        _tuto.Diluted1(player);
+                    }
+                    if (_playerGlassware.GlasswareSt == Glassware.glasswareState.ACID_DILUTED)
+                    {
+                        _tuto.Diluted2(player);
+                    }
+                }
             } 
         }
         else
         {
             _onInteractFailed?.Invoke();
         }
-        if(SceneManager.GetActiveScene().name=="Tutoriel 1")
-        {
-            if (_playerGlassware.GlasswareSt == Glassware.glasswareState.WATER)
-            {
-                _tuto.Diluted1(player);
-            }
-            if (_playerGlassware.GlasswareSt == Glassware.glasswareState.ACID_DILUTED)
-            {
-                _tuto.Diluted2(player);
-            }
-        }
+        
     }
     public void ResetDilution()
     {

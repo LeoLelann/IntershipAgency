@@ -14,14 +14,14 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Test_Nath.unity
     guid: 7ec01535bacb7c340a1164843291131e
-  - enabled: 0
-    path: Assets/Scenes/DevSceneLeo.unity
-    guid: 48609765fb7782e4587d5d740ea61c41
   - enabled: 1
     path: Assets/Scenes/Tutoriel/Tutoriel 1.unity
     guid: 6abe60a5a27f1334bb0a2005af17c66d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Test_camfin.unity
     guid: b7f25320299e2784798b78f9c1a3880f
+  - enabled: 0
+    path: Assets/Scenes/DevSceneLeo.unity
+    guid: 48609765fb7782e4587d5d740ea61c41
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a7bd4023c0d34394493230981e9b4377, type: 2}

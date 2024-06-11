@@ -201,8 +201,8 @@ MonoBehaviour:
         SequentialOrder: 0
         SequentialOrderHoldLast: 0
         SequentialOrderHoldCooldownDuration: 2
-        MinVolume: 1
-        MaxVolume: 1
+        MinVolume: 0.4
+        MaxVolume: 0.4
         MinPitch: 1
         MaxPitch: 1
         PlaybackTime: {x: 0, y: 0}
@@ -857,6 +857,7 @@ MonoBehaviour:
   _label: {fileID: 1808074756076501666}
   _ressource: {fileID: 6646863356503664476, guid: b2752a860520d7e42897883395cde214, type: 3}
   _limit: 0
+  _tuto: {fileID: 0}
   element: 0
 --- !u!23 &1808074756076501666 stripped
 MeshRenderer:
