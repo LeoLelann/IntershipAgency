@@ -66,6 +66,11 @@ public class ValidationTable : Interactable
             _onValidate?.Invoke();
             Found.Add(_glassware.GlasswareSt);
             _completion.UpdateCount(Found.Count);
+
+            if (SceneManager.GetActiveScene().name == "Tutoriel 1")
+            {
+                _tuto.Sent();
+            }
         }
         else
         {
@@ -74,10 +79,6 @@ public class ValidationTable : Interactable
         Destroy(_glassware.gameObject);
         if (Found.Count == ToFind.Count)
         {
-            if(SceneManager.GetActiveScene().name=="Tutoriel 1")
-            {
-                _tuto.Sent();
-            }
             GameManager.Instance.EndGame();
         }
     }
