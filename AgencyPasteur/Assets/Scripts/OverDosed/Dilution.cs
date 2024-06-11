@@ -55,7 +55,6 @@ public class Dilution : Interactable
                             _count++;
                             if (_count > _phase1)
                              {
-                            Debug.LogError(_dilute.Diluted.Find(x => x.State[0] == _playerGlassware.GlasswareSt).State[1]);
                             _playerGlassware.SetGlasswareState(_dilute.Diluted.Find(x => x.State[0] == _playerGlassware.GlasswareSt).State[1]);
                             _onAlreadyDiluted?.Invoke();
                             }
@@ -85,7 +84,6 @@ public class Dilution : Interactable
                     }
                     if (_playerGlassware.GlasswareSt == Glassware.glasswareState.ACID_DILUTED)
                     {
-                        Debug.LogError(_playerGlassware.GlasswareSt);
                         _tuto.Diluted2(player);
                     }
                 }

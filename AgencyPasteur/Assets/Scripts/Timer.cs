@@ -16,7 +16,10 @@ public class Timer : MonoBehaviour
         _currentTimer = GameManager.Instance.Timer1;
         StartCoroutine(TimerVisualUpdate());
     }
-
+    public void Stop()
+    {
+        StopAllCoroutines();
+    }
     IEnumerator  TimerVisualUpdate()
     {
         int time = (int)_currentTimer;
