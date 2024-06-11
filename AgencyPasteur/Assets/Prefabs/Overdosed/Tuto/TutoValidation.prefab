@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5903886201511473905, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: managedReferences[5820688351574097920].Sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 00ae71c74328a6945bfa460ca7c9b652, type: 3}
     - target: {fileID: 8272969206323966787, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
       propertyPath: m_Name
       value: Validate
