@@ -7,56 +7,79 @@ using UnityEngine.EventSystems;
 
 public class MenuController : MonoBehaviour
 {
-    [SerializeField] private Button[] _defaultBtnCanva;
+    [SerializeField] private Button[] _backButtons;
 
-    [SerializeField] private Button[] _BackBtn;
-    [SerializeField] private GameObject _MainCanva;
-    [SerializeField] private GameObject _LevelCanva;
-    [SerializeField] private GameObject _IntroLevelCanva;
+    [SerializeField] private Canvas _mainCanvas;
+    [SerializeField] private Canvas _levelCanvas;
+    [SerializeField] private Canvas _introCanvas;
 
-    private void Start()
-    {
+    [SerializeField] private Button _defaultMainButton;
+    [SerializeField] private Button _defaultLevelButton;
+    [SerializeField] private Button _defaultIntroButton;
 
-    }
     private void Update()
     {
-    }
-    public void OnBtnClick(InputAction.CallbackContext ctx)
-    {
-        if (ctx.canceled)
+        if (EventSystem.current.currentSelectedGameObject != null)
         {
-            EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
             Debug.Log(EventSystem.current.currentSelectedGameObject.name);
         }
-        //gameObject.GetComponent<Button>().onClick.Invoke();
-        /*        foreach (var btn in _defaultBtnCanva)
-                {
-                    if (btn.gameObject.activeInHierarchy)
-                    {
-                        btn.Select();
-                    }
-                }*/
-        /*        foreach (var btn in _defaultBtnCanva)
-                {
-                    if (btn.gameObject.activeInHierarchy)
-                    {
-                        btn.onClick.Invoke();
-                    }
-                }
-                if (!_MainCanva.activeInHierarchy)
-                {
-                    foreach (var btn in _defaultBtnCanva)
-                    {
-                        if (btn.gameObject.activeInHierarchy)
-                        {
-                            btn.Select();
-                        }
-                    }
-                }
-                else
-                {
-                    _defaultBtnCanva[0].Select();
-                }*/
+        else if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            ChangeEventSelectedBtn();
+        }
+    }
+
+    public void ChangeEventSelectedBtn()
+    {
+        if (_mainCanvas.gameObject.activeInHierarchy)
+        {
+            OnChangeToMainCanvas();
+        }
+        else if (_levelCanvas.gameObject.activeInHierarchy)
+        {
+            OnChangeToLevelCanvas();
+        }
+        else if (_introCanvas.gameObject.activeInHierarchy)
+        {
+            OnChangeToIntroCanvas();
+        }
+    }
+
+    public void OnChangeToMainCanvas()
+    {
+        SetSelectedButton(_defaultMainButton);
+    }
+
+    public void OnChangeToLevelCanvas()
+    {
+        SetSelectedButton(_defaultLevelButton);
+    }
+
+    public void OnChangeToIntroCanvas()
+    {
+        SetSelectedButton(_defaultIntroButton);
+    }
+
+    private void SetSelectedButton(Button button)
+    {
+        if (button != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(button.gameObject);
+        }
+    }
+
+    public void OnButtonClick(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            var currentButton = EventSystem.current.currentSelectedGameObject?.GetComponent<Button>();
+            if (currentButton != null)
+            {
+                currentButton.onClick.Invoke();
+                Debug.Log(currentButton.name);
+            }
+        }
     }
 
     public void OnClickQuit()
@@ -65,13 +88,17 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnClickBack(InputAction.CallbackContext ctx)
+    public void OnClickBack(InputAction.CallbackContext context)
     {
-        foreach (var btn in _BackBtn)
+        if (context.started)
         {
-            if (btn.gameObject.activeInHierarchy)
+            Debug.Log("Back");
+            foreach (var button in _backButtons)
             {
-                btn.onClick.Invoke();
+                if (button.gameObject.activeInHierarchy)
+                {
+                    button.onClick.Invoke();
+                }
             }
         }
     }
