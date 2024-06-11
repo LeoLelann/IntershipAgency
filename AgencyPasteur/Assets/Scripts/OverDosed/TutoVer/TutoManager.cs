@@ -44,7 +44,6 @@ public class TutoManager : MonoBehaviour
     }
     public void Diluted1(GameObject player)
     {
-        Debug.LogError(_playersDil1.Count);
         if (!_playersDil1.Contains(player))
         {
             _playersDil1.Add(player);
