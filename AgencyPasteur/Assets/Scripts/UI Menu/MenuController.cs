@@ -23,6 +23,12 @@ public class MenuController : MonoBehaviour
     }
     public void OnBtnClick(InputAction.CallbackContext ctx)
     {
+        if (ctx.canceled)
+        {
+            EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+            Debug.Log(EventSystem.current.currentSelectedGameObject.name);
+        }
+        //gameObject.GetComponent<Button>().onClick.Invoke();
         /*        foreach (var btn in _defaultBtnCanva)
                 {
                     if (btn.gameObject.activeInHierarchy)
@@ -30,27 +36,27 @@ public class MenuController : MonoBehaviour
                         btn.Select();
                     }
                 }*/
-        foreach (var btn in _defaultBtnCanva)
-        {
-            if (btn.gameObject.activeInHierarchy)
-            {
-                btn.onClick.Invoke();
-            }
-        }
-        if (!_MainCanva.activeInHierarchy)
-        {
-            foreach (var btn in _defaultBtnCanva)
-            {
-                if (btn.gameObject.activeInHierarchy)
+        /*        foreach (var btn in _defaultBtnCanva)
                 {
-                    btn.Select();
+                    if (btn.gameObject.activeInHierarchy)
+                    {
+                        btn.onClick.Invoke();
+                    }
                 }
-            }
-        }
-        else
-        {
-            _defaultBtnCanva[0].Select();
-        }
+                if (!_MainCanva.activeInHierarchy)
+                {
+                    foreach (var btn in _defaultBtnCanva)
+                    {
+                        if (btn.gameObject.activeInHierarchy)
+                        {
+                            btn.Select();
+                        }
+                    }
+                }
+                else
+                {
+                    _defaultBtnCanva[0].Select();
+                }*/
     }
 
     public void OnClickQuit()
