@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Heat
   m_EditorClassIdentifier: 
   _heated:
-  - _state: 020000001b000000
-  - _state: 030000001b000000
-  - _state: 1b0000001b000000
-  - _state: 0e0000001b000000
-  - _state: 0400000010000000
-  - _state: 100000001b000000
+  - _state: 0200000022000000
+  - _state: 1b00000022000000
+  - _state: 0e00000022000000
+  - _state: 0400000015000000
   - _state: 0700000016000000
   - _state: 0500000022000000
   - _state: 0800000022000000
