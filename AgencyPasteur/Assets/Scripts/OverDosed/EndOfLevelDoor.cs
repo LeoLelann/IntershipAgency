@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class EndOfLevelDoor : MonoBehaviour
 {
    [SerializeField] private GameObject _doorRotate;
-   [SerializeField] private GameObject _doorKnob;
     int _areTheyGone;
-    private void OnEnd()
+    public void OnEnd()
     {
         StartCoroutine(RotateDoor());
     }
@@ -17,8 +17,7 @@ public class EndOfLevelDoor : MonoBehaviour
         while (timer < 2)
         {
             timer += Time.deltaTime;
-            _doorRotate.transform.eulerAngles = new Vector3(0, 45*timer, 0);
-            _doorKnob.transform.eulerAngles = new Vector3(0, 45*timer, 0);
+            _doorRotate.transform.eulerAngles = new Vector3(90, 0, 45*timer-90);
 
             Debug.Log(timer);
             yield return new WaitForSeconds(Time.deltaTime);
@@ -34,7 +33,7 @@ public class EndOfLevelDoor : MonoBehaviour
         }
         if (_areTheyGone >= 3)
         {
-            // Change Scene;
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
