@@ -854,6 +854,8 @@ MonoBehaviour:
   _elementIcon:
   - {fileID: 2100000, guid: e71e7484493376d48ae8cbc80612f1a2, type: 2}
   - {fileID: 2100000, guid: a594c1cd21b66d544a845e524db91500, type: 2}
+  - {fileID: 2100000, guid: 04ed9b3e9e2f31943a86fa82ecd50cfd, type: 2}
+  - {fileID: 2100000, guid: 434e0791c4ff4f140be8b8390823645d, type: 2}
   _label: {fileID: 1808074756076501666}
   _ressource: {fileID: 6646863356503664476, guid: b2752a860520d7e42897883395cde214, type: 3}
   _limit: 0
