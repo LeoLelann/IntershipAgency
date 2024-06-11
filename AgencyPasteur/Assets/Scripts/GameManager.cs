@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _goalNbrRemedy;
     [SerializeField] private GameObject _cover;
     [SerializeField] private AdjustVolume _renderVolume;
+    [SerializeField] private EndOfLevelDoor _door;
     private int _currentNbrRemedy;
     public static GameManager Instance => instance;
 
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
     private List<Glassware.glasswareState> _neededGlasswareType=new List<Glassware.glasswareState>();
     [SerializeField] private GameObject _displayNGT;
     [SerializeField] private float _timer;
+    [SerializeField] private Timer _UITimer;
     LiftGammaGain liftGammaGain;
     #region Singleton
     private void InitSingleton()
@@ -66,7 +68,7 @@ public class GameManager : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        if (SceneManager.GetActiveScene().name!="Tutoriel 1"|| SceneManager.GetActiveScene().name != "Menu")
+        if (SceneManager.GetActiveScene().name!="Tutoriel 1"|| SceneManager.GetActiveScene().name != "MainMenu")
         {
             StartCoroutine(Timer());
         }
@@ -120,6 +122,9 @@ public class GameManager : MonoBehaviour
                             i.Player.range = null;
             i.gameObject.SetActive(false);
         }
+        _UITimer.Stop();
+        StopAllCoroutines();
+        _door.OnEnd();
         Debug.Log("Fin de game");
     }
 }
