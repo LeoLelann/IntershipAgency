@@ -101,30 +101,33 @@ public class GameManager : MonoBehaviour
     }
     public void EndGame()
     {
-        StopAllCoroutines();
-        switch (_currentNbrRemedy)
+        if(SceneManager.GetActiveScene().name!="Tutoriel 1")
         {
-            case int i when i <=_goalNbrRemedy / 2:
-                _onEndGameBad.Invoke();
-                break;
-            case int i when i <= _goalNbrRemedy *8/10:
-                _onEndGameBad.Invoke();
-                break;
-            case int i when i > _goalNbrRemedy *8/10:
-                _onEndGameBad.Invoke();
-                break;
-        }
-        _renderVolume.AdjustGamma(-0.1f);
-        _renderVolume.AdjustVignette(new Vector2(0.65f,0.8f));
-        foreach(trigerObject i in FindObjectsOfType<trigerObject>())
-        {
-            Debug.Log(i.Player.name);
-                            i.Player.range = null;
-            i.gameObject.SetActive(false);
-        }
-        _UITimer.Stop();
-        StopAllCoroutines();
-        _door.OnEnd();
-        Debug.Log("Fin de game");
+            StopAllCoroutines();
+            switch (_currentNbrRemedy)
+            {
+                case int i when i <= _goalNbrRemedy / 2:
+                    _onEndGameBad.Invoke();
+                    break;
+                case int i when i <= _goalNbrRemedy * 8 / 10:
+                    _onEndGameBad.Invoke();
+                    break;
+                case int i when i > _goalNbrRemedy * 8 / 10:
+                    _onEndGameBad.Invoke();
+                    break;
+            }
+
+            _renderVolume.AdjustGamma(-0.1f);
+            _renderVolume.AdjustVignette(new Vector2(0.65f, 0.8f));
+            foreach (trigerObject i in FindObjectsOfType<trigerObject>())
+            {
+                Debug.Log(i.Player.name);
+                i.Player.range = null;
+                i.gameObject.SetActive(false);
+            }
+            _UITimer.Stop();
+            StopAllCoroutines();
+            _door.OnEnd();
+        }    
     }
 }
