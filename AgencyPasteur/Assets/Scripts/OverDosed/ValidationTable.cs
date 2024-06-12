@@ -49,6 +49,7 @@ public class ValidationTable : Interactable
         }
         else if (playerGlassware != null && _glassware == null && playerGlassware.GlasswareSt != Glassware.glasswareState.EMPTY)
         {
+            player.GetComponent<Player>().Anim.SetBool("IsHolding", false);
             playerGlassware.transform.parent = transform;
             _glassware = playerGlassware;
             _glassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);

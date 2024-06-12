@@ -40,6 +40,7 @@ public class Paillaisse : Interactable
         }
         else if (playerGlassware != null && _glassware == null)
         {
+            player.GetComponent<Player>().Anim.SetBool("IsHolding", false);
             OnSnapGlassware?.Invoke();
             playerGlassware.transform.parent = transform;
             _glassware = playerGlassware;

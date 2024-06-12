@@ -104,10 +104,15 @@ public class Glassware : Interactable
     {
         if (player.transform.GetComponentInChildren<Glassware>()==null&&(transform.parent==null||transform.parent.GetComponent<Player>()==null)) 
         {
+            if (player.GetComponent<Player>())
+            {
+                player.GetComponent<Player>().Anim.SetBool("IsHolding", true);
+                player.GetComponent<Player>().Anim.SetBool("IsThrowing", false);
+            }
             _onPicked?.Invoke();
             transform.rotation = Quaternion.Euler(270,0,0);
             transform.parent = player.transform;
-            transform.localPosition = new Vector3(0, 0.5f, 1);
+            transform.localPosition = new Vector3(0, 0.5f, 0.5f);
            _rgbd.constraints = RigidbodyConstraints.FreezeAll;
             _parentTransform = GetComponentInParent<Transform>();
             _collider.enabled = false;

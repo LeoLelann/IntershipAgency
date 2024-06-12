@@ -121,8 +121,7 @@ public class Player : MonoBehaviour
         if (!_isDashing && isPause == false)
         {
             Move();
-        }
-
+        } 
         //if (_pauseCanva.activeInHierarchy)
         //{
         //    _moveSpeed = 0f;
@@ -224,7 +223,9 @@ public class Player : MonoBehaviour
         if (transform.GetChild(1).parent != null && context.started && isPause == false)
         {
             _onDrop?.Invoke();
+            Anim.SetBool("IsHolding", false);
             GetComponentInChildren<Glassware>().Drop();
+
         }
     }
     public void OnThrow(InputAction.CallbackContext context)
@@ -232,13 +233,23 @@ public class Player : MonoBehaviour
         if (transform.GetChild(1).parent != null && context.canceled && isPause == false)
         {
             _onThrow?.Invoke();
-            GetComponentInChildren<Glassware>()?.Thrown();
+            StartCoroutine(Thrown());
         }
+    }
+    IEnumerator Thrown()
+    {
+        Anim.SetBool("IsThrowing", true);
+        yield return new WaitForSeconds(0.15f);
+        GetComponentInChildren<Glassware>()?.Thrown();
+        Anim.SetBool("IsHolding", false);
+        yield return null;
     }
     public void OnDash(InputAction.CallbackContext context)
     {
         if (context.started && !_isDashing && context.started && isPause == false)
         {
+            Anim.SetBool("IsDashing", true);
+
             _onDash?.Invoke();
             StartCoroutine(Dash());
         }
@@ -304,6 +315,7 @@ public class Player : MonoBehaviour
         //    yield return new WaitForSeconds(Time.deltaTime);
         //}
 
+        Anim.SetBool("IsDashing", false);
 
         yield return new WaitForSeconds(_dashCD);
         _canDash = true;
