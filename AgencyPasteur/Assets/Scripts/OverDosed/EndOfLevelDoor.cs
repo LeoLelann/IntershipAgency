@@ -33,7 +33,7 @@ public class EndOfLevelDoor : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             _areTheyGone++;
-            Destroy(other);
+            Destroy(other.gameObject);
         }
         if (_areTheyGone >= 3)
         {

@@ -11,6 +11,8 @@ public class Dilution : Interactable
     [SerializeField] private UnityEvent _onInteracted;
      [SerializeField] private UnityEvent _onAlreadyDiluted;
     [SerializeField] private UnityEvent _onTooDiluted;
+    [SerializeField] private UnityEvent _onWater;
+    [SerializeField] private UnityEvent _onBecomingWater;
 
     // Start is called before the first frame update
   
@@ -38,7 +40,11 @@ public class Dilution : Interactable
        Glassware _playerGlassware= player.GetComponentInChildren<Glassware>();
         if (_playerGlassware != null)
         {
-             if(_playerGlassware.GlasswareSt != Glassware.glasswareState.EMPTY)
+            if (_playerGlassware.GlasswareSt == Glassware.glasswareState.WATER)
+            {
+                _onWater.Invoke();
+            }
+            if (_playerGlassware.GlasswareSt != Glassware.glasswareState.EMPTY)
             {
                 if (_diluting == false)
                 {
@@ -56,7 +62,14 @@ public class Dilution : Interactable
                             if (_count > _phase1)
                              {
                             _playerGlassware.SetGlasswareState(_dilute.Diluted.Find(x => x.State[0] == _playerGlassware.GlasswareSt).State[1]);
-                            _onAlreadyDiluted?.Invoke();
+                            if(_playerGlassware.GlasswareSt!=Glassware.glasswareState.WATER)
+                            {
+                                _onAlreadyDiluted?.Invoke();
+                            }
+                            else
+                            {
+                                _onBecomingWater.Invoke();
+                            }
                             }
                             break;
                         case int i when (i>_phase1&&i<=_phase2):
@@ -87,7 +100,8 @@ public class Dilution : Interactable
                         _tuto.Diluted2(player);
                     }
                 }
-            } 
+            }
+            
         }
         else
         {
