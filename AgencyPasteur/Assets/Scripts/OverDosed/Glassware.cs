@@ -126,8 +126,11 @@ public class Glassware : Interactable
     }
     private void OnStateValueChange(glasswareState state)
     {
-        _onChangeState?.Invoke();
-         switch (state)
+        if(state!=glasswareState.EMPTY&&state!=glasswareState.WATER&&state!=glasswareState.TRASH&&state!=glasswareState.ACID&& state != glasswareState.STARCH&& state != glasswareState.RABIES_VIRUS&& state != glasswareState.SODIUM_CHLORIDE&& state != glasswareState.POWDER)
+        {
+            _onChangeState?.Invoke();
+        }
+        switch (state)
         {
             case (glasswareState.EMPTY):
                 _meshRend.material.color = Color.gray;

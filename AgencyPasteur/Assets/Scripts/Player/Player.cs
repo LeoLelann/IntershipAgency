@@ -55,11 +55,15 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _panelBook1;
     [SerializeField] private GameObject _panelBook2;
     [SerializeField] private GameObject _panelBook3;
+    [SerializeField] private Animator _anim;
     private bool _isActivePage;
     private int _currentPage;
 
     //[SerializeField] private GameObject _pauseCanva;
     [HideInInspector] public bool isPause { get; private set; }
+    public Animator Anim { get => _anim; }
+    public InputActionReference InputFromGameplay { get => _inputFromGameplay; set => _inputFromGameplay = value; }
+    public InputActionReference InputFromUI { get => _inputFromUI; set => _inputFromUI = value; }
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onMove;
@@ -133,14 +137,23 @@ public class Player : MonoBehaviour
         //{
         //    Debug.Log(_bookPageR[i].gameObject.name);
         //}
-        
+
     }
     
     private void Move()
     {
+        
         _onMove?.Invoke();
         //deplacement
         _moveDirection = new Vector3(_moveInput.x, 0, _moveInput.y);
+        if(_moveDirection != Vector3.zero)
+        {
+            Anim.SetBool("IsMoving", true);
+        }
+        else
+        {
+            Anim.SetBool("IsMoving", false);
+        }
         transform.position += _moveDirection * _moveSpeed * Time.deltaTime;
         if (_moveDirection != Vector3.zero && _moveSpeed != 0f && isPause == false) //rotation
         {
