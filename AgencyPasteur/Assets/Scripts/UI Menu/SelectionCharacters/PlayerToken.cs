@@ -1,23 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerToken : MonoBehaviour
 {
-    [SerializeField] private GameObject _token;
-    [SerializeField] private GameObject _parentGameObject;
     [SerializeField] private float _moveSpeed;
-    private Collider _tokenCollider;
-    private Vector2 _moveInput;
-    private Vector3 _moveDirection;
-    
 
-    void Start()
-    {
-        _tokenCollider = _token.GetComponent<Collider>();
-        _tokenCollider.enabled = false;
-    }
+    [SerializeField] UnityEvent _onChoosed;
+    [SerializeField] UnityEvent _onChoosedCancelled;
+
+    [SerializeField] TokenOnSelect _currentSelection;
+
+    private Vector2 _moveInput;
+    public bool _isChoosed { get; set; }
+    public TokenOnSelect CurrentSelection { get => _currentSelection; }
 
     void Update()
     {
@@ -30,26 +28,40 @@ public class PlayerToken : MonoBehaviour
     }
     private void Move()
     {
-        _moveDirection = new Vector3(_moveInput.x, _moveInput.y, 0);
+        if (_isChoosed) return;
+
+        Vector3 _moveDirection = new Vector3(_moveInput.x, _moveInput.y, 0);
         transform.position += _moveDirection * _moveSpeed * Time.deltaTime;
     }
     public void OnInteract(InputAction.CallbackContext ctx)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
-        if (_token.transform.IsChildOf(this.transform) && hit.collider)
-        {
-            _tokenCollider.enabled = true;
-            _token.transform.parent = _parentGameObject.transform;
-            _token.transform.position = this.transform.position;
-        }
+        if (_currentSelection == null) return;
+
+        _onChoosed.Invoke();
+        _isChoosed = true;
     }
     public void OnCancel(InputAction.CallbackContext ctx)
     {
-        if (_token.transform.IsChildOf(_parentGameObject.transform))
+        _onChoosedCancelled.Invoke();
+        _isChoosed = false;
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<TokenOnSelect>(out var tos))
         {
-            _tokenCollider.enabled=false;
-            _token.transform.SetParent(this.transform);
-            _token.transform.position = this.transform.position;
+            _currentSelection = tos;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<TokenOnSelect>(out var tos) && _currentSelection == tos)
+        {
+            _currentSelection = null;
+        }
+    }
+
+
 }
