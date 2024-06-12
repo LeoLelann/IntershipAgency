@@ -709,7 +709,7 @@ MonoBehaviour:
         Mode: 0
         Space: 0
         RandomizeRemap: 0
-        AnimatePositionDuration: 2
+        AnimatePositionDuration: 0.1
         AnimatePositionTween:
           MMTweenDefinitionType: 1
           MMTweenCurve: 10
@@ -982,7 +982,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 1544970005946114610}
         DebugActive: 0
-        PauseDuration: 2
+        PauseDuration: 0.1
         RandomizePauseDuration: 0
         MinPauseDuration: 1
         MaxPauseDuration: 3
@@ -1062,7 +1062,7 @@ MonoBehaviour:
         Mode: 0
         Space: 0
         RandomizeRemap: 0
-        AnimatePositionDuration: 2
+        AnimatePositionDuration: 0.1
         AnimatePositionTween:
           MMTweenDefinitionType: 1
           MMTweenCurve: 10
