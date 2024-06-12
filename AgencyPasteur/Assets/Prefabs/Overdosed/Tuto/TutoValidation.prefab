@@ -44,6 +44,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: _onValidate.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: _onValidate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5903886201511473905, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
       propertyPath: managedReferences[5820688351574097920].Sfx
       value: 
@@ -93,7 +101,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6339463569081904902, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
