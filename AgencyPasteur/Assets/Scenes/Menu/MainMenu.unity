@@ -505,7 +505,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 351145163}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: OnBtnClick
+        m_MethodName: OnButtonClick
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -531,13 +531,13 @@ MonoBehaviour:
     m_ActionName: UI/UnPause[/XInputControllerWindows1/start]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 351145163}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnClickBack
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -565,21 +565,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351145160}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef8d4bfccc0514d41bc4da21b205c0bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultBtnCanva:
-  - {fileID: 1408740101}
-  - {fileID: 1873679197}
-  - {fileID: 881413334}
-  _BackBtn:
+  _backButtons:
   - {fileID: 1702011202}
   - {fileID: 759342538}
-  _MainCanva: {fileID: 632375164}
-  _LevelCanva: {fileID: 224592082}
-  _IntroLevelCanva: {fileID: 2131898920}
+  _mainCanvas: {fileID: 632375167}
+  _levelCanvas: {fileID: 224592083}
+  _introCanvas: {fileID: 2131898924}
+  _defaultMainButton: {fileID: 1408740101}
+  _defaultLevelButton: {fileID: 1873679197}
+  _defaultIntroButton: {fileID: 881413334}
 --- !u!1 &357465236
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +686,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 664812250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CanvaManager, Assembly-CSharp
         m_MethodName: OnChangeCanva
         m_Mode: 1
@@ -1256,7 +1255,6 @@ GameObject:
   m_Component:
   - component: {fileID: 664812249}
   - component: {fileID: 664812248}
-  - component: {fileID: 664812250}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -1310,24 +1308,6 @@ RectTransform:
   m_AnchoredPosition: {x: 37, y: 2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &664812250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 664812246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f482208cfdb43c4588c9e4e0985af55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mainCanva: {fileID: 632375167}
-  _levelCanva: {fileID: 224592083}
-  _introCanva: {fileID: 2131898924}
-  _dftMain: {fileID: 1408740101}
-  _dftLvl: {fileID: 1873679197}
-  _dftIntroLvl: {fileID: 881413334}
 --- !u!1 &685809189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,9 +1466,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 664812250}
-        m_TargetAssemblyTypeName: CanvaManager, Assembly-CSharp
-        m_MethodName: OnChangeCanva
+      - m_Target: {fileID: 351145163}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnChangeToLevelCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1911,7 +1891,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 664812250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CanvaManager, Assembly-CSharp
         m_MethodName: OnChangeCanva
         m_Mode: 1
@@ -2737,9 +2717,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 664812250}
-        m_TargetAssemblyTypeName: CanvaManager, Assembly-CSharp
-        m_MethodName: OnChangeCanva
+      - m_Target: {fileID: 351145163}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnChangeToLevelCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3091,7 +3071,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 664812250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CanvaManager, Assembly-CSharp
         m_MethodName: OnChangeCanva
         m_Mode: 1
@@ -3564,18 +3544,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 632375164}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 224592082}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -3587,6 +3555,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 632375164}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1579946869}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
@@ -3600,9 +3580,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 664812250}
-        m_TargetAssemblyTypeName: CanvaManager, Assembly-CSharp
-        m_MethodName: OnChangeCanva
+      - m_Target: {fileID: 351145163}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnChangeToMainCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3894,7 +3874,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 664812250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CanvaManager, Assembly-CSharp
         m_MethodName: OnChangeCanva
         m_Mode: 1
@@ -4039,7 +4019,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 664812250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CanvaManager, Assembly-CSharp
         m_MethodName: OnChangeCanva
         m_Mode: 1
@@ -4477,7 +4457,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 664812250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CanvaManager, Assembly-CSharp
         m_MethodName: OnChangeCanva
         m_Mode: 1
@@ -4901,7 +4881,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 664812250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CanvaManager, Assembly-CSharp
         m_MethodName: OnChangeCanva
         m_Mode: 1
