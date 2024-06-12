@@ -56,7 +56,7 @@ public class Glassware : Interactable
     private Rigidbody _rgbd;
     [SerializeField] private float _throwPower=2;
     private Collider _collider;
-    private MeshRenderer _meshRend;
+    [SerializeField]private MeshRenderer _meshRend;
     [SerializeField]private glasswareState _glasswareSt=glasswareState.EMPTY;
 
     public glasswareState GlasswareSt { get => _glasswareSt; }
@@ -66,7 +66,6 @@ public class Glassware : Interactable
         
         _rgbd = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
-        _meshRend = GetComponent<MeshRenderer>();
     }
     private void Start()
     {
@@ -130,10 +129,13 @@ public class Glassware : Interactable
         {
             _onChangeState?.Invoke();
         }
+        if(!_meshRend.gameObject.activeInHierarchy){
+            _meshRend.gameObject.SetActive(true);
+        }
         switch (state)
         {
             case (glasswareState.EMPTY):
-                _meshRend.material.color = Color.gray;
+                _meshRend.gameObject.SetActive(false);
                 break;
             case (glasswareState.ACID):
                 _meshRend.material.color = new Color(1,0.9f,0);
@@ -174,7 +176,7 @@ public class Glassware : Interactable
                 _meshRend.material.color = new Color(0.6f, 0, 0);
                 break;
             case glasswareState.SODIUM_CHLORIDE:
-                _meshRend.material.color = new Color(0.004f, 0.596f, 0.459f);
+                _meshRend.material.SetColor("_Color", new Color(0.004f, 0.596f, 0.459f));
                 break;
             case (glasswareState.POWDER):
                 _meshRend.material.color = Color.white;

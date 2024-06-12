@@ -69,6 +69,7 @@ public class ValidationTable : Interactable
 
             if (SceneManager.GetActiveScene().name == "Tutoriel 1")
             {
+                Debug.Log("Feur");
                 _tuto.Sent();
             }
         }
