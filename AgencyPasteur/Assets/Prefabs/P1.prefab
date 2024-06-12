@@ -326,7 +326,7 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e440d714-a72e-4469-af23-f6f10412efc6
     m_ActionName: UI/NavigateHorizontal[/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: GamePad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
