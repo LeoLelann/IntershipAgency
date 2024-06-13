@@ -115,6 +115,8 @@ public class SpawnerElement : Interactable
         }
         else if (playerGlassware != null && _glassware == null)
         {
+            player.GetComponent<Player>().Anim.SetBool("IsHolding", false);
+            player.GetComponent<Player>().Anim.SetBool("IsPuttingDown", true);
             _onSnapGlassware?.Invoke();
             playerGlassware.transform.parent = transform;
             _glassware = GetComponentInChildren<Glassware>();

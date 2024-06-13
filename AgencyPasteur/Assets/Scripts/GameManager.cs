@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public int GoalNbrRemedy { get => _goalNbrRemedy; set => _goalNbrRemedy = value; }
 
     [SerializeField] private GameObject _book;
+    private Player[] players; 
     private gamePhase _currentPhase;
     public enum gamePhase
     {
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        players = FindObjectsOfType<Player>();
         Debug.Log(SceneManager.GetActiveScene().name);
         _currentNbrRemedy = 0;
         StartCoroutine(Timer());
@@ -96,35 +98,50 @@ public class GameManager : MonoBehaviour
             time += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        foreach(Player p in players)
+        {
+            p.Anim.SetBool("Lost", true);
+        }
+        yield return new WaitForSeconds(1);
+        foreach(Player p in players)
+        {
+            p.Anim.SetBool("Lost", false);
+        }
         EndGame();
         yield return null;
     }
     public void EndGame()
     {
-        StopAllCoroutines();
-        switch (_currentNbrRemedy)
+        if(SceneManager.GetActiveScene().name!="Tutoriel 1")
         {
-            case int i when i <=_goalNbrRemedy / 2:
-                _onEndGameBad.Invoke();
-                break;
-            case int i when i <= _goalNbrRemedy *8/10:
-                _onEndGameBad.Invoke();
-                break;
-            case int i when i > _goalNbrRemedy *8/10:
-                _onEndGameBad.Invoke();
-                break;
-        }
-        _renderVolume.AdjustGamma(-0.1f);
-        _renderVolume.AdjustVignette(new Vector2(0.65f,0.8f));
-        foreach(trigerObject i in FindObjectsOfType<trigerObject>())
+            StopAllCoroutines();
+            if (_currentNbrRemedy == _goalNbrRemedy) 
+            {
+                StartCoroutine(GoodEnd());
+            }
+            _renderVolume.AdjustGamma(-0.1f);
+            _renderVolume.AdjustVignette(new Vector2(0.65f, 0.8f));
+            foreach (trigerObject i in FindObjectsOfType<trigerObject>())
+            {
+                Debug.Log(i.Player.name);
+                i.Player.range = null;
+                i.gameObject.SetActive(false);
+            }
+            _UITimer.Stop();
+            StopAllCoroutines();
+            _door.OnEnd();
+        }    
+    }
+    IEnumerator GoodEnd()
+    {
+        foreach (Player p in players)
         {
-            Debug.Log(i.Player.name);
-                            i.Player.range = null;
-            i.gameObject.SetActive(false);
+            p.Anim.SetBool("Win", true);
         }
-        _UITimer.Stop();
-        StopAllCoroutines();
-        _door.OnEnd();
-        Debug.Log("Fin de game");
+        yield return new WaitForSeconds(1);
+        foreach (Player p in players)
+        {
+            p.Anim.SetBool("Win", false);
+        }
     }
 }

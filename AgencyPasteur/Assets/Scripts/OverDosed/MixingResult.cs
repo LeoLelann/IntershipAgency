@@ -39,6 +39,8 @@ public class MixingResult : Interactable
         Debug.Log(in2Glassware);
         if (playerGlassware != null && currentGlassware == null)
         {
+            player.GetComponent<Player>().Anim.SetBool("IsHolding", false);
+            player.GetComponent<Player>().Anim.SetBool("IsPuttingDown", true);
             _onSnapGlassware?.Invoke();
             playerGlassware.transform.parent = transform;
             currentGlassware = playerGlassware;

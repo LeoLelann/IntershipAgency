@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EndOfLevelDoor : MonoBehaviour
 {
+
    [SerializeField] private GameObject _doorRotate;
+   [SerializeField] private UnityEvent _onOpen;
     int _areTheyGone;
     public void OnEnd()
     {
@@ -14,6 +17,7 @@ public class EndOfLevelDoor : MonoBehaviour
     IEnumerator RotateDoor()
     {
         float timer=0;
+        _onOpen.Invoke();
         while (timer < 2)
         {
             timer += Time.deltaTime;
