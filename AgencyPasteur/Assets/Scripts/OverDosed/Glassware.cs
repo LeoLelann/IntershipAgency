@@ -106,8 +106,7 @@ public class Glassware : Interactable
         {
             if (player.GetComponent<Player>())
             {
-                player.GetComponent<Player>().Anim.SetBool("IsHolding", true);
-                player.GetComponent<Player>().Anim.SetBool("IsThrowing", false);
+                StartCoroutine(StartHolding(player.GetComponent<Player>()));
             }
             _onPicked?.Invoke();
             transform.rotation = Quaternion.Euler(270,0,0);
@@ -118,6 +117,15 @@ public class Glassware : Interactable
             _collider.enabled = false;
             player.GetComponent<Player>().range = null;
         }
+    }
+    IEnumerator StartHolding(Player player)
+    {
+        player.Anim.SetBool("IsGrabbing", true);
+        yield return new WaitForSeconds(0.2f);
+        player.Anim.SetBool("IsHolding", true);
+        player.Anim.SetBool("IsThrowing", false);
+        player.Anim.SetBool("IsGrabbing", false);
+
     }
     public void SetGlasswareState(glasswareState state)
     {

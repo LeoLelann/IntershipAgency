@@ -100,6 +100,7 @@ public class Heater : Interactable
         else if (glasswarePlayer != null && glassware == null)
         {
             player.GetComponent<Player>().Anim.SetBool("IsHolding", false);
+            player.GetComponent<Player>().Anim.SetBool("IsPuttingDown", true);
             _onSnapGlassware?.Invoke();
             glasswarePlayer.transform.parent = transform;
             glassware = glasswarePlayer;
