@@ -36,6 +36,6 @@ public class CharacterSelectionManager : MonoBehaviour
 
     void LoadGameScene()
     {
-        SceneManager.LoadScene("LeoTest2");
+        SceneManager.LoadScene("Tutoriel 1");
     }
 }
