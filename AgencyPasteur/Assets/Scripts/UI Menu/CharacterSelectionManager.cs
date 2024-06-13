@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static CharacterSelectionSO;
+using UnityEngine.InputSystem;
 
 public class CharacterSelectionManager : MonoBehaviour
 {
@@ -20,10 +21,11 @@ public class CharacterSelectionManager : MonoBehaviour
         if(isReady)
         {
 
-            Character[] selection = new Character[3];
+            (Character, string)[] selection = new (Character, string)[3];
             for (int i = 0; i < characterButtons.Length; i++)
             {
-                selection[i] = characterButtons[i].CurrentSelection.PlayerRepresented;
+                selection[i] = (characterButtons[i].CurrentSelection.PlayerRepresented, 
+                    characterButtons[i].GetComponent<PlayerInput>().actions.devices.Value[0].name);
             }
             characterSelectionSO.SendSelection(selection);
 
