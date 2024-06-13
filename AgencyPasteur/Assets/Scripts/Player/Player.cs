@@ -247,7 +247,7 @@ public class Player : MonoBehaviour
     }
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (context.started && !_isDashing && context.started && isPause == false)
+        if (context.started && _canDash && context.started && isPause == false)
         {
             Anim.SetBool("IsDashing", true);
 
