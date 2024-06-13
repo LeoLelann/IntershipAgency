@@ -8,6 +8,8 @@ public class CharacterSelectionManager : MonoBehaviour
 {
     public PlayerToken[] characterButtons;
     [SerializeField] CharacterSelectionSO characterSelectionSO;
+    [SerializeField] private Scene sceneToLoad;
+    [SerializeField] private string _sceneName;
 
 
     private void Update()
@@ -30,12 +32,12 @@ public class CharacterSelectionManager : MonoBehaviour
             characterSelectionSO.SendSelection(selection);
 
 
-            LoadGameScene();
+            OnLoadGameScene();
         }
     }
 
-    void LoadGameScene()
+    public void OnLoadGameScene()
     {
-        SceneManager.LoadScene("Tutoriel 1");
+        SceneManager.LoadScene(_sceneName);
     }
 }

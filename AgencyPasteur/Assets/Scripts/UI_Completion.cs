@@ -18,7 +18,7 @@ public class UI_Completion : MonoBehaviour
     public void UpdateCount(int currentCount)
     {
         _currentResult = currentCount;
-        _UITimer.text = ($"{_currentResult} / {_resultMax}");
+        _UITimer.text = ($"{_currentResult}/{_resultMax}");
     }
     // Update is called once per frame
     void Update()
