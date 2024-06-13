@@ -104,15 +104,28 @@ public class Glassware : Interactable
     {
         if (player.transform.GetComponentInChildren<Glassware>()==null&&(transform.parent==null||transform.parent.GetComponent<Player>()==null)) 
         {
+            if (player.GetComponent<Player>())
+            {
+                StartCoroutine(StartHolding(player.GetComponent<Player>()));
+            }
             _onPicked?.Invoke();
             transform.rotation = Quaternion.Euler(270,0,0);
             transform.parent = player.transform;
-            transform.localPosition = new Vector3(0, 0.5f, 1);
+            transform.localPosition = new Vector3(0, 0.5f, 0.5f);
            _rgbd.constraints = RigidbodyConstraints.FreezeAll;
             _parentTransform = GetComponentInParent<Transform>();
             _collider.enabled = false;
             player.GetComponent<Player>().range = null;
         }
+    }
+    IEnumerator StartHolding(Player player)
+    {
+        player.Anim.SetBool("IsGrabbing", true);
+        yield return new WaitForSeconds(0.2f);
+        player.Anim.SetBool("IsHolding", true);
+        player.Anim.SetBool("IsThrowing", false);
+        player.Anim.SetBool("IsGrabbing", false);
+
     }
     public void SetGlasswareState(glasswareState state)
     {
