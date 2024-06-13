@@ -290,7 +290,6 @@ public class Player : MonoBehaviour
         _isDashing = true;
         _canDash = false;
 
-
         float timer = 0f;
         while (timer < _dashDuration)
         {
