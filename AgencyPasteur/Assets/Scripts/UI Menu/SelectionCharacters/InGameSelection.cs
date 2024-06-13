@@ -13,23 +13,23 @@ public class InGameSelection : MonoBehaviour
 
     private void Awake()
     {
-        if (_CharaSelectionSO.Selection[_idPlayer] == CharacterSelectionSO.Character.Oliv)
-        {
-            _p1.transform.SetParent(this.transform);
-            _p1.SetActive(true);
-            _p1.transform.position = this.transform.position;
-        }
-        else if (_CharaSelectionSO.Selection[_idPlayer] == CharacterSelectionSO.Character.Lesha)
-        {
-            _p2.transform.SetParent(this.transform);
-            _p2.SetActive(true);
-            _p2.transform.position = this.transform.position;
-        }
-        else if (_CharaSelectionSO.Selection[_idPlayer] == CharacterSelectionSO.Character.Oliv)
-        {
-            _p3.transform.SetParent(this.transform);
-            _p3.SetActive(true);
-            _p3.transform.position = this.transform.position;
-        }
+        //if (_CharaSelectionSO.Selection[_idPlayer] == CharacterSelectionSO.Character.Oliv)
+        //{
+        //    _p1.transform.SetParent(this.transform);
+        //    _p1.SetActive(true);
+        //    _p1.transform.position = this.transform.position;
+        //}
+        //else if (_CharaSelectionSO.Selection[_idPlayer] == CharacterSelectionSO.Character.Lesha)
+        //{
+        //    _p2.transform.SetParent(this.transform);
+        //    _p2.SetActive(true);
+        //    _p2.transform.position = this.transform.position;
+        //}
+        //else if (_CharaSelectionSO.Selection[_idPlayer] == CharacterSelectionSO.Character.Britney)
+        //{
+        //    _p3.transform.SetParent(this.transform);
+        //    _p3.SetActive(true);
+        //    _p3.transform.position = this.transform.position;
+        //}
     }
 }
