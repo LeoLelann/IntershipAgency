@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AdjustVolume _renderVolume;
     [SerializeField] private EndOfLevelDoor _door;
     private int _currentNbrRemedy;
+   [SerializeField] private GameObject _UI_cinematique;
+   [SerializeField] private Cinematique _cine1;
     public static GameManager Instance => instance;
 
     public List<Glassware.glasswareState> Found { get => _found;}
@@ -130,6 +132,8 @@ public class GameManager : MonoBehaviour
             _UITimer.Stop();
             StopAllCoroutines();
             _door.OnEnd();
+            _UI_cinematique.SetActive(true);
+            _cine1.NextSlide();
         }    
     }
     IEnumerator GoodEnd()
