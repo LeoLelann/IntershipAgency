@@ -40,17 +40,24 @@ public class Paillaisse : Interactable
         }
         else if (playerGlassware != null && _glassware == null)
         {
-            OnSnapGlassware?.Invoke();
-            playerGlassware.transform.parent = transform;
-            _glassware = playerGlassware;
-            _glassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-            _glassware.transform.rotation = Quaternion.Euler(270, 0, 0);
-            _glassware.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            _glassware.transform.GetComponent<Collider>().enabled = false;
-            if (_mix != null)
-            {
-                _mix.MixReady();
-            }
+            StartCoroutine(PuttingDown(player,playerGlassware));
+        }
+    }
+    IEnumerator PuttingDown(GameObject player,Glassware playerGlassware)
+    {
+        player.GetComponent<Player>().Anim.SetBool("IsHolding", false);
+        player.GetComponent<Player>().Anim.SetBool("IsPuttingDown", true);
+        yield return new WaitForSeconds(.2f);
+        OnSnapGlassware?.Invoke();
+        playerGlassware.transform.parent = transform;
+        _glassware = playerGlassware;
+        _glassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+        _glassware.transform.rotation = Quaternion.Euler(270, 0, 0);
+        _glassware.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        _glassware.transform.GetComponent<Collider>().enabled = false;
+        if (_mix != null)
+        {
+            _mix.MixReady();
         }
     }
 }
