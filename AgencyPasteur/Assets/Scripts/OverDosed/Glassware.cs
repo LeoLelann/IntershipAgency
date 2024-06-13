@@ -198,13 +198,13 @@ public class Glassware : Interactable
                 _meshRend.material.color = new Color(1, 0.28f, 0.3f);
                 break;
             case glasswareState.DILUTED_SODIUM_CHLORIDE:
-                _meshRend.material.color = new Color(0.72f, 0.9f, 0.76f);
+                _meshRend.material.color = new Color(0.76f, 0.9f, 0.76f);
                 break;
             case glasswareState.HEATED_POWDER:
-                _meshRend.material.color = Color.gray;
+                _meshRend.material.color = new Color(0.4f, 0.4f, 0.4f);
                 break;
             case glasswareState.RABIES_VACCINE:
-                _meshRend.material.color = new Color(0.64f, 0.28f, 0.34f);
+                _meshRend.material.color = new Color(0.9f, 0.5f, 0.97f);
                 break;
         }
     }
