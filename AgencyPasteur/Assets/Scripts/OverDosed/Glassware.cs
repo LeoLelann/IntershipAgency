@@ -78,12 +78,14 @@ public class Glassware : Interactable
         _onThrown?.Invoke();
         isThrown = true;
         _rgbd.constraints = RigidbodyConstraints.None;
-        _rgbd.velocity = new Vector3(transform.parent.transform.forward.x * _throwPower, 0.1f, transform.parent.transform.forward.z * _throwPower);
+        transform.position += new Vector3(0, 0.5f, 0);
+        _rgbd.velocity = new Vector3(transform.parent.transform.forward.x * _throwPower, 0.5f, transform.parent.transform.forward.z * _throwPower);
         transform.parent = null;
         _collider.enabled = true;
     }
     public void Drop()
     {
+
         _onDrop?.Invoke();
         transform.parent = null;
         _rgbd.constraints = RigidbodyConstraints.None;
@@ -108,23 +110,35 @@ public class Glassware : Interactable
             {
                 StartCoroutine(StartHolding(player.GetComponent<Player>()));
             }
-            _onPicked?.Invoke();
-            transform.rotation = Quaternion.Euler(270,0,0);
-            transform.parent = player.transform;
-            transform.localPosition = new Vector3(0, 0.5f, 0.5f);
-           _rgbd.constraints = RigidbodyConstraints.FreezeAll;
-            _parentTransform = GetComponentInParent<Transform>();
-            _collider.enabled = false;
-            player.GetComponent<Player>().range = null;
+            else
+            {
+                _onPicked?.Invoke();
+                transform.rotation = Quaternion.Euler(270, 0, 0);
+                transform.parent = player.transform;
+                transform.localPosition = new Vector3(0, 0f, 0.5f);
+                _rgbd.constraints = RigidbodyConstraints.FreezeAll;
+                _parentTransform = GetComponentInParent<Transform>();
+                _collider.enabled = false;
+                player.GetComponent<Player>().range = null;
+            }
         }
     }
     IEnumerator StartHolding(Player player)
     {
         player.Anim.SetBool("IsGrabbing", true);
+        player.Anim.SetBool("IsPuttingDown", false);
         yield return new WaitForSeconds(0.2f);
         player.Anim.SetBool("IsHolding", true);
         player.Anim.SetBool("IsThrowing", false);
         player.Anim.SetBool("IsGrabbing", false);
+        _onPicked?.Invoke();
+        transform.rotation = Quaternion.Euler(270, 0, 0);
+        transform.parent = player.transform;
+        transform.localPosition = new Vector3(0, 0f, 0.5f);
+        _rgbd.constraints = RigidbodyConstraints.FreezeAll;
+        _parentTransform = GetComponentInParent<Transform>();
+        _collider.enabled = false;
+        player.GetComponent<Player>().range = null;
 
     }
     public void SetGlasswareState(glasswareState state)
