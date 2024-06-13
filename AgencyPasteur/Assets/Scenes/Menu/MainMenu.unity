@@ -2231,7 +2231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &632375165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4520,7 +4520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1126499023
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4795,7 +4795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad:
     m_Handle: 0
-  _sceneName: Tutoriel 1
+  _sceneName: PlayerSelectScene
 --- !u!114 &1144231693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9140,7 +9140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad:
     m_Handle: 0
-  _sceneName: Tutorial 1
+  _sceneName: Test_camfin
 --- !u!1 &1893861575
 GameObject:
   m_ObjectHideFlags: 0
