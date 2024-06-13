@@ -201,8 +201,8 @@ MonoBehaviour:
         SequentialOrder: 0
         SequentialOrderHoldLast: 0
         SequentialOrderHoldCooldownDuration: 2
-        MinVolume: 0.1
-        MaxVolume: 0.1
+        MinVolume: 0.2
+        MaxVolume: 0.2
         MinPitch: 1
         MaxPitch: 1
         PlaybackTime: {x: 0, y: 0}
