@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     [Header("")]
     private Pause _pauseMenu; 
-    private GameObject _bookUI;
+    [SerializeField]private GameObject _bookUI;
 
     [SerializeField] private Rigidbody _rb;
     private Rigidbody _rbOther;
@@ -55,11 +55,15 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _panelBook1;
     [SerializeField] private GameObject _panelBook2;
     [SerializeField] private GameObject _panelBook3;
+    [SerializeField] private Animator _anim;
     private bool _isActivePage;
     private int _currentPage;
 
-    [SerializeField] private GameObject _pauseCanva;
+    //[SerializeField] private GameObject _pauseCanva;
     [HideInInspector] public bool isPause { get; private set; }
+    public Animator Anim { get => _anim; }
+    public InputActionReference InputFromGameplay { get => _inputFromGameplay; set => _inputFromGameplay = value; }
+    public InputActionReference InputFromUI { get => _inputFromUI; set => _inputFromUI = value; }
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onMove;
@@ -73,7 +77,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        _bookUI = GameObject.FindGameObjectWithTag("BookUI");
+        //_bookUI = GameObject.FindGameObjectWithTag("BookUI");
         
         OnPauseGlobal += PauseTrigger;
         OnUnPauseGlobal += UnpauseTrigger;
@@ -98,16 +102,10 @@ public class Player : MonoBehaviour
     {
         //_playerInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody>();
-<<<<<<< HEAD
-        //_bookUI.SetActive(false);
-        //_pauseCanva.SetActive(false);
-        _moveSpeedMax = _moveSpeed;
-=======
         _pauseMenu = FindObjectOfType<Pause>();
         //_bookUI.SetActive(false);
         _moveSpeedMax = _moveSpeed;
         //_pauseCanva.SetActive(false);
->>>>>>> origin/Leo
         _bookPageR = _bookComposantBtnR;
         _bookPageL = _bookComposantBtnL;
         _isActivePage = true;
@@ -123,20 +121,7 @@ public class Player : MonoBehaviour
         if (!_isDashing && isPause == false)
         {
             Move();
-        }
-
-<<<<<<< HEAD
-/*        if (_pauseCanva.activeInHierarchy)
-        {
-            _moveSpeed = 0f;
-            isPause = true;
-        }
-        else if (!_pauseCanva.activeInHierarchy)
-        {
-            _moveSpeed = _moveSpeedMax;
-            isPause = false;
-        }*/
-=======
+        } 
         //if (_pauseCanva.activeInHierarchy)
         //{
         //    _moveSpeed = 0f;
@@ -147,19 +132,27 @@ public class Player : MonoBehaviour
         //    _moveSpeed = _moveSpeedMax;
         //    isPause = false;
         //}
->>>>>>> origin/Leo
         //for (int i = 0; i < _bookPageR.Length; i++)
         //{
         //    Debug.Log(_bookPageR[i].gameObject.name);
         //}
-        
+
     }
     
     private void Move()
     {
+        
         _onMove?.Invoke();
         //deplacement
         _moveDirection = new Vector3(_moveInput.x, 0, _moveInput.y);
+        if(_moveDirection != Vector3.zero)
+        {
+            Anim.SetBool("IsMoving", true);
+        }
+        else
+        {
+            Anim.SetBool("IsMoving", false);
+        }
         transform.position += _moveDirection * _moveSpeed * Time.deltaTime;
         if (_moveDirection != Vector3.zero && _moveSpeed != 0f && isPause == false) //rotation
         {
@@ -172,7 +165,7 @@ public class Player : MonoBehaviour
         _moveInput = context.ReadValue<Vector2>();
     }
 
-    public void OnPause(InputAction.CallbackContext context)
+    /*public void OnPause(InputAction.CallbackContext context)
     {
         //_pauseMenu.SetPause();
         if (context.started)
@@ -196,7 +189,7 @@ public class Player : MonoBehaviour
 
             }
         }
-    }
+    }*/
 
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -207,7 +200,7 @@ public class Player : MonoBehaviour
             {
                 range.Interacted(gameObject);
                 
-                if (range.GetComponent<Book>()) // Interact with book
+                if (range?.GetComponent<Book>()) // Interact with book
                 {
                     if (!_bookUI.activeInHierarchy)
                     {
@@ -230,7 +223,9 @@ public class Player : MonoBehaviour
         if (transform.GetChild(1).parent != null && context.started && isPause == false)
         {
             _onDrop?.Invoke();
+            Anim.SetBool("IsHolding", false);
             GetComponentInChildren<Glassware>().Drop();
+
         }
     }
     public void OnThrow(InputAction.CallbackContext context)
@@ -238,13 +233,23 @@ public class Player : MonoBehaviour
         if (transform.GetChild(1).parent != null && context.canceled && isPause == false)
         {
             _onThrow?.Invoke();
-            GetComponentInChildren<Glassware>()?.Thrown();
+            StartCoroutine(Thrown());
         }
+    }
+    IEnumerator Thrown()
+    {
+        Anim.SetBool("IsThrowing", true);
+        yield return new WaitForSeconds(0.15f);
+        GetComponentInChildren<Glassware>()?.Thrown();
+        Anim.SetBool("IsHolding", false);
+        yield return null;
     }
     public void OnDash(InputAction.CallbackContext context)
     {
         if (context.started && !_isDashing && context.started && isPause == false)
         {
+            Anim.SetBool("IsDashing", true);
+
             _onDash?.Invoke();
             StartCoroutine(Dash());
         }
@@ -285,17 +290,19 @@ public class Player : MonoBehaviour
         _isDashing = true;
         _canDash = false;
 
-        Vector3 startPosition = transform.position;
-        Vector3 endPosition = startPosition + _moveDirection.normalized * _dashPower;
-
         float timer = 0f;
         while (timer < _dashDuration)
         {
-            float t = timer / _dashDuration;
-            float curveValue = _curve.Evaluate(t);
-            //transform.position = Vector3.Lerp(startPosition, endPosition, curveValue);
-            _rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
-            yield return new WaitForSeconds(Time.deltaTime);
+            float curveValue = _curve.Evaluate(timer);
+            transform.position += _moveDirection.normalized*curveValue * _dashPower*Time.deltaTime;
+            //_rb.AddForce(Vector3.Lerp(startPosition, endPosition, curveValue));
+            yield return new WaitForSecondsRealtime(Time.deltaTime);
+            timer += Time.deltaTime;
+            if (timer > _dashDuration * 90 / 100)
+            {
+                _isDashing = false;
+            }
+            
         }
 
         //for (float elapsed = 0; elapsed < _dashDuration; elapsed += Time.deltaTime)
@@ -307,9 +314,7 @@ public class Player : MonoBehaviour
         //    yield return new WaitForSeconds(Time.deltaTime);
         //}
 
-        transform.position = endPosition;
-
-        _isDashing = false;
+        Anim.SetBool("IsDashing", false);
 
         yield return new WaitForSeconds(_dashCD);
         _canDash = true;
@@ -418,9 +423,9 @@ public class Player : MonoBehaviour
     }
     public void ReturnFromUI(InputAction.CallbackContext context)
     {
-        if (_pauseCanva.activeInHierarchy || _bookUI.activeInHierarchy)
+        if (/*_pauseCanva.activeInHierarchy ||*/ _bookUI.activeInHierarchy)
         {
-            _pauseCanva.SetActive(false);
+            //_pauseCanva.SetActive(false);
             _bookUI.SetActive(false);
             UnpauseTrigger();
         }

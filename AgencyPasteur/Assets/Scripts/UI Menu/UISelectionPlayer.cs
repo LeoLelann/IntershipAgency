@@ -10,6 +10,7 @@ public class UISelectionPlayer : MonoBehaviour
     [SerializeField] private Button _buttonP1;
     [SerializeField] private Button _buttonP2;
     [SerializeField] private Button _buttonP3;
+    private GameObject _gameObject;
     [SerializeField] private EventSystem _es;
     private InputAction _input;
 
@@ -39,9 +40,16 @@ public class UISelectionPlayer : MonoBehaviour
         }
     }
 
-    private void OnClick(Button _btn)
+    private void OnClick(InputAction.CallbackContext ctx)
     {
-        _btn.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
+        Debug.Log(this.name);
+        _gameObject = this.gameObject;
         //_input.actionMap.controlSchemes + ;
+    }
+
+    private void OnCancel(InputAction.CallbackContext ctx)
+    {
+        _gameObject.gameObject.SetActive(true);
     }
 }

@@ -20,6 +20,10 @@ public class Glassware : Interactable
         ACID,
         TALC,
         STARCH,
+        RABIES_VIRUS,
+        SODIUM_CHLORIDE,
+        POWDER,
+        VALANCE,
         ACID_STARCH,
         ACID_TALC,
         THICK_POWDER,
@@ -29,9 +33,11 @@ public class Glassware : Interactable
         STARCH_DILUTED,
         TALC_DILUTED,
         ACID_DILUTED,
+        DILUTED_SODIUM_CHLORIDE,
         HEATED_ACID,
         HEATED_TALC,
         HEATED_STARCH,
+        HEATED_POWDER,
         HEATED_ACID_STARCH,
         HEATED_ACID_TALC,
         HEATED_THICK_POWDER,
@@ -41,16 +47,16 @@ public class Glassware : Interactable
         HEATED_STARCH_DILUTED,
         HEATED_TALC_DILUTED,
         HEATED_ACID_DILUTED,
+        RABIES_VACCINE,
         DIRTY,
         TRASH
     };
-    private float _heat;
     private bool isThrown;
     private Transform _parentTransform;
     private Rigidbody _rgbd;
     [SerializeField] private float _throwPower=2;
     private Collider _collider;
-    private MeshRenderer _meshRend;
+    [SerializeField]private MeshRenderer _meshRend;
     [SerializeField]private glasswareState _glasswareSt=glasswareState.EMPTY;
 
     public glasswareState GlasswareSt { get => _glasswareSt; }
@@ -60,11 +66,9 @@ public class Glassware : Interactable
         
         _rgbd = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
-        _meshRend = GetComponent<MeshRenderer>();
     }
     private void Start()
     {
-        _heat = 0;
         isThrown = false;
         OnStateValueChange(_glasswareSt);
     }
@@ -100,15 +104,28 @@ public class Glassware : Interactable
     {
         if (player.transform.GetComponentInChildren<Glassware>()==null&&(transform.parent==null||transform.parent.GetComponent<Player>()==null)) 
         {
+            if (player.GetComponent<Player>())
+            {
+                StartCoroutine(StartHolding(player.GetComponent<Player>()));
+            }
             _onPicked?.Invoke();
             transform.rotation = Quaternion.Euler(270,0,0);
             transform.parent = player.transform;
-            transform.localPosition = new Vector3(0, 0.5f, 1);
+            transform.localPosition = new Vector3(0, 0.5f, 0.5f);
            _rgbd.constraints = RigidbodyConstraints.FreezeAll;
             _parentTransform = GetComponentInParent<Transform>();
             _collider.enabled = false;
             player.GetComponent<Player>().range = null;
         }
+    }
+    IEnumerator StartHolding(Player player)
+    {
+        player.Anim.SetBool("IsGrabbing", true);
+        yield return new WaitForSeconds(0.2f);
+        player.Anim.SetBool("IsHolding", true);
+        player.Anim.SetBool("IsThrowing", false);
+        player.Anim.SetBool("IsGrabbing", false);
+
     }
     public void SetGlasswareState(glasswareState state)
     {
@@ -121,11 +138,17 @@ public class Glassware : Interactable
     }
     private void OnStateValueChange(glasswareState state)
     {
-        _onChangeState?.Invoke();
-         switch (state)
+        if(state!=glasswareState.EMPTY&&state!=glasswareState.WATER&&state!=glasswareState.TRASH&&state!=glasswareState.ACID&& state != glasswareState.STARCH&& state != glasswareState.RABIES_VIRUS&& state != glasswareState.SODIUM_CHLORIDE&& state != glasswareState.POWDER)
+        {
+            _onChangeState?.Invoke();
+        }
+        if(!_meshRend.gameObject.activeInHierarchy){
+            _meshRend.gameObject.SetActive(true);
+        }
+        switch (state)
         {
             case (glasswareState.EMPTY):
-                _meshRend.material.color = Color.gray;
+                _meshRend.gameObject.SetActive(false);
                 break;
             case (glasswareState.ACID):
                 _meshRend.material.color = new Color(1,0.9f,0);
@@ -162,7 +185,27 @@ public class Glassware : Interactable
                 _onBecameWater.Invoke();
                 _meshRend.material.color = new Color(0,0.2f,1);
                 break;
+            case (glasswareState.RABIES_VIRUS):
+                _meshRend.material.color = new Color(0.6f, 0, 0);
+                break;
+            case glasswareState.SODIUM_CHLORIDE:
+                _meshRend.material.SetColor("_Color", new Color(0.004f, 0.596f, 0.459f));
+                break;
+            case (glasswareState.POWDER):
+                _meshRend.material.color = Color.white;
+                break;
+            case glasswareState.VALANCE:
+                _meshRend.material.color = new Color(1, 0.28f, 0.3f);
+                break;
+            case glasswareState.DILUTED_SODIUM_CHLORIDE:
+                _meshRend.material.color = new Color(0.72f, 0.9f, 0.76f);
+                break;
+            case glasswareState.HEATED_POWDER:
+                _meshRend.material.color = Color.gray;
+                break;
+            case glasswareState.RABIES_VACCINE:
+                _meshRend.material.color = new Color(0.64f, 0.28f, 0.34f);
+                break;
         }
     }
 }
-

@@ -28,14 +28,14 @@ public class TutoManager : MonoBehaviour
         _onGotElement.Invoke();
     }
     public void Heated(GameObject player)
-    {                Debug.Log("A");
+    {                
 
         if (!_playersHeat.Contains(player))
-        {                Debug.Log("B");
+        {               
 
             _playersHeat.Add(player);
             if (_playersHeat.Count == 3)
-            {                Debug.Log("C");
+            {                
 
                 _onHeated.Invoke();
                 _playersHeat.Add(gameObject);

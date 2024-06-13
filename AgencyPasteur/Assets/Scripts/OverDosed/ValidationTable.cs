@@ -19,7 +19,6 @@ public class ValidationTable : Interactable
     private void Start()
     {
         _glassware = GetComponentInChildren<Glassware>();
-        ToFind.Add(Glassware.glasswareState.HEATED_ACID_STARCH_DILUTED);
         _completion.ResultMax = ToFind.Count;
         GameManager.Instance.GoalNbrRemedy = ToFind.Count;
         _completion.UpdateCount(0);
@@ -50,6 +49,8 @@ public class ValidationTable : Interactable
         }
         else if (playerGlassware != null && _glassware == null && playerGlassware.GlasswareSt != Glassware.glasswareState.EMPTY)
         {
+            player.GetComponent<Player>().Anim.SetBool("IsHolding", false);
+            player.GetComponent<Player>().Anim.SetBool("IsPuttingDown", true);
             playerGlassware.transform.parent = transform;
             _glassware = playerGlassware;
             _glassware.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
@@ -67,6 +68,12 @@ public class ValidationTable : Interactable
             _onValidate?.Invoke();
             Found.Add(_glassware.GlasswareSt);
             _completion.UpdateCount(Found.Count);
+
+            if (SceneManager.GetActiveScene().name == "Tutoriel 1")
+            {
+                Debug.Log("Feur");
+                _tuto.Sent();
+            }
         }
         else
         {
@@ -75,12 +82,6 @@ public class ValidationTable : Interactable
         Destroy(_glassware.gameObject);
         if (Found.Count == ToFind.Count)
         {
-            Debug.Log("Reprenez de l'amidon et diluez-le.");
-            if(SceneManager.GetActiveScene().name=="Tutoriel 1")
-            {
-                            Debug.Log("Reprenez de l'amidon et diluez-le22.");
-                _tuto.Sent();
-            }
             GameManager.Instance.EndGame();
         }
     }

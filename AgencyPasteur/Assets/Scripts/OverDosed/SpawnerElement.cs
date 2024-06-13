@@ -20,7 +20,10 @@ public class SpawnerElement : Interactable
     {
         TALC,
         ACID,
-        STARCH
+        STARCH,
+        RABIES,
+        SODIUM_CHLORIDE,
+        POWDER
     };
     [SerializeField] private Elements element;
 
@@ -46,7 +49,17 @@ public class SpawnerElement : Interactable
                     _label.material.color = Color.blue;
                 
                 break;
-         }
+            case Elements.RABIES:
+                _label.material = _elementIcon[3];
+                break;
+            case Elements.SODIUM_CHLORIDE:
+                _label.material = _elementIcon[2];
+                break;
+            case Elements.POWDER:
+                _label.material = _elementIcon[0];
+                break;
+
+        }
     }
     public override void Interacted(GameObject player)
     {
@@ -87,12 +100,23 @@ public class SpawnerElement : Interactable
                     case Elements.ACID:
                         glassware.GetComponent<Glassware>().SetGlasswareState(Glassware.glasswareState.ACID);
                         break;
+                    case Elements.RABIES:
+                        glassware.GetComponent<Glassware>().SetGlasswareState(Glassware.glasswareState.RABIES_VIRUS);
+                        break;
+                    case Elements.SODIUM_CHLORIDE:
+                        glassware.GetComponent<Glassware>().SetGlasswareState(Glassware.glasswareState.SODIUM_CHLORIDE);
+                        break;
+                    case Elements.POWDER:
+                        glassware.GetComponent<Glassware>().SetGlasswareState(Glassware.glasswareState.POWDER);
+                        break;
                 }
                 glassware.GetComponent<Glassware>().Interacted(player);
             }
         }
         else if (playerGlassware != null && _glassware == null)
         {
+            player.GetComponent<Player>().Anim.SetBool("IsHolding", false);
+            player.GetComponent<Player>().Anim.SetBool("IsPuttingDown", true);
             _onSnapGlassware?.Invoke();
             playerGlassware.transform.parent = transform;
             _glassware = GetComponentInChildren<Glassware>();

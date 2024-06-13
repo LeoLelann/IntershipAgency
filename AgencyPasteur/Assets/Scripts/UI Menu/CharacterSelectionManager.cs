@@ -1,40 +1,41 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static CharacterSelectionSO;
+using UnityEngine.InputSystem;
 
 public class CharacterSelectionManager : MonoBehaviour
 {
-    public Button[] characterButtons; // Les boutons pour chaque personnage
-    private bool[] charactersSelected; // Suivi des personnages sélectionnés
-    private int playersReady = 0; // Nombre de joueurs prêts
+    public PlayerToken[] characterButtons;
+    [SerializeField] CharacterSelectionSO characterSelectionSO;
 
-    void Start()
+
+    private void Update()
     {
-        charactersSelected = new bool[characterButtons.Length];
-        for (int i = 0; i < characterButtons.Length; i++)
+        bool isReady = true;
+        foreach(var el in characterButtons)
         {
-            int index = i;
-            characterButtons[i].onClick.AddListener(() => OnCharacterSelected(index));
+            if(el._isChoosed == false) isReady = false;
         }
-    }
 
-    void OnCharacterSelected(int index)
-    {
-        if (!charactersSelected[index])
+        if(isReady)
         {
-            charactersSelected[index] = true;
-            playersReady++;
-            characterButtons[index].interactable = false; // Désactive le bouton
 
-            if (playersReady == 3) // Si tous les joueurs ont choisi
+            (Character, string)[] selection = new (Character, string)[3];
+            for (int i = 0; i < characterButtons.Length; i++)
             {
-                LoadGameScene();
+                selection[i] = (characterButtons[i].CurrentSelection.PlayerRepresented, 
+                    characterButtons[i].GetComponent<PlayerInput>().actions.devices.Value[0].name);
             }
+            characterSelectionSO.SendSelection(selection);
+
+
+            LoadGameScene();
         }
     }
 
     void LoadGameScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("LeoTest2");
     }
 }
