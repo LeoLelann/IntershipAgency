@@ -27,6 +27,7 @@ public class MenuController : MonoBehaviour
         {
             ChangeEventSelectedBtn();
         }
+        Debug.Log(EventSystem.current.currentSelectedGameObject);
     }
 
     public void ChangeEventSelectedBtn()
