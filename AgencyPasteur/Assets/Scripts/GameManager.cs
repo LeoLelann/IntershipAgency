@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator End()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(_pauseBeforeEnd);
         _renderVolume.AdjustGamma(-0.1f);
         _renderVolume.AdjustVignette(new Vector2(0.65f, 0.8f));
         _door.OnEnd();
