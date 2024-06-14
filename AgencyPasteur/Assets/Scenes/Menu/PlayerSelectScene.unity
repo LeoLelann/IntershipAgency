@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 88285065}
   - component: {fileID: 88285067}
   - component: {fileID: 88285066}
+  - component: {fileID: 88285068}
   m_Layer: 3
   m_Name: P2 Token
   m_TagString: Untagged
@@ -307,6 +308,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88285064}
   m_CullTransparentMesh: 1
+--- !u!114 &88285068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88285064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5a08cd114925e49bf2dc6f61392e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _img: {fileID: 0}
+  _activatedColor: {r: 0, g: 0, b: 0, a: 1}
+  _disabledColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &116232247
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +352,7 @@ Transform:
   m_GameObject: {fileID: 116232247}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33, y: 399, z: 0}
+  m_LocalPosition: {x: 640, y: 399, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -663,7 +679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cf3103348075f14c9c480076238ff2b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1783,7 +1799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dcc92ef8161ade7478716540ec5513ea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2545,7 +2561,7 @@ Transform:
   m_GameObject: {fileID: 1359119277}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 651, y: 407, z: 0}
+  m_LocalPosition: {x: -30, y: 399, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3246,7 +3262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51eecf540b352f448853a8ad7d82540f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

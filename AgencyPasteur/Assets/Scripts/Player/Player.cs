@@ -112,6 +112,7 @@ public class Player : MonoBehaviour
         isInRange = false;
         _isDashing = false;
         _currentPage = 1;
+
         _anim = GetComponentInChildren<Animator>();
         //_movementActionMap = _playerInput.actions.FindActionMap("Player");
         //_uiActionMap = _playerInput.actions.FindActionMap("UI");

@@ -20,7 +20,7 @@ public class ValidationTable : Interactable
     {
         _glassware = GetComponentInChildren<Glassware>();
         _completion.ResultMax = ToFind.Count;
-        GameManager.Instance.GoalNbrRemedy = ToFind.Count;
+        if(GameManager.Instance != null) GameManager.Instance.GoalNbrRemedy = ToFind.Count;
         _completion.UpdateCount(0);
     }
     private void OnCollisionEnter(Collision collision)
