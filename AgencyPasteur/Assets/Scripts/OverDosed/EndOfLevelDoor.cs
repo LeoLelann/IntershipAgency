@@ -9,6 +9,8 @@ public class EndOfLevelDoor : MonoBehaviour
 
    [SerializeField] private GameObject _doorRotate;
    [SerializeField] private UnityEvent _onOpen;
+    [SerializeField] private GameObject _UI_cinematique;
+    [SerializeField] private Cinematique _cine1;
     int _areTheyGone;
     public void OnEnd()
     {
@@ -41,7 +43,8 @@ public class EndOfLevelDoor : MonoBehaviour
         }
         if (_areTheyGone >= 3)
         {
-            SceneManager.LoadScene("MainMenu");
+            _UI_cinematique.SetActive(true);
+            _cine1.NextSlide();
         }
     }
 }
