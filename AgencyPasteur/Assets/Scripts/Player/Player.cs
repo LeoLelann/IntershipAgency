@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _panelBook1;
     [SerializeField] private GameObject _panelBook2;
     [SerializeField] private GameObject _panelBook3;
-    [SerializeField] private Animator _anim;
+     private Animator _anim;
     private bool _isActivePage;
     private int _currentPage;
 
@@ -112,6 +112,7 @@ public class Player : MonoBehaviour
         isInRange = false;
         _isDashing = false;
         _currentPage = 1;
+        _anim = GetComponentInChildren<Animator>();
         //_movementActionMap = _playerInput.actions.FindActionMap("Player");
         //_uiActionMap = _playerInput.actions.FindActionMap("UI");
     }
@@ -246,7 +247,7 @@ public class Player : MonoBehaviour
     }
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (context.started && !_isDashing && context.started && isPause == false)
+        if (context.started && _canDash && context.started && isPause == false)
         {
             Anim.SetBool("IsDashing", true);
 
