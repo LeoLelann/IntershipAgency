@@ -19,11 +19,13 @@ public class CharacterSetup : MonoBehaviour
     [SerializeField] PlayerInput _input;
     [SerializeField] CharacterSelectionSO _s;
 
-    private void Start()
+    private void Awake()
     {
         string device = _input.actions.devices.Value[0].name;
         Character selected = _s.Selection.First(i => i.Item2 == device).Item1;
 
         _conf.First(i => i.Character == selected).Model.SetActive(true);
+
+        Debug.Log(_input.actions.devices.Value[0].name);
     }
 }

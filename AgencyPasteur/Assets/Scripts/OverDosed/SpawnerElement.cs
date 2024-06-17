@@ -15,6 +15,7 @@ public class SpawnerElement : Interactable
     private Glassware _glassware;
     [SerializeField] int _limit;
     [SerializeField] TutoManager _tuto;
+    [SerializeField] ValidateTuto _valid;
     List<GameObject> _players = new List<GameObject>();
     public enum Elements
     {
@@ -76,15 +77,27 @@ public class SpawnerElement : Interactable
             {
                 if(SceneManager.GetActiveScene().name=="Tutoriel 1"&&element==Elements.STARCH)
                 {
-                    Debug.Log("ahzipfhzlfmq");
                     if (!_players.Contains(player))
                     {
+                        switch (player.GetComponentInChildren<Animator>().gameObject.name)
+                        {
+                            case "Ch_Character_Cat":
+                                _valid.CatGood();
+                                break;
+                            case "Ch_Character_Dog_No_EarsRig":
+                                _valid.DogGood();
+                                break;
+                            case "Ch_Character_Monkey":
+                                _valid.MonkeyGood();
+                                break;
+                        }
                         _players.Add(player);
                     }
                     if (_players.Count == 3)
                     {
                         _tuto.TookElement();
                         _players.Add(gameObject);
+                        _valid.Reset();
                     }
                 }
                 _onTakeGlassware?.Invoke();

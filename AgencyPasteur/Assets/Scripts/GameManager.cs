@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     private List<Glassware.glasswareState> _neededGlasswareType=new List<Glassware.glasswareState>();
     [SerializeField] private GameObject _displayNGT;
     [SerializeField] private float _timer;
+    [SerializeField] private float _pauseBeforeEnd;
     [SerializeField] private Timer _UITimer;
     LiftGammaGain liftGammaGain;
     #region Singleton
@@ -68,13 +69,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(SceneManager.GetActiveScene().name);
         _currentNbrRemedy = 0;
         StartCoroutine(Timer());
-    }
-    private void OnLevelWasLoaded(int level)
-    {
-        if (SceneManager.GetActiveScene().name!="Tutoriel 1"|| SceneManager.GetActiveScene().name != "MainMenu")
-        {
-            StartCoroutine(Timer());
-        }
+
     }
     public void AddElement(Glassware.glasswareState state)
     {if (SceneManager.GetActiveScene().name != "Tutoriel 1")
@@ -120,8 +115,7 @@ public class GameManager : MonoBehaviour
             {
                 StartCoroutine(GoodEnd());
             }
-            _renderVolume.AdjustGamma(-0.1f);
-            _renderVolume.AdjustVignette(new Vector2(0.65f, 0.8f));
+            StartCoroutine(End());
             foreach (trigerObject i in FindObjectsOfType<trigerObject>())
             {
                 Debug.Log(i.Player.name);
@@ -129,10 +123,15 @@ public class GameManager : MonoBehaviour
                 i.gameObject.SetActive(false);
             }
             _UITimer.Stop();
-            StopAllCoroutines();
-            _door.OnEnd();
-
         }    
+    }
+    IEnumerator End()
+    {
+        yield return new WaitForSeconds(_pauseBeforeEnd);
+        _renderVolume.AdjustGamma(-0.1f);
+        _renderVolume.AdjustVignette(new Vector2(0.65f, 0.8f));
+        _door.OnEnd();
+        StopAllCoroutines();
     }
     IEnumerator GoodEnd()
     {
