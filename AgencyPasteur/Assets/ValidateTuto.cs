@@ -40,3 +40,5 @@ public class ValidateTuto : MonoBehaviour
         _chien.sprite = _chienX;
     }
 }
+
+  

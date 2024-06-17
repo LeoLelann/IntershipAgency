@@ -14,6 +14,7 @@ public class TutoManager : MonoBehaviour
     [SerializeField] UnityEvent _onSent;
     [SerializeField] ValidateTuto _valid;
 
+
    [SerializeField] List<GameObject> _playersDil1 = new List<GameObject>();
    [SerializeField] List<GameObject> _playersDil2 = new List<GameObject>();
    [SerializeField] List<GameObject> _playersHeat = new List<GameObject>();
@@ -27,6 +28,7 @@ public class TutoManager : MonoBehaviour
     public void TookElement()
     {
         _onGotElement.Invoke();
+        _valid.Reset();
     }
     public void Heated(GameObject player)
     {                
@@ -46,6 +48,18 @@ public class TutoManager : MonoBehaviour
                     break;
             }
             _playersHeat.Add(player);
+            switch (player.GetComponentInChildren<Animator>().gameObject.name)
+            {
+                case "Ch_Character_Cat":
+                    _valid.CatGood();
+                    break;
+                case "Ch_Character_Dog_No_EarsRig":
+                    _valid.DogGood();
+                    break;
+                case "Ch_Character_Monkey":
+                    _valid.MonkeyGood();
+                    break;
+            }
             if (_playersHeat.Count == 3)
             {                
 
@@ -59,6 +73,7 @@ public class TutoManager : MonoBehaviour
     {
         if (!_playersDil1.Contains(player))
         {
+
             _playersDil1.Add(player);
             switch (player.GetComponentInChildren<Animator>().gameObject.name)
             {
@@ -132,12 +147,10 @@ public class TutoManager : MonoBehaviour
     }
     public void Sent()
     {
-        
-                _valid.CatGood();
-              
-                _valid.DogGood();
-               
-                _valid.MonkeyGood();
+
+        _valid.CatGood();
+        _valid.DogGood();    
+        _valid.MonkeyGood();
         _onSent.Invoke();
     }
 }
