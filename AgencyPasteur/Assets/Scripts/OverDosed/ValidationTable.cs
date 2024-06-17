@@ -80,7 +80,7 @@ public class ValidationTable : Interactable
             _onInvalidate?.Invoke();
         }
         Destroy(_glassware.gameObject);
-        if (Found.Count == ToFind.Count)
+        if (Found.Count == ToFind.Count&&SceneManager.GetActiveScene().name!="Tutoriel 1")
         {
             GameManager.Instance.EndGame();
         }

@@ -8,6 +8,7 @@ public class CharacterSelectionManager : MonoBehaviour
 {
     public PlayerToken[] characterButtons;
     [SerializeField] CharacterSelectionSO characterSelectionSO;
+    [SerializeField] string _scene;
 
 
     private void Update()
@@ -36,6 +37,6 @@ public class CharacterSelectionManager : MonoBehaviour
 
     void LoadGameScene()
     {
-        SceneManager.LoadScene("Tutoriel 1");
+        SceneManager.LoadScene(_scene);
     }
 }
