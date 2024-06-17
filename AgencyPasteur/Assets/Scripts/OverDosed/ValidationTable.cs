@@ -20,7 +20,7 @@ public class ValidationTable : Interactable
     {
         _glassware = GetComponentInChildren<Glassware>();
         _completion.ResultMax = ToFind.Count;
-        GameManager.Instance.GoalNbrRemedy = ToFind.Count;
+        if(GameManager.Instance != null) GameManager.Instance.GoalNbrRemedy = ToFind.Count;
         _completion.UpdateCount(0);
     }
     private void OnCollisionEnter(Collision collision)
@@ -80,7 +80,7 @@ public class ValidationTable : Interactable
             _onInvalidate?.Invoke();
         }
         Destroy(_glassware.gameObject);
-        if (Found.Count == ToFind.Count)
+        if (Found.Count == ToFind.Count&&SceneManager.GetActiveScene().name!="Tutoriel 1")
         {
             GameManager.Instance.EndGame();
         }

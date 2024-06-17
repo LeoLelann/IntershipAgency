@@ -69,13 +69,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(SceneManager.GetActiveScene().name);
         _currentNbrRemedy = 0;
         StartCoroutine(Timer());
-    }
-    private void OnLevelWasLoaded(int level)
-    {
-        if (SceneManager.GetActiveScene().name!="Tutoriel 1"|| SceneManager.GetActiveScene().name != "MainMenu")
-        {
-            StartCoroutine(Timer());
-        }
+
     }
     public void AddElement(Glassware.glasswareState state)
     {if (SceneManager.GetActiveScene().name != "Tutoriel 1")

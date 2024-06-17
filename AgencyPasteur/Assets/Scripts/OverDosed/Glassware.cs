@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Glassware : Interactable
 {
@@ -144,7 +145,7 @@ public class Glassware : Interactable
     public void SetGlasswareState(glasswareState state)
     {
         _glasswareSt = state;
-        if (!GameManager.Instance.Found.Contains(state))
+        if (SceneManager.GetActiveScene().name != "Tutoriel 1")
         {
             GameManager.Instance.AddElement(state);
         }
