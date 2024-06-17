@@ -1650,6 +1650,8 @@ MonoBehaviour:
   _backButtons:
   - {fileID: 1702011202}
   - {fileID: 759342538}
+  - {fileID: 757253051}
+  - {fileID: 193992310}
   _mainCanvas: {fileID: 632375167}
   _levelCanvas: {fileID: 224592083}
   _introCanvas: {fileID: 2131898924}
@@ -3322,7 +3324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &632375165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8296,7 +8298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1610296760
 RectTransform:
   m_ObjectHideFlags: 0
