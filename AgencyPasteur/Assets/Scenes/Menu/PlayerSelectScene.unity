@@ -223,14 +223,14 @@ Transform:
   m_GameObject: {fileID: 63678427}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -499.3462, y: 23.731445, z: 6.9483194}
-  m_LocalScale: {x: 0.82501435, y: 0.82501435, z: 0.82501435}
+  m_LocalPosition: {x: 6541.0747, y: -2918.9634, z: 6.9483194}
+  m_LocalScale: {x: 0.8250143, y: 0.8250143, z: 0.8250143}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2058648052}
   - {fileID: 116232248}
   - {fileID: 1359119278}
-  m_Father: {fileID: 668320730}
+  m_Father: {fileID: 446791341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &88285064
 GameObject:
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 500
-  _spriteCadre: {fileID: 21300000, guid: 0dc1fa8c1df8fd44f8f807be32413ee2, type: 3}
+  _spriteCadre: {fileID: 21300000, guid: fff47f71639f6ac4592f2814140ee213, type: 3}
   _dftSpriteCadre: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
   _onChoosed:
     m_PersistentCalls:
@@ -1174,6 +1174,7 @@ RectTransform:
   - {fileID: 1815730446}
   - {fileID: 267903001}
   - {fileID: 668320730}
+  - {fileID: 63678428}
   m_Father: {fileID: 952751334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.104125, y: 0.11488889}
@@ -1731,7 +1732,6 @@ RectTransform:
   - {fileID: 1971395384}
   - {fileID: 2106975267}
   - {fileID: 1353711048}
-  - {fileID: 63678428}
   m_Father: {fileID: 446791341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2603,7 +2603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 500
-  _spriteCadre: {fileID: 21300000, guid: fff47f71639f6ac4592f2814140ee213, type: 3}
+  _spriteCadre: {fileID: 21300000, guid: 0dc1fa8c1df8fd44f8f807be32413ee2, type: 3}
   _dftSpriteCadre: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
   _onChoosed:
     m_PersistentCalls:
