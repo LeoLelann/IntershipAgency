@@ -491,6 +491,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 500
+  _spriteCadre: {fileID: 21300000, guid: fff47f71639f6ac4592f2814140ee213, type: 3}
+  _dftSpriteCadre: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
   _onChoosed:
     m_PersistentCalls:
       m_Calls: []
@@ -679,7 +681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 39ce387e558304d4587a5b4cf9df4605, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1800,7 +1802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 39ce387e558304d4587a5b4cf9df4605, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2583,6 +2585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 500
+  _spriteCadre: {fileID: 21300000, guid: 0dc1fa8c1df8fd44f8f807be32413ee2, type: 3}
+  _dftSpriteCadre: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
   _onChoosed:
     m_PersistentCalls:
       m_Calls:
@@ -3279,7 +3283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 39ce387e558304d4587a5b4cf9df4605, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3735,6 +3739,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 500
+  _spriteCadre: {fileID: 21300000, guid: 1a5d0f258f13dae4e9e2006ea91991d8, type: 3}
+  _dftSpriteCadre: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
   _onChoosed:
     m_PersistentCalls:
       m_Calls: []

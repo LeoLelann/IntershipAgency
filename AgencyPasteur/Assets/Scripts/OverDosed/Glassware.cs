@@ -135,7 +135,7 @@ public class Glassware : Interactable
         _onPicked?.Invoke();
         transform.rotation = Quaternion.Euler(270, 0, 0);
         transform.parent = player.transform;
-        transform.localPosition = new Vector3(0, 0f, 0.5f);
+        transform.localPosition = new Vector3(0, 1, 0.5f);
         _rgbd.constraints = RigidbodyConstraints.FreezeAll;
         _parentTransform = GetComponentInParent<Transform>();
         _collider.enabled = false;
