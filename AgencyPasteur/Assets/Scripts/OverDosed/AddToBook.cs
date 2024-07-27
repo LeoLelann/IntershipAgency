@@ -15,6 +15,7 @@ public class AddToBook : MonoBehaviour
     public void Start()
     {
         Vector3 bookScreenPos = _cam.WorldToScreenPoint(_book.transform.position);
+        _book.New();
        StartCoroutine(MoveToward(bookScreenPos));
     }
 

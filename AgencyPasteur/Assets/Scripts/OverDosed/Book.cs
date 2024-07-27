@@ -11,6 +11,7 @@ public class Book : Interactable
     [SerializeField] UnityEvent _onCanInteractFirstTime;
     [SerializeField] List<Glassware.glasswareState> _pagesState;
     [SerializeField] List<Image> _pages;
+    [SerializeField] List<Material> _mat;
     Dictionary<Glassware.glasswareState, Image> _lockedPage = new Dictionary<Glassware.glasswareState, Image>();
 
     [SerializeField] GameObject BookUI;
@@ -36,8 +37,23 @@ public class Book : Interactable
             }
             else
             {
+            NotNew();
                 _onInteractedOpen?.Invoke();
                 BookUI.SetActive(true);
             }
      }
+   public void New()
+    {
+        foreach (Material m in _mat)
+        {
+            m.SetFloat("_HasNewInfo", 1);
+        }
+    }
+    public void NotNew()
+    {
+        foreach (Material m in _mat)
+        {
+            m.SetFloat("_HasNewInfo", 0);
+        }
+    }
 }
