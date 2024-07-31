@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -320,9 +320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5a08cd114925e49bf2dc6f61392e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _img: {fileID: 0}
-  _activatedColor: {r: 0, g: 0, b: 0, a: 1}
-  _disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  _img: {fileID: 88285066}
+  _activatedColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+  _disabledColor: {r: 0.41509432, g: 0, b: 0, a: 1}
 --- !u!1 &116232247
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,8 +490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12fb7c946445e84b8ea07e836a306a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 500
-  _spriteCadre: {fileID: 21300000, guid: 0dc1fa8c1df8fd44f8f807be32413ee2, type: 3}
+  _moveSpeed: 750
+  _spriteCadre: {fileID: 21300000, guid: fff47f71639f6ac4592f2814140ee213, type: 3}
   _dftSpriteCadre: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
   _onChoosed:
     m_PersistentCalls:
@@ -500,6 +500,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _currentSelection: {fileID: 0}
+  OnSelected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &116232251
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1222,7 +1225,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446791340}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a8cbb7a9be4c9c4d924c1e9e122108e, type: 3}
   m_Name: 
@@ -1708,6 +1711,7 @@ GameObject:
   - component: {fileID: 668320732}
   - component: {fileID: 668320735}
   - component: {fileID: 668320731}
+  - component: {fileID: 668320736}
   - component: {fileID: 668320734}
   m_Layer: 5
   m_Name: Britney
@@ -1879,6 +1883,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerRepresented: 2
+--- !u!114 &668320736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668320729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5a08cd114925e49bf2dc6f61392e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _img: {fileID: 0}
+  _activatedColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+  _disabledColor: {r: 0.5943396, g: 0, b: 0, a: 1}
 --- !u!1 &737270866
 GameObject:
   m_ObjectHideFlags: 0
@@ -2602,8 +2621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12fb7c946445e84b8ea07e836a306a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 500
-  _spriteCadre: {fileID: 21300000, guid: fff47f71639f6ac4592f2814140ee213, type: 3}
+  _moveSpeed: 750
+  _spriteCadre: {fileID: 21300000, guid: 0dc1fa8c1df8fd44f8f807be32413ee2, type: 3}
   _dftSpriteCadre: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
   _onChoosed:
     m_PersistentCalls:
@@ -2636,6 +2655,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _currentSelection: {fileID: 0}
+  OnSelected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1359119280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3039,6 +3061,7 @@ GameObject:
   - component: {fileID: 1729533383}
   - component: {fileID: 1729533385}
   - component: {fileID: 1729533384}
+  - component: {fileID: 1729533386}
   m_Layer: 3
   m_Name: P1 Token
   m_TagString: Player
@@ -3103,6 +3126,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729533382}
   m_CullTransparentMesh: 1
+--- !u!114 &1729533386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729533382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5a08cd114925e49bf2dc6f61392e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _img: {fileID: 1729533384}
+  _activatedColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  _disabledColor: {r: 0, g: 0.0032023664, b: 0.3490566, a: 1}
 --- !u!1 &1744603701
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,7 +3778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12fb7c946445e84b8ea07e836a306a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 500
+  _moveSpeed: 750
   _spriteCadre: {fileID: 21300000, guid: 1a5d0f258f13dae4e9e2006ea91991d8, type: 3}
   _dftSpriteCadre: {fileID: 21300000, guid: 14995372178d26e4596cce08a273bcb1, type: 3}
   _onChoosed:
@@ -3750,6 +3788,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _currentSelection: {fileID: 0}
+  OnSelected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &2058648055
 CircleCollider2D:
   m_ObjectHideFlags: 0
