@@ -41,7 +41,7 @@ public class EndOfLevelDoor : MonoBehaviour
             _areTheyGone++;
             Destroy(other.gameObject);
         }
-        if (_areTheyGone >= 3)
+        if (_areTheyGone >= GameManager.Instance.Players.Length)
         {
             _UI_cinematique.SetActive(true);
             _cine1.NextSlide();

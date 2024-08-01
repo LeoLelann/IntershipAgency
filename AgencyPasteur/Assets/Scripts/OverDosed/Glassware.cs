@@ -145,10 +145,6 @@ public class Glassware : Interactable
     public void SetGlasswareState(glasswareState state)
     {
         _glasswareSt = state;
-        if (SceneManager.GetActiveScene().name != "Tutoriel 1")
-        {
-            GameManager.Instance.AddElement(state);
-        }
         OnStateValueChange(_glasswareSt);
     }
     private void OnStateValueChange(glasswareState state)

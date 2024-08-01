@@ -12,6 +12,7 @@ public class CharacterSelectionManager : MonoBehaviour
 
     private void Start() //LoadScene 1P
     {
+        Debug.Log(characterButtons.Length);
         foreach (var button in characterButtons)
         {
             button.OnSelected.AddListener(CheckSelection);
@@ -21,23 +22,20 @@ public class CharacterSelectionManager : MonoBehaviour
     private void CheckSelection()
     {
         bool isReady = true;
-        foreach (var el in characterButtons)
+        /*foreach (var el in characterButtons)
         {
             if (!el._isChoosed)
             {
                 isReady = false;
                 break;
             }
-        }
+        }*/
 
         if (isReady)
         {
             (Character, string)[] selection = new (Character, string)[characterButtons.Length];
-            for (int i = 0; i < characterButtons.Length; i++)
-            {
-                selection[i] = (characterButtons[i].CurrentSelection.PlayerRepresented,
-                    characterButtons[i].GetComponent<PlayerInput>().actions.devices.Value[0].name);
-            }
+            selection[0] = (characterButtons[1].CurrentSelection.PlayerRepresented,
+                    characterButtons[1].GetComponent<PlayerInput>().actions.devices.Value[0].name);
             characterSelectionSO.SendSelection(selection);
 
             LoadGameScene();

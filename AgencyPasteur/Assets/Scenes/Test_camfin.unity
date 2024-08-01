@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -61792,6 +61792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P1
       objectReference: {fileID: 0}
+    - target: {fileID: 2600070959723205368, guid: f4e134709c34c264fa934f2184ed46bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2654229044966388138, guid: f4e134709c34c264fa934f2184ed46bd, type: 3}
       propertyPath: _bookUI
       value: 
@@ -86536,11 +86540,31 @@ PrefabInstance:
       objectReference: {fileID: 761933428}
     - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
       propertyPath: Found.Array.size
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
       propertyPath: ToFind.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: Found.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: Found.Array.data[2]
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: Found.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: Found.Array.data[4]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: Found.Array.data[5]
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
       propertyPath: ToFind.Array.data[0]
@@ -117485,7 +117509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5800633022184056015, guid: 3fd1fdb0274e3b240a85f5277c69df27, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5818374207746918301, guid: 3fd1fdb0274e3b240a85f5277c69df27, type: 3}
       propertyPath: _bookUI
@@ -179022,6 +179046,10 @@ PrefabInstance:
       propertyPath: _book
       value: 
       objectReference: {fileID: 1911115760}
+    - target: {fileID: 1706883304499801077, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: m_Name
+      value: ATB_HP
+      objectReference: {fileID: 0}
     - target: {fileID: 1784101621611281542, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
       propertyPath: _cam
       value: 
@@ -179049,6 +179077,18 @@ PrefabInstance:
     - target: {fileID: 4532583104985152966, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
       propertyPath: m_Name
       value: UILVL1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5385268398014628907, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: m_Name
+      value: ATB_RV
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697253253697426355, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: m_Name
+      value: ATB_V
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309081595324876928, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: m_Name
+      value: ATB_DSC
       objectReference: {fileID: 0}
     - target: {fileID: 7525330935274281248, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
       propertyPath: m_Enabled
@@ -179132,6 +179172,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7612391613773993044, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760094130809989125, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8432847673066764648, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}

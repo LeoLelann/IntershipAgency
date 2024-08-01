@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -500,6 +500,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _currentSelection: {fileID: 0}
+  OnSelected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &116232251
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2652,6 +2655,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _currentSelection: {fileID: 0}
+  OnSelected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1359119280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2862,7 +2868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
-  m_MaxPlayerCount: 3
+  m_MaxPlayerCount: 1
   m_AllowJoining: 0
   m_JoinBehavior: 2
   m_PlayerJoinedEvent:
@@ -3782,6 +3788,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _currentSelection: {fileID: 0}
+  OnSelected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &2058648055
 CircleCollider2D:
   m_ObjectHideFlags: 0
