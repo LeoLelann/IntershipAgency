@@ -86547,6 +86547,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: _found.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: _toFind.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
       propertyPath: Found.Array.data[1]
       value: 1
       objectReference: {fileID: 0}
@@ -86568,6 +86576,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
       propertyPath: ToFind.Array.data[0]
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: _found.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: _found.Array.data[2]
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: _found.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: _found.Array.data[4]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: _found.Array.data[5]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
+      propertyPath: _toFind.Array.data[0]
       value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 7079123149140031625, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}

@@ -25,7 +25,6 @@ public class EndOfLevelDoor : MonoBehaviour
             timer += Time.deltaTime;
             _doorRotate.transform.eulerAngles = new Vector3(90, 0, 180-45*timer);
 
-            Debug.Log(timer);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         foreach(UILookAtCamera i in FindObjectsOfType<UILookAtCamera>())

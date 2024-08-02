@@ -10,19 +10,21 @@ public class ValidationTable : Interactable
     [SerializeField]private UnityEvent _onInvalidate;
     [SerializeField] private UnityEvent _onShowMissingRemedy;
 
-    [SerializeField] private List<Glassware.glasswareState> ToFind = new List<Glassware.glasswareState>();
-    [SerializeField]private List<Glassware.glasswareState> Found=new List<Glassware.glasswareState>();
-    [SerializeField]private List<Glassware.glasswareState> FoundImportant=new List<Glassware.glasswareState>();
+    [SerializeField] private List<Glassware.glasswareState> _toFind = new List<Glassware.glasswareState>();
+    [SerializeField]private List<Glassware.glasswareState> _found=new List<Glassware.glasswareState>();
+    [SerializeField]private List<Glassware.glasswareState> _foundImportant=new List<Glassware.glasswareState>();
     [SerializeField] private UI_Completion _completion;
     private Glassware _glassware;
     [SerializeField] TutoManager _tuto;
 
+    public List<Glassware.glasswareState> Found { get => _found;}
+
     private void Start()
     {
         _glassware = GetComponentInChildren<Glassware>();
-        _completion.ResultMax = ToFind.Count;
+        _completion.ResultMax = _toFind.Count;
 
-        if(GameManager.Instance != null) GameManager.Instance.GoalNbrRemedy = ToFind.Count;
+        if(GameManager.Instance != null) GameManager.Instance.GoalNbrRemedy = _toFind.Count;
         _completion.UpdateCount(0);
     }
     private void OnCollisionEnter(Collision collision)
@@ -71,13 +73,13 @@ public class ValidationTable : Interactable
             {
                 GameManager.Instance.AddElement(_glassware.GlasswareSt);
             }
-            Found.Add(_glassware.GlasswareSt);
+            _found.Add(_glassware.GlasswareSt);
         }
-        if (ToFind.Contains(_glassware.GlasswareSt)&&!FoundImportant.Contains(_glassware.GlasswareSt))
+        if (_toFind.Contains(_glassware.GlasswareSt)&&!_foundImportant.Contains(_glassware.GlasswareSt))
         {
-            
-            FoundImportant.Add(_glassware.GlasswareSt);
-            _completion.UpdateCount(FoundImportant.Count);
+            Debug.Log("aad");
+            _foundImportant.Add(_glassware.GlasswareSt);
+            _completion.UpdateCount(_foundImportant.Count);
 
             if (SceneManager.GetActiveScene().name == "Tutoriel 1")
             {
@@ -90,8 +92,10 @@ public class ValidationTable : Interactable
             _onInvalidate?.Invoke();
         }
         Destroy(_glassware.gameObject);
-        if (FoundImportant.Count == ToFind.Count&&SceneManager.GetActiveScene().name!="Tutoriel 1")
+        if (_foundImportant.Count == _toFind.Count&&SceneManager.GetActiveScene().name!="Tutoriel 1")
         {
+            Debug.Log(_foundImportant.Count);
+            Debug.Log(_toFind.Count);
             GameManager.Instance.EndGame();
         }
     }

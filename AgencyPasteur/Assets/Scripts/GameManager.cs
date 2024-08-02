@@ -77,7 +77,6 @@ public class GameManager : MonoBehaviour
             _found.Add(state);
             foreach (AddToBook pages in _floatingPages)
             {
-                Debug.Log(pages.GlasswareState);
                 if (pages.GlasswareState == state)
                 {
                     _cover.SetActive(true);

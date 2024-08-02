@@ -55,7 +55,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _FresnelPower: 2
-    - _HasNewInfo: 0
+    - _HasNewInfo: 1
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
