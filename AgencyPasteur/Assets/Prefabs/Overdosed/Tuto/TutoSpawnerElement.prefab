@@ -167,12 +167,19 @@ MonoBehaviour:
   _onSnapGlassware:
     m_PersistentCalls:
       m_Calls: []
-  _elementIcon: []
-  _label: {fileID: 0}
-  _ressource: {fileID: 0}
+  _elementIcon:
+  - {fileID: 2100000, guid: 7886345934aae324eae18dc89a520ee6, type: 2}
+  - {fileID: 2100000, guid: 26194fea64ba29c47a22b4a4bfe322cc, type: 2}
+  _label: {fileID: 910531353048729090}
+  _ressource: {fileID: 6646863356503664476, guid: b2752a860520d7e42897883395cde214, type: 3}
   _limit: 0
   _tuto: {fileID: 0}
   element: 0
+--- !u!23 &910531353048729090 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1808074756076501666, guid: 488f59257472b9b47a21f88e8027cf6d, type: 3}
+  m_PrefabInstance: {fileID: 1564236820594113696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1065682185635902810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1981400582443960826, guid: 488f59257472b9b47a21f88e8027cf6d, type: 3}
@@ -226,6 +233,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882129737928793925, guid: 595f5e42d23c9634e8c493c29384f15b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08822b5f13fa02f44b22bcecedef19b4, type: 2}
     - target: {fileID: 919132149155446097, guid: 595f5e42d23c9634e8c493c29384f15b, type: 3}
       propertyPath: m_Name
       value: De_Object_Bache_Composant
@@ -234,6 +245,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1024832153338671330, guid: 595f5e42d23c9634e8c493c29384f15b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d899fa2f294b5849bf09b044b342eea, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

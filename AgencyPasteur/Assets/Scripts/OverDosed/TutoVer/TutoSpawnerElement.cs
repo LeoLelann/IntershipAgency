@@ -23,7 +23,7 @@ public class TutoSpawnerElement : Interactable
     };
     [SerializeField] private Elements element;
 
-    private void Start()
+    private void OnEnable()
     {
         _glassware = GetComponentInChildren<Glassware>();
         OnStateValueChange(element);
@@ -66,6 +66,7 @@ public class TutoSpawnerElement : Interactable
                 }
                 _onTakeGlassware?.Invoke();
                 GameObject glassware = Instantiate(_ressource, transform.position, Quaternion.identity);
+                Debug.Log(element);
                 switch (element)
                 {
                     case Elements.TALC:

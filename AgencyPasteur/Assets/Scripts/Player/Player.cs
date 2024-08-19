@@ -52,7 +52,11 @@ public class Player : MonoBehaviour
     private Button[] _bookPageL;
     [SerializeField] private Button[] _bookChapBtnR;
     [SerializeField] private Button[] _bookChapBtnL;
+    [SerializeField] private GameObject _panelBook1;
+    [SerializeField] private GameObject _panelBook2;
+    [SerializeField] private GameObject _panelBook3;
     private bool _isActivePage;
+    private int _currentPage;
 
     [SerializeField] private GameObject _pauseCanva;
     [HideInInspector] public bool isPause { get; private set; }
@@ -103,6 +107,7 @@ public class Player : MonoBehaviour
         _isActivePage = true;
         isInRange = false;
         _isDashing = false;
+        _currentPage = 1;
         //_movementActionMap = _playerInput.actions.FindActionMap("Player");
         //_uiActionMap = _playerInput.actions.FindActionMap("UI");
     }
@@ -296,56 +301,96 @@ public class Player : MonoBehaviour
 
     public void OnNavigateChap(InputAction.CallbackContext context)
     {
-        var ctxValue = context.ReadValue<int>();
-        _isActivePage = false;
-        if (ctxValue < -1 && context.started)
+        if (context.started)
         {
-            foreach (var btn in _bookChapBtnL)
+            float ctxValue = context.ReadValue<float>();
+            _isActivePage = false;
+            if (ctxValue < -0.5f)
             {
-                if (btn.gameObject.activeInHierarchy)
+                if (_currentPage == 1)
                 {
-                    btn.onClick.Invoke();
-                    break;
+                    return;
                 }
-            };
-        }
-        else if (ctxValue > 1 && context.started)
-        {
-            foreach (var btn in _bookChapBtnR)
+                else if (_currentPage == 2)
+                {
+                    _bookChapBtnL[0].onClick.Invoke();
+                    _currentPage--;
+                }
+                else if (_currentPage == 3)
+                {
+                    _bookChapBtnL[1].onClick.Invoke();
+                    _currentPage--;
+                }
+            }
+            else if (ctxValue > 0.5f)
             {
-                if (btn.gameObject.activeInHierarchy)
+                if (_currentPage == 1)
                 {
-                    btn.onClick.Invoke();
-                    break;
+                    _bookChapBtnR[0].onClick.Invoke();
+                    _currentPage++;
                 }
-            };
+                else if (_currentPage == 2)
+                {
+                    _bookChapBtnR[1].onClick.Invoke();
+                    _currentPage++;
+                }
+                else if (_currentPage == 3)
+                {
+                    return;
+                }
+            }
         }
     }
     public void OnNavigateHorizontal(InputAction.CallbackContext context)
     {//Book change page
-        var ctxValue = context.ReadValue<float>();
+        if (context.started)
+        {
+            float ctxValue = context.ReadValue<float>();
 
-        if (ctxValue < -0.5f && context.started)
-        {
-            foreach (var btn in _bookComposantBtnL)
+            if (!_isActivePage)
             {
-                if (btn.gameObject.activeInHierarchy)
+                if (_panelBook1.activeInHierarchy && !_isActivePage)
                 {
-                    btn.onClick.Invoke();
-                    break;
+                    _bookPageR = _bookComposantBtnR;
+                    _bookPageL = _bookComposantBtnL;
+                    _isActivePage = true;
                 }
-            };
-        }
-        else if (ctxValue > 0.5f && context.started)
-        {
-            foreach (var btn in _bookComposantBtnR)
+                if (_panelBook2.activeInHierarchy && !_isActivePage)
+                {
+                    _bookPageR = _bookMachineBtnR;
+                    _bookPageL = _bookMachineBtnL;
+                    _isActivePage = true;
+                }
+                if (_panelBook3.activeInHierarchy && !_isActivePage)
+                {
+                    _bookPageR = _bookSolutionBtnR;
+                    _bookPageL = _bookSolutionBtnL;
+                    _isActivePage = true;
+                }
+            } //ChangePagePanel
+
+            if (ctxValue < -0.5f)
             {
-                if (btn.gameObject.activeInHierarchy)
+                foreach (var btn in _bookPageL)
                 {
-                    btn.onClick.Invoke();
-                    break;
+                    if (btn.gameObject.activeInHierarchy)
+                    {
+                        btn.onClick.Invoke();
+                        break;
+                    }
                 }
-            };
+            }
+            else if (ctxValue > 0.5f)
+            {
+                foreach (var btn in _bookPageR)
+                {
+                    if (btn.gameObject.activeInHierarchy)
+                    {
+                        btn.onClick.Invoke();
+                        break;
+                    }
+                }
+            }
         }
     }
     public void ReturnFromUI(InputAction.CallbackContext context)

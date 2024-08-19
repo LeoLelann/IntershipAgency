@@ -103,6 +103,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7918335002988649766, guid: c8f37359f682be346be6fbb58c9029b7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08822b5f13fa02f44b22bcecedef19b4, type: 2}
+    - target: {fileID: -6532055803787292656, guid: c8f37359f682be346be6fbb58c9029b7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d899fa2f294b5849bf09b044b342eea, type: 2}
     - target: {fileID: 919132149155446097, guid: c8f37359f682be346be6fbb58c9029b7, type: 3}
       propertyPath: m_Name
       value: De_Object_Bache_Plaque-Chauffante
@@ -241,7 +249,7 @@ MonoBehaviour:
   _onBurnt:
     m_PersistentCalls:
       m_Calls: []
-  _heat: {fileID: 0}
+  _heat: {fileID: 11400000, guid: b69185379eb2a844797dcbf0b6b8a08f, type: 2}
   secondsTillHeated: 3
   _tuto: {fileID: 0}
 --- !u!4 &4136226465117839984 stripped

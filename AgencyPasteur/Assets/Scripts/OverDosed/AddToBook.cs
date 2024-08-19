@@ -8,6 +8,7 @@ public class AddToBook : MonoBehaviour
     [SerializeField] float _duration;
     [SerializeField] Book _book;
     [SerializeField] Camera _cam;
+    [SerializeField] GameObject _cover;
 
     public Glassware.glasswareState GlasswareState { get => _glasswareState; }
 
@@ -26,8 +27,8 @@ public class AddToBook : MonoBehaviour
         {
             timer += Time.deltaTime;
             Debug.Log(timer);
-            transform.position = Vector3.Lerp(transform.position, bookScreenPos, timer / _duration);
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.1f,0.1f,0.1f), timer / _duration);
+            _cover.transform.position = Vector3.Lerp(_cover.transform.position, bookScreenPos, timer / _duration);
+            _cover.transform.localScale = Vector3.Lerp(_cover.transform.localScale, new Vector3(0.1f,0.1f,0.1f), timer / _duration);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         yield return null;
