@@ -8,6 +8,7 @@ public class Page : MonoBehaviour
 {
     [SerializeField] private UnityEvent _onUnlock;
     [SerializeField] bool _isLocked;
+    [SerializeField] bool _isNew;
     [SerializeField]private Image _image;
     
     
@@ -20,12 +21,21 @@ public class Page : MonoBehaviour
             if (_isLocked)
             {
                 _image.color = new Color(1,1,1,0);
+                _isNew = true;
             }
             else
             {
                 _onUnlock.Invoke();
                 _image.color = new Color(1, 1, 1, 1);
             }
+        }
+    }
+
+    public bool IsNew {
+        get => _isNew;
+        set
+        {
+            _isNew = value;
         }
     }
 
@@ -37,6 +47,9 @@ public class Page : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_isNew)
+        {
+            _isNew = false;
+        }
     }
 }
