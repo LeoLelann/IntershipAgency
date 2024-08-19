@@ -9,7 +9,7 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance = null;
+    private static GameManager instance;
     [SerializeField] private UnityEvent _onStartGame;
     [SerializeField] private UnityEvent _onEndGamePerfect;
     [SerializeField] private UnityEvent _onEndGameGood;
@@ -25,9 +25,10 @@ public class GameManager : MonoBehaviour
     public List<Glassware.glasswareState> Found { get => _found;}
     public float Timer1 { get => _timer;}
     public int GoalNbrRemedy { get => _goalNbrRemedy; set => _goalNbrRemedy = value; }
+    public Player[] Players { get => players; }
 
     [SerializeField] private GameObject _book;
-    private Player[] players; 
+    [SerializeField]private Player[] players; 
     private gamePhase _currentPhase;
     public enum gamePhase
     {
@@ -55,7 +56,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        DontDestroyOnLoad(this.gameObject);
     }
     #endregion
     private void Awake()

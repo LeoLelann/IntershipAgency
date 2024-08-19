@@ -13,6 +13,7 @@ public class Glassware : Interactable
     [SerializeField] private UnityEvent _onCollisionWhenThrown;
     [SerializeField] private UnityEvent _onBecameTrash;
     [SerializeField] private UnityEvent _onBecameWater;
+    [SerializeField] private UnityEvent _onNewElementDiscovered;
 
     public enum glasswareState
     {
@@ -55,16 +56,18 @@ public class Glassware : Interactable
     private bool isThrown;
     private Transform _parentTransform;
     private Rigidbody _rgbd;
+    private ValidationTable _validate;
     [SerializeField] private float _throwPower=2;
     private Collider _collider;
     [SerializeField]private MeshRenderer _meshRend;
+    [SerializeField]private Material _m;
     [SerializeField]private glasswareState _glasswareSt=glasswareState.EMPTY;
 
     public glasswareState GlasswareSt { get => _glasswareSt; }
 
     private void Awake()
     {
-        
+        _validate = FindObjectOfType<ValidationTable>();
         _rgbd = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
     }
@@ -145,9 +148,10 @@ public class Glassware : Interactable
     public void SetGlasswareState(glasswareState state)
     {
         _glasswareSt = state;
-        if (SceneManager.GetActiveScene().name != "Tutoriel 1")
+            if (!_validate.Found.Contains(state))
         {
-            GameManager.Instance.AddElement(state);
+            _onNewElementDiscovered.Invoke();
+            GetComponent<MeshRenderer>().material = _m;
         }
         OnStateValueChange(_glasswareSt);
     }

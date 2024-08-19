@@ -15,6 +15,7 @@ public class PlayerToken : MonoBehaviour
 
     [SerializeField] TokenOnSelect _currentSelection;
 
+    public UnityEvent OnSelected; //LoadScene 1P
 
     private Vector2 _moveInput;
     public bool _isChoosed { get; set; }
@@ -46,6 +47,8 @@ public class PlayerToken : MonoBehaviour
         _currentSelection.GetComponent<BoxCollider2D>().enabled = false;
         _currentSelection = tampon;
         _isChoosed = true;
+
+        OnSelected.Invoke(); //LoadScene 1P
     }
     public void OnCancel(InputAction.CallbackContext ctx)
     {

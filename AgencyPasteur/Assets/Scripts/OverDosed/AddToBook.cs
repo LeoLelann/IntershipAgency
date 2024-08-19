@@ -15,6 +15,7 @@ public class AddToBook : MonoBehaviour
     public void Start()
     {
         Vector3 bookScreenPos = _cam.WorldToScreenPoint(_book.transform.position);
+        _book.New();
        StartCoroutine(MoveToward(bookScreenPos));
     }
 
@@ -26,7 +27,6 @@ public class AddToBook : MonoBehaviour
         while (timer < _duration)
         {
             timer += Time.deltaTime;
-            Debug.Log(timer);
             _cover.transform.position = Vector3.Lerp(_cover.transform.position, bookScreenPos, timer / _duration);
             _cover.transform.localScale = Vector3.Lerp(_cover.transform.localScale, new Vector3(0.1f,0.1f,0.1f), timer / _duration);
             yield return new WaitForSeconds(Time.deltaTime);
