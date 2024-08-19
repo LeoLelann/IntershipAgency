@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AddToBook : MonoBehaviour
 {
+    [SerializeField] UnityEvent _newPage;
+
     [SerializeField] Glassware.glasswareState _glasswareState;
     [SerializeField] float _duration;
     [SerializeField] Book _book;

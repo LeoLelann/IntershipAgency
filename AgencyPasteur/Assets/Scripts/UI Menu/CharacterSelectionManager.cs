@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class CharacterSelectionManager : MonoBehaviour
 {
     public PlayerToken[] characterButtons;
+    [SerializeField] int _idQuiFix;
     [SerializeField] CharacterSelectionSO characterSelectionSO;
     [SerializeField] string _scene;
 
@@ -34,7 +35,7 @@ public class CharacterSelectionManager : MonoBehaviour
         if (isReady)
         {
             (Character, string)[] selection = new (Character, string)[characterButtons.Length];
-            selection[0] = (characterButtons[1].CurrentSelection.PlayerRepresented,
+            selection[0] = (characterButtons[_idQuiFix].CurrentSelection.PlayerRepresented,
                     characterButtons[1].GetComponent<PlayerInput>().actions.devices.Value[0].name);
             characterSelectionSO.SendSelection(selection);
 

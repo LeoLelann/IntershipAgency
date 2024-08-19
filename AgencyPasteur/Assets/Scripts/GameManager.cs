@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent _onEndGamePerfect;
     [SerializeField] private UnityEvent _onEndGameGood;
     [SerializeField] private UnityEvent _onEndGameBad;
+    [SerializeField] private UnityEvent _onNewFoundElement;
     [SerializeField] private int _goalNbrRemedy;
     [SerializeField] private GameObject _cover;
     [SerializeField] private AdjustVolume _renderVolume;
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
             {
                 if (pages.GlasswareState == state)
                 {
+                    _onNewFoundElement.Invoke();
                     _cover.SetActive(true);
                     pages.gameObject.SetActive(true);
                 }

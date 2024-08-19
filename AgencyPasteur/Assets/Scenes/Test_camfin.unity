@@ -160746,6 +160746,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isLocked: 1
+  _isNew: 0
   _image: {fileID: 1353427599}
 --- !u!1001 &1844124899
 PrefabInstance:
@@ -187006,7 +187007,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1300427358517321346, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
+      propertyPath: _onNewFoundElement.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300427358517321346, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
+      propertyPath: _onNewFoundElement.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8300000, guid: c0be897f1901d2747817514b6d3df330, type: 3}
+    - target: {fileID: 1300427358517321346, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
       propertyPath: _onEndGamePerfect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300427358517321346, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
+      propertyPath: _onNewFoundElement.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6620445889500026407, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
