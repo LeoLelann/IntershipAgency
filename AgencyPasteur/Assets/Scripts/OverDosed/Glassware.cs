@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Glassware : Interactable
 {
@@ -12,6 +13,7 @@ public class Glassware : Interactable
     [SerializeField] private UnityEvent _onCollisionWhenThrown;
     [SerializeField] private UnityEvent _onBecameTrash;
     [SerializeField] private UnityEvent _onBecameWater;
+    [SerializeField] private UnityEvent _onNewElementDiscovered;
 
     public enum glasswareState
     {
@@ -54,16 +56,18 @@ public class Glassware : Interactable
     private bool isThrown;
     private Transform _parentTransform;
     private Rigidbody _rgbd;
+    private ValidationTable _validate;
     [SerializeField] private float _throwPower=2;
     private Collider _collider;
     [SerializeField]private MeshRenderer _meshRend;
+    [SerializeField]private Material _m;
     [SerializeField]private glasswareState _glasswareSt=glasswareState.EMPTY;
 
     public glasswareState GlasswareSt { get => _glasswareSt; }
 
     private void Awake()
     {
-        
+        _validate = FindObjectOfType<ValidationTable>();
         _rgbd = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
     }
@@ -134,7 +138,7 @@ public class Glassware : Interactable
         _onPicked?.Invoke();
         transform.rotation = Quaternion.Euler(270, 0, 0);
         transform.parent = player.transform;
-        transform.localPosition = new Vector3(0, 0f, 0.5f);
+        transform.localPosition = new Vector3(0, 1, 0.5f);
         _rgbd.constraints = RigidbodyConstraints.FreezeAll;
         _parentTransform = GetComponentInParent<Transform>();
         _collider.enabled = false;
@@ -144,9 +148,10 @@ public class Glassware : Interactable
     public void SetGlasswareState(glasswareState state)
     {
         _glasswareSt = state;
-        if (!GameManager.Instance.Found.Contains(state))
+            if (!_validate.Found.Contains(state))
         {
-            GameManager.Instance.AddElement(state);
+            _onNewElementDiscovered.Invoke();
+            GetComponent<MeshRenderer>().material = _m;
         }
         OnStateValueChange(_glasswareSt);
     }

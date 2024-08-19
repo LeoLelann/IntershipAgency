@@ -8,11 +8,41 @@ public class CharacterSelectionManager : MonoBehaviour
 {
     public PlayerToken[] characterButtons;
     [SerializeField] CharacterSelectionSO characterSelectionSO;
-    [SerializeField] private Scene sceneToLoad;
-    [SerializeField] private string _sceneName;
+    [SerializeField] string _scene;
 
+    private void Start() //LoadScene 1P
+    {
+        Debug.Log(characterButtons.Length);
+        foreach (var button in characterButtons)
+        {
+            button.OnSelected.AddListener(CheckSelection);
+        }
+    }
 
-    private void Update()
+    private void CheckSelection()
+    {
+        bool isReady = true;
+        /*foreach (var el in characterButtons)
+        {
+            if (!el._isChoosed)
+            {
+                isReady = false;
+                break;
+            }
+        }*/
+
+        if (isReady)
+        {
+            (Character, string)[] selection = new (Character, string)[characterButtons.Length];
+            selection[0] = (characterButtons[1].CurrentSelection.PlayerRepresented,
+                    characterButtons[1].GetComponent<PlayerInput>().actions.devices.Value[0].name);
+            characterSelectionSO.SendSelection(selection);
+
+            LoadGameScene();
+        }
+    }
+
+    /*private void Update()  //// LoadScene 3P
     {
         bool isReady = true;
         foreach(var el in characterButtons)
@@ -32,12 +62,12 @@ public class CharacterSelectionManager : MonoBehaviour
             characterSelectionSO.SendSelection(selection);
 
 
-            OnLoadGameScene();
+            LoadGameScene();
         }
-    }
+    }*/
 
-    public void OnLoadGameScene()
+    void LoadGameScene()
     {
-        SceneManager.LoadScene(_sceneName);
+        SceneManager.LoadScene(_scene);
     }
 }

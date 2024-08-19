@@ -9,11 +9,11 @@ public class Trashcan : Interactable
     [SerializeField] private UnityEvent _onThrowAway;
     public override void Interacted(GameObject player)
     {
-        player.GetComponent<Player>().Anim.SetBool("IsHolding", true);
         GameObject toBeDestroyed = player.GetComponentInChildren<Glassware>().gameObject;
         if (toBeDestroyed != null)
         {
             _onThrowAway.Invoke();
+            player.GetComponent<Player>().Anim.SetBool("IsHolding", false);
             Destroy(toBeDestroyed);
         }
     }

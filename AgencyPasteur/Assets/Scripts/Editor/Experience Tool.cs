@@ -88,7 +88,7 @@ public class ExperienceTool : EditorWindow
         switch (_chosenExp)
         {
             case ("Mix"):
-                _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, GUILayout.Height(300));
+                _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, GUILayout.Height(500));
                 if (_mixList.Mixed.Count > 0)
                 {
                     for (int i = 0; i < _mixList.Mixed.Count; i++)
@@ -223,7 +223,7 @@ public class ExperienceTool : EditorWindow
                 break;
             case ("Dilute"):
                 string path3 = $"{FolderPath}Dilution{_extention}";
-                EditorUtility.SetDirty(_mixList);
+                EditorUtility.SetDirty(_diluteList);
                 if (!File.Exists(path3))
                 {
                     AssetDatabase.CreateAsset(_diluteList, path3);

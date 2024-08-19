@@ -35,7 +35,6 @@ public class AdjustVolume : MonoBehaviour
         while (timer < 2)
         {
             timer += Time.deltaTime;
-            Debug.Log(timer);
             vignette.center.Override(Vector2.Lerp(oldPos, pos, timer / 2));
             vignette.intensity.Override(Mathf.Lerp(oldIntens, 1, timer));
             yield return new WaitForSeconds(Time.deltaTime);

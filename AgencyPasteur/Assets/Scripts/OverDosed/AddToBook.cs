@@ -15,6 +15,7 @@ public class AddToBook : MonoBehaviour
     public void Start()
     {
         Vector3 bookScreenPos = _cam.WorldToScreenPoint(_book.transform.position);
+        _book.New();
        StartCoroutine(MoveToward(bookScreenPos));
     }
 
@@ -22,15 +23,14 @@ public class AddToBook : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         float timer = 0;
+        _book.LockedPage[GlasswareState].GetComponent<Page>().IsLocked = false;
         while (timer < _duration)
         {
             timer += Time.deltaTime;
-            Debug.Log(timer);
             _cover.transform.position = Vector3.Lerp(_cover.transform.position, bookScreenPos, timer / _duration);
             _cover.transform.localScale = Vector3.Lerp(_cover.transform.localScale, new Vector3(0.1f,0.1f,0.1f), timer / _duration);
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        _book.LockedPage[GlasswareState].GetComponent<Page>().IsLocked = false;
         gameObject.SetActive(false);
         _cover.SetActive(false);
         _cover.transform.localPosition = new Vector3(0.5f,0.5f,0.5f);
