@@ -1216,6 +1216,7 @@ MonoBehaviour:
   - {fileID: 2058648054}
   - {fileID: 116232250}
   - {fileID: 1359119279}
+  _idQuiFix: 1
   characterSelectionSO: {fileID: 11400000, guid: 2009714deeb2b1a4299114cd10278998, type: 2}
   _scene: Test_camfin
 --- !u!114 &446791344
