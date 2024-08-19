@@ -48,9 +48,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 804332108981613615, guid: e704859661d06ce4abdaeca3874a7fb1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3191526996811961001, guid: a2d1209dc9e513048aed49e5e7ad82f5, type: 3}
     - target: {fileID: 919132149155446097, guid: e704859661d06ce4abdaeca3874a7fb1, type: 3}
       propertyPath: m_Name
       value: De_Object_Lampe-mur
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204793477537370947, guid: e704859661d06ce4abdaeca3874a7fb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 208694e6e4620004abef768b66841fda, type: 2}
+    - target: {fileID: 3593139011872858183, guid: e704859661d06ce4abdaeca3874a7fb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 295131a48e21dc54e9aa14b4b1186ca6, type: 2}
+    - target: {fileID: 3595587182365777630, guid: e704859661d06ce4abdaeca3874a7fb1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8265208192647682281, guid: a2d1209dc9e513048aed49e5e7ad82f5, type: 3}
+    - target: {fileID: 3631933210468459122, guid: e704859661d06ce4abdaeca3874a7fb1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2124705421725058983, guid: e704859661d06ce4abdaeca3874a7fb1, type: 3}
+    - target: {fileID: 8442510506162454399, guid: e704859661d06ce4abdaeca3874a7fb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 280cec23be2c9ff448dce3c24009eafa, type: 2}
+    - target: {fileID: 8480689664558637426, guid: e704859661d06ce4abdaeca3874a7fb1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.123
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480689664558637426, guid: e704859661d06ce4abdaeca3874a7fb1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.252
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480689664558637426, guid: e704859661d06ce4abdaeca3874a7fb1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

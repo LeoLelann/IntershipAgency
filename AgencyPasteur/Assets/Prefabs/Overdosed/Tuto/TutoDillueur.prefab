@@ -51,7 +51,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4295390154602853919, guid: 8b9e2625a2884374a836684f2fe061a3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4565764071711270381, guid: 8b9e2625a2884374a836684f2fe061a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -96,63 +96,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3753480458296835927, guid: 8b9e2625a2884374a836684f2fe061a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4548953637993343866}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b9e2625a2884374a836684f2fe061a3, type: 3}
---- !u!1 &1168359502899973570 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3753480458296835927, guid: 8b9e2625a2884374a836684f2fe061a3, type: 3}
-  m_PrefabInstance: {fileID: 2603593301045621397}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4548953637993343866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168359502899973570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 781c2fccfdde5734f8ab939e7803a0e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnShowInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDontShowInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  OnStartShowInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  OnShowInterractButMissingGlassware:
-    m_PersistentCalls:
-      m_Calls: []
-  OnShowInterractButMissingComponent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnShowInterractButHandsFull:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteractFailed:
-    m_PersistentCalls:
-      m_Calls: []
-  _onInteracted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onAlreadyDiluted:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTooDiluted:
-    m_PersistentCalls:
-      m_Calls: []
-  _dilute: {fileID: 11400000, guid: be4360ccb9080d4489ae6a8bed5486a6, type: 2}
-  _phase1: 6
-  _phase2: 8
-  _max: 10
-  _tuto: {fileID: 0}
 --- !u!4 &1980748669166442360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4565764071711270381, guid: 8b9e2625a2884374a836684f2fe061a3, type: 3}

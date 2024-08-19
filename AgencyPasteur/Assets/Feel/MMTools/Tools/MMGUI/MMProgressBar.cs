@@ -539,7 +539,7 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public virtual void Plus10Percent()
 		{
-			float newProgress = BarTarget + 0.1f;
+			float newProgress = BarTarget + 1f/3f;
 			newProgress = Mathf.Clamp(newProgress, 0f, 1f);
 			UpdateBar01(newProgress);
 		}

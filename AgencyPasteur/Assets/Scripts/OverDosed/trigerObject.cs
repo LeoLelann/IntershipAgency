@@ -6,6 +6,8 @@ public class trigerObject : MonoBehaviour
 {
     Player _player;
 
+    public Player Player { get => _player; set => _player = value; }
+
     public void Awake()
     {
         _player = transform.parent.GetComponent<Player>();

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dilution
   m_EditorClassIdentifier: 
   _diluted:
-  - _state: 020000000d000000
+  - _state: 0200000011000000
     _phase1: 2
     _phase2: 4
     _max: 5
@@ -22,6 +22,34 @@ MonoBehaviour:
     _phase2: 4
     _max: 5
   - _state: 0400000001000000
+    _phase1: 3
+    _phase2: 4
+    _max: 5
+  - _state: 0400000001000000
+    _phase1: 3
+    _phase2: 4
+    _max: 5
+  - _state: 0600000012000000
+    _phase1: 3
+    _phase2: 4
+    _max: 5
+  - _state: 0500000001000000
+    _phase1: 3
+    _phase2: 4
+    _max: 5
+  - _state: 0700000001000000
+    _phase1: 3
+    _phase2: 4
+    _max: 5
+  - _state: 1600000001000000
+    _phase1: 3
+    _phase2: 4
+    _max: 5
+  - _state: 2000000001000000
+    _phase1: 3
+    _phase2: 4
+    _max: 5
+  - _state: 2000000001000000
     _phase1: 3
     _phase2: 4
     _max: 5

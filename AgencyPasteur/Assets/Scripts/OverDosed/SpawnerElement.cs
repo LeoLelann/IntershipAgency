@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 public class SpawnerElement : Interactable
@@ -12,12 +13,17 @@ public class SpawnerElement : Interactable
     [SerializeField] private MeshRenderer _label;
     [SerializeField] GameObject _ressource;
     private Glassware _glassware;
-    [SerializeField] int _limit; 
+    [SerializeField] int _limit;
+    [SerializeField] TutoManager _tuto;
+    List<GameObject> _players = new List<GameObject>();
     public enum Elements
     {
         TALC,
         ACID,
-        STARCH
+        STARCH,
+        RABIES,
+        SODIUM_CHLORIDE,
+        POWDER
     };
     [SerializeField] private Elements element;
 
@@ -43,7 +49,17 @@ public class SpawnerElement : Interactable
                     _label.material.color = Color.blue;
                 
                 break;
-         }
+            case Elements.RABIES:
+                _label.material = _elementIcon[3];
+                break;
+            case Elements.SODIUM_CHLORIDE:
+                _label.material = _elementIcon[2];
+                break;
+            case Elements.POWDER:
+                _label.material = _elementIcon[0];
+                break;
+
+        }
     }
     public override void Interacted(GameObject player)
     {
@@ -58,6 +74,19 @@ public class SpawnerElement : Interactable
             }
             else
             {
+                if(SceneManager.GetActiveScene().name=="Tutoriel 1"&&element==Elements.STARCH)
+                {
+                    Debug.Log("ahzipfhzlfmq");
+                    if (!_players.Contains(player))
+                    {
+                        _players.Add(player);
+                    }
+                    if (_players.Count == 3)
+                    {
+                        _tuto.TookElement();
+                        _players.Add(gameObject);
+                    }
+                }
                 _onTakeGlassware?.Invoke();
                 GameObject glassware = Instantiate(_ressource, transform.position, Quaternion.identity);
                 switch (element)
@@ -71,12 +100,23 @@ public class SpawnerElement : Interactable
                     case Elements.ACID:
                         glassware.GetComponent<Glassware>().SetGlasswareState(Glassware.glasswareState.ACID);
                         break;
+                    case Elements.RABIES:
+                        glassware.GetComponent<Glassware>().SetGlasswareState(Glassware.glasswareState.RABIES_VIRUS);
+                        break;
+                    case Elements.SODIUM_CHLORIDE:
+                        glassware.GetComponent<Glassware>().SetGlasswareState(Glassware.glasswareState.SODIUM_CHLORIDE);
+                        break;
+                    case Elements.POWDER:
+                        glassware.GetComponent<Glassware>().SetGlasswareState(Glassware.glasswareState.POWDER);
+                        break;
                 }
                 glassware.GetComponent<Glassware>().Interacted(player);
             }
         }
         else if (playerGlassware != null && _glassware == null)
         {
+            player.GetComponent<Player>().Anim.SetBool("IsHolding", false);
+            player.GetComponent<Player>().Anim.SetBool("IsPuttingDown", true);
             _onSnapGlassware?.Invoke();
             playerGlassware.transform.parent = transform;
             _glassware = GetComponentInChildren<Glassware>();

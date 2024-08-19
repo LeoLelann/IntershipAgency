@@ -19,12 +19,12 @@ public class Page : MonoBehaviour
             _isLocked = value;
             if (_isLocked)
             {
-                _image.color = Color.black;
+                _image.color = new Color(1,1,1,0);
             }
             else
             {
                 _onUnlock.Invoke();
-                _image.color = Color.white;
+                _image.color = new Color(1, 1, 1, 1);
             }
         }
     }

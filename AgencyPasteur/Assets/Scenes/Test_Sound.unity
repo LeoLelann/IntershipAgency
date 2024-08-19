@@ -3408,6 +3408,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
+    - target: {fileID: 7383473782246921966, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+      propertyPath: OnStopHeating.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383473782246921966, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+      propertyPath: OnStopHeating.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383473782246921966, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+      propertyPath: OnStopHeating.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 247222703}
+    - target: {fileID: 7383473782246921966, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+      propertyPath: OnStopHeating.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383473782246921966, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+      propertyPath: OnStopHeating.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Stop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383473782246921966, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+      propertyPath: OnStopHeating.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.ParticleSystem, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383473782246921966, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+      propertyPath: OnStopHeating.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8238928589799005582, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -3455,13 +3483,49 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3858483177685160737, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 247222704}
   m_SourcePrefab: {fileID: 100100000, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
 --- !u!4 &247222701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8238928589799005582, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
   m_PrefabInstance: {fileID: 247222700}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &247222702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3858483177685160737, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+  m_PrefabInstance: {fileID: 247222700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &247222703 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3858483178240751549, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+  m_PrefabInstance: {fileID: 247222700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &247222704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247222702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!4 &249576265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4084154188113753534, guid: 00de94090c78c4d4aa7734b9fbd13678, type: 3}
@@ -16092,13 +16156,44 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3858483177685160737, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1417638993}
   m_SourcePrefab: {fileID: 100100000, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
 --- !u!4 &1417638991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8238928589799005582, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
   m_PrefabInstance: {fileID: 1417638990}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1417638992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3858483177685160737, guid: d8ce0198e514f26479d7686e08a5b43e, type: 3}
+  m_PrefabInstance: {fileID: 1417638990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1417638993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417638992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1001 &1422971337
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class MixingResult : Interactable
 {
@@ -19,14 +21,12 @@ public class MixingResult : Interactable
     [SerializeField] private Paillaisse _ingr1;
     [SerializeField] private Paillaisse _ingr2;
     [SerializeField] private float _mixDuration;
+    [SerializeField] private TutoManager _tuto;
+
     private Glassware _in1;
     private Glassware _in2;
     private Glassware _out;
     [SerializeField]private SCMix _mix;
-    private void Start()
-    {
-        Debug.Log(_mix.Mixed.Count);
-    }
     public override void Interacted(GameObject player)
     {
         Glassware playerGlassware = player.GetComponentInChildren<Glassware>();
@@ -39,6 +39,8 @@ public class MixingResult : Interactable
         Debug.Log(in2Glassware);
         if (playerGlassware != null && currentGlassware == null)
         {
+            player.GetComponent<Player>().Anim.SetBool("IsHolding", false);
+            player.GetComponent<Player>().Anim.SetBool("IsPuttingDown", true);
             _onSnapGlassware?.Invoke();
             playerGlassware.transform.parent = transform;
             currentGlassware = playerGlassware;
@@ -54,6 +56,13 @@ public class MixingResult : Interactable
             if ((currentGlassware != null && playerGlassware == null && _out.GlasswareSt != Glassware.glasswareState.EMPTY) || (in1Glassware == null) || (in2Glassware == null))
             {
                 _onTakeFrom?.Invoke();
+                if(SceneManager.GetActiveScene().name=="Tutoriel 1")
+                {
+                    if (_out.GlasswareSt == Glassware.glasswareState.HEATED_ACID_STARCH_DILUTED)
+                    {
+                        _tuto.Mixed(player);
+                    }
+                }
                 transform.GetComponentInChildren<Glassware>().Interacted(player);
             }
             else
@@ -69,7 +78,7 @@ public class MixingResult : Interactable
                     }
                     else
                     {
-                        StartCoroutine(Mixing());
+                        StartCoroutine(Mixing(player.GetComponent<Player>()));
                     }
                 }
             }
@@ -96,10 +105,14 @@ public class MixingResult : Interactable
         _onMissingComponentCenter.Invoke();
     }
 
-    IEnumerator Mixing()
+    IEnumerator Mixing(Player player)
     {
+        player.Anim.SetBool("IsCrafting", true);
+        player.gameObject.GetComponent<PlayerInput>().SwitchCurrentActionMap(player.InputFromUI.action.actionMap.name);
         _onMixing.Invoke();
         yield return new WaitForSeconds(_mixDuration);
+        player.gameObject.GetComponent<PlayerInput>().SwitchCurrentActionMap(player.InputFromGameplay.action.actionMap.name);
+        player.Anim.SetBool("IsCrafting", false);
         _out.SetGlasswareState(_mix.Mixed.Find(t => t.State[0] == _in1.GlasswareSt && t.State[1] == _in2.GlasswareSt).State[2]);
         _in1.SetGlasswareState(Glassware.glasswareState.EMPTY);
         _in2.SetGlasswareState(Glassware.glasswareState.EMPTY);

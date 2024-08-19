@@ -11,7 +11,6 @@ public class Book : Interactable
     [SerializeField] UnityEvent _onCanInteractFirstTime;
     [SerializeField] List<Glassware.glasswareState> _pagesState;
     [SerializeField] List<Image> _pages;
-    private bool _canInteract;
     Dictionary<Glassware.glasswareState, Image> _lockedPage = new Dictionary<Glassware.glasswareState, Image>();
 
     [SerializeField] GameObject BookUI;
@@ -20,25 +19,16 @@ public class Book : Interactable
 
     private void Start()
     {
+        _onCanInteractFirstTime.Invoke();
         for (int i= 0; i < _pagesState.Count; i++)
         {
             LockedPage.Add(_pagesState[i], _pages[i]);
         }
     }
-    public void BecomeInteractable()
-    {
-        if(!_canInteract)
-        {
-            _canInteract = true;
-            _onCanInteractFirstTime.Invoke();
-        }
-        
-    }
+
     public override void Interacted(GameObject Player)
     {
-        Debug.Log("ça passe");
-        if (_canInteract)
-        {
+        
             if (BookUI.activeInHierarchy)
             {
                 _onInteractedClose?.Invoke();
@@ -49,6 +39,5 @@ public class Book : Interactable
                 _onInteractedOpen?.Invoke();
                 BookUI.SetActive(true);
             }
-        }  
-    }
+     }
 }

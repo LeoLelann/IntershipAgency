@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5400847760579451085}
   - component: {fileID: 3826860955536263658}
-  - component: {fileID: 2628533441582649935}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -47,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
   m_MaxPlayerCount: 3
-  m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_AllowJoining: 0
+  m_JoinBehavior: 2
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -77,17 +76,3 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &2628533441582649935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138901533713965800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2826a2de4e3e58a46a6d5950455a8326, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _p2: {fileID: 2600070959723205368, guid: 53578475b4f5def49914231461fa21fd, type: 3}
-  _p3: {fileID: 2600070959723205368, guid: 5aeb3a82f3fca7042a3e9ff933b06f3b, type: 3}
