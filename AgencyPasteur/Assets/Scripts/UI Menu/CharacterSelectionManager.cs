@@ -36,7 +36,7 @@ public class CharacterSelectionManager : MonoBehaviour
         {
             (Character, string)[] selection = new (Character, string)[characterButtons.Length];
             selection[0] = (characterButtons[_idQuiFix].CurrentSelection.PlayerRepresented,
-                    characterButtons[1].GetComponent<PlayerInput>().actions.devices.Value[0].name);
+                    characterButtons[_idQuiFix].GetComponent<PlayerInput>().actions.devices.Value[0].name);
             characterSelectionSO.SendSelection(selection);
 
             LoadGameScene();
