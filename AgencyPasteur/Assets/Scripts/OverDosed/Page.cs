@@ -10,6 +10,7 @@ public class Page : MonoBehaviour
     [SerializeField] bool _isLocked;
     [SerializeField] bool _isNew;
     [SerializeField]private Image _image;
+    [SerializeField]private UI_Chapter chapter;
     
     
     public bool IsLocked
@@ -21,7 +22,6 @@ public class Page : MonoBehaviour
             if (_isLocked)
             {
                 _image.color = new Color(1,1,1,0);
-                _isNew = true;
             }
             else
             {
@@ -50,6 +50,7 @@ public class Page : MonoBehaviour
         if (_isNew)
         {
             _isNew = false;
+            chapter.NotifyUpdate();
         }
     }
 }

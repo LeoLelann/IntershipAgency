@@ -9,6 +9,7 @@ public class Book : Interactable
     [SerializeField]UnityEvent _onInteractedOpen;
     [SerializeField] UnityEvent _onInteractedClose;
     [SerializeField] UnityEvent _onCanInteractFirstTime;
+    [SerializeField] List<UI_Chapter> _chapters;
     [SerializeField] List<Glassware.glasswareState> _pagesState;
     [SerializeField] List<Image> _pages;
     [SerializeField] ParticleSystem _flame;
@@ -39,6 +40,10 @@ public class Book : Interactable
             {
             NotNew();
                 _onInteractedOpen?.Invoke();
+                foreach(UI_Chapter chapter in _chapters)
+            {
+                chapter.NotifyUpdate();
+            }
                 BookUI.SetActive(true);
             }
      }
