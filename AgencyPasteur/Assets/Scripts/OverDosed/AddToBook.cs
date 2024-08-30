@@ -24,9 +24,11 @@ public class AddToBook : MonoBehaviour
 
     IEnumerator MoveToward (Vector3 bookScreenPos)
     {
+        _newPage.Invoke();
         yield return new WaitForSeconds(2);
         float timer = 0;
         _book.LockedPage[GlasswareState].GetComponent<Page>().IsLocked = false;
+        _book.LockedPage[GlasswareState].GetComponent<Page>().IsNew = true;
         while (timer < _duration)
         {
             timer += Time.deltaTime;
