@@ -53,7 +53,6 @@ namespace TCG.Core.Dialogues
             float timer = 0;
             while (timer < 1)
             {
-                Debug.Log(timer);
                 _panel.transform.position =new Vector3(_panel.transform.position.x,Mathf.Lerp( _panel.transform.position.y,150,timer),_panel.transform.position.z);
                 yield return new WaitForSeconds(Time.deltaTime);
                 timer += Time.deltaTime;
