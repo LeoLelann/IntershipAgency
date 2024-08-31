@@ -20,25 +20,17 @@ public class CharacterSelectionManager : MonoBehaviour
     }
 
     private void CheckSelection()
-    {
-        bool isReady = true;
-        /*foreach (var el in characterButtons)
+    {        foreach (var el in characterButtons)
         {
-            if (!el._isChoosed)
+            if (el._isChoosed)
             {
-                isReady = false;
-                break;
+                (Character, string)[] selection = new (Character, string)[characterButtons.Length];
+                selection[0] = (el.CurrentSelection.PlayerRepresented,
+                        el.GetComponent<PlayerInput>().actions.devices.Value[0].name);
+                characterSelectionSO.SendSelection(selection);
+
+                LoadGameScene();
             }
-        }*/
-
-        if (isReady)
-        {
-            (Character, string)[] selection = new (Character, string)[characterButtons.Length];
-            selection[0] = (characterButtons[1].CurrentSelection.PlayerRepresented,
-                    characterButtons[1].GetComponent<PlayerInput>().actions.devices.Value[0].name);
-            characterSelectionSO.SendSelection(selection);
-
-            LoadGameScene();
         }
     }
 

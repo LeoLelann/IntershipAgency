@@ -8,7 +8,9 @@ public class Page : MonoBehaviour
 {
     [SerializeField] private UnityEvent _onUnlock;
     [SerializeField] bool _isLocked;
+    [SerializeField] bool _isNew;
     [SerializeField]private Image _image;
+    [SerializeField]private UI_Chapter chapter;
     
     
     public bool IsLocked
@@ -29,6 +31,14 @@ public class Page : MonoBehaviour
         }
     }
 
+    public bool IsNew {
+        get => _isNew;
+        set
+        {
+            _isNew = value;
+        }
+    }
+
     private void OnEnable()
     {
         IsLocked = _isLocked;
@@ -37,6 +47,10 @@ public class Page : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_isNew)
+        {
+            _isNew = false;
+            chapter.NotifyUpdate();
+        }
     }
 }
