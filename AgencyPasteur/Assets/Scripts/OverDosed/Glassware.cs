@@ -61,6 +61,7 @@ public class Glassware : Interactable
     private Collider _collider;
     [SerializeField]private MeshRenderer _meshRend;
     [SerializeField]private Material _m;
+    [SerializeField]private Material _baseM;
     [SerializeField]private glasswareState _glasswareSt=glasswareState.EMPTY;
 
     public glasswareState GlasswareSt { get => _glasswareSt; }
@@ -152,6 +153,11 @@ public class Glassware : Interactable
         {
             _onNewElementDiscovered.Invoke();
             GetComponent<MeshRenderer>().material = _m;
+        }
+        else
+        {
+            GetComponent<MeshRenderer>().material = _baseM;
+
         }
         OnStateValueChange(_glasswareSt);
     }
