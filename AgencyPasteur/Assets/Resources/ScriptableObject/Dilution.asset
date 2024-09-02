@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _diluted:
   - _state: 0200000011000000
-    _phase1: 2
-    _phase2: 4
-    _max: 5
+    _phase1: 5
+    _phase2: 10
+    _max: 10
   - _state: 0300000001000000
     _phase1: 3
     _phase2: 4
@@ -30,9 +30,9 @@ MonoBehaviour:
     _phase2: 4
     _max: 5
   - _state: 0600000012000000
-    _phase1: 3
-    _phase2: 4
-    _max: 5
+    _phase1: 5
+    _phase2: 10
+    _max: 11
   - _state: 0500000001000000
     _phase1: 3
     _phase2: 4
@@ -49,7 +49,11 @@ MonoBehaviour:
     _phase1: 3
     _phase2: 4
     _max: 5
-  - _state: 2000000001000000
+  - _state: 1200000001000000
     _phase1: 3
     _phase2: 4
     _max: 5
+  - _state: 1100000001000000
+    _phase1: 5
+    _phase2: 6
+    _max: 7

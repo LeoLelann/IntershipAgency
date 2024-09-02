@@ -65,6 +65,10 @@ public class trigerObject : MonoBehaviour
             { 
                 _player.isInRange = false;
                 _player.range = null;
+                if (other.GetComponent<Dilution>())
+                {
+                    other.GetComponent<Dilution>().ResetDilution();
+                }
            }
         }
     }

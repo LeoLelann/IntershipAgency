@@ -21,6 +21,7 @@ public class Dilution : Interactable
     [SerializeField]private int _phase2=8;
     [SerializeField]private int _max=10;
     [SerializeField] TutoManager _tuto;
+    [SerializeField]Image _fillBar;
 
     private bool _diluting;
     private int _count;
@@ -48,6 +49,7 @@ public class Dilution : Interactable
             {
                 if (_diluting == false)
                 {
+                    _fillBar.fillAmount =0;
                     _diluting = true;
                     _phase1 = _dilute.Diluted.Find(x => x.State[0] == _playerGlassware.GlasswareSt).Phase1;
                     _phase2 = _dilute.Diluted.Find(x => x.State[0] == _playerGlassware.GlasswareSt).Phase2;
@@ -59,10 +61,15 @@ public class Dilution : Interactable
                     {
                         case int i when i <=_phase1:
                             _count++;
-                            if (_count > _phase1)
+                        _fillBar.fillAmount += (float)1 / _phase1;
+
+                        if (_count > _phase1)
                              {
                             _playerGlassware.SetGlasswareState(_dilute.Diluted.Find(x => x.State[0] == _playerGlassware.GlasswareSt).State[1]);
-                            if(_playerGlassware.GlasswareSt!=Glassware.glasswareState.WATER)
+                            _fillBar.fillAmount = 0;
+                            Debug.Log(_fillBar.fillAmount);
+
+                            if (_playerGlassware.GlasswareSt!=Glassware.glasswareState.WATER)
                             {
                                 _onAlreadyDiluted?.Invoke();
                             }
@@ -74,7 +81,8 @@ public class Dilution : Interactable
                             break;
                         case int i when (i>_phase1&&i<=_phase2):
                             _count++;
-                            if (_count > _phase2)
+                        _fillBar.fillAmount += (float)1 / (_phase2-_phase1);
+                        if (_count > _phase2)
                             {
                             _playerGlassware.SetGlasswareState( Glassware.glasswareState.WATER);
                             _onTooDiluted?.Invoke();
@@ -112,6 +120,7 @@ public class Dilution : Interactable
     public void ResetDilution()
     {
         _diluting = false;
+        _fillBar.fillAmount =0;
         _count = 0;
     }
 }
