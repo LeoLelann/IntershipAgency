@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using static CharacterSelectionSO;
 
 public class PlayerToken : MonoBehaviour
 {
@@ -16,14 +18,22 @@ public class PlayerToken : MonoBehaviour
     [SerializeField] TokenOnSelect _currentSelection;
 
     public UnityEvent OnSelected; //LoadScene 1P
+    [SerializeField] CharacterSelectionSO characterSelectionSO;
 
     private Vector2 _moveInput;
     public bool _isChoosed { get; set; }
+    public bool isJulien = false;
     public TokenOnSelect CurrentSelection { get => _currentSelection; }
 
     void Update()
     {
         Move();
+
+        //SoloTest
+        if (isJulien && _isChoosed)
+        {
+            SceneManager.LoadScene("Test_camfin");
+        }
     }
 
     public void OnMove(InputAction.CallbackContext ctx)

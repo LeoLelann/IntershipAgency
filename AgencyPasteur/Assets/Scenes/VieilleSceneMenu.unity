@@ -1781,7 +1781,7 @@ MonoBehaviour:
     m_ActionId: e440d714-a72e-4469-af23-f6f10412efc6
     m_ActionName: UI/NavigateHorizontal[/XInputControllerWindows1/dpad/left,/XInputControllerWindows1/dpad/right,/XInputControllerWindows1/leftStick/left,/XInputControllerWindows1/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: GamePad
+  m_DefaultControlScheme: 
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

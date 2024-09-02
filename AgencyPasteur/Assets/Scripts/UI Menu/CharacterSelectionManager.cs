@@ -20,13 +20,30 @@ public class CharacterSelectionManager : MonoBehaviour
     }
 
     private void CheckSelection()
-    {        foreach (var el in characterButtons)
+    {
+        /*if (isJulien)    // 1P
         {
-            if (el._isChoosed)
+            foreach (var solo in characterButtons)
+            {
+                if (solo._isChoosed)
+                {
+                    (Character, string)[] selection = new (Character, string)[1];
+                    selection[0] = (solo.CurrentSelection.PlayerRepresented,
+                    solo.GetComponent<PlayerInput>().actions.devices.Value[0].name);
+                    characterSelectionSO.SendSelection(selection);
+                    Debug.Log("loadingSolo");
+                    LoadGameScene();
+                }
+            }
+        }*/
+
+        foreach (var multi in characterButtons)
+        {
+            if (multi._isChoosed)
             {
                 (Character, string)[] selection = new (Character, string)[characterButtons.Length];
-                selection[0] = (el.CurrentSelection.PlayerRepresented,
-                        el.GetComponent<PlayerInput>().actions.devices.Value[0].name);
+                selection[0] = (multi.CurrentSelection.PlayerRepresented,
+                        multi.GetComponent<PlayerInput>().actions.devices.Value[0].name);
                 characterSelectionSO.SendSelection(selection);
 
                 LoadGameScene();
