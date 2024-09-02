@@ -249,13 +249,13 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 5381713955357594911}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
+        Sfx: {fileID: 8300000, guid: 58431d683b567144f99c371999b3f4f6, type: 3}
         RandomSfx: []
         SequentialOrder: 0
         SequentialOrderHoldLast: 0
         SequentialOrderHoldCooldownDuration: 2
-        MinVolume: 0.3
-        MaxVolume: 0.3
+        MinVolume: 0.25
+        MaxVolume: 0.25
         MinPitch: 1
         MaxPitch: 1
         PlaybackTime: {x: 0, y: 0}
