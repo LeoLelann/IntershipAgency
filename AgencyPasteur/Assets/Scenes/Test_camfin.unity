@@ -179127,10 +179127,14 @@ PrefabInstance:
       objectReference: {fileID: 1911115760}
     - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
       propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
       propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
@@ -179138,7 +179142,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2050661355}
     - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2050661355}
+    - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
       propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
@@ -179146,7 +179158,15 @@ PrefabInstance:
       value: ReadText
       objectReference: {fileID: 0}
     - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ReadText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
       propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TCG.Core.Dialogues.UITextTyperLV1, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: TCG.Core.Dialogues.UITextTyperLV1, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
@@ -179154,7 +179174,15 @@ PrefabInstance:
       value: 1H1H1H1H1H1H1H1H1H1H
       objectReference: {fileID: 0}
     - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: AOGSTCBJQSTDDBILQSTD
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
       propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332063138035892387, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: _newPage.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1706883304499801077, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
@@ -179192,6 +179220,10 @@ PrefabInstance:
     - target: {fileID: 5385268398014628907, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
       propertyPath: m_Name
       value: ATB_RV
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432969609664425428, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
+      propertyPath: _charactersPerSecond
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5697253253697426355, guid: 2273047f09764724783b0ddfebecb3c7, type: 3}
       propertyPath: m_Name
