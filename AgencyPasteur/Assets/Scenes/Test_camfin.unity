@@ -9742,30 +9742,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5
@@ -12218,30 +12194,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -12695,30 +12647,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -29984,30 +29912,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.5
@@ -31915,30 +31819,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -32519,30 +32399,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -37530,30 +37386,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5
@@ -37611,30 +37443,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5
@@ -42110,30 +41918,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.5
@@ -49191,30 +48975,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -49378,30 +49138,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -49446,10 +49182,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paillasse
       objectReference: {fileID: 0}
-    - target: {fileID: 4230741128857128020, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b36e375a6e52c7442a6c4f85da5ba6bc, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51043,30 +50775,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -57349,30 +57057,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -57572,30 +57256,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -70508,30 +70168,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5
@@ -79407,30 +79043,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -88469,30 +88081,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5
@@ -89135,30 +88723,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.5
@@ -89202,14 +88766,6 @@ PrefabInstance:
     - target: {fileID: 927135667791605545, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_Name
       value: Paillasse
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197438394437380768, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: m_Size.x
-      value: 0.552083
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197438394437380768, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: m_Center.x
-      value: -0.22395849
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -90708,30 +90264,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.5
@@ -97942,30 +97474,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5
@@ -99207,30 +98715,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5
@@ -101078,30 +100562,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -101651,30 +101111,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.5
@@ -101718,18 +101154,6 @@ PrefabInstance:
     - target: {fileID: 927135667791605545, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_Name
       value: Paillasse
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197438394437380768, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5259557
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197438394437380768, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: m_Center.x
-      value: 0.23702222
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197438394437380768, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: m_Center.z
-      value: 1.8442448e-16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -106005,30 +105429,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5
@@ -108424,30 +107824,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5
@@ -121204,30 +120580,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5
@@ -123768,30 +123120,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.5
@@ -126657,30 +125985,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5
@@ -127633,30 +126937,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -153694,30 +152974,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -160912,30 +160168,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -161358,30 +160590,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5
@@ -166582,30 +165790,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5
@@ -170099,30 +169283,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.5
@@ -170634,30 +169794,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5
@@ -174970,30 +174106,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.5
@@ -175945,30 +175057,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -177123,30 +176211,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581532999}
     m_Modifications:
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 782594896}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 319d32dda926341c2b97fcd9b8e95754, type: 3}
-    - target: {fileID: 289671968195081492, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
-      propertyPath: OnSnapGlassware.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 546633573787006355, guid: 3b83a56ab00ea0a498463278c2c06f18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
