@@ -54899,17 +54899,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4084154188113753534, guid: 00de94090c78c4d4aa7734b9fbd13678, type: 3}
   m_PrefabInstance: {fileID: 1289052324}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &659753231 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1544970005946114610, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
-  m_PrefabInstance: {fileID: 1021598554}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &659777398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4084154188113753534, guid: 00de94090c78c4d4aa7734b9fbd13678, type: 3}
@@ -61465,7 +61454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2600070959723205368, guid: f4e134709c34c264fa934f2184ed46bd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2654229044966388138, guid: f4e134709c34c264fa934f2184ed46bd, type: 3}
       propertyPath: _bookUI
@@ -86236,7 +86225,7 @@ PrefabInstance:
     - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
       propertyPath: _onValidate.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1021598556}
+      objectReference: {fileID: 0}
     - target: {fileID: 373429835474776144, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
       propertyPath: _onValidate.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 0
@@ -86351,17 +86340,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8756313815288588793, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
   m_PrefabInstance: {fileID: 1021598554}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1021598556 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1544970005946114610, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
-  m_PrefabInstance: {fileID: 1021598554}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1022082725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4084154188113753534, guid: 00de94090c78c4d4aa7734b9fbd13678, type: 3}
@@ -103414,11 +103392,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4084154188113753534, guid: 00de94090c78c4d4aa7734b9fbd13678, type: 3}
   m_PrefabInstance: {fileID: 743470582}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1232370154 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3801215272444409250, guid: 15334282bbb6bb146a3a59ef078e51ac, type: 3}
-  m_PrefabInstance: {fileID: 1021598554}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1232846335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116947,7 +116920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5800633022184056015, guid: 3fd1fdb0274e3b240a85f5277c69df27, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5818374207746918301, guid: 3fd1fdb0274e3b240a85f5277c69df27, type: 3}
       propertyPath: _bookUI
