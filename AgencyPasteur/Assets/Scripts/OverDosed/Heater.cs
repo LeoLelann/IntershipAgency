@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 
 public class Heater : Interactable
@@ -15,9 +16,11 @@ public class Heater : Interactable
     [SerializeField]private UnityEvent _onCantCook;
     [SerializeField]private UnityEvent _onBurnt;
     [SerializeField] TutoManager _tuto;
+    [SerializeField] GameObject _timerDisplay;
 
     [SerializeField]SCHeat _heat;
     [SerializeField] private float secondsTillHeated=3;
+    private float _timer;
 
     private void Start()
     {

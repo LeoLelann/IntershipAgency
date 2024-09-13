@@ -6362,4 +6362,5 @@ MonoBehaviour:
   _throwPower: 15
   _meshRend: {fileID: 2697725258712385413}
   _m: {fileID: 2100000, guid: 20e5b54b0ae4ffe438d06c8acdc143e6, type: 2}
+  _baseM: {fileID: 2100000, guid: a828dedc1654d9d46b0e6394ac3090e1, type: 2}
   _glasswareSt: 0
