@@ -313,6 +313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f98b8894ed66441a6bc55ca55a84b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _newPage:
+    m_PersistentCalls:
+      m_Calls: []
   _glasswareState: 22
   _duration: 1
   _book: {fileID: 0}
@@ -509,7 +512,7 @@ GameObject:
   - component: {fileID: 5268479816183709945}
   - component: {fileID: 3088547345639757339}
   m_Layer: 5
-  m_Name: UILVL1
+  m_Name: UILVL1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -725,6 +728,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f98b8894ed66441a6bc55ca55a84b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _newPage:
+    m_PersistentCalls:
+      m_Calls: []
   _glasswareState: 20
   _duration: 1
   _book: {fileID: 0}
@@ -1063,6 +1069,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f98b8894ed66441a6bc55ca55a84b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _newPage:
+    m_PersistentCalls:
+      m_Calls: []
   _glasswareState: 16
   _duration: 1
   _book: {fileID: 0}
@@ -1311,6 +1320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f98b8894ed66441a6bc55ca55a84b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _newPage:
+    m_PersistentCalls:
+      m_Calls: []
   _glasswareState: 20
   _duration: 1
   _book: {fileID: 0}
