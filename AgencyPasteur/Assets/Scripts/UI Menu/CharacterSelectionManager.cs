@@ -10,7 +10,7 @@ public class CharacterSelectionManager : MonoBehaviour
     [SerializeField] CharacterSelectionSO characterSelectionSO;
     [SerializeField] string _scene;
 
-    /*private void Start() //LoadScene 1P
+    private void Start() //LoadScene 1P
     {
         Debug.Log(characterButtons.Length);
         foreach (var button in characterButtons)
@@ -32,9 +32,9 @@ public class CharacterSelectionManager : MonoBehaviour
                 LoadGameScene();
             }
         }
-    }*/
+    }
 
-    private void Update()  //// LoadScene 3P
+    /*private void Update()  //// LoadScene 3P
     {
         bool isReady = true;
         foreach(var el in characterButtons)
@@ -56,7 +56,7 @@ public class CharacterSelectionManager : MonoBehaviour
 
             LoadGameScene();
         }
-    }
+    }*/
 
     void LoadGameScene()
     {
