@@ -97,6 +97,9 @@ namespace TCG.Core.Dialogues
             foreach (TextCommand command in _commands) {
                 command.OnReadEnd();
             }
+        }
+        public void RemoveWindow()
+        {
             StartCoroutine(RemoveDialog());
         }
         IEnumerator RemoveDialog()
