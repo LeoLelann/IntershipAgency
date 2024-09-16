@@ -104,7 +104,6 @@ namespace TCG.Core.Dialogues
         }
         IEnumerator RemoveDialog()
         {
-            yield return new WaitForSeconds(2);
             float timer = 0;
             while (timer < 1)
             {
