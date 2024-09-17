@@ -14,6 +14,9 @@ public class Glassware : Interactable
     [SerializeField] private UnityEvent _onBecameTrash;
     [SerializeField] private UnityEvent _onBecameWater;
     [SerializeField] private UnityEvent _onNewElementDiscovered;
+        [SerializeField] private UnityEvent _onRemedyDiscovered;
+
+
 
     public enum glasswareState
     {
@@ -54,6 +57,8 @@ public class Glassware : Interactable
         TRASH
     };
     private bool isThrown;
+
+    private bool isFirstNew;
     private Transform _parentTransform;
     private Rigidbody _rgbd;
     private ValidationTable _validate;
@@ -151,7 +156,6 @@ public class Glassware : Interactable
         _glasswareSt = state;
             if (!_validate.Found.Contains(state))
         {
-            _onNewElementDiscovered.Invoke();
             GetComponent<MeshRenderer>().material = _m;
         }
         else
@@ -229,6 +233,7 @@ public class Glassware : Interactable
                 _meshRend.material.color = new Color(0.4f, 0.4f, 0.4f);
                 break;
             case glasswareState.RABIES_VACCINE:
+                _onRemedyDiscovered.Invoke();
                 _meshRend.material.color = new Color(0.9f, 0.5f, 0.97f);
                 break;
         }
