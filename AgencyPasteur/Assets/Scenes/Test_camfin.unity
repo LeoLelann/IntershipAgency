@@ -135407,7 +135407,7 @@ MonoBehaviour:
         PlayEvents:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 0}
+            - m_Target: {fileID: 2050661355}
               m_TargetAssemblyTypeName: TCG.Core.Dialogues.UITextTyperLV1, Assembly-CSharp
               m_MethodName: RemoveWindow
               m_Mode: 1
