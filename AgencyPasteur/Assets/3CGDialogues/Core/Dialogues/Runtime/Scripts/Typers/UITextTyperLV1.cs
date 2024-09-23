@@ -97,11 +97,13 @@ namespace TCG.Core.Dialogues
             foreach (TextCommand command in _commands) {
                 command.OnReadEnd();
             }
+        }
+        public void RemoveWindow()
+        {
             StartCoroutine(RemoveDialog());
         }
         IEnumerator RemoveDialog()
         {
-            yield return new WaitForSeconds(2);
             float timer = 0;
             while (timer < 1)
             {

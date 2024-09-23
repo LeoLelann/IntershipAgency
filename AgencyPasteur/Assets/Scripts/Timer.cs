@@ -32,7 +32,8 @@ public class Timer : MonoBehaviour
             {
                 _onTimeLow.Invoke();
             }
-            yield return new WaitForSeconds(Time.deltaTime);
+           // yield return new WaitForSeconds(Time.deltaTime);
+            yield return null;
         }
         yield return null;
     }

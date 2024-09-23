@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-
 public class ValidationTable : Interactable
 {
     [SerializeField]private UnityEvent _onValidate;
     [SerializeField]private UnityEvent _onInvalidate;
     [SerializeField] private UnityEvent _onShowMissingRemedy;
+    [SerializeField] private UnityEvent _onNewElementDiscovered;
+
+    [SerializeField] private UnityEvent _onSentRemedy;
+
 
     [SerializeField] private List<Glassware.glasswareState> _toFind = new List<Glassware.glasswareState>();
     [SerializeField]private List<Glassware.glasswareState> _found=new List<Glassware.glasswareState>();
     [SerializeField]private List<Glassware.glasswareState> _foundImportant=new List<Glassware.glasswareState>();
     [SerializeField] private UI_Completion _completion;
     private Glassware _glassware;
+
+    private bool _isfirst;
     [SerializeField] TutoManager _tuto;
 
     public List<Glassware.glasswareState> Found { get => _found;}
@@ -72,6 +77,15 @@ public class ValidationTable : Interactable
             if (SceneManager.GetActiveScene().name != "Tutoriel 1")
             {
                 GameManager.Instance.AddElement(_glassware.GlasswareSt);
+            }
+            if(_glassware.GlasswareSt==Glassware.glasswareState.RABIES_VACCINE)
+            {
+                _onSentRemedy.Invoke();
+            }
+            if(!_isfirst)
+            {
+                _onNewElementDiscovered.Invoke();
+                _isfirst=true;
             }
             _found.Add(_glassware.GlasswareSt);
         }

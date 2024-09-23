@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 7542296451627970793}
   - component: {fileID: 1332063138035892387}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ATB_HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,9 +315,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _newPage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5432969609664425428}
+        m_TargetAssemblyTypeName: TCG.Core.Dialogues.UITextTyperLV1, Assembly-CSharp
+        m_MethodName: ReadText
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 1H1H1H1H1H1H1H1H1H1H
+          m_BoolArgument: 0
+        m_CallState: 2
   _glasswareState: 22
-  _duration: 1
+  _duration: 3
+  _fullPageDuration: 5
   _book: {fileID: 0}
   _cam: {fileID: 0}
   _cover: {fileID: 7760094130809989125}
@@ -461,7 +474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 179}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &5846736597568314196
@@ -498,7 +511,7 @@ GameObject:
   - component: {fileID: 6331989003464459257}
   - component: {fileID: 1784101621611281542}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: ATB_RV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -577,7 +590,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _glasswareState: 32
-  _duration: 1
+  _duration: 3
+  _fullPageDuration: 5
   _book: {fileID: 0}
   _cam: {fileID: 0}
   _cover: {fileID: 7760094130809989125}
@@ -762,7 +776,7 @@ GameObject:
   - component: {fileID: 8815652087111036423}
   - component: {fileID: 662538271138546274}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: ATB_V
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -841,7 +855,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _glasswareState: 8
-  _duration: 1
+  _duration: 3
+  _fullPageDuration: 5
   _book: {fileID: 0}
   _cam: {fileID: 0}
   _cover: {fileID: 7760094130809989125}
@@ -957,7 +972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -195, y: -100}
+  m_AnchoredPosition: {x: -195, y: -175}
   m_SizeDelta: {x: 190, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5324657275420060010
@@ -1024,7 +1039,7 @@ GameObject:
   - component: {fileID: 4670272254174913739}
   - component: {fileID: 8432847673066764648}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: ATB_DSC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1103,7 +1118,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _glasswareState: 18
-  _duration: 1
+  _duration: 3
+  _fullPageDuration: 5
   _book: {fileID: 0}
   _cam: {fileID: 0}
   _cover: {fileID: 7760094130809989125}
@@ -1379,8 +1395,8 @@ RectTransform:
   m_GameObject: {fileID: 8033254075903335161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1.9753085, z: 1.9753085}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 2.8, y: 2.7654321, z: 2.7654321}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8300828888212950904}
   m_Father: {fileID: 2326606319852071810}
@@ -1829,7 +1845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textField: {fileID: 3831363262741741424}
-  _charactersPerSecond: 5
+  _charactersPerSecond: 10
   _clip: {fileID: 0}
   _source: {fileID: 0}
   _panel: {fileID: 3430577840705424104}

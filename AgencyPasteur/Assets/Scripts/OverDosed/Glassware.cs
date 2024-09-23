@@ -14,6 +14,9 @@ public class Glassware : Interactable
     [SerializeField] private UnityEvent _onBecameTrash;
     [SerializeField] private UnityEvent _onBecameWater;
     [SerializeField] private UnityEvent _onNewElementDiscovered;
+        [SerializeField] private UnityEvent _onRemedyDiscovered;
+
+
 
     public enum glasswareState
     {
@@ -54,6 +57,8 @@ public class Glassware : Interactable
         TRASH
     };
     private bool isThrown;
+
+    private bool isFirstNew;
     private Transform _parentTransform;
     private Rigidbody _rgbd;
     private ValidationTable _validate;
@@ -151,7 +156,6 @@ public class Glassware : Interactable
         _glasswareSt = state;
             if (!_validate.Found.Contains(state))
         {
-            _onNewElementDiscovered.Invoke();
             GetComponent<MeshRenderer>().material = _m;
         }
         else
@@ -211,24 +215,25 @@ public class Glassware : Interactable
                 _meshRend.material.color = new Color(0,0.2f,1);
                 break;
             case (glasswareState.RABIES_VIRUS):
-                _meshRend.material.color = new Color(0.6f, 0, 0);
+                _meshRend.material.color = new Color(0.88f, 0.19f, 0.19f);
                 break;
             case glasswareState.SODIUM_CHLORIDE:
-                _meshRend.material.SetColor("_Color", new Color(0.004f, 0.596f, 0.459f));
+                _meshRend.material.SetColor("_Color", new Color(0.18f, 0.91f, 0.41f));
                 break;
             case (glasswareState.POWDER):
                 _meshRend.material.color = Color.white;
                 break;
             case glasswareState.VALANCE:
-                _meshRend.material.color = new Color(1, 0.28f, 0.3f);
+                _meshRend.material.color = new Color(0.95f, 0.57f, 0.65f);
                 break;
             case glasswareState.DILUTED_SODIUM_CHLORIDE:
-                _meshRend.material.color = new Color(0.76f, 0.9f, 0.76f);
+                _meshRend.material.color = new Color(0.7f, 0.95f, 0.7f);
                 break;
             case glasswareState.HEATED_POWDER:
                 _meshRend.material.color = new Color(0.4f, 0.4f, 0.4f);
                 break;
             case glasswareState.RABIES_VACCINE:
+                _onRemedyDiscovered.Invoke();
                 _meshRend.material.color = new Color(0.9f, 0.5f, 0.97f);
                 break;
         }

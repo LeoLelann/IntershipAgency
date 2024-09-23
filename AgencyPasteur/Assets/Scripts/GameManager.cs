@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
         players = FindObjectsOfType<Player>();
         Debug.Log(SceneManager.GetActiveScene().name);
         _currentNbrRemedy = 0;
+        _onStartGame.Invoke();
         StartCoroutine(Timer());
 
     }
@@ -80,9 +81,7 @@ public class GameManager : MonoBehaviour
             {
                 if (pages.GlasswareState == state)
                 {
-                    _onNewFoundElement.Invoke();
-                    _cover.SetActive(true);
-                    pages.gameObject.SetActive(true);
+                    StartCoroutine(NewPage(pages));
                 }
             }
         }
@@ -94,7 +93,8 @@ public class GameManager : MonoBehaviour
         while (time < _timer)
         {
             time += Time.deltaTime;
-            yield return new WaitForSeconds(Time.deltaTime);
+            //yield return new WaitForSeconds(Time.deltaTime);
+            yield return null;
         }
         foreach(Player p in players)
         {
@@ -146,5 +146,12 @@ public class GameManager : MonoBehaviour
         {
             p.Anim.SetBool("Win", false);
         }
+    }
+    IEnumerator NewPage(AddToBook pages)
+    {
+        yield return new WaitForSeconds(3);
+        _onNewFoundElement.Invoke();
+        _cover.SetActive(true);
+        pages.gameObject.SetActive(true);
     }
 }
