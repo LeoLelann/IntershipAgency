@@ -190089,6 +190089,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1300427358517321346, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
+      propertyPath: _cam
+      value: 
+      objectReference: {fileID: 1958229445}
+    - target: {fileID: 1300427358517321346, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
       propertyPath: _book
       value: 
       objectReference: {fileID: 1911115759}
@@ -190167,6 +190171,10 @@ PrefabInstance:
     - target: {fileID: 1616869761824409234, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
       propertyPath: FeedbacksList.Array.size
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1616869761824409234, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
+      propertyPath: FeedbacksList.Array.data[0]
+      value: 2609902056673378305
       objectReference: {fileID: 0}
     - target: {fileID: 1616869761824409234, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
       propertyPath: FeedbacksList.Array.data[1]
@@ -190610,7 +190618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1616869761824409234, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
       propertyPath: managedReferences[956850368737443841].PauseDuration
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1616869761824409234, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
       propertyPath: managedReferences[956850368737443841].RangeDistance
@@ -190618,7 +190626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1616869761824409234, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
       propertyPath: managedReferences[956850368737443842].PauseDuration
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1616869761824409234, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
       propertyPath: managedReferences[956850368737443842].RangeDistance
@@ -192604,7 +192612,7 @@ PrefabInstance:
       propertyPath: managedReferences[956850368737443840].PlayEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: " cependant il y a un petit souci... je n\u2019ai rien noter de mes
         d\xE9couvertes j\u2019aimerais que vous m\u2019aidiez \xE0 me rem\xE9morer
-        mes recherches en commen\xE7ant par une solution pour emp\xEAcher la rage. "
+        mes recherches en commen\xE7ant par une solution pour emp\xEAcher la rage<highlight=5|table_transition>. "
       objectReference: {fileID: 0}
     - target: {fileID: 1616869761824409234, guid: a387d3e21221fc648a0149ced0f1fd4c, type: 3}
       propertyPath: managedReferences[956850368737443843].PlayEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument

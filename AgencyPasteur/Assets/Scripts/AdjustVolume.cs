@@ -26,7 +26,10 @@ public class AdjustVolume : MonoBehaviour
     {
         StartCoroutine(ItNeededSmoothing(pos));
     }
-
+    public void StopVignette()
+    {
+        StartCoroutine(ItNeededSmoothing2());
+    }
     IEnumerator ItNeededSmoothing(Vector2 pos)
     {
         float timer = 0;
@@ -37,6 +40,19 @@ public class AdjustVolume : MonoBehaviour
             timer += Time.deltaTime;
             vignette.center.Override(Vector2.Lerp(oldPos, pos, timer / 2));
             vignette.intensity.Override(Mathf.Lerp(oldIntens, 1, timer));
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
+    IEnumerator ItNeededSmoothing2()
+    {
+        float timer = 0;
+        Vector2 oldPos = (Vector2)vignette.center;
+        float oldIntens = (float)vignette.intensity;
+        while (timer < 2)
+        {
+            timer += Time.deltaTime;
+            vignette.center.Override(Vector2.Lerp(oldPos, new Vector2(0.5f,0.5f), timer / 2));
+            vignette.intensity.Override(Mathf.Lerp(oldIntens, 0, timer));
             yield return new WaitForSeconds(Time.deltaTime);
         }
     }
