@@ -102,6 +102,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+<<<<<<< Updated upstream
 --- !u!1 &1383455779266407964
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +863,8 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
+=======
+>>>>>>> Stashed changes
 --- !u!1 &2840224218924508162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,8 +1916,11 @@ MonoBehaviour:
   DebugActive: 0
   FeedbacksList:
   - rid: 5820688351574097920
+<<<<<<< Updated upstream
   - rid: 5936165479189315588
   - rid: 5936165479189315589
+=======
+>>>>>>> Stashed changes
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   ForceStopFeedbacksOnDisable: 1
@@ -1990,7 +1996,11 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 2699490494626315491}
         DebugActive: 0
+<<<<<<< Updated upstream
         Sfx: {fileID: 8300000, guid: 2f15013aa8f7f0a4f95af25125498119, type: 3}
+=======
+        Sfx: {fileID: 8300000, guid: 00ae71c74328a6945bfa460ca7c9b652, type: 3}
+>>>>>>> Stashed changes
         RandomSfx: []
         SequentialOrder: 0
         SequentialOrderHoldLast: 0
@@ -2093,6 +2103,7 @@ MonoBehaviour:
           ButtonText: Debug Stop Sound
         ResetSequentialIndexButton:
           ButtonText: Reset Sequential Index
+<<<<<<< Updated upstream
     - rid: 5936165479189315588
       type: {class: MMF_Pause, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
@@ -2340,6 +2351,8 @@ MonoBehaviour:
           ButtonText: Debug Stop Sound
         ResetSequentialIndexButton:
           ButtonText: Reset Sequential Index
+=======
+>>>>>>> Stashed changes
 --- !u!1 &6339463569081904902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,8 +2474,11 @@ MonoBehaviour:
   DebugActive: 0
   FeedbacksList:
   - rid: 5820688351574097920
+<<<<<<< Updated upstream
   - rid: 5936165479189315586
   - rid: 5936165479189315587
+=======
+>>>>>>> Stashed changes
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   ForceStopFeedbacksOnDisable: 1
@@ -2538,7 +2554,11 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 5903886201511473905}
         DebugActive: 0
+<<<<<<< Updated upstream
         Sfx: {fileID: 8300000, guid: 2f15013aa8f7f0a4f95af25125498119, type: 3}
+=======
+        Sfx: {fileID: 8300000, guid: 00ae71c74328a6945bfa460ca7c9b652, type: 3}
+>>>>>>> Stashed changes
         RandomSfx: []
         SequentialOrder: 0
         SequentialOrderHoldLast: 0
@@ -2641,6 +2661,7 @@ MonoBehaviour:
           ButtonText: Debug Stop Sound
         ResetSequentialIndexButton:
           ButtonText: Reset Sequential Index
+<<<<<<< Updated upstream
     - rid: 5936165479189315586
       type: {class: MMF_Pause, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
@@ -2888,6 +2909,8 @@ MonoBehaviour:
           ButtonText: Debug Stop Sound
         ResetSequentialIndexButton:
           ButtonText: Reset Sequential Index
+=======
+>>>>>>> Stashed changes
 --- !u!1 &8893152094546749809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,9 +3120,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 11dd391f86187914b8b9a136c784721e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1147555707936263023}
+<<<<<<< Updated upstream
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 11dd391f86187914b8b9a136c784721e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5437084090448352915}
+=======
+>>>>>>> Stashed changes
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11dd391f86187914b8b9a136c784721e, type: 3}
       insertIndex: -1
