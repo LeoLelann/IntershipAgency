@@ -21,7 +21,7 @@ namespace TCG.Core.Dialogues
         }
         public override void OnEnter()
         {
-           GameManager.Instance.SpotLight(_spotlighted,_duration);
+           Spotlight.Instance.SpotLighted(_spotlighted,_duration);
         }
     }
 }

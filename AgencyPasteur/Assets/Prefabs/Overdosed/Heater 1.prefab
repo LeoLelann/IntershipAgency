@@ -5673,10 +5673,7 @@ MonoBehaviour:
   DebugActive: 0
   FeedbacksList:
   - rid: 2609902012173123590
-<<<<<<< Updated upstream
   - rid: 2609902012173123593
-=======
->>>>>>> Stashed changes
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   ForceStopFeedbacksOnDisable: 1
@@ -6105,7 +6102,6 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-<<<<<<< Updated upstream
     - rid: 2609902012173123593
       type: {class: MMF_PositionShake, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
@@ -6367,8 +6363,6 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-=======
->>>>>>> Stashed changes
 --- !u!1 &1170889337705522080
 GameObject:
   m_ObjectHideFlags: 0
