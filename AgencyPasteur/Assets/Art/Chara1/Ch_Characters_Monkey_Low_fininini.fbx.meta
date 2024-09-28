@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 5a3e2989dea209f4497492a4250babdf
+guid: 73d194e162a5d414ea059c6305d5e339
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Corps
-    second: {fileID: 2100000, guid: 718355ffbe81b1e4b9e09fb1647abfed, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Veste
-    second: {fileID: 2100000, guid: fb7a65bc65963e44d881966751045fd9, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
