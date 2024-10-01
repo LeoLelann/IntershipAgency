@@ -2146,7 +2146,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ace4c9d1def11164eb4fd1707ddbc132, type: 2}
     - target: {fileID: 8836888385419352273, guid: fa0027fd612bafc4792cde061401245a, type: 3}
       propertyPath: m_Name
-      value: TutoSpawnerElement
+      value: TutoSpawnerElement1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25090,7 +25090,8 @@ MonoBehaviour:
                 m_IntArgument: 0
                 m_FloatArgument: 0
                 m_StringArgument: "F\xE9licitation, le rem\xE8de est pret ! Envoyez-moi
-                  un exemplaire dans le tube pneumatique pour que je puisse le r\xE9ceptionner."
+                  un exemplaire dans le tube pneumatique<highlight=3|Validate> pour
+                  que je puisse le r\xE9ceptionner."
                 m_BoolArgument: 0
               m_CallState: 2
         StopEvents:
@@ -57787,7 +57788,7 @@ MonoBehaviour:
                 m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                 m_IntArgument: 0
                 m_FloatArgument: 0
-                m_StringArgument: "Mettez le composant sur une plaque chauffante
+                m_StringArgument: "Mettez le composant sur une plaque chauffante<highlight=3|TutoHeater>
                   pour y alt\xE9rer son \xE9tat et r\xE9cup\xE9rez-le avant qu'il
                   ne brule."
                 m_BoolArgument: 0
@@ -114803,7 +114804,7 @@ MonoBehaviour:
                 m_IntArgument: 0
                 m_FloatArgument: 0
                 m_StringArgument: "Essayez plut\xF4t avec ce nouveau composant qui
-                  est de l'acide st\xE9arique."
+                  est de l'acide st\xE9arique<highlight=3|TutoSpawnerElement2>."
                 m_BoolArgument: 0
               m_CallState: 2
         StopEvents:
@@ -114896,7 +114897,8 @@ MonoBehaviour:
                 m_IntArgument: 0
                 m_FloatArgument: 0
                 m_StringArgument: "Pour vous d\xE9barrasser des fioles qui vous gene,
-                  vous pouvez les jeter dans la poubelle."
+                  vous pouvez les jeter dans la poubelle<highlight=3|Object_Corbeille
+                  Variant>."
                 m_BoolArgument: 0
               m_CallState: 2
         StopEvents:
@@ -131423,8 +131425,8 @@ MonoBehaviour:
                 m_FloatArgument: 0
                 m_StringArgument: "L'encyclop\xE9die r\xE9pertorie les diff\xE9rentes
                   manipulations disponible dans le laboratoire comme la plaque chauffante
-                  et le dilueur qui est la prochaine \xE9tape pour votre premier
-                  rem\xE8de.   "
+                  et le dilueur<highlight=3|TutoDillueur> qui est la prochaine \xE9tape
+                  pour votre premier rem\xE8de.   "
                 m_BoolArgument: 0
               m_CallState: 2
         StopEvents:
@@ -168288,6 +168290,7 @@ MonoBehaviour:
   - rid: 5820688374338682885
   - rid: 3351590839317954564
   - rid: 4898315631548170258
+  - rid: 1834662727033290752
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   ForceStopFeedbacksOnDisable: 1
@@ -168295,6 +168298,98 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 1834662727033290752
+      type: {class: MMF_Events, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
+      data:
+        Active: 1
+        UniqueID: 1537470725
+        Label: Unity Events
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        Owner: {fileID: 1159240149}
+        DebugActive: 0
+        PlayEvents:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 681640999}
+              m_TargetAssemblyTypeName: TCG.Core.Dialogues.UITextTyper, Assembly-CSharp
+              m_MethodName: ReadText
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: Pour cela il vous faut des fioles vides<highlight=3|TutoVerrerie>.
+                m_BoolArgument: 0
+              m_CallState: 2
+        StopEvents:
+          m_PersistentCalls:
+            m_Calls: []
+        InitializationEvents:
+          m_PersistentCalls:
+            m_Calls: []
+        ResetEvents:
+          m_PersistentCalls:
+            m_Calls: []
     - rid: 3351590839317954564
       type: {class: MMF_Events, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
@@ -168376,7 +168471,8 @@ MonoBehaviour:
                 m_IntArgument: 0
                 m_FloatArgument: 0
                 m_StringArgument: "Bravo ! Maintenant que vous poss\xE8dez toutes
-                  les parties du rem\xE8de, il faut les m\xE9langer pour le cr\xE9er."
+                  les parties du rem\xE8de, il faut les m\xE9langer<highlight=3|TutoCenterMixTuto>
+                  pour le cr\xE9er."
                 m_BoolArgument: 0
               m_CallState: 2
         StopEvents:
@@ -203550,7 +203646,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ace4c9d1def11164eb4fd1707ddbc132, type: 2}
     - target: {fileID: 8836888385419352273, guid: fa0027fd612bafc4792cde061401245a, type: 3}
       propertyPath: m_Name
-      value: TutoSpawnerElement
+      value: TutoSpawnerElement2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -233550,7 +233646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6724727485405771412, guid: 79e4c041b0642e54696f0cedc8ef77de, type: 3}
       propertyPath: managedReferences[4898315631548170269].PlayEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: "Dans un premier temps, r\xE9cup\xE9rez tous de l'amidon<highlight=3|TutoSpawnerElement>
+      value: "Dans un premier temps, r\xE9cup\xE9rez tous de l'amidon<highlight=3|TutoSpawnerElement1>
         que j'ai mis \xE0 votre disposition."
       objectReference: {fileID: 0}
     - target: {fileID: 6724727485405771412, guid: 79e4c041b0642e54696f0cedc8ef77de, type: 3}
