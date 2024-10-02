@@ -25089,7 +25089,7 @@ MonoBehaviour:
                 m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                 m_IntArgument: 0
                 m_FloatArgument: 0
-                m_StringArgument: "F\xE9licitation, le rem\xE8de est pret ! Envoyez-moi
+                m_StringArgument: "F\xE9licitations, le rem\xE8de est pr\xEAt ! Envoyez-moi
                   un exemplaire dans le tube pneumatique<highlight=3|Validate> pour
                   que je puisse le r\xE9ceptionner."
                 m_BoolArgument: 0
@@ -54322,7 +54322,7 @@ MonoBehaviour:
                 m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                 m_IntArgument: 0
                 m_FloatArgument: 0
-                m_StringArgument: "Au vue de la bonne qualit\xE9 de votre produit,
+                m_StringArgument: "Au vu de la bonne qualit\xE9 de votre produit,
                   il est temps pour vous de passer aux choses s\xE9rieuses. "
                 m_BoolArgument: 0
               m_CallState: 2
@@ -57694,8 +57694,8 @@ MonoBehaviour:
                 m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                 m_IntArgument: 0
                 m_FloatArgument: 0
-                m_StringArgument: "Comme indiqu\xE9 ci-dessus, l'amidon peut \xEAtes
-                  manipul\xE9 pour \xEAtre transform\xE9 grace \xE0 diff\xE9rentes
+                m_StringArgument: "Comme indiqu\xE9 ci-dessus, l'amidon peut \xEAtre
+                  manipul\xE9 pour \xEAtre transform\xE9 gr\xE2ce \xE0 diff\xE9rentes
                   machines."
                 m_BoolArgument: 0
               m_CallState: 2
@@ -57790,7 +57790,7 @@ MonoBehaviour:
                 m_FloatArgument: 0
                 m_StringArgument: "Mettez le composant sur une plaque chauffante<highlight=3|TutoHeater>
                   pour y alt\xE9rer son \xE9tat et r\xE9cup\xE9rez-le avant qu'il
-                  ne brule."
+                  ne br\xFBle."
                 m_BoolArgument: 0
               m_CallState: 2
         StopEvents:
@@ -114900,7 +114900,7 @@ MonoBehaviour:
                 m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                 m_IntArgument: 0
                 m_FloatArgument: 0
-                m_StringArgument: "Pour vous d\xE9barrasser des fioles qui vous gene,
+                m_StringArgument: "Pour vous d\xE9barrasser des fioles qui vous g\xEAnent,
                   vous pouvez les jeter dans la poubelle<highlight=3|Object_Corbeille
                   Variant>."
                 m_BoolArgument: 0
@@ -131428,7 +131428,7 @@ MonoBehaviour:
                 m_IntArgument: 0
                 m_FloatArgument: 0
                 m_StringArgument: "L'encyclop\xE9die r\xE9pertorie les diff\xE9rentes
-                  manipulations disponible dans le laboratoire comme la plaque chauffante
+                  manipulations disponibles dans le laboratoire comme la plaque chauffante
                   et le dilueur<highlight=3|TutoDillueur> qui est la prochaine \xE9tape
                   pour votre premier rem\xE8de.   "
                 m_BoolArgument: 0
@@ -168478,7 +168478,7 @@ MonoBehaviour:
                 m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                 m_IntArgument: 0
                 m_FloatArgument: 0
-                m_StringArgument: "Bravo ! Maintenant que vous poss\xE8dez toutes
+                m_StringArgument: "Bravo ! Maintenant que vous poss\xE9dez toutes
                   les parties du rem\xE8de, il faut les m\xE9langer<highlight=3|TutoCenterMixTuto>
                   pour le cr\xE9er."
                 m_BoolArgument: 0
@@ -233584,8 +233584,8 @@ PrefabInstance:
       value: "Bienvenue jeunes chercheurs, je suis Louis Pasteur et je suis l\xE0
         pour vous guider durant vos recherches.                                      
         Vous \xEAtes ici aujourd'hui parce que j'ai besoin de vous. Depuis quelques
-        ann\xE9es, la dangerosit\xE9 de nombreuses maladies augmentent et infectent
-        de plus en plus de monde."
+        ann\xE9es, la dangerosit\xE9 de nombreuses maladies augmente les maladies
+        infectent de plus en plus de monde."
       objectReference: {fileID: 0}
     - target: {fileID: 6724727485405771412, guid: 79e4c041b0642e54696f0cedc8ef77de, type: 3}
       propertyPath: managedReferences[4898315631548170260].PlayEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -233654,7 +233654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6724727485405771412, guid: 79e4c041b0642e54696f0cedc8ef77de, type: 3}
       propertyPath: managedReferences[4898315631548170269].PlayEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: "Dans un premier temps, r\xE9cup\xE9rez tous de l'amidon<highlight=3|TutoSpawnerElement1>
+      value: "Dans un premier temps, r\xE9cup\xE9rez tous l'amidon<highlight=3|TutoSpawnerElement1>
         que j'ai mis \xE0 votre disposition."
       objectReference: {fileID: 0}
     - target: {fileID: 6724727485405771412, guid: 79e4c041b0642e54696f0cedc8ef77de, type: 3}
